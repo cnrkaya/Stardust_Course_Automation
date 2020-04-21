@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:id="@+id/header"
+            android:background="#5D7D98"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="Şube Ekle"
+                android:textColor="#FFFFFF"
+                android:textSize="20sp"
+                android:textStyle="bold"></TextView>
+        </LinearLayout>
+
+        <RelativeLayout
+            android:id="@+id/body"
+            android:layout_below="@id/header"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#F1F9FF">
+
+            <TextView
+                android:id="@+id/isim"
+                android:layout_width="140dp"
+                android:layout_height="40dp"
+                android:background="#5D7D98"
+                android:gravity="center"
+                android:text="Şube İsmi"
+                android:textColor="#FFFFFF"
+                android:layout_marginTop="30dp">
+            </TextView>
+            <EditText
+                android:id="@+id/name_std"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_toRightOf="@+id/isim"
+                android:background="#FFFFFF"
+                android:gravity="center"
+                android:text="Havza Şubesi"
+                android:textColor="#5D7D98"
+                android:layout_marginTop="30dp">
+            </EditText>
+
+            <TextView
+                android:id="@+id/soyisim"
+                android:layout_width="140dp"
+                android:layout_height="40dp"
+                android:background="#5D7D98"
+                android:gravity="center"
+                android:layout_below="@id/isim"
+                android:text="Sosyal Olanaklar"
+                android:textColor="#FFFFFF"
+                android:layout_marginTop="25dp">
+            </TextView>
+
+            <EditText
+                android:id="@+id/surname_std"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="25dp"
+                android:layout_toEndOf="@+id/soyisim"
+                android:layout_below="@+id/name_std"
+                android:background="#FFFFFF"
+                android:gravity="center"
+                android:text="Toplu Taşıma"
+                android:textColor="#5D7D98">
+            </EditText>
+
+            <TextView
+                android:id="@+id/telefon"
+                android:layout_width="140dp"
+                android:layout_height="80dp"
+                android:background="#5D7D98"
+                android:gravity="center"
+                android:layout_below="@id/soyisim"
+                android:text="Toplu Ulaşım
+                Talimatı"
+                android:textColor="#FFFFFF"
+                android:layout_marginTop="25dp">
+            </TextView>
+
+            <EditText
+                android:id="@+id/homeTelephone_std"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:layout_marginTop="25dp"
+                android:layout_toEndOf="@+id/soyisim"
+                android:layout_below="@+id/surname_std"
+                android:background="#FFFFFF"
+                android:gravity="center"
+                android:text="41AT Ayazağa-DAvutpaşa"
+                android:textColor="#5D7D98"></EditText>
+
+            <TextView
+                android:id="@+id/cepTelefon"
+                android:layout_width="140dp"
+                android:layout_height="80dp"
+                android:background="#5D7D98"
+                android:gravity="center"
+                android:layout_below="@id/telefon"
+                android:text="Özel Ulaşım
+                Talimatı"
+                android:textColor="#FFFFFF"
+                android:layout_marginTop="25dp">
+            </TextView>
+
+            <EditText
+                android:id="@+id/cellPhone_std"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:layout_marginTop="25dp"
+                android:layout_toEndOf="@+id/soyisim"
+                android:layout_below="@+id/homeTelephone_std"
+                android:background="#FFFFFF"
+                android:gravity="center"
+                android:text="Düz git sağa dön"
+                android:textColor="#5D7D98"></EditText>
+
+            <TextView
+                android:id="@+id/kurs"
+                android:layout_width="140dp"
+                android:layout_height="40dp"
+                android:background="#5D7D98"
+                android:gravity="center"
+                android:layout_below="@id/cepTelefon"
+                android:text="Ülke"
+                android:textColor="#FFFFFF"
+                android:layout_marginTop="25dp">
+            </TextView>
+
+            <Spinner
+                android:id="@+id/country_spinner"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_below="@id/cellPhone_std"
+                android:layout_marginTop="25dp"
+                android:layout_toEndOf="@id/soyisim">
+
+            </Spinner>
+
+            <TextView
+                android:id="@+id/kur"
+                android:layout_width="140dp"
+                android:layout_height="40dp"
+                android:background="#5D7D98"
+                android:gravity="center"
+                android:layout_below="@id/kurs"
+                android:text="İl"
+                android:textColor="#FFFFFF"
+                android:layout_marginTop="25dp">
+            </TextView>
+
+            <Spinner
+                android:id="@+id/city_spinner"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_below="@id/country_spinner"
+                android:layout_marginTop="25dp"
+                android:layout_toEndOf="@id/soyisim">
+
+            </Spinner>
+            <TextView
+                android:id="@+id/sube"
+                android:layout_width="140dp"
+                android:layout_height="40dp"
+                android:background="#5D7D98"
+                android:gravity="center"
+                android:layout_below="@id/kur"
+                android:text="İlçe"
+                android:textColor="#FFFFFF"
+                android:layout_marginTop="25dp">
+            </TextView>
+            <Spinner
+                android:id="@+id/town_spinner"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_below="@id/city_spinner"
+                android:layout_marginTop="25dp"
+                android:layout_toEndOf="@id/soyisim">
+
+            </Spinner>
+
+            <TextView
+                android:id="@+id/kursListesi"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="#BCE0FD"
+                android:gravity="center"
+                android:layout_below="@id/sube"
+                android:text="Kurs Listesi"
+                android:textColor="#5D7D98"
+                android:layout_marginTop="25dp">
+            </TextView>
+            <Spinner
+                android:id="@+id/course_list_spinner"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_below="@id/kursListesi"
+                android:layout_marginTop="5dp">
+
+            </Spinner>
+
+            <TextView
+                android:id="@+id/clasroom_list"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="#BCE0FD"
+                android:gravity="center"
+                android:layout_below="@id/course_list_spinner"
+                android:text="Derslik Listesi"
+                android:textColor="#5D7D98"
+                android:layout_marginTop="25dp">
+            </TextView>
+            <Spinner
+                android:id="@+id/clasroom_list_spinner"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_below="@id/clasroom_list"
+                android:layout_marginTop="5dp">
+
+            </Spinner>
+
+            <Button
+                android:id="@+id/signIn_button"
+                android:background="#5D7D98"
+                android:textColor="#ffffff"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="30dp"
+                android:layout_below="@id/clasroom_list_spinner"
+                android:textStyle="bold"
+                android:text="→"
+                ></Button>
+
+        </RelativeLayout>
+    </RelativeLayout>
+</ScrollView>

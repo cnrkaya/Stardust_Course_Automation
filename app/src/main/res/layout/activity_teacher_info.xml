@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:padding="10dp"
+        android:id="@+id/header"
+        android:background="#5D7D98"
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_weight="1"
+            android:textSize="15dp"
+            android:gravity="center"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Bilgilerim">
+        </TextView>
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="5"
+            android:background="@drawable/edit">
+        </ImageButton>
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/body"
+        android:layout_below="@id/header"
+        android:layout_width="match_parent"
+        android:layout_height="620dp"
+        android:background="#F1F9FF">
+
+        <TextView
+            android:id="@+id/isim"
+            android:layout_width="140dp"
+            android:layout_height="40dp"
+            android:background="#5D7D98"
+            android:gravity="center"
+            android:text="İsim"
+            android:textColor="#FFFFFF"
+            android:layout_marginTop="25dp">
+        </TextView>
+        <TextView
+            android:id="@+id/name_tchr"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_toRightOf="@+id/isim"
+            android:background="#FFFFFF"
+            android:gravity="center"
+            android:text="Mehmet"
+            android:textColor="#5D7D98"
+            android:layout_marginTop="25dp">
+        </TextView>
+
+        <TextView
+            android:id="@+id/soyisim"
+            android:layout_width="140dp"
+            android:layout_height="40dp"
+            android:background="#5D7D98"
+            android:gravity="center"
+            android:layout_below="@id/isim"
+            android:text="Soyisim"
+            android:textColor="#FFFFFF"
+            android:layout_marginTop="25dp">
+        </TextView>
+
+        <TextView
+            android:id="@+id/surname_tchr"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginTop="25dp"
+            android:layout_toEndOf="@+id/soyisim"
+            android:layout_below="@+id/name_tchr"
+            android:background="#FFFFFF"
+            android:gravity="center"
+            android:text="Soyisim"
+            android:textColor="#5D7D98">
+        </TextView>
+
+        <TextView
+            android:id="@+id/telefon"
+            android:layout_width="140dp"
+            android:layout_height="40dp"
+            android:background="#5D7D98"
+            android:gravity="center"
+            android:layout_below="@id/soyisim"
+            android:text="Ev Telefonu"
+            android:textColor="#FFFFFF"
+            android:layout_marginTop="25dp">
+        </TextView>
+
+        <TextView
+            android:id="@+id/homeTelephone_tchr"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginTop="25dp"
+            android:layout_toEndOf="@+id/soyisim"
+            android:layout_below="@+id/surname_tchr"
+            android:background="#FFFFFF"
+            android:gravity="center"
+            android:text="232 555 55 55"
+            android:textColor="#5D7D98"></TextView>
+
+        <TextView
+            android:id="@+id/cepTelefon"
+            android:layout_width="140dp"
+            android:layout_height="40dp"
+            android:background="#5D7D98"
+            android:gravity="center"
+            android:layout_below="@id/telefon"
+            android:text="Cep Telefonu"
+            android:textColor="#FFFFFF"
+            android:layout_marginTop="25dp">
+        </TextView>
+
+        <TextView
+            android:id="@+id/cellPhone_tchr"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginTop="25dp"
+            android:layout_toEndOf="@+id/soyisim"
+            android:layout_below="@+id/homeTelephone_tchr"
+            android:background="#FFFFFF"
+            android:gravity="center"
+            android:text="+90 0555 555 55 55"
+            android:textColor="#5D7D98"></TextView>
+
+        <TextView
+            android:id="@+id/kurs"
+            android:layout_width="140dp"
+            android:layout_height="40dp"
+            android:background="#5D7D98"
+            android:gravity="center"
+            android:layout_below="@id/cepTelefon"
+            android:text="Kurs"
+            android:textColor="#FFFFFF"
+            android:layout_marginTop="25dp">
+        </TextView>
+
+        <TextView
+            android:id="@+id/course_tchr"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginTop="25dp"
+            android:layout_toEndOf="@+id/soyisim"
+            android:layout_below="@+id/cellPhone_tchr"
+            android:background="#FFFFFF"
+            android:gravity="center"
+            android:text="+90 0555 555 55 55"
+            android:textColor="#5D7D98"></TextView>
+
+        <TextView
+            android:id="@+id/baslangicTarihi"
+            android:layout_width="140dp"
+            android:layout_height="40dp"
+            android:background="#5D7D98"
+            android:gravity="center"
+            android:layout_below="@id/kurs"
+            android:text="Başlangıç Tarihi"
+            android:textColor="#FFFFFF"
+            android:layout_marginTop="25dp">
+        </TextView>
+
+        <TextView
+            android:id="@+id/startDate_tchr"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginTop="25dp"
+            android:layout_toEndOf="@+id/soyisim"
+            android:layout_below="@+id/course_tchr"
+            android:background="#FFFFFF"
+            android:gravity="center"
+            android:text="XX/XX/20XX"
+            android:textColor="#5D7D98">
+        </TextView>
+        <TextView
+            android:id="@+id/sube"
+            android:layout_width="140dp"
+            android:layout_height="40dp"
+            android:background="#5D7D98"
+            android:gravity="center"
+            android:layout_below="@id/baslangicTarihi"
+            android:text="Şube"
+            android:textColor="#FFFFFF"
+            android:layout_marginTop="25dp">
+        </TextView>
+
+        <TextView
+            android:id="@+id/department_tchr"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginTop="25dp"
+            android:layout_toEndOf="@+id/soyisim"
+            android:layout_below="@+id/startDate_tchr"
+            android:background="#FFFFFF"
+            android:gravity="center"
+            android:text="şubeadi"
+            android:textColor="#5D7D98">
+        </TextView>
+
+        <TextView
+            android:id="@+id/diller"
+            android:layout_width="140dp"
+            android:layout_height="40dp"
+            android:background="#5D7D98"
+            android:gravity="center"
+            android:layout_below="@id/sube"
+            android:text="Bilinen Diller"
+            android:textColor="#FFFFFF"
+            android:layout_marginTop="25dp">
+        </TextView>
+
+        <TextView
+            android:id="@+id/languages_tchr"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginTop="25dp"
+            android:layout_toEndOf="@+id/soyisim"
+            android:layout_below="@+id/department_tchr"
+            android:background="#FFFFFF"
+            android:gravity="center"
+            android:text="İngilzice"
+            android:textColor="#5D7D98"></TextView>
+        <TextView
+            android:id="@+id/kimlikNo"
+            android:layout_width="140dp"
+            android:layout_height="40dp"
+            android:background="#5D7D98"
+            android:gravity="center"
+            android:layout_below="@id/diller"
+            android:text="Kimlik No"
+            android:textColor="#FFFFFF"
+            android:layout_marginTop="25dp">
+        </TextView>
+
+        <TextView
+            android:id="@+id/identityNo_tchr"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginTop="25dp"
+            android:layout_toEndOf="@+id/soyisim"
+            android:layout_below="@+id/languages_tchr"
+            android:background="#FFFFFF"
+            android:gravity="center"
+            android:text="000000000"
+            android:textColor="#5D7D98"></TextView>
+
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/bottom"
+        android:layout_below="@id/body"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#5D7D98"
+        android:orientation="vertical">
+
+    </LinearLayout>
+</RelativeLayout>
+

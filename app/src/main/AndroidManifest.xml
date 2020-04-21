@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.dilkursu">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".TeacherTimeTableActivity"></activity>
+        <activity android:name=".AddCourseActivity" />
+        <activity android:name=".AddDepartment2Activity" />
+        <activity android:name=".AddDepartmentActivity" />
+        <activity android:name=".ClasroomInfoActivity" />
+        <activity android:name=".ClassroomListActivity" />
+        <activity android:name=".DepartmentInfoActivity" />
+        <activity android:name=".DepartmentListActivity" />
+        <activity android:name=".DepartmentSearchActivity" />
+        <activity android:name=".StudentSearchActivity" />
+        <activity android:name=".EditStudentInfoActivity" />
+        <activity android:name=".EditTeacherInfoActivity" />
+        <activity android:name=".StudentRegistrationActivity" />
+        <activity android:name=".StudentInfoActivity" />
+        <activity android:name=".TeacherInfoActivity" />
+        <activity android:name=".RegistrarActivity" />
+        <activity android:name=".AdminActivity" />
+        <activity android:name=".TeacherActivity" />
+        <activity android:name=".StudentActivity" />
+        <activity android:name=".SignInActivity" />
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>

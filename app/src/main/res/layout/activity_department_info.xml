@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:padding="10dp"
+        android:id="@+id/header"
+        android:background="#5D7D98"
+        android:layout_width="match_parent"
+        android:layout_height="75dp"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_weight="1"
+            android:textSize="15dp"
+            android:gravity="center"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Şube Bilgileri">
+        </TextView>
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/body"
+        android:layout_below="@id/header"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#F1F9FF">
+
+        <TextView
+            android:id="@+id/isim"
+            android:layout_width="140dp"
+            android:layout_height="40dp"
+            android:background="#5D7D98"
+            android:gravity="center"
+            android:text="Şube İsmi"
+            android:textColor="#FFFFFF"
+            android:layout_marginTop="30dp">
+        </TextView>
+        <TextView
+            android:id="@+id/name_std"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_toRightOf="@+id/isim"
+            android:background="#FFFFFF"
+            android:gravity="center"
+            android:text="Mehmet"
+            android:textColor="#5D7D98"
+            android:layout_marginTop="30dp">
+        </TextView>
+
+        <TextView
+            android:id="@+id/soyisim"
+            android:layout_width="140dp"
+            android:layout_height="40dp"
+            android:background="#5D7D98"
+            android:gravity="center"
+            android:layout_below="@id/isim"
+            android:text="Ulaşım"
+            android:textColor="#FFFFFF"
+            android:layout_marginTop="25dp">
+        </TextView>
+
+        <TextView
+            android:id="@+id/surname_std"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginTop="25dp"
+            android:layout_toEndOf="@+id/soyisim"
+            android:layout_below="@+id/name_std"
+            android:background="#FFFFFF"
+            android:gravity="center"
+            android:text="Toplu Taşıma"
+            android:textColor="#5D7D98">
+        </TextView>
+
+        <TextView
+            android:id="@+id/telefon"
+            android:layout_width="140dp"
+            android:layout_height="40dp"
+            android:background="#5D7D98"
+            android:gravity="center"
+            android:layout_below="@id/soyisim"
+            android:text="Ülke"
+            android:textColor="#FFFFFF"
+            android:layout_marginTop="25dp">
+        </TextView>
+
+        <TextView
+            android:id="@+id/homeTelephone_std"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginTop="25dp"
+            android:layout_toEndOf="@+id/soyisim"
+            android:layout_below="@+id/surname_std"
+            android:background="#FFFFFF"
+            android:gravity="center"
+            android:text="232 555 55 55"
+            android:textColor="#5D7D98"></TextView>
+
+        <TextView
+            android:id="@+id/cepTelefon"
+            android:layout_width="140dp"
+            android:layout_height="40dp"
+            android:background="#5D7D98"
+            android:gravity="center"
+            android:layout_below="@id/telefon"
+            android:text="İl"
+            android:textColor="#FFFFFF"
+            android:layout_marginTop="25dp">
+        </TextView>
+
+        <TextView
+            android:id="@+id/cellPhone_std"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginTop="25dp"
+            android:layout_toEndOf="@+id/soyisim"
+            android:layout_below="@+id/homeTelephone_std"
+            android:background="#FFFFFF"
+            android:gravity="center"
+            android:text="+90 0555 555 55 55"
+            android:textColor="#5D7D98"></TextView>
+
+        <TextView
+            android:id="@+id/kurs"
+            android:layout_width="140dp"
+            android:layout_height="40dp"
+            android:background="#5D7D98"
+            android:gravity="center"
+            android:layout_below="@id/cepTelefon"
+            android:text="İlçe"
+            android:textColor="#FFFFFF"
+            android:layout_marginTop="25dp">
+        </TextView>
+
+        <TextView
+            android:id="@+id/course_std"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginTop="25dp"
+            android:layout_toEndOf="@+id/soyisim"
+            android:layout_below="@+id/cellPhone_std"
+            android:background="#FFFFFF"
+            android:gravity="center"
+            android:text="+90 0555 555 55 55"
+            android:textColor="#5D7D98"></TextView>
+
+        <TextView
+            android:id="@+id/kur"
+            android:layout_width="140dp"
+            android:layout_height="40dp"
+            android:background="#5D7D98"
+            android:gravity="center"
+            android:layout_below="@id/kurs"
+            android:text="Adres"
+            android:textColor="#FFFFFF"
+            android:layout_marginTop="25dp">
+        </TextView>
+
+        <TextView
+            android:id="@+id/kur_std"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginTop="25dp"
+            android:layout_toEndOf="@+id/soyisim"
+            android:layout_below="@+id/course_std"
+            android:background="#FFFFFF"
+            android:gravity="center"
+            android:text="B2"
+            android:textColor="#5D7D98">
+        </TextView>
+        <TextView
+            android:id="@+id/sube"
+            android:layout_width="140dp"
+            android:layout_height="40dp"
+            android:background="#5D7D98"
+            android:gravity="center"
+            android:layout_below="@id/kur"
+            android:text="Kurslar"
+            android:textColor="#FFFFFF"
+            android:layout_marginTop="25dp">
+        </TextView>
+
+        <TextView
+            android:id="@+id/department_std"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginTop="25dp"
+            android:layout_toEndOf="@+id/soyisim"
+            android:layout_below="@+id/kur_std"
+            android:background="#FFFFFF"
+            android:gravity="center"
+            android:text="şubeadi"
+            android:textColor="#5D7D98">
+        </TextView>
+
+        <TextView
+            android:id="@+id/olanaklar"
+            android:layout_width="140dp"
+            android:layout_height="40dp"
+            android:background="#5D7D98"
+            android:gravity="center"
+            android:layout_below="@id/sube"
+            android:text="Sosyal Olanakalar"
+            android:textColor="#FFFFFF"
+            android:layout_marginTop="25dp">
+        </TextView>
+
+        <TextView
+            android:id="@+id/payments_std"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginTop="25dp"
+            android:layout_toEndOf="@+id/soyisim"
+            android:layout_below="@+id/department_std"
+            android:background="#FFFFFF"
+            android:gravity="center"
+            android:text="Ödenmemiş Taksit Mevcut"
+            android:textColor="#5D7D98"></TextView>
+
+        <Button
+            android:layout_marginTop="30dp"
+            android:layout_below="@id/olanaklar"
+            android:layout_width="match_parent"
+            android:background="#5D7D98"
+            android:text="DERSLİKLER"
+            android:textColor="#FFFFFF"
+            android:layout_height="60dp">
+        </Button>
+
+    </RelativeLayout>
+
+
+</RelativeLayout>
+
+
