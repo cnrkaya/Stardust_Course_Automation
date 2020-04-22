@@ -20,4 +20,5 @@ public class StudentActivity extends AppCompatActivity {
 
     }
 }
+package com.example.dilkursu;
 

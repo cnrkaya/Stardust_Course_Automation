@@ -68,7 +68,7 @@
             </TextView>
 
             <EditText
-                android:id="@+id/surname_std"
+                android:id="@+id/EditTeacherInfoActivity_surname"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:layout_marginTop="25dp"
@@ -94,7 +94,7 @@
             </TextView>
 
             <EditText
-                android:id="@+id/homeTelephone_std"
+                android:id="@+id/EditTeacherInfoActivity_homeTelephone"
                 android:layout_width="match_parent"
                 android:layout_height="80dp"
                 android:layout_marginTop="25dp"
@@ -119,7 +119,7 @@
             </TextView>
 
             <EditText
-                android:id="@+id/cellPhone_std"
+                android:id="@+id/EditTeacherInfoActivity_cellPhone"
                 android:layout_width="match_parent"
                 android:layout_height="80dp"
                 android:layout_marginTop="25dp"

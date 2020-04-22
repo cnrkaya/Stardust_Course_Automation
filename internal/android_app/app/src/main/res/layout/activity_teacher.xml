@@ -33,6 +33,7 @@
             android:layout_height="150dp">
         </ImageView>
         <TextView
+            android:id="@+id/TeacherActivity_edTxt_userName"
             android:layout_marginTop="10dp"
             android:layout_width="match_parent"
             android:layout_height="30dp"
@@ -65,7 +66,7 @@
 
         <Button
             android:layout_marginTop="40dp"
-            android:id="@+id/showDepartman_btn"
+            android:id="@+id/TeacherActivity_btn_showDepartman"
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:text="Şube Göster"
@@ -75,7 +76,7 @@
         <Button
             android:textColor="#5D7D98"
             android:layout_marginTop="30dp"
-            android:id="@+id/timeTable_btn"
+            android:id="@+id/TeacherActivity_btn_timeTable"
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:text="Ders Programım"
@@ -84,7 +85,7 @@
         <Button
             android:textColor="#5D7D98"
             android:layout_marginTop="30dp"
-            android:id="@+id/myInfos_btn"
+            android:id="@+id/TeacherActivity_btn_myInfos"
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:text="Bilgilerim"
@@ -93,7 +94,7 @@
         <Button
             android:textColor="#5D7D98"
             android:layout_marginTop="30dp"
-            android:id="@+id/logout_btn"
+            android:id="@+id/TeacherActivity_btn_logout"
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:text="oturumu kapat"
