@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/header"
+        android:background="#5D7D98"
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
+        android:padding="15dp"
+        android:orientation="horizontal">
+        <ImageButton
+            android:id="@+id/PaymentInfoActivity_btn_back"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="7"
+            android:background="@drawable/back_icon">
+        </ImageButton>
+        <TextView
+            android:layout_weight="1"
+            android:textSize="20dp"
+            android:gravity="center"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Ödeme Bilgileri">
+        </TextView>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/body"
+        android:layout_below="@id/header"
+        android:layout_width="match_parent"
+        android:layout_height="600dp"
+        android:background="#F1F9FF"
+        android:orientation="vertical">
+
+        <TextView
+            android:textStyle="bold"
+            android:layout_marginTop="100dp"
+            android:textColor="#5D7D98"
+            android:textSize="25sp"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Ödenmemiş Tutarlar"> </TextView>
+        <TextView
+            android:id="@+id/PaymentInfoActivity_edtTxt_unpaidAmount"
+            android:textColor="#5D7D98"
+            android:layout_marginTop="10dp"
+            android:textSize="30sp"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="$80.00"> </TextView>
+        <RadioGroup
+            android:id="@+id/PaymentInfoActivity_radioGrup"
+            android:padding="30dp"
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+            android:textStyle="bold"
+            android:textColor="#5D7D98"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="(checkboxlar dinamik oluşturulacak temsilidir)"> </TextView>
+            <CheckBox
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Mayıs Ayı ">
+            </CheckBox>
+            <CheckBox
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Haziran Ayı ">
+            </CheckBox>
+        </RadioGroup>
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/PaymentInfoActivity_btn_pay"
+        android:textColor="#5D7D98"
+        android:layout_below="@+id/body"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="Ödeme Yap"
+        android:clickable="false"
+        android:background="#BCE0FD"></Button>
+</RelativeLayout>

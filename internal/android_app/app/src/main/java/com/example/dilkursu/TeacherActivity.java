@@ -23,7 +23,7 @@ public class TeacherActivity extends AppCompatActivity {
     }
     public void defineVariables(){
         edTxt_userName = findViewById(R.id.TeacherActivity_edTxt_userName);
-        btn_showDepartman = findViewById(R.id.TeacherActivity_btn_showDepartman);
+        btn_showDepartman = findViewById(R.id.TeacherActivity_btn_showBranch);
         btn_timeTable = findViewById(R.id.TeacherActivity_btn_timeTable);
         btn_myInfos = findViewById(R.id.TeacherActivity_btn_myInfos);
         btn_logout = findViewById(R.id.TeacherActivity_btn_logout);

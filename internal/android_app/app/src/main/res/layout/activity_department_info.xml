@@ -42,7 +42,7 @@
             android:layout_marginTop="30dp">
         </TextView>
         <TextView
-            android:id="@+id/name_std"
+            android:id="@+id/StudentInfoActivity_edtTxt_name"
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:layout_toRightOf="@+id/isim"
@@ -66,7 +66,7 @@
         </TextView>
 
         <TextView
-            android:id="@+id/EditTeacherInfoActivity_surname"
+            android:id="@+id/EditStudentInfoActivity_surname"
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:layout_marginTop="25dp"
@@ -91,7 +91,7 @@
         </TextView>
 
         <TextView
-            android:id="@+id/EditTeacherInfoActivity_homeTelephone"
+            android:id="@+id/EditStudentInfoActivity_homeTelephone"
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:layout_marginTop="25dp"
@@ -115,7 +115,7 @@
         </TextView>
 
         <TextView
-            android:id="@+id/EditTeacherInfoActivity_cellPhone"
+            android:id="@+id/EditStudentInfoActivity_cellPhone"
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:layout_marginTop="25dp"

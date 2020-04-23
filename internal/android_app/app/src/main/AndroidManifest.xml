@@ -9,7 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".TeacherTimeTableActivity"></activity>
+        <activity android:name=".PayActivity"></activity>
+        <activity android:name=".PaymentInfoActivity" />
+        <activity android:name=".TeacherTimeTableActivity" />
         <activity android:name=".AddLessonActivity" />
         <activity android:name=".AddDepartment2Activity" />
         <activity android:name=".AddDepartmentActivity" />

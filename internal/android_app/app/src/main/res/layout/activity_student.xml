@@ -33,6 +33,7 @@
             android:layout_height="150dp">
         </ImageView>
         <TextView
+            android:id="@+id/StudentActivity_edTxt_userName"
             android:layout_marginTop="10dp"
             android:layout_width="match_parent"
             android:layout_height="30dp"
@@ -64,8 +65,8 @@
         android:orientation="vertical">
 
         <Button
+            android:id="@+id/StudentActivity_btn_showBranch"
             android:layout_marginTop="40dp"
-            android:id="@+id/showDepartment_btn"
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:text="Şube Göster"
@@ -73,9 +74,9 @@
             android:background="#BCE0FD">
         </Button>
         <Button
+            android:id="@+id/StudentActivity_btn_myPayments"
             android:textColor="#5D7D98"
             android:layout_marginTop="30dp"
-            android:id="@+id/myPayments"
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:text="Ödeme Bilgilerim"
@@ -84,16 +85,16 @@
         <Button
             android:textColor="#5D7D98"
             android:layout_marginTop="30dp"
-            android:id="@+id/myInfos"
+            android:id="@+id/StudentActivity_btn_myInfos"
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:text="Bilgilerim"
             android:background="#BCE0FD">
         </Button>
         <Button
+            android:id="@+id/StudentActivity_btn_logout"
             android:textColor="#5D7D98"
             android:layout_marginTop="30dp"
-            android:id="@+id/logout"
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:text="oturumu kapat"
