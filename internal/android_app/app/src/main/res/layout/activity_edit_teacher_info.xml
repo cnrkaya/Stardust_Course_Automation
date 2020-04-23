@@ -1,105 +1,242 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <LinearLayout
+        android:padding="15dp"
         android:id="@+id/header"
-        android:background="#F1F9FF"
+        android:background="#5D7D98"
         android:layout_width="match_parent"
         android:layout_height="65dp"
-        android:orientation="vertical">
-        <TextView
-            android:gravity="center"
-            android:textColor="#5D7D98"
-            android:textStyle="bold"
-            android:textSize="15dp"
+        android:orientation="horizontal">
+        <ImageButton
+            android:id="@+id/EditTeacherInfoActivity_btn_back"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="İşlemler">
+            android:layout_weight="7"
+            android:background="@drawable/back_icon">
+        </ImageButton>
+        <TextView
+            android:layout_weight="1"
+            android:textSize="20dp"
+            android:gravity="center"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Bilgilerimi Düzenle">
         </TextView>
+
     </LinearLayout>
 
-    <LinearLayout
+    <RelativeLayout
         android:id="@+id/body"
         android:layout_below="@id/header"
         android:layout_width="match_parent"
-        android:layout_height="250dp"
-        android:background="#F1F9FF"
-        android:orientation="vertical">
-        <ImageView
-            android:layout_width="match_parent"
-            android:background="@drawable/person"
-            android:layout_height="150dp">
-        </ImageView>
-        <TextView
-            android:layout_marginTop="10dp"
-            android:layout_width="match_parent"
-            android:layout_height="30dp"
-            android:text="İsim Soyisim"
-            android:textColor="#5D7D98"
-            android:textStyle="bold"
-            android:textSize="20dp"
-            android:gravity="center">
-
-        </TextView>
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="25dp"
-            android:text="Kayıt Elemanı"
-            android:textColor="#5D7D98"
-            android:textSize="15dp"
-            android:gravity="center">
-        </TextView>
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:paddingHorizontal="35dp"
-        android:id="@+id/body2"
-        android:layout_below="@id/body"
-        android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#5D7D98"
-        android:orientation="vertical">
+        android:background="#F1F9FF">
+
+        <TextView
+            android:id="@+id/isim"
+            android:layout_width="140dp"
+            android:layout_height="40dp"
+            android:background="#FFFFFF"
+            android:gravity="center"
+            android:text="İsim"
+            android:textColor="#5D7D98"
+            android:layout_marginTop="25dp">
+        </TextView>
+        <TextView
+            android:id="@+id/EditTeacherInfoActivity_name"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_toRightOf="@+id/isim"
+            android:background="#FFFFFF"
+            android:gravity="center"
+            android:text="Mehmet"
+            android:textColor="#5D7D98"
+            android:layout_marginTop="25dp">
+        </TextView>
+
+        <TextView
+            android:id="@+id/soyisim"
+            android:layout_width="140dp"
+            android:layout_height="40dp"
+            android:background="#FFFFFF"
+            android:gravity="center"
+            android:layout_below="@id/isim"
+            android:text="Soyisim"
+            android:textColor="#5D7D98"
+            android:layout_marginTop="25dp">
+        </TextView>
+
+        <TextView
+            android:id="@+id/EditTeacherInfoActivity_surname"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginTop="25dp"
+            android:layout_toEndOf="@+id/soyisim"
+            android:layout_below="@+id/EditTeacherInfoActivity_name"
+            android:background="#FFFFFF"
+            android:gravity="center"
+            android:text="Soyisim"
+            android:textColor="#5D7D98">
+        </TextView>
+
+        <TextView
+            android:id="@+id/telefon"
+            android:layout_width="140dp"
+            android:layout_height="40dp"
+            android:background="#FFFFFF"
+            android:gravity="center"
+            android:layout_below="@id/soyisim"
+            android:text="Ev Telefonu"
+            android:textColor="#5D7D98"
+            android:layout_marginTop="25dp">
+        </TextView>
+
+        <TextView
+            android:id="@+id/EditTeacherInfoActivity_homeTelephone"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginTop="25dp"
+            android:layout_toEndOf="@+id/soyisim"
+            android:layout_below="@+id/EditTeacherInfoActivity_surname"
+            android:background="#FFFFFF"
+            android:gravity="center"
+            android:text="232 555 55 55"
+            android:textColor="#5D7D98"></TextView>
+
+        <TextView
+            android:id="@+id/cepTelefon"
+            android:layout_width="140dp"
+            android:layout_height="40dp"
+            android:background="#FFFFFF"
+            android:gravity="center"
+            android:layout_below="@id/telefon"
+            android:text="Cep Telefonu"
+            android:textColor="#5D7D98"
+            android:layout_marginTop="25dp">
+        </TextView>
+
+        <TextView
+            android:id="@+id/EditTeacherInfoActivity_cellPhone"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginTop="25dp"
+            android:layout_toEndOf="@+id/soyisim"
+            android:layout_below="@+id/EditTeacherInfoActivity_homeTelephone"
+            android:background="#FFFFFF"
+            android:gravity="center"
+            android:text="+90 0555 555 55 55"
+            android:textColor="#5D7D98"></TextView>
+
+        <TextView
+            android:id="@+id/kimlik"
+            android:layout_width="140dp"
+            android:layout_height="40dp"
+            android:background="#FFFFFF"
+            android:gravity="center"
+            android:layout_below="@id/cepTelefon"
+            android:text="Kimlik No"
+            android:textColor="#5D7D98"
+            android:layout_marginTop="25dp">
+        </TextView>
+        <TextView
+            android:id="@+id/identityNo_std"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginTop="25dp"
+            android:layout_toEndOf="@+id/soyisim"
+            android:layout_below="@+id/cepTelefon"
+            android:background="#FFFFFF"
+            android:gravity="center"
+            android:text="000000000"
+            android:textColor="#5D7D98"></TextView>
+        <TextView
+            android:id="@+id/diller"
+            android:layout_width="140dp"
+            android:layout_height="40dp"
+            android:background="#FFFFFF"
+            android:gravity="center"
+            android:layout_below="@id/kimlik"
+            android:text="Şube"
+            android:textColor="#5D7D98"
+            android:layout_marginTop="25dp">
+        </TextView>
+
+
+        <TextView
+            android:id="@+id/EditTeacherInfoActivity_languages"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginTop="25dp"
+            android:layout_toEndOf="@+id/soyisim"
+            android:layout_below="@+id/cepTelefon"
+            android:background="#FFFFFF"
+            android:gravity="center"
+            android:text="İng,Almanca"
+            android:textColor="#5D7D98"></TextView>
+        <TextView
+            android:id="@+id/sube"
+            android:layout_width="140dp"
+            android:layout_height="40dp"
+            android:background="#FFFFFF"
+            android:gravity="center"
+            android:layout_below="@id/EditTeacherInfoActivity_languages"
+            android:text="Şube"
+            android:textColor="#5D7D98"
+            android:layout_marginTop="25dp">
+        </TextView>
+
+        <Spinner
+            android:id="@+id/EditTeacherInfoActivity_spinner_branch"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_below="@id/EditTeacherInfoActivity_languages"
+            android:layout_marginTop="25dp"
+            android:layout_toEndOf="@id/soyisim">
+
+        </Spinner>
+        <TextView
+            android:id="@+id/kurs"
+            android:layout_width="140dp"
+            android:layout_height="40dp"
+            android:background="#FFFFFF"
+            android:gravity="center"
+            android:layout_below="@id/sube"
+            android:text="Kurs"
+            android:textColor="#5D7D98"
+            android:layout_marginTop="25dp">
+        </TextView>
+        <Spinner
+            android:id="@+id/EditTeacherInfoActivity_spinner_course"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_toEndOf="@id/soyisim"
+            android:layout_below="@id/EditTeacherInfoActivity_spinner_branch"
+            android:layout_marginTop="25dp">
+        </Spinner>
+
+
 
         <Button
-            android:layout_marginTop="40dp"
-            android:id="@+id/showDepartman_btn"
+            android:id="@+id/EditTeacherInfoActivity_btn_save"
+            android:background="#5D7D98"
+            android:textColor="#ffffff"
             android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:text="Şube Göster"
-            android:textColor="#5D7D98"
-            android:background="#BCE0FD">
-        </Button>
-        <Button
-            android:textColor="#5D7D98"
-            android:layout_marginTop="30dp"
-            android:id="@+id/studentRegister_btn"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:text="Öğrenci Kaydı"
-            android:background="#BCE0FD">
-        </Button>
-        <Button
-            android:textColor="#5D7D98"
-            android:layout_marginTop="30dp"
-            android:id="@+id/stdInfos_btn"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:text="Öğrenci Bilgileri"
-            android:background="#BCE0FD">
-        </Button>
-        <Button
-            android:textColor="#5D7D98"
-            android:layout_marginTop="30dp"
-            android:id="@+id/logout"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:text="oturumu kapat"
-            android:background="#BCE0FD">
-        </Button>
+            android:layout_height="wrap_content"
+            android:layout_marginTop="60dp"
+            android:layout_below="@id/EditTeacherInfoActivity_spinner_course"
+            android:textSize="15dp"
+            android:textStyle="bold"
+            android:text="Kaydet"
+            ></Button>
+    </RelativeLayout>
 
-    </LinearLayout>
 
 </RelativeLayout>
+
+

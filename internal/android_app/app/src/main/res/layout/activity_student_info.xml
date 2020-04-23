@@ -11,6 +11,13 @@
         android:layout_width="match_parent"
         android:layout_height="65dp"
         android:orientation="horizontal">
+        <ImageButton
+            android:id="@+id/StudentInfoActivity_btn_back"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="4"
+            android:background="@drawable/back_icon">
+        </ImageButton>
         <TextView
             android:layout_weight="1"
             android:textSize="20sp"
@@ -22,9 +29,10 @@
             android:text="Öğrenci Bilgisi">
         </TextView>
         <ImageButton
+            android:id="@+id/StudentInfoActivity_btn_edit"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_weight="6"
+            android:layout_weight="4"
             android:background="@drawable/edit">
         </ImageButton>
     </LinearLayout>
@@ -47,7 +55,7 @@
             android:layout_marginTop="25dp">
         </TextView>
         <TextView
-            android:id="@+id/name_std"
+            android:id="@+id/StudentInfoActivity_edtTxt_name"
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:layout_toRightOf="@+id/isim"
@@ -71,12 +79,12 @@
         </TextView>
 
         <TextView
-            android:id="@+id/surname_std"
+            android:id="@+id/StudentInfoActivity_surname"
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:layout_marginTop="25dp"
             android:layout_toEndOf="@+id/soyisim"
-            android:layout_below="@+id/name_std"
+            android:layout_below="@+id/StudentInfoActivity_edtTxt_name"
             android:background="#FFFFFF"
             android:gravity="center"
             android:text="Soyisim"
@@ -89,19 +97,19 @@
             android:layout_height="40dp"
             android:background="#5D7D98"
             android:gravity="center"
-            android:layout_below="@id/soyisim"
+            android:layout_below="@id/StudentInfoActivity_surname"
             android:text="Ev Telefonu"
             android:textColor="#FFFFFF"
             android:layout_marginTop="25dp">
         </TextView>
 
         <TextView
-            android:id="@+id/homeTelephone_std"
+            android:id="@+id/StudentInfoActivity_homeTelephone"
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:layout_marginTop="25dp"
             android:layout_toEndOf="@+id/soyisim"
-            android:layout_below="@+id/surname_std"
+            android:layout_below="@+id/StudentInfoActivity_surname"
             android:background="#FFFFFF"
             android:gravity="center"
             android:text="232 555 55 55"
@@ -120,12 +128,12 @@
         </TextView>
 
         <TextView
-            android:id="@+id/cellPhone_std"
+            android:id="@+id/StudentInfoActivity_cellPhone"
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:layout_marginTop="25dp"
             android:layout_toEndOf="@+id/soyisim"
-            android:layout_below="@+id/homeTelephone_std"
+            android:layout_below="@+id/StudentInfoActivity_homeTelephone"
             android:background="#FFFFFF"
             android:gravity="center"
             android:text="+90 0555 555 55 55"
@@ -144,12 +152,12 @@
         </TextView>
 
         <TextView
-            android:id="@+id/course_std"
+            android:id="@+id/StudentInfoActivity_course"
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:layout_marginTop="25dp"
             android:layout_toEndOf="@+id/soyisim"
-            android:layout_below="@+id/cellPhone_std"
+            android:layout_below="@+id/StudentInfoActivity_cellPhone"
             android:background="#FFFFFF"
             android:gravity="center"
             android:text="+90 0555 555 55 55"
@@ -168,12 +176,12 @@
         </TextView>
 
         <TextView
-            android:id="@+id/kur_std"
+            android:id="@+id/StudentInfoActivity_kur"
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:layout_marginTop="25dp"
             android:layout_toEndOf="@+id/soyisim"
-            android:layout_below="@+id/course_std"
+            android:layout_below="@+id/StudentInfoActivity_course"
             android:background="#FFFFFF"
             android:gravity="center"
             android:text="B2"
@@ -192,12 +200,12 @@
         </TextView>
 
         <TextView
-            android:id="@+id/department_std"
+            android:id="@+id/StudentInfoActivity_branch"
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:layout_marginTop="25dp"
             android:layout_toEndOf="@+id/soyisim"
-            android:layout_below="@+id/kur_std"
+            android:layout_below="@+id/StudentInfoActivity_kur"
             android:background="#FFFFFF"
             android:gravity="center"
             android:text="şubeadi"
@@ -217,12 +225,12 @@
         </TextView>
 
         <TextView
-            android:id="@+id/payments_std"
+            android:id="@+id/StudentInfoActivity_payments"
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:layout_marginTop="25dp"
             android:layout_toEndOf="@+id/soyisim"
-            android:layout_below="@+id/department_std"
+            android:layout_below="@+id/StudentInfoActivity_branch"
             android:background="#FFFFFF"
             android:gravity="center"
             android:text="Ödenmemiş Taksit Mevcut"
@@ -240,12 +248,12 @@
         </TextView>
 
         <TextView
-            android:id="@+id/identityNo_std"
+            android:id="@+id/StudentInfoActivity_identityNo"
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:layout_marginTop="25dp"
             android:layout_toEndOf="@+id/soyisim"
-            android:layout_below="@+id/payments_std"
+            android:layout_below="@+id/StudentInfoActivity_payments"
             android:background="#FFFFFF"
             android:gravity="center"
             android:text="000000000"

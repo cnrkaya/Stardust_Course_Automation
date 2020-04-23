@@ -9,17 +9,26 @@
         android:id="@+id/header"
         android:background="#5D7D98"
         android:layout_width="match_parent"
-        android:layout_height="150dp"
-        android:orientation="vertical">
+        android:layout_height="130dp"
+        android:padding="30dp"
+        android:orientation="horizontal">
+        <ImageButton
+            android:id="@+id/ClasroomListActivity_btn_back"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="5"
+            android:background="@drawable/back_icon">
+        </ImageButton>
 
         <TextView
+            android:layout_weight="1"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center"
             android:text="Derslik Bilgieri"
             android:textColor="#FFFFFF"
             android:textSize="35dp"
-            android:textStyle="bold"></TextView>
+            android:textStyle="bold"> </TextView>
     </LinearLayout>
 
     <LinearLayout

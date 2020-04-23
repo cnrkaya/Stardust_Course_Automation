@@ -39,7 +39,7 @@
                 android:layout_height="50dp"
                 android:background="#5D7D98"
                 android:textSize="17dp"
-                android:text="Ülke Şeçiniz"
+                android:text="Ülke Seçiniz"
                 android:gravity="center"
                 android:textColor="#FFFFFF"
                 android:textStyle="bold"
@@ -47,6 +47,7 @@
             </TextView>
 
             <Spinner
+                android:id="@+id/AddLessonActivity_spinner_chooseCountry"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginTop="10dp"
@@ -58,13 +59,14 @@
                 android:layout_height="50dp"
                 android:background="#5D7D98"
                 android:textSize="17dp"
-                android:text="İlçe Şeçiniz"
+                android:text="İlçe Seçiniz"
                 android:gravity="center"
                 android:textColor="#FFFFFF"
                 android:textStyle="bold"
                 android:layout_marginTop="20dp">
             </TextView>
             <Spinner
+                android:id="@+id/AddLessonActivity_spinner_chooseDistrict"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginTop="10dp"
@@ -76,13 +78,14 @@
                 android:layout_height="50dp"
                 android:background="#5D7D98"
                 android:textSize="17dp"
-                android:text="İl Şeçiniz"
+                android:text="İl Seçiniz"
                 android:gravity="center"
                 android:textColor="#FFFFFF"
                 android:textStyle="bold"
                 android:layout_marginTop="20dp">
             </TextView>
             <Spinner
+                android:id="@+id/AddLessonActivity_spinner_chooseCity"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginTop="10dp"
@@ -101,6 +104,7 @@
                 android:layout_marginTop="20dp">
             </TextView>
             <Spinner
+                android:id="@+id/AddLessonActivity_spinner_chooseDepartment"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginTop="10dp"
@@ -111,13 +115,14 @@
                 android:layout_height="50dp"
                 android:background="#5D7D98"
                 android:textSize="17dp"
-                android:text="Dil Kursu Şeçiniz"
+                android:text="Dil Kursu Seçiniz"
                 android:gravity="center"
                 android:textColor="#FFFFFF"
                 android:textStyle="bold"
                 android:layout_marginTop="20dp">
             </TextView>
             <Spinner
+                android:id="@+id/AddLessonActivity_spinner_chooseLanguageCourse"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginTop="10dp"
@@ -125,6 +130,7 @@
             </Spinner>
 
             <Button
+                android:id="@+id/AddLessonActivity_btn_next"
                 android:text="İlerle"
                 android:textColor="#FFFFFF"
                 android:textStyle="bold"

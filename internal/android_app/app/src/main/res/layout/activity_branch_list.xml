@@ -7,9 +7,18 @@
         android:id="@+id/header"
         android:background="#5D7D98"
         android:layout_width="match_parent"
-        android:layout_height="150dp"
-        android:orientation="vertical">
+        android:layout_height="120dp"
+        android:padding="30dp"
+        android:orientation="horizontal">
+        <ImageButton
+            android:id="@+id/BranchListActivity_btn_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="5"
+            android:background="@drawable/back_icon">
+        </ImageButton>
         <TextView
+            android:layout_weight="1"
             android:textSize="35dp"
             android:gravity="center"
             android:textColor="#FFFFFF"
@@ -21,7 +30,7 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/body"
+        android:id="@+id/BranchListActivity_linearLay"
         android:padding="10dp"
         android:layout_below="@id/header"
         android:layout_width="match_parent"

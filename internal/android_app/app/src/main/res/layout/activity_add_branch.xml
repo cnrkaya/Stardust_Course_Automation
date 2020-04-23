@@ -14,16 +14,24 @@
             android:background="#5D7D98"
             android:layout_width="match_parent"
             android:layout_height="80dp"
-            android:orientation="vertical">
-
+            android:padding="20dp"
+            android:orientation="horizontal">
+            <ImageButton
+                android:id="@+id/AddBranchActivity_btn_back"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="7"
+                android:background="@drawable/back_icon">
+            </ImageButton>
             <TextView
+                android:layout_weight="1"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:gravity="center"
                 android:text="Şube Ekle"
                 android:textColor="#FFFFFF"
                 android:textSize="20sp"
-                android:textStyle="bold"></TextView>
+                android:textStyle="bold"> </TextView>
         </LinearLayout>
 
         <RelativeLayout
@@ -44,7 +52,7 @@
                 android:layout_marginTop="30dp">
             </TextView>
             <EditText
-                android:id="@+id/name_std"
+                android:id="@+id/AddBranchActivity_edtTxt_branchName"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:layout_toRightOf="@+id/isim"
@@ -68,12 +76,12 @@
             </TextView>
 
             <EditText
-                android:id="@+id/surname_std"
+                android:id="@+id/AddBranchActivity_edtTxt_facilities"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:layout_marginTop="25dp"
                 android:layout_toEndOf="@+id/soyisim"
-                android:layout_below="@+id/name_std"
+                android:layout_below="@+id/AddBranchActivity_edtTxt_branchName"
                 android:background="#FFFFFF"
                 android:gravity="center"
                 android:text="Toplu Taşıma"
@@ -94,12 +102,12 @@
             </TextView>
 
             <EditText
-                android:id="@+id/homeTelephone_std"
+                android:id="@+id/AddBranchActivity_edtTxt_publicTransport"
                 android:layout_width="match_parent"
                 android:layout_height="80dp"
                 android:layout_marginTop="25dp"
                 android:layout_toEndOf="@+id/soyisim"
-                android:layout_below="@+id/surname_std"
+                android:layout_below="@+id/AddBranchActivity_edtTxt_facilities"
                 android:background="#FFFFFF"
                 android:gravity="center"
                 android:text="41AT Ayazağa-DAvutpaşa"
@@ -119,15 +127,15 @@
             </TextView>
 
             <EditText
-                android:id="@+id/cellPhone_std"
+                android:id="@+id/AddBranchActivity_edtTxt_privateTransport"
                 android:layout_width="match_parent"
                 android:layout_height="80dp"
                 android:layout_marginTop="25dp"
                 android:layout_toEndOf="@+id/soyisim"
-                android:layout_below="@+id/homeTelephone_std"
+                android:layout_below="@+id/AddBranchActivity_edtTxt_publicTransport"
                 android:background="#FFFFFF"
                 android:gravity="center"
-                android:text="Düz git sağa dön"
+                android:text=""
                 android:textColor="#5D7D98"></EditText>
 
             <TextView
@@ -143,10 +151,10 @@
             </TextView>
 
             <Spinner
-                android:id="@+id/country_spinner"
+                android:id="@+id/AddBranchActivity_spinner_country"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
-                android:layout_below="@id/cellPhone_std"
+                android:layout_below="@id/AddBranchActivity_edtTxt_privateTransport"
                 android:layout_marginTop="25dp"
                 android:layout_toEndOf="@id/soyisim">
 
@@ -165,10 +173,10 @@
             </TextView>
 
             <Spinner
-                android:id="@+id/city_spinner"
+                android:id="@+id/AddBranchActivity_spinner_city"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
-                android:layout_below="@id/country_spinner"
+                android:layout_below="@id/AddBranchActivity_spinner_country"
                 android:layout_marginTop="25dp"
                 android:layout_toEndOf="@id/soyisim">
 
@@ -185,66 +193,67 @@
                 android:layout_marginTop="25dp">
             </TextView>
             <Spinner
-                android:id="@+id/town_spinner"
+                android:id="@+id/AddBranchActivity_spinner_district"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
-                android:layout_below="@id/city_spinner"
+                android:layout_below="@id/AddBranchActivity_spinner_city"
                 android:layout_marginTop="25dp"
                 android:layout_toEndOf="@id/soyisim">
 
             </Spinner>
 
             <TextView
-                android:id="@+id/kursListesi"
+                android:id="@+id/AddBranchActivity_courseList"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
+                android:layout_below="@id/AddBranchActivity_spinner_district"
+                android:layout_marginTop="25dp"
                 android:background="#BCE0FD"
                 android:gravity="center"
-                android:layout_below="@id/sube"
-                android:text="Kurs Listesi"
-                android:textColor="#5D7D98"
-                android:layout_marginTop="25dp">
-            </TextView>
+                android:text="Derslik Listesi"
+                android:textColor="#5D7D98"> </TextView>
+
             <Spinner
-                android:id="@+id/course_list_spinner"
+                android:id="@+id/AddBranchActivity_spinner_courseList"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
-                android:layout_below="@id/kursListesi"
+                android:layout_below="@id/AddBranchActivity_courseList"
                 android:layout_marginTop="5dp">
 
             </Spinner>
 
             <TextView
-                android:id="@+id/clasroom_list"
+                android:id="@+id/AddBranchActivity_clasroomList"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
+                android:layout_below="@id/AddBranchActivity_spinner_courseList"
+                android:layout_marginTop="25dp"
                 android:background="#BCE0FD"
                 android:gravity="center"
-                android:layout_below="@id/course_list_spinner"
                 android:text="Derslik Listesi"
-                android:textColor="#5D7D98"
-                android:layout_marginTop="25dp">
-            </TextView>
+                android:textColor="#5D7D98"> </TextView>
+
             <Spinner
-                android:id="@+id/clasroom_list_spinner"
+                android:id="@+id/AddBranchActivity_spinner_clasroomList"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
-                android:layout_below="@id/clasroom_list"
+                android:layout_below="@id/AddBranchActivity_clasroomList"
                 android:layout_marginTop="5dp">
 
             </Spinner>
 
             <Button
-                android:id="@+id/signIn_button"
+                android:id="@+id/AddBranchActivity_btn_signIn"
                 android:background="#5D7D98"
                 android:textColor="#ffffff"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="30dp"
-                android:layout_below="@id/clasroom_list_spinner"
+                android:layout_marginTop="20dp"
+                android:layout_below="@id/AddBranchActivity_spinner_clasroomList"
                 android:textStyle="bold"
                 android:text="→"
-                ></Button>
+                > </Button>
 
         </RelativeLayout>
     </RelativeLayout>

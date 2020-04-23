@@ -41,6 +41,7 @@
         </TextView>
 
         <Spinner
+            android:id="@+id/BranchSearchActivity_spinner_chooseCountry"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginTop="10dp"
@@ -52,17 +53,17 @@
             android:layout_height="50dp"
             android:background="#5D7D98"
             android:textSize="17dp"
-            android:text="İlçe Şeçiniz"
+            android:text="İl Seçiniz"
             android:gravity="center"
             android:textColor="#FFFFFF"
             android:textStyle="bold"
             android:layout_marginTop="20dp">
         </TextView>
         <Spinner
+            android:id="@+id/BranchSearchActivity_spinner_chooseCity"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:layout_marginTop="10dp"
-            >
+            android:layout_marginTop="10dp">
         </Spinner>
 
         <TextView
@@ -70,21 +71,22 @@
             android:layout_height="50dp"
             android:background="#5D7D98"
             android:textSize="17dp"
-            android:text="İl Şeçiniz"
+            android:text="İlçe Seçiniz"
             android:gravity="center"
             android:textColor="#FFFFFF"
             android:textStyle="bold"
             android:layout_marginTop="20dp">
         </TextView>
         <Spinner
+            android:id="@+id/BranchSearchActivity_spinner_chooseDistrict"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:layout_marginTop="10dp"
-            >
+            android:layout_marginTop="10dp">
         </Spinner>
 
 
         <Button
+            android:id="@+id/BranchSearchActivity_btn_searchBranch"
             android:text="Ara"
             android:textColor="#FFFFFF"
             android:textStyle="bold"
@@ -93,7 +95,7 @@
             android:layout_height="60dp"
             android:layout_marginTop="40dp"
             android:layout_marginBottom="40dp"
-            ></Button>
+            > </Button>
 
     </LinearLayout>
 

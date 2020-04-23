@@ -11,9 +11,16 @@
         android:layout_width="match_parent"
         android:layout_height="65dp"
         android:orientation="horizontal">
+        <ImageButton
+            android:id="@+id/TeacherInfoActivity_btn_back"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="4"
+            android:background="@drawable/back_icon">
+        </ImageButton>
         <TextView
             android:layout_weight="1"
-            android:textSize="15dp"
+            android:textSize="20sp"
             android:gravity="center"
             android:textColor="#FFFFFF"
             android:textStyle="bold"
@@ -22,9 +29,10 @@
             android:text="Bilgilerim">
         </TextView>
         <ImageButton
+            android:id="@+id/TeacherInfoActivity_btn_edit"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_weight="5"
+            android:layout_weight="4"
             android:background="@drawable/edit">
         </ImageButton>
     </LinearLayout>
@@ -47,7 +55,7 @@
             android:layout_marginTop="25dp">
         </TextView>
         <TextView
-            android:id="@+id/name_tchr"
+            android:id="@+id/TeacherInfoActivity_name"
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:layout_toRightOf="@+id/isim"
@@ -64,19 +72,19 @@
             android:layout_height="40dp"
             android:background="#5D7D98"
             android:gravity="center"
-            android:layout_below="@id/isim"
+            android:layout_below="@id/TeacherInfoActivity_name"
             android:text="Soyisim"
             android:textColor="#FFFFFF"
             android:layout_marginTop="25dp">
         </TextView>
 
         <TextView
-            android:id="@+id/surname_tchr"
+            android:id="@+id/TeacherInfoActivity_surname"
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:layout_marginTop="25dp"
             android:layout_toEndOf="@+id/soyisim"
-            android:layout_below="@+id/name_tchr"
+            android:layout_below="@+id/TeacherInfoActivity_name"
             android:background="#FFFFFF"
             android:gravity="center"
             android:text="Soyisim"
@@ -96,15 +104,15 @@
         </TextView>
 
         <TextView
-            android:id="@+id/homeTelephone_tchr"
+            android:id="@+id/TeacherInfoActivity_homeTelephone"
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:layout_marginTop="25dp"
             android:layout_toEndOf="@+id/soyisim"
-            android:layout_below="@+id/surname_tchr"
+            android:layout_below="@+id/TeacherInfoActivity_surname"
             android:background="#FFFFFF"
             android:gravity="center"
-            android:text="232 555 55 55"
+            android:text=""
             android:textColor="#5D7D98"></TextView>
 
         <TextView
@@ -120,15 +128,15 @@
         </TextView>
 
         <TextView
-            android:id="@+id/cellPhone_tchr"
+            android:id="@+id/TeacherInfoActivity_cellphone"
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:layout_marginTop="25dp"
             android:layout_toEndOf="@+id/soyisim"
-            android:layout_below="@+id/homeTelephone_tchr"
+            android:layout_below="@+id/TeacherInfoActivity_homeTelephone"
             android:background="#FFFFFF"
             android:gravity="center"
-            android:text="+90 0555 555 55 55"
+            android:text=""
             android:textColor="#5D7D98"></TextView>
 
         <TextView
@@ -144,15 +152,15 @@
         </TextView>
 
         <TextView
-            android:id="@+id/course_tchr"
+            android:id="@+id/TeacherInfoActivity_course"
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:layout_marginTop="25dp"
             android:layout_toEndOf="@+id/soyisim"
-            android:layout_below="@+id/cellPhone_tchr"
+            android:layout_below="@+id/TeacherInfoActivity_cellphone"
             android:background="#FFFFFF"
             android:gravity="center"
-            android:text="+90 0555 555 55 55"
+            android:text=""
             android:textColor="#5D7D98"></TextView>
 
         <TextView
@@ -168,12 +176,12 @@
         </TextView>
 
         <TextView
-            android:id="@+id/startDate_tchr"
+            android:id="@+id/TeacherInfoActivity_startDate"
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:layout_marginTop="25dp"
             android:layout_toEndOf="@+id/soyisim"
-            android:layout_below="@+id/course_tchr"
+            android:layout_below="@+id/TeacherInfoActivity_course"
             android:background="#FFFFFF"
             android:gravity="center"
             android:text="XX/XX/20XX"
@@ -192,12 +200,12 @@
         </TextView>
 
         <TextView
-            android:id="@+id/department_tchr"
+            android:id="@+id/TeacherInfoActivity_branch"
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:layout_marginTop="25dp"
             android:layout_toEndOf="@+id/soyisim"
-            android:layout_below="@+id/startDate_tchr"
+            android:layout_below="@+id/TeacherInfoActivity_startDate"
             android:background="#FFFFFF"
             android:gravity="center"
             android:text="şubeadi"
@@ -217,16 +225,16 @@
         </TextView>
 
         <TextView
-            android:id="@+id/languages_tchr"
+            android:id="@+id/TeacherInfoActivity_languages"
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:layout_marginTop="25dp"
             android:layout_toEndOf="@+id/soyisim"
-            android:layout_below="@+id/department_tchr"
+            android:layout_below="@+id/TeacherInfoActivity_branch"
             android:background="#FFFFFF"
             android:gravity="center"
             android:text="İngilzice"
-            android:textColor="#5D7D98"></TextView>
+            android:textColor="#5D7D98"> </TextView>
         <TextView
             android:id="@+id/kimlikNo"
             android:layout_width="140dp"
@@ -238,19 +246,17 @@
             android:textColor="#FFFFFF"
             android:layout_marginTop="25dp">
         </TextView>
-
         <TextView
-            android:id="@+id/identityNo_tchr"
+            android:id="@+id/TeacherInfoActivity_identityNo"
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:layout_marginTop="25dp"
-            android:layout_toEndOf="@+id/soyisim"
-            android:layout_below="@+id/languages_tchr"
             android:background="#FFFFFF"
             android:gravity="center"
+            android:layout_toEndOf="@+id/soyisim"
+            android:layout_below="@+id/TeacherInfoActivity_languages"
             android:text="000000000"
             android:textColor="#5D7D98"></TextView>
-
 
     </RelativeLayout>
 
@@ -261,6 +267,7 @@
         android:layout_height="match_parent"
         android:background="#5D7D98"
         android:orientation="vertical">
+
 
     </LinearLayout>
 </RelativeLayout>
