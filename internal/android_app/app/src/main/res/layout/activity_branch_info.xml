@@ -11,6 +11,13 @@
         android:layout_width="match_parent"
         android:layout_height="75dp"
         android:orientation="horizontal">
+        <ImageButton
+            android:id="@+id/BranchInfoActivity_btn_back"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="7"
+            android:background="@drawable/back_icon">
+        </ImageButton>
         <TextView
             android:layout_weight="1"
             android:textSize="15dp"
@@ -42,13 +49,13 @@
             android:layout_marginTop="30dp">
         </TextView>
         <TextView
-            android:id="@+id/StudentInfoActivity_edtTxt_name"
+            android:id="@+id/BranchInfoActivity_branchName"
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:layout_toRightOf="@+id/isim"
             android:background="#FFFFFF"
             android:gravity="center"
-            android:text="Mehmet"
+            android:text="Buca "
             android:textColor="#5D7D98"
             android:layout_marginTop="30dp">
         </TextView>
@@ -66,12 +73,12 @@
         </TextView>
 
         <TextView
-            android:id="@+id/EditStudentInfoActivity_surname"
+            android:id="@+id/BranchInfoActivity_branchTransportation"
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:layout_marginTop="25dp"
             android:layout_toEndOf="@+id/soyisim"
-            android:layout_below="@+id/name_std"
+            android:layout_below="@+id/BranchInfoActivity_branchName"
             android:background="#FFFFFF"
             android:gravity="center"
             android:text="Toplu Taşıma"
@@ -91,16 +98,16 @@
         </TextView>
 
         <TextView
-            android:id="@+id/EditStudentInfoActivity_homeTelephone"
+            android:id="@+id/BranchInfoActivity_branchCountry"
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:layout_marginTop="25dp"
             android:layout_toEndOf="@+id/soyisim"
-            android:layout_below="@+id/surname_std"
+            android:layout_below="@+id/BranchInfoActivity_branchTransportation"
             android:background="#FFFFFF"
             android:gravity="center"
-            android:text="232 555 55 55"
-            android:textColor="#5D7D98"></TextView>
+            android:text="Türkiye"
+            android:textColor="#5D7D98"> </TextView>
 
         <TextView
             android:id="@+id/cepTelefon"
@@ -115,15 +122,15 @@
         </TextView>
 
         <TextView
-            android:id="@+id/EditStudentInfoActivity_cellPhone"
+            android:id="@+id/BranchInfoActivity_branchCity"
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:layout_marginTop="25dp"
             android:layout_toEndOf="@+id/soyisim"
-            android:layout_below="@+id/homeTelephone_std"
+            android:layout_below="@+id/BranchInfoActivity_branchCountry"
             android:background="#FFFFFF"
             android:gravity="center"
-            android:text="+90 0555 555 55 55"
+            android:text="İzmir"
             android:textColor="#5D7D98"></TextView>
 
         <TextView
@@ -139,15 +146,15 @@
         </TextView>
 
         <TextView
-            android:id="@+id/course_std"
+            android:id="@+id/BranchInfoActivity_branchDistrict"
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:layout_marginTop="25dp"
             android:layout_toEndOf="@+id/soyisim"
-            android:layout_below="@+id/cellPhone_std"
+            android:layout_below="@+id/BranchInfoActivity_branchCity"
             android:background="#FFFFFF"
             android:gravity="center"
-            android:text="+90 0555 555 55 55"
+            android:text="Buca"
             android:textColor="#5D7D98"></TextView>
 
         <TextView
@@ -163,15 +170,15 @@
         </TextView>
 
         <TextView
-            android:id="@+id/kur_std"
+            android:id="@+id/BranchInfoActivity_branchAddress"
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:layout_marginTop="25dp"
             android:layout_toEndOf="@+id/soyisim"
-            android:layout_below="@+id/course_std"
+            android:layout_below="@+id/BranchInfoActivity_branchDistrict"
             android:background="#FFFFFF"
             android:gravity="center"
-            android:text="B2"
+            android:text="Kıbrıs Caddesi"
             android:textColor="#5D7D98">
         </TextView>
         <TextView
@@ -187,15 +194,15 @@
         </TextView>
 
         <TextView
-            android:id="@+id/department_std"
+            android:id="@+id/BranchInfoActivity_Courses"
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:layout_marginTop="25dp"
             android:layout_toEndOf="@+id/soyisim"
-            android:layout_below="@+id/kur_std"
+            android:layout_below="@+id/BranchInfoActivity_branchAddress"
             android:background="#FFFFFF"
             android:gravity="center"
-            android:text="şubeadi"
+            android:text="İng - Almanca"
             android:textColor="#5D7D98">
         </TextView>
 
@@ -212,18 +219,19 @@
         </TextView>
 
         <TextView
-            android:id="@+id/payments_std"
+            android:id="@+id/BranchInfoActivity_socialFacilities"
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:layout_marginTop="25dp"
             android:layout_toEndOf="@+id/soyisim"
-            android:layout_below="@+id/department_std"
+            android:layout_below="@+id/BranchInfoActivity_Courses"
             android:background="#FFFFFF"
             android:gravity="center"
-            android:text="Ödenmemiş Taksit Mevcut"
+            android:text="Park , bahçe"
             android:textColor="#5D7D98"></TextView>
 
         <Button
+            android:id="@+id/BranchInfoActivity_btn_clasrooms"
             android:layout_marginTop="30dp"
             android:layout_below="@id/olanaklar"
             android:layout_width="match_parent"

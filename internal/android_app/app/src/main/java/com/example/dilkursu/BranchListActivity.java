@@ -2,19 +2,24 @@ package com.example.dilkursu;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.media.Image;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.LinearLayout;
 
-public class ClassroomListActivity extends AppCompatActivity {
-    private ImageButton BtnBack;
+public class BranchListActivity extends AppCompatActivity {
+private LinearLayout linearLayout;
+private ImageButton BtnBack;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_classroom_list);
+        setContentView(R.layout.activity_branch_list);
     }
+
     public void defineVariables(){
-        BtnBack = findViewById(R.id.ClasroomListActivity_btn_back);
+        linearLayout = findViewById(R.id.BranchListActivity_linearLay);
+        BtnBack = findViewById(R.id.BranchListActivity_btn_back);
     }
     private void defineListeners(){
         BtnBack.setOnClickListener(new View.OnClickListener() {
@@ -24,4 +29,5 @@ public class ClassroomListActivity extends AppCompatActivity {
             }
         });
     }
+
 }
