@@ -1,11 +1,11 @@
 name,phone_number,fax,address,public_transport,facilities,private_transport
-Madrid,1106421957,9272259270,Madrid,No,Cep Sinema,Yok
-Barcelona,9809188130,2865411213,Barcelona,Yes,Halısaha,Yok
-Sevilla,1437327572,1558124917,Sevilla,Yes,Açık Spor Salonu,Servis
-Bilbao,6736939914,0808632609,Bilbao,Yes,Halısaha,Yok
-Valencia,9478534353,5512428695,Valencia,No,Halısaha,Yok
-Zaragoza,7789957076,1525635642,Zaragoza,No,Cep Sinema,Servis
-Málaga,1993064526,1538795474,Málaga,Yes,Açık Spor Salonu,Servis
-Murcia,8915508052,9898269694,Murcia,Yes,Yüzme Havuzu,Yok
-Granada,8875267543,9954851605,Granada,No,Açık Spor Salonu,Servis
-Vigo,1557486005,1971253260,Vigo,No,Yüzme Havuzu,Servis
+Madrid,4149334053,4782663169,Madrid,Yes,Cep Sinema,Yok
+Barcelona,4738937166,1517606085,Barcelona,Yes,Açık Spor Salonu,Servis
+Sevilla,1993649352,1086348481,Sevilla,Yes,Yüzme Havuzu,Yok
+Bilbao,1910107563,3786373237,Bilbao,Yes,Kapalı Spor Salonu,Yok
+Valencia,9636624300,1991364905,Valencia,Yes,Cep Sinema,Yok
+Zaragoza,7560551869,3328853410,Zaragoza,Yes,Açık Spor Salonu,Servis
+Málaga,9476811626,7092666783,Málaga,No,Kapalı Spor Salonu,Servis
+Murcia,9747124981,4337175034,Murcia,No,Açık Spor Salonu,Yok
+Granada,3338330279,5635706739,Granada,No,Açık Spor Salonu,Servis
+Vigo,1659815936,0201131365,Vigo,No,Açık Spor Salonu,Servis
