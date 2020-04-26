@@ -2,6 +2,7 @@ package com.example.dilkursu;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -18,6 +19,8 @@ public class StudentActivity extends AppCompatActivity implements View.OnClickLi
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_student);
+        defineVariables();
+        defineListeners();
     }
 
     public void defineVariables() {
@@ -39,12 +42,21 @@ public class StudentActivity extends AppCompatActivity implements View.OnClickLi
     public void onClick(View v) {
         if (v == BtnShowBranch) {
             // Handle clicks for BtnShowBranch
+            Intent intent = new Intent(getApplicationContext(),BranchListActivity.class);
+            startActivity(intent);
         } else if (v == BtnMyPayments) {
             // Handle clicks for BtnMyPayments
+            Intent intent = new Intent(getApplicationContext(),PaymentInfoActivity.class);
+            startActivity(intent);
         } else if (v == BtnMyInfos) {
             // Handle clicks for BtnMyInfos
+            Intent intent = new Intent(getApplicationContext(),StudentInfoActivity.class);
+            startActivity(intent);
         } else if (v == BtnLogout) {
             // Handle clicks for BtnLogout
+            Intent intent = new Intent(getApplicationContext(),SignInActivity.class);
+            finish();
+            startActivity(intent);
         }
     }
 }

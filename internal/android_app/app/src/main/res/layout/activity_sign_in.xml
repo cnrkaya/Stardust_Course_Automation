@@ -1,97 +1,128 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:fillViewport="true"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#F1F9FF">
-
-    <LinearLayout
-        android:id="@+id/header"
-        android:background="#5D7D98"
-        android:layout_width="match_parent"
-        android:layout_height="65dp"
-        android:orientation="vertical">
-        <TextView
-            android:gravity="center"
-            android:textColor="#FFFFFF"
-            android:textStyle="bold"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="Giriş Yap">
-        </TextView>
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_marginTop="100dp"
-        android:layout_marginHorizontal="30dp"
-        android:id="@+id/body"
-        android:layout_below="@id/header"
-        android:layout_width="match_parent"
-        android:layout_height="500dp"
-        android:background="#F1F9FF"
-        android:orientation="vertical">
-
-       <TextView
-           android:layout_width="match_parent"
-           android:layout_height="30dp"
-           android:text="İsim Soyisim">
-       </TextView>
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:id="@+id/SignInActivity_edTxt_userName"
-            android:inputType="textPersonName"
-            android:background="#FFFFFF">
-        </EditText>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="30dp"
-            android:text="E-mail">
-        </TextView>
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:id="@+id/SignInActivity_edTxt_email"
-            android:inputType="textEmailAddress"
-            android:background="#FFFFFF">
-        </EditText>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="30dp"
-            android:text="Parola">
-        </TextView>
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:id="@+id/SignInActivity_edTxt_password"
-            android:inputType="textPassword"
-            android:background="#FFFFFF">
-        </EditText>
-
-        <Button
-            android:id="@+id/SignInActivity_btn_signIn"
-            android:background="#5D7D98"
-            android:textColor="#ffffff"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="125dp"
-            android:textSize="30dp"
-            android:textStyle="bold"
-            android:text="→"
-            ></Button>
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/bottom"
-        android:layout_below="@id/body"
+    android:layout_height="match_parent">
+    <RelativeLayout
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#BCE0FD"
-        android:orientation="vertical">
+        android:background="#F1F9FF">
 
-    </LinearLayout>
-</RelativeLayout>
+        <LinearLayout
+            android:id="@+id/header"
+            android:background="#5D7D98"
+            android:layout_width="match_parent"
+            android:layout_height="75dp"
+            android:orientation="vertical">
+            <TextView
+                android:layout_marginTop="10dp"
+                android:textSize="20sp"
+                android:gravity="center"
+                android:textColor="#F1F9FF"
+                android:textStyle="bold"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="Giriş Yap">
+            </TextView>
+        </LinearLayout>
+
+        <LinearLayout
+
+            android:layout_marginTop="100dp"
+            android:layout_marginHorizontal="30dp"
+            android:id="@+id/body"
+            android:layout_below="@id/header"
+            android:layout_width="match_parent"
+            android:layout_height="500dp"
+            android:background="#F1F9FF"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:text="E-mail">
+            </TextView>
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:id="@+id/SignInActivity_edTxt_email"
+                android:inputType="textEmailAddress"
+                android:background="#FFFFFF">
+            </EditText>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:text="Parola">
+            </TextView>
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:id="@+id/SignInActivity_edTxt_password"
+                android:inputType="textPassword"
+                android:background="#FFFFFF">
+            </EditText>
+
+
+
+            <Button
+                android:id="@+id/SignInActivity_btn_signIn"
+                android:background="#5D7D98"
+                android:textColor="#ffffff"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50dp"
+                android:textSize="30dp"
+                android:textStyle="bold"
+                android:text="→"
+                > </Button>
+            <TextView
+                android:visibility="invisible"
+                android:id="@+id/SignInActivity_txtV_errorMessage"
+                android:background="#FFFFFF"
+                android:gravity="center"
+                android:textColor="#985D7D"
+                android:textStyle="bold"
+                android:layout_marginTop="15dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="">
+            </TextView>
+            <TextView
+                android:background="#FFFFFF"
+                android:gravity="center"
+                android:textColor="#5D7D98"
+                android:textStyle="bold"
+                android:layout_marginTop="85dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text=
+                    "Eğer bir hesabınız yoksa kayıt olabileceğiniz şubelerin listesi için aşağıya tıklayınız"/>
+
+            <Button
+                android:layout_marginHorizontal="25dp"
+                android:layout_marginVertical="10dp"
+                android:id="@+id/SignInActivity_btn_branches"
+                android:background="#985D7D"
+                android:textColor="#DCDCDC"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="12dp"
+                android:textStyle="bold"
+                android:text="Şubelerimiz"
+                > </Button>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/bottom"
+            android:layout_below="@id/body"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#BCE0FD"
+            android:orientation="vertical">
+
+        </LinearLayout>
+    </RelativeLayout>
+</ScrollView>

@@ -16,11 +16,6 @@ public class AddBranchActivity extends AppCompatActivity implements View.OnClick
     private EditText  EdtTxtFacilities;
     private EditText  EdtTxtPublicTransport;
     private EditText  EdtTxtPrivateTransport;
-    private Spinner  SpinnerCountry;
-    private Spinner  SpinnerCity;
-    private Spinner  SpinnerDistrict;
-    private Spinner  SpinnerCourseList;
-    private Spinner  SpinnerClasroomList;
     private Button  BtnSignIn;
 
     @Override
@@ -36,11 +31,6 @@ public class AddBranchActivity extends AppCompatActivity implements View.OnClick
          EdtTxtFacilities = (EditText)findViewById( R.id.AddBranchActivity_edtTxt_facilities );
          EdtTxtPublicTransport = (EditText)findViewById( R.id.AddBranchActivity_edtTxt_publicTransport );
          EdtTxtPrivateTransport = (EditText)findViewById( R.id.AddBranchActivity_edtTxt_privateTransport );
-         SpinnerCountry = (Spinner)findViewById( R.id.AddBranchActivity_spinner_country );
-         SpinnerCity = (Spinner)findViewById( R.id.AddBranchActivity_spinner_city );
-         SpinnerDistrict = (Spinner)findViewById( R.id.AddBranchActivity_spinner_district );
-         SpinnerCourseList = (Spinner)findViewById( R.id.AddBranchActivity_spinner_courseList );
-         SpinnerClasroomList = (Spinner)findViewById( R.id.AddBranchActivity_spinner_clasroomList );
          BtnSignIn = (Button)findViewById( R.id.AddBranchActivity_btn_signIn );
 
          BtnBack.setOnClickListener( this );

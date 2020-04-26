@@ -1,106 +1,110 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:fillViewport="true"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-
-    <LinearLayout
-        android:id="@+id/header"
-        android:background="#F1F9FF"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="65dp"
-        android:orientation="vertical">
-        <TextView
-            android:gravity="center"
-            android:textColor="#5D7D98"
-            android:textStyle="bold"
-            android:textSize="15dp"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:id="@+id/header"
+            android:background="#F1F9FF"
+            android:layout_width="match_parent"
+            android:layout_height="65dp"
+            android:orientation="vertical">
+            <TextView
+                android:gravity="center"
+                android:textColor="#5D7D98"
+                android:textStyle="bold"
+                android:textSize="15dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="İşlemler">
+            </TextView>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/body"
+            android:layout_below="@id/header"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:background="#F1F9FF"
+            android:orientation="vertical">
+            <ImageView
+                android:layout_width="match_parent"
+                android:background="@drawable/person"
+                android:layout_height="150dp">
+            </ImageView>
+            <TextView
+                android:id="@+id/StudentActivity_edTxt_userName"
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:text="İsim Soyisim"
+                android:textColor="#5D7D98"
+                android:textStyle="bold"
+                android:textSize="20dp"
+                android:gravity="center">
+
+            </TextView>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="25dp"
+                android:text="Öğrenci"
+                android:textColor="#5D7D98"
+                android:textSize="15dp"
+                android:gravity="center">
+            </TextView>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:paddingHorizontal="35dp"
+            android:id="@+id/body2"
+            android:layout_below="@id/body"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="İşlemler">
-        </TextView>
-    </LinearLayout>
+            android:background="#5D7D98"
+            android:orientation="vertical">
 
-    <LinearLayout
-        android:id="@+id/body"
-        android:layout_below="@id/header"
-        android:layout_width="match_parent"
-        android:layout_height="250dp"
-        android:background="#F1F9FF"
-        android:orientation="vertical">
-        <ImageView
-            android:layout_width="match_parent"
-            android:background="@drawable/person"
-            android:layout_height="150dp">
-        </ImageView>
-        <TextView
-            android:id="@+id/StudentActivity_edTxt_userName"
-            android:layout_marginTop="10dp"
-            android:layout_width="match_parent"
-            android:layout_height="30dp"
-            android:text="İsim Soyisim"
-            android:textColor="#5D7D98"
-            android:textStyle="bold"
-            android:textSize="20dp"
-            android:gravity="center">
+            <Button
+                android:id="@+id/StudentActivity_btn_showBranch"
+                android:layout_marginTop="40dp"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:text="Şube Göster"
+                android:textColor="#5D7D98"
+                android:background="#BCE0FD">
+            </Button>
+            <Button
+                android:id="@+id/StudentActivity_btn_myPayments"
+                android:textColor="#5D7D98"
+                android:layout_marginTop="30dp"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:text="Ödeme Bilgilerim"
+                android:background="#BCE0FD">
+            </Button>
+            <Button
+                android:textColor="#5D7D98"
+                android:layout_marginTop="30dp"
+                android:id="@+id/StudentActivity_btn_myInfos"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:text="Bilgilerim"
+                android:background="#BCE0FD">
+            </Button>
+            <Button
+                android:id="@+id/StudentActivity_btn_logout"
+                android:textColor="#5D7D98"
+                android:layout_marginTop="30dp"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:text="oturumu kapat"
+                android:background="#BCE0FD">
+            </Button>
 
-        </TextView>
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="25dp"
-            android:text="Öğrenci"
-            android:textColor="#5D7D98"
-            android:textSize="15dp"
-            android:gravity="center">
-        </TextView>
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:paddingHorizontal="35dp"
-        android:id="@+id/body2"
-        android:layout_below="@id/body"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="#5D7D98"
-        android:orientation="vertical">
-
-        <Button
-            android:id="@+id/StudentActivity_btn_showBranch"
-            android:layout_marginTop="40dp"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:text="Şube Göster"
-            android:textColor="#5D7D98"
-            android:background="#BCE0FD">
-        </Button>
-        <Button
-            android:id="@+id/StudentActivity_btn_myPayments"
-            android:textColor="#5D7D98"
-            android:layout_marginTop="30dp"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:text="Ödeme Bilgilerim"
-            android:background="#BCE0FD">
-        </Button>
-        <Button
-            android:textColor="#5D7D98"
-            android:layout_marginTop="30dp"
-            android:id="@+id/StudentActivity_btn_myInfos"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:text="Bilgilerim"
-            android:background="#BCE0FD">
-        </Button>
-        <Button
-            android:id="@+id/StudentActivity_btn_logout"
-            android:textColor="#5D7D98"
-            android:layout_marginTop="30dp"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:text="oturumu kapat"
-            android:background="#BCE0FD">
-        </Button>
-
-</LinearLayout>
-
-</RelativeLayout>
+        </LinearLayout>
+    </RelativeLayout>
+</ScrollView>

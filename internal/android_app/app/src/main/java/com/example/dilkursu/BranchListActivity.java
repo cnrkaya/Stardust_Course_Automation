@@ -15,6 +15,9 @@ private ImageButton BtnBack;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_branch_list);
+
+        defineVariables();
+        defineListeners();
     }
 
     public void defineVariables(){
@@ -25,7 +28,7 @@ private ImageButton BtnBack;
         BtnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                finish();
             }
         });
     }

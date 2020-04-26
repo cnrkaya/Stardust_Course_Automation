@@ -15,7 +15,7 @@
         <activity android:name=".PaymentInfoActivity" />
         <activity android:name=".TeacherTimeTableActivity" />
         <activity android:name=".AddLessonActivity" />
-        <activity android:name=".AddDepartment2Activity" />
+        <activity android:name=".AddBranch2Activity" />
         <activity android:name=".AddBranchActivity" />
         <activity android:name=".ClasroomInfoActivity" />
         <activity android:name=".ClassroomListActivity" />
