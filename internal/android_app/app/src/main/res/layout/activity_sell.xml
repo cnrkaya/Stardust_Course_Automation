@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/header"
+        android:background="#5D7D98"
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
+        android:orientation="vertical">
+        <TextView
+            android:textSize="15dp"
+            android:gravity="center"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Kurs Kaydı">
+        </TextView>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/body"
+        android:layout_below="@id/header"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#F1F9FF"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="#5D7D98"
+            android:textSize="17dp"
+            android:text="Şube Seçiniz"
+            android:gravity="center"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            android:layout_marginTop="50dp">
+        </TextView>
+
+        <Spinner
+            android:id="@+id/SellActivity_spinner_branches"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="10dp"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="#5D7D98"
+            android:textSize="17dp"
+            android:text="Kurs Seçiniz"
+            android:gravity="center"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            android:layout_marginTop="20dp">
+        </TextView>
+
+        <Spinner
+            android:id="@+id/SellActivity_spinner_courses"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="10dp"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="#5D7D98"
+            android:textSize="17dp"
+            android:text="Kur Seçiniz"
+            android:gravity="center"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            android:layout_marginTop="20dp">
+        </TextView>
+
+        <Spinner
+            android:id="@+id/SellActivity_spinner_kur"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="10dp"/>
+
+        <TextView
+            android:id="@+id/SellActivity_tv_amount"
+            android:padding="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#BCE0FD"
+            android:textSize="20sp"
+            android:gravity="end"
+            android:text="Toplam Tutar : 500$"
+            android:textStyle="bold"
+            android:layout_marginTop="20dp">
+        </TextView>
+
+        <Button
+            android:id="@+id/SellActivity_btn_next"
+            android:layout_marginTop="40dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="İlerle"
+            android:textColor="#FFFFFF"
+            android:background="#5D7D98"/>
+
+    </LinearLayout>
+
+
+
+</RelativeLayout>

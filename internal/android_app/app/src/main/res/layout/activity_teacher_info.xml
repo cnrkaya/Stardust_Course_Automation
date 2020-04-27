@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:fillViewport="true"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+    <RelativeLayout
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
     <LinearLayout
         android:padding="10dp"
@@ -103,7 +107,7 @@
             android:layout_marginTop="25dp">
         </TextView>
 
-        <TextView
+        <EditText
             android:id="@+id/TeacherInfoActivity_homeTelephone"
             android:layout_width="match_parent"
             android:layout_height="40dp"
@@ -113,7 +117,10 @@
             android:background="#FFFFFF"
             android:gravity="center"
             android:text=""
-            android:textColor="#5D7D98"></TextView>
+            android:textColor="#5D7D98"
+            android:clickable="false"
+            android:focusable="false"
+            android:focusableInTouchMode="false"/>
 
         <TextView
             android:id="@+id/cepTelefon"
@@ -127,7 +134,7 @@
             android:layout_marginTop="25dp">
         </TextView>
 
-        <TextView
+        <EditText
             android:id="@+id/TeacherInfoActivity_cellphone"
             android:layout_width="match_parent"
             android:layout_height="40dp"
@@ -137,31 +144,11 @@
             android:background="#FFFFFF"
             android:gravity="center"
             android:text=""
-            android:textColor="#5D7D98"></TextView>
+            android:textColor="#5D7D98"
+            android:clickable="false"
+            android:focusable="false"
+            android:focusableInTouchMode="false"/>
 
-        <TextView
-            android:id="@+id/kurs"
-            android:layout_width="140dp"
-            android:layout_height="40dp"
-            android:background="#5D7D98"
-            android:gravity="center"
-            android:layout_below="@id/cepTelefon"
-            android:text="Kurs"
-            android:textColor="#FFFFFF"
-            android:layout_marginTop="25dp">
-        </TextView>
-
-        <TextView
-            android:id="@+id/TeacherInfoActivity_course"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_marginTop="25dp"
-            android:layout_toEndOf="@+id/soyisim"
-            android:layout_below="@+id/TeacherInfoActivity_cellphone"
-            android:background="#FFFFFF"
-            android:gravity="center"
-            android:text=""
-            android:textColor="#5D7D98"></TextView>
 
         <TextView
             android:id="@+id/baslangicTarihi"
@@ -169,7 +156,7 @@
             android:layout_height="40dp"
             android:background="#5D7D98"
             android:gravity="center"
-            android:layout_below="@id/kurs"
+            android:layout_below="@id/TeacherInfoActivity_cellphone"
             android:text="Başlangıç Tarihi"
             android:textColor="#FFFFFF"
             android:layout_marginTop="25dp">
@@ -181,12 +168,12 @@
             android:layout_height="40dp"
             android:layout_marginTop="25dp"
             android:layout_toEndOf="@+id/soyisim"
-            android:layout_below="@+id/TeacherInfoActivity_course"
+            android:layout_below="@+id/TeacherInfoActivity_cellphone"
             android:background="#FFFFFF"
             android:gravity="center"
             android:text="XX/XX/20XX"
-            android:textColor="#5D7D98">
-        </TextView>
+            android:textColor="#5D7D98" />
+
         <TextView
             android:id="@+id/sube"
             android:layout_width="140dp"
@@ -224,7 +211,7 @@
             android:layout_marginTop="25dp">
         </TextView>
 
-        <TextView
+        <EditText
             android:id="@+id/TeacherInfoActivity_languages"
             android:layout_width="match_parent"
             android:layout_height="40dp"
@@ -234,7 +221,10 @@
             android:background="#FFFFFF"
             android:gravity="center"
             android:text="İngilzice"
-            android:textColor="#5D7D98"> </TextView>
+            android:textColor="#5D7D98"
+            android:clickable="false"
+            android:focusable="false"
+            android:focusableInTouchMode="false"/>
         <TextView
             android:id="@+id/kimlikNo"
             android:layout_width="140dp"
@@ -267,8 +257,14 @@
         android:layout_height="match_parent"
         android:background="#5D7D98"
         android:orientation="vertical">
-
+        <Button
+            android:id="@+id/TeacherInfoActivity_btn_saveEdits"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="invisible"
+            android:clickable="false"
+            android:text="Kaydet"/>
 
     </LinearLayout>
 </RelativeLayout>
-
+</ScrollView>

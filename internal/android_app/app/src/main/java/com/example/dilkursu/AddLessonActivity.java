@@ -9,11 +9,9 @@ import android.widget.Spinner;
 
 public class AddLessonActivity extends AppCompatActivity {
     Button  btn_next;
-    Spinner  spinner_chooseCountry;
-    Spinner  spinner_chooseDistrict;
-    Spinner  spinner_chooseCity;
-    Spinner  spinner_chooseDepartment;
-    Spinner  spinner_chooseLanguageCourse;
+    Spinner  spinner_chooseBranch;
+    Spinner  spinner_chooseCourse;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,11 +24,10 @@ public class AddLessonActivity extends AppCompatActivity {
 
     public void defineVariables(){
         btn_next = findViewById(R.id.AddLessonActivity_btn_next);
-        spinner_chooseCountry = findViewById(R.id.AddLessonActivity_spinner_chooseCountry);
-        spinner_chooseDistrict = findViewById(R.id.AddLessonActivity_spinner_chooseDistrict);
-        spinner_chooseCity= findViewById(R.id.AddLessonActivity_spinner_chooseCity);
-        spinner_chooseDepartment= findViewById(R.id.AddLessonActivity_spinner_chooseDepartment);
-        spinner_chooseLanguageCourse= findViewById(R.id.AddLessonActivity_spinner_chooseLanguageCourse);
+        spinner_chooseBranch = findViewById(R.id.AddLessonActivity_spinner_chooseBranch);
+        spinner_chooseCourse = findViewById(R.id.AddLessonActivity_spinner_chooseCourse);
+
+
     }
 
     public void defineListeners(){

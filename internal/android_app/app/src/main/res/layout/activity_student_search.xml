@@ -7,9 +7,9 @@
         android:id="@+id/header"
         android:background="#5D7D98"
         android:layout_width="match_parent"
-        android:layout_height="140dp"
+        android:layout_height="120dp"
         android:paddingHorizontal="10dp"
-        android:paddingVertical="45dp"
+        android:paddingVertical="30dp"
         android:orientation="horizontal">
         <ImageButton
             android:id="@+id/StudentSearchActivity_btn_back"
@@ -56,9 +56,19 @@
             android:layout_height="50dp"
             android:background="#FFFFFF"
             android:layout_marginTop="20dp"
-            android:hint="X karakterli öğrenci numarası"
-            android:layout_marginBottom="50dp"> </EditText>
+            android:hint="X karakterli öğrenci numarası"> </EditText>
 
+        <TextView
+            android:id="@+id/StudentSearchActivity_edtTxt_errorMessage"
+            android:padding="10dp"
+            android:visibility="invisible"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="70dp"
+            android:gravity="center"
+            android:text="Girilen kimlik numarasına ait öğrenci bulunamadı"
+            android:textColor="#C70039"
+            android:background="#FFFFFF"> </TextView>
         <Button
             android:id="@+id/StudentSearchActivity_btn_search"
             android:text="Ara"
@@ -66,9 +76,8 @@
             android:textStyle="bold"
             android:background="#5D7D98"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="60dp"
-            android:layout_marginBottom="140dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
             > </Button>
 
     </LinearLayout>

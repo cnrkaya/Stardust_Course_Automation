@@ -36,6 +36,7 @@ public class AddLesson3Activity extends AppCompatActivity implements View.OnClic
             // Handle clicks for BtnBack
         } else if ( v == BtnComplete ) {
             // Handle clicks for BtnComplete
+            //TODO addLesson
         }
     }
 }

@@ -58,9 +58,7 @@ public class StudentInfoActivity extends AppCompatActivity implements View.OnCli
             // Handle clicks for BtnBack
             finish();
         } else if ( v == BtnEdit ) {
-            // Handle clicks for Btn
-            //BtnEdit.setBackgroundResource(R.drawable.save);
-            String dummy;
+            // Handle clicks for BtnEdits
             setEditable(true);
         }else if ( v == BtnSaveEdits ) {
             setEditable(false);

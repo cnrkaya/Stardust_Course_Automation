@@ -10,10 +10,11 @@
         android:layout_height="match_parent">
 
         <LinearLayout
+            android:padding="20dp"
             android:id="@+id/header"
             android:background="#5D7D98"
             android:layout_width="match_parent"
-            android:layout_height="150dp"
+            android:layout_height="120dp"
             android:orientation="vertical">
             <TextView
                 android:textSize="35dp"
@@ -35,99 +36,48 @@
             android:orientation="vertical">
 
             <TextView
+                android:padding="10dp"
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
+                android:layout_height="wrap_content"
                 android:background="#5D7D98"
-                android:textSize="17dp"
-                android:text="Ülke Seçiniz"
-                android:gravity="center"
-                android:textColor="#FFFFFF"
-                android:textStyle="bold"
-                android:layout_marginTop="50dp">
-            </TextView>
-
-            <Spinner
-                android:id="@+id/AddLessonActivity_spinner_chooseCountry"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_marginTop="10dp"
-                >
-            </Spinner>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:background="#5D7D98"
-                android:textSize="17dp"
-                android:text="İlçe Seçiniz"
-                android:gravity="center"
-                android:textColor="#FFFFFF"
-                android:textStyle="bold"
-                android:layout_marginTop="20dp">
-            </TextView>
-            <Spinner
-                android:id="@+id/AddLessonActivity_spinner_chooseDistrict"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_marginTop="10dp"
-                >
-            </Spinner>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:background="#5D7D98"
-                android:textSize="17dp"
-                android:text="İl Seçiniz"
-                android:gravity="center"
-                android:textColor="#FFFFFF"
-                android:textStyle="bold"
-                android:layout_marginTop="20dp">
-            </TextView>
-            <Spinner
-                android:id="@+id/AddLessonActivity_spinner_chooseCity"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_marginTop="10dp"
-                >
-            </Spinner>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:background="#5D7D98"
-                android:textSize="17dp"
+                android:textSize="20sp"
                 android:text="Şube Seçiniz"
                 android:gravity="center"
                 android:textColor="#FFFFFF"
                 android:textStyle="bold"
-                android:layout_marginTop="20dp">
+                android:layout_marginTop="80dp">
             </TextView>
+
             <Spinner
-                android:id="@+id/AddLessonActivity_spinner_chooseDepartment"
+                android:id="@+id/AddLessonActivity_spinner_chooseBranch"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="20dp"
                 >
             </Spinner>
+
             <TextView
+                android:padding="10dp"
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
+                android:layout_height="wrap_content"
                 android:background="#5D7D98"
-                android:textSize="17dp"
-                android:text="Dil Kursu Seçiniz"
+                android:textSize="20sp"
+                android:text="Kurs Seçiniz"
                 android:gravity="center"
                 android:textColor="#FFFFFF"
                 android:textStyle="bold"
-                android:layout_marginTop="20dp">
+                android:layout_marginTop="30dp">
             </TextView>
             <Spinner
-                android:id="@+id/AddLessonActivity_spinner_chooseLanguageCourse"
+                android:id="@+id/AddLessonActivity_spinner_chooseCourse"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="20dp"
                 >
             </Spinner>
+
+
+
 
             <Button
                 android:id="@+id/AddLessonActivity_btn_next"
@@ -136,10 +86,8 @@
                 android:textStyle="bold"
                 android:background="#5D7D98"
                 android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:layout_marginTop="40dp"
-                android:layout_marginBottom="40dp"
-                ></Button>
+                android:layout_height="match_parent"
+                android:layout_marginTop="120dp" />
 
         </LinearLayout>
 

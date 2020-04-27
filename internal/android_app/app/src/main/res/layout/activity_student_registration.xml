@@ -93,6 +93,56 @@
             android:background="#FFFFFF"
             android:gravity="center"
             android:layout_below="@id/soyisim"
+            android:text="E-posta"
+            android:textColor="#5D7D98"
+            android:layout_marginTop="25dp">
+        </TextView>
+
+        <TextView
+            android:id="@+id/StudentRegistrationActivity_email"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginTop="25dp"
+            android:layout_toEndOf="@+id/soyisim"
+            android:layout_below="@+id/StudentRegistrationActivity_surname"
+            android:background="#FFFFFF"
+            android:gravity="center"
+            android:text="gmail"
+            android:textColor="#5D7D98"> </TextView>
+
+        <TextView
+            android:id="@+id/cepTelefon"
+            android:layout_width="140dp"
+            android:layout_height="40dp"
+            android:background="#FFFFFF"
+            android:gravity="center"
+            android:layout_below="@id/StudentRegistrationActivity_email"
+            android:text="Parola"
+            android:textColor="#5D7D98"
+            android:layout_marginTop="25dp">
+        </TextView>
+
+        <TextView
+            android:id="@+id/StudentRegistrationActivity_password"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginTop="25dp"
+            android:layout_toEndOf="@+id/soyisim"
+            android:layout_below="@+id/StudentRegistrationActivity_email"
+            android:background="#FFFFFF"
+            android:gravity="center"
+            android:inputType="textPassword"
+            android:text="12313"
+            android:textColor="#5D7D98"> </TextView>
+
+
+        <TextView
+            android:id="@+id/telefona"
+            android:layout_width="140dp"
+            android:layout_height="40dp"
+            android:background="#FFFFFF"
+            android:gravity="center"
+            android:layout_below="@id/StudentRegistrationActivity_password"
             android:text="Ev Telefonu"
             android:textColor="#5D7D98"
             android:layout_marginTop="25dp">
@@ -104,7 +154,7 @@
             android:layout_height="40dp"
             android:layout_marginTop="25dp"
             android:layout_toEndOf="@+id/soyisim"
-            android:layout_below="@+id/StudentRegistrationActivity_surname"
+            android:layout_below="@+id/StudentRegistrationActivity_password"
             android:background="#FFFFFF"
             android:gravity="center"
             android:text="232 555 55 55"
@@ -116,7 +166,7 @@
             android:layout_height="40dp"
             android:background="#FFFFFF"
             android:gravity="center"
-            android:layout_below="@id/telefon"
+            android:layout_below="@id/telefona"
             android:text="Cep Telefonu"
             android:textColor="#5D7D98"
             android:layout_marginTop="25dp">
@@ -158,65 +208,6 @@
             android:gravity="center"
             android:text="000000000"
             android:textColor="#5D7D98"> </TextView>
-        <TextView
-        android:id="@+id/sube"
-        android:layout_width="140dp"
-        android:layout_height="40dp"
-        android:background="#FFFFFF"
-        android:gravity="center"
-        android:layout_below="@id/kimlik"
-        android:text="Şube"
-        android:textColor="#5D7D98"
-        android:layout_marginTop="25dp">
-    </TextView>
-
-        <Spinner
-            android:id="@+id/StudentRegistrationActivity_spinner_branch"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_below="@id/StudentRegistrationActivity_identityNo"
-            android:layout_marginTop="25dp"
-            android:layout_toEndOf="@id/soyisim">
-
-        </Spinner>
-        <TextView
-            android:id="@+id/kurs"
-            android:layout_width="140dp"
-            android:layout_height="40dp"
-            android:background="#FFFFFF"
-            android:gravity="center"
-            android:layout_below="@id/sube"
-            android:text="Kurs"
-            android:textColor="#5D7D98"
-            android:layout_marginTop="25dp">
-        </TextView>
-        <Spinner
-            android:id="@+id/StudentRegistrationActivity_spinner_course"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_toEndOf="@id/soyisim"
-            android:layout_below="@id/StudentRegistrationActivity_spinner_branch"
-            android:layout_marginTop="25dp">
-        </Spinner>
-        <TextView
-            android:id="@+id/kur"
-            android:layout_width="140dp"
-            android:layout_height="40dp"
-            android:background="#FFFFFF"
-            android:gravity="center"
-            android:layout_below="@id/kurs"
-            android:text="Kur"
-            android:textColor="#5D7D98"
-            android:layout_marginTop="25dp">
-        </TextView>
-        <Spinner
-            android:id="@+id/StudentRegistrationActivity_spinner_kur"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_toEndOf="@id/soyisim"
-            android:layout_below="@id/StudentRegistrationActivity_spinner_course"
-            android:layout_marginTop="25dp">
-        </Spinner>
 
 
         <Button
@@ -226,10 +217,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="50dp"
-            android:layout_below="@id/kur"
-            android:textSize="40dp"
+            android:layout_below="@id/StudentRegistrationActivity_identityNo"
+            android:textSize="15dp"
             android:textStyle="bold"
-            android:text="→"
+            android:text="Kaydet"
             > </Button>
     </RelativeLayout>
 
