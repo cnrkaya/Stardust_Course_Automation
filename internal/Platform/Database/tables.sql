@@ -1,3 +1,13 @@
+
+CREATE TABLE Person(
+	id char(11) PRIMARY KEY,
+	fname varchar,
+	lname varchar,
+	phone_number text[],
+	home_number text[],
+	home_addr text,
+	work_addr text
+);	
 CREATE TABLE Login(
 	email char(64) NOT NULL,
 	password char(64) NOT NULL,
@@ -10,7 +20,16 @@ CREATE TABLE Login(
 
 
 -- https://stackoverflow.com/questions/18656528/how-do-i-encrypt-passwords-with-postgresql
-
+CREATE TABLE Invoice(
+	id int PRIMARY KEY,							
+	invoice_date date NOT NULL,
+	total int NOT NULL,	
+	executo_id char(11) 								-- references to Turkish Identity number
+		NOT NULL 
+		FOREIGN KEY REFERENCES Person(id) 
+		DEFAULT '00000000000' 							
+		ON DELETE SET DEFAULT  							-- TRIGGER ON DELETE log_invoice_delete()
+);
 CREATE TABLE Payment(
 	id int PRIMARY KEY,
 	pay_date date NOT NULL,
@@ -23,16 +42,7 @@ CREATE TABLE Payment(
 		ON UPDATE CASCADE
 );
 
-CREATE TABLE Invoice(
-	id int PRIMARY KEY,							
-	invoice_date date NOT NULL,
-	total int NOT NULL,	
-	executo_id char(11) 								-- references to Turkish Identity number
-		NOT NULL 
-		FOREIGN KEY REFERENCES Person(id) 
-		DEFAULT '00000000000' 							
-		ON DELETE SET DEFAULT  							-- TRIGGER ON DELETE log_invoice_delete()
-);
+
 
 CREATE TABLE Branch(
 	name varchar(31) PRIMARY KEY,		-- Reasonable?
@@ -44,15 +54,12 @@ CREATE TABLE Branch(
 	facilities text[]
 );
 
-CREATE TABLE Person(
-	id char(11) PRIMARY KEY,
-	fname varchar,
-	lname varchar,
-	phone_number text[],
-	home_number text[],
-	home_addr text,
-	work_addr text
-);	
+CREATE TABLE Course(
+	id int PRIMARY KEY,
+	language NOT NULL varchar,
+	name varchar,
+	price int
+);
 
 CREATE TABLE Sales(
 	invoice_number int 
@@ -71,12 +78,7 @@ CREATE TABLE Sales(
 	PRIMARY KEY(invoice_number, customer_id)
 );
 
-CREATE TABLE Course(
-	id int PRIMARY KEY,
-	language NOT NULL varchar,
-	name varchar,
-	price int
-);
+
 
 CREATE TABLE Lesson(
 	name text,
