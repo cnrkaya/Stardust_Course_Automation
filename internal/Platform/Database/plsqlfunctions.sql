@@ -1,12 +1,14 @@
 
 
 CREATE FUNCTION createStudent (id_in char, fname_in varchar,mid_name_in varchar,lname_in varchar,phone_number_in text[],home_number_in text[],home_addr_in text, work_addr_in text)
-RETURNS VOID AS $$
-
+RETURNS VOID AS '
 BEGIN
+INSERT INTO Person (id, fname, mid_name, lname, phone_number, home_number, home_addr, work_addr)
+VALUES (id_in, fname_in, mid_name_in, lname_in, phone_number_in, home_number_in, home_addr_in, work_addr_in);
+END;
+'
+LANGUAGE plpgsql; 
 
-INSERT INTO Student (id, fname, mid_name, lname, phone_number, home_number, home_adrr, work_adrr)
-VALUES (id_in, fname_in, mid_name_in, lname_in, phone_number_in, home_number_in, home_adrr_in, work_adrr_in)
 
 END;
 
@@ -23,41 +25,41 @@ $$ LANGUAGE plpgsql;
 
 ---------
 CREATE FUNCTION deleteLesson (name_in text)
-RETURNS VOID AS $$
+RETURNS VOID AS '
 
 BEGIN
-DELETE * FROM Lesson 
-WHERE name=name_in
+DELETE FROM Lesson 
+WHERE name=name_in;
 END;
-$$ LANGUAGE plpgsql; 
+'LANGUAGE plpgsql; 
 
 ---------
 CREATE FUNCTION deleteBranch (name_in text)
-RETURNS VOID AS $$
+RETURNS VOID AS '
 
 BEGIN
-DELETE * FROM Branch 
-WHERE name=name_in
+DELETE  FROM Branch 
+WHERE name=name_in;
 END;
-$$ LANGUAGE plpgsql; 
+' LANGUAGE plpgsql; 
 ---------
 
 CREATE FUNCTION deleteCourse(CourseId_in char)
-RETURNS VOID AS $$
+RETURNS VOID AS '
 
 BEGIN
-DELETE * FROM Course 
-WHERE id=CourseId_in
+DELETE FROM Course 
+WHERE id=CourseId_in;
 END;
-$$ LANGUAGE plpgsql; 
+' LANGUAGE plpgsql; 
 --------
 
 CREATE FUNCTION deleteClassroom(ClassroomId_in char)
 RETURNS VOID AS $$
 
 BEGIN
-DELETE FROM * Classroom
-WHERE id=ClassroomId_in
+DELETE FROM  Classroom
+WHERE id=ClassroomId_in;
 END;
 $$ LANGUAGE plpgsql; 
 -------
@@ -68,7 +70,7 @@ RETURNS VOID AS $$
 BEGIN
 
 INSERT INTO Branch(name, phone_number, fax, address, public_transport, private_transport, facilities, academy_name)
-VALUES(name_in, phone_number_in, fax_in, address_in, public_transport_in, private_transport_in, facilities_in, academy_name_in)
+VALUES(name_in, phone_number_in, fax_in, address_in, public_transport_in, private_transport_in, facilities_in, academy_name_in);
 END;
 $$ LANGUAGE plpgsql; 
 ------
