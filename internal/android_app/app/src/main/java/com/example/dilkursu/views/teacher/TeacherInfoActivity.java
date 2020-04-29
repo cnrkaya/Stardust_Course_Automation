@@ -1,4 +1,4 @@
-package com.example.dilkursu;
+package com.example.dilkursu.views.teacher;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -9,6 +9,8 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.example.dilkursu.R;
 
 public class TeacherInfoActivity extends AppCompatActivity {
     TextView name;

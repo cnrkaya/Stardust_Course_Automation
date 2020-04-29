@@ -1,10 +1,12 @@
-package com.example.dilkursu;
+package com.example.dilkursu.views.other;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
+
+import com.example.dilkursu.R;
 
 public class ClasroomInfoActivity extends AppCompatActivity {
     private ImageButton BtnBack;

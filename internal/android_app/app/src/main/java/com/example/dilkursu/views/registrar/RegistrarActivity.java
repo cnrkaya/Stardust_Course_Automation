@@ -1,4 +1,4 @@
-package com.example.dilkursu;
+package com.example.dilkursu.views.registrar;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,6 +7,11 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+
+import com.example.dilkursu.views.other.BranchListActivity;
+import com.example.dilkursu.R;
+import com.example.dilkursu.views.other.SignInActivity;
+import com.example.dilkursu.views.student.StudentSearchActivity;
 
 public class RegistrarActivity extends AppCompatActivity implements View.OnClickListener {
     private TextView Username;
@@ -47,24 +52,24 @@ public class RegistrarActivity extends AppCompatActivity implements View.OnClick
 
         if ( v == BtnListBranch ) {
             // Handle clicks for BtnShowBranch
-            Intent intent = new Intent(getApplicationContext(),BranchListActivity.class);
+            Intent intent = new Intent(getApplicationContext(), BranchListActivity.class);
             startActivity(intent);
         } else if ( v == BtnStudentRegister ) {
             // Handle clicks for BtnStudentRegister
-            Intent intent = new Intent(getApplicationContext(),StudentRegistrationActivity.class);
+            Intent intent = new Intent(getApplicationContext(), StudentRegistrationActivity.class);
             startActivity(intent);
         } else if ( v == BtnStdInfos ) {
             // Handle clicks for BtnStdInfos
-            Intent intent = new Intent(getApplicationContext(),StudentSearchActivity.class);
+            Intent intent = new Intent(getApplicationContext(), StudentSearchActivity.class);
             startActivity(intent);
         } else if ( v == BtnLogout ) {
             // Handle clicks for BtnLogout
-            Intent intent = new Intent(getApplicationContext(),SignInActivity.class);
+            Intent intent = new Intent(getApplicationContext(), SignInActivity.class);
             finish();
             startActivity(intent);
         }else if ( v == BtnSell ) {
         // Handle clicks for BtnSell
-        Intent intent = new Intent(getApplicationContext(),SellActivity.class);
+        Intent intent = new Intent(getApplicationContext(), SellActivity.class);
         startActivity(intent);
         }
         

@@ -1,14 +1,16 @@
-package com.example.dilkursu;
+package com.example.dilkursu.views.admin;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class AdminAddingActivity extends AppCompatActivity {
+import com.example.dilkursu.R;
+
+public class AdminViewingActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_admin_adding);
+        setContentView(R.layout.activity_admin_viewing);
     }
 }

@@ -1,4 +1,4 @@
-package com.example.dilkursu;
+package com.example.dilkursu.views.teacher;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -6,8 +6,11 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
+
+import com.example.dilkursu.views.other.BranchInfoActivity;
+import com.example.dilkursu.R;
+import com.example.dilkursu.views.other.SignInActivity;
 
 public class TeacherActivity extends AppCompatActivity implements View.OnClickListener {
     TextView edTxt_userName;
@@ -44,7 +47,7 @@ public class TeacherActivity extends AppCompatActivity implements View.OnClickLi
     public void onClick(View v) {
         if (v == btn_showBranch) {
             // Handle clicks for BtnShowBranch
-            Intent intent = new Intent(getApplicationContext(),BranchInfoActivity.class);
+            Intent intent = new Intent(getApplicationContext(), BranchInfoActivity.class);
             intent.putExtra("BranchID","11111"); //TODO get branch id from teacher bracnh
             startActivity(intent);
         } else if (v == btn_timeTable) {
@@ -57,7 +60,7 @@ public class TeacherActivity extends AppCompatActivity implements View.OnClickLi
             startActivity(intent);
         } else if (v == btn_logout) {
             // Handle clicks for BtnLogout
-            Intent intent = new Intent(getApplicationContext(),SignInActivity.class);
+            Intent intent = new Intent(getApplicationContext(), SignInActivity.class);
             finish();
             startActivity(intent);
         }

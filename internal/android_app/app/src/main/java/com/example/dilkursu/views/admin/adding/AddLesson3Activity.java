@@ -1,4 +1,4 @@
-package com.example.dilkursu;
+package com.example.dilkursu.views.admin.adding;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,6 +7,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.Spinner;
+
+import com.example.dilkursu.R;
 
 public class AddLesson3Activity extends AppCompatActivity implements View.OnClickListener {
     private ImageButton BtnBack;
@@ -21,6 +23,7 @@ public class AddLesson3Activity extends AppCompatActivity implements View.OnClic
 
         findViews();
     }
+
     private void findViews() {
         BtnBack = (ImageButton)findViewById( R.id.AddLesson3Activity_btn_back );
         SpinnerAvailableTeachers = (Spinner)findViewById( R.id.AddLesson3Activity_spinner_availableTeachers );

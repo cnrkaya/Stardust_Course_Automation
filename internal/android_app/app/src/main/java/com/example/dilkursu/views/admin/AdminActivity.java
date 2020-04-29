@@ -1,4 +1,4 @@
-package com.example.dilkursu;
+package com.example.dilkursu.views.admin;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,6 +7,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+
+import com.example.dilkursu.R;
+import com.example.dilkursu.views.other.SignInActivity;
 
 public class AdminActivity extends AppCompatActivity implements View.OnClickListener {
     private TextView Username;
@@ -49,7 +52,7 @@ public class AdminActivity extends AppCompatActivity implements View.OnClickList
             startActivity(intent);
         } else if ( v == BtnLogout ) {
             // Handle clicks for BtnLogout
-            Intent intent = new Intent(getApplicationContext(),SignInActivity.class);
+            Intent intent = new Intent(getApplicationContext(), SignInActivity.class);
             finish();
             startActivity(intent);
         }

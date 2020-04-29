@@ -1,8 +1,10 @@
-package com.example.dilkursu;
+package com.example.dilkursu.views.admin.adding;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import com.example.dilkursu.R;
 
 public class AddClassroomActivity extends AppCompatActivity {
 

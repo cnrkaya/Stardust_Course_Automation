@@ -1,4 +1,4 @@
-package com.example.dilkursu;
+package com.example.dilkursu.views.registrar;
 
         import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,6 +7,8 @@ package com.example.dilkursu;
         import android.widget.Button;
         import android.widget.Spinner;
         import android.widget.TextView;
+
+        import com.example.dilkursu.R;
 
 public class  SellActivity extends AppCompatActivity implements View.OnClickListener{
     private Spinner SpinnerBranches;

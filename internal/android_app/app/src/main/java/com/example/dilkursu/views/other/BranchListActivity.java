@@ -1,12 +1,13 @@
-package com.example.dilkursu;
+package com.example.dilkursu.views.other;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.media.Image;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
+
+import com.example.dilkursu.R;
 
 public class BranchListActivity extends AppCompatActivity {
 private LinearLayout linearLayout;

@@ -1,4 +1,4 @@
-package com.example.dilkursu;
+package com.example.dilkursu.views.admin.adding;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Spinner;
+
+import com.example.dilkursu.R;
 
 public class AddLessonActivity extends AppCompatActivity {
     Button  btn_next;

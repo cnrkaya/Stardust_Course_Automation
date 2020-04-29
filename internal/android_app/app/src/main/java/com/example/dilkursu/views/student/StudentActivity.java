@@ -1,4 +1,4 @@
-package com.example.dilkursu;
+package com.example.dilkursu.views.student;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,6 +7,11 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+
+import com.example.dilkursu.views.other.BranchListActivity;
+import com.example.dilkursu.views.other.PaymentInfoActivity;
+import com.example.dilkursu.R;
+import com.example.dilkursu.views.other.SignInActivity;
 
 public class StudentActivity extends AppCompatActivity implements View.OnClickListener {
     private TextView EdTxtUserName;
@@ -42,11 +47,11 @@ public class StudentActivity extends AppCompatActivity implements View.OnClickLi
     public void onClick(View v) {
         if (v == BtnShowBranch) {
             // Handle clicks for BtnShowBranch
-            Intent intent = new Intent(getApplicationContext(),BranchListActivity.class);
+            Intent intent = new Intent(getApplicationContext(), BranchListActivity.class);
             startActivity(intent);
         } else if (v == BtnMyPayments) {
             // Handle clicks for BtnMyPayments
-            Intent intent = new Intent(getApplicationContext(),PaymentInfoActivity.class);
+            Intent intent = new Intent(getApplicationContext(), PaymentInfoActivity.class);
             startActivity(intent);
         } else if (v == BtnMyInfos) {
             // Handle clicks for BtnMyInfos
@@ -54,7 +59,7 @@ public class StudentActivity extends AppCompatActivity implements View.OnClickLi
             startActivity(intent);
         } else if (v == BtnLogout) {
             // Handle clicks for BtnLogout
-            Intent intent = new Intent(getApplicationContext(),SignInActivity.class);
+            Intent intent = new Intent(getApplicationContext(), SignInActivity.class);
             finish();
             startActivity(intent);
         }

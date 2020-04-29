@@ -1,4 +1,4 @@
-package com.example.dilkursu;
+package com.example.dilkursu.views.registrar;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -8,6 +8,8 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.TextView;
+
+import com.example.dilkursu.R;
 
 public class StudentRegistrationActivity extends AppCompatActivity {
     private ImageButton BtnBack;

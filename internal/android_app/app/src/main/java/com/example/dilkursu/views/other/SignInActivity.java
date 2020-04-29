@@ -1,4 +1,4 @@
-package com.example.dilkursu;
+package com.example.dilkursu.views.other;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -8,6 +8,12 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+
+import com.example.dilkursu.R;
+import com.example.dilkursu.views.admin.AdminActivity;
+import com.example.dilkursu.views.registrar.RegistrarActivity;
+import com.example.dilkursu.views.student.StudentActivity;
+import com.example.dilkursu.views.teacher.TeacherActivity;
 
 public class SignInActivity extends AppCompatActivity {
 
@@ -53,19 +59,19 @@ public class SignInActivity extends AppCompatActivity {
                     Intent intent;
                     switch (personAuthentication) {
                         case 1:
-                            intent = new Intent(getApplicationContext(),StudentActivity.class);
+                            intent = new Intent(getApplicationContext(), StudentActivity.class);
                             startActivity(intent);
                             break;
                         case 2:
-                            intent = new Intent(getApplicationContext(),TeacherActivity.class);
+                            intent = new Intent(getApplicationContext(), TeacherActivity.class);
                             startActivity(intent);
                             break;
                         case 3:
-                            intent = new Intent(getApplicationContext(),RegistrarActivity.class);
+                            intent = new Intent(getApplicationContext(), RegistrarActivity.class);
                             startActivity(intent);
                             break;
                         case 4:
-                            intent = new Intent(getApplicationContext(),AdminActivity.class);
+                            intent = new Intent(getApplicationContext(), AdminActivity.class);
                             startActivity(intent);
                             break;
                     }
