@@ -103,33 +103,30 @@ END; $$
 LANGUAGE 'plpgsql';
 ------
 --attach classroom to a branch
-CREATE FUNCTION attachClassroom(branch_name_in varchar, classroom_name_in)
+CREATE FUNCTION attachClassroom(branch_name_in varchar, classroom_name_in varchar)
 RETURNS VOID AS $$
 BEGIN 
 UPDATE Classroom
 SET branch_name = branch_name_in
-WHERE name= classroom_name_in;
+WHERE name = classroom_name_in;
 END;
 $$ LANGUAGE plpgsql; 
 --attach lesson to classroom
-CREATE OR REPLACE FUNCTION attachLesson(name_in text, course_no_in, classroom_id_in varchar)
+CREATE OR REPLACE FUNCTION attachLesson(name_in text, course_no_in int, classroom_id_in varchar)
 RETURNS VOID AS $$
 BEGIN
 UPDATE Lesson
 SET classroom_id= classroom_id_in
-WHERE name = name_in AND course_no = course_no_in
+WHERE name = name_in AND course_no = course_no_in;
 END;
 $$ LANGUAGE plpgsql; 
-
-
-
 
 ------
 CREATE FUNCTION addCourse(id_in int, name varchar, language_in varchar, price_in int)
 RETURNS VOID AS $$
 BEGIN
 INSERT INTO Course(id, name, language_in, price_in)
-VALUES (id_in, name_in, language_in, price_in)
+VALUES (id_in, name_in, language_in, price_in);
 END;
 $$ LANGUAGE plpgsql; 
 ------
@@ -162,7 +159,7 @@ RETURNS VOID AS $$
 BEGIN
 
 INSERT INTO Lesson (name, course_no, instructor_id, classroom_id)
-VALUES(name_in , course_no_in , instructor_id_in , classroom_id_in)
+VALUES(name_in , course_no_in , instructor_id_in , classroom_id_in);
 
 END;
 $$ LANGUAGE plpgsql; 
@@ -171,7 +168,7 @@ CREATE TYPE personal_record Person%ROWTYPE;
 CREATE FUNCTION getPersonalDetails (id_in char)
 RETURNS personal_record AS $$
 BEGIN
-SELECT * INTO personal_record FROM Person WHERE id = id_in
+SELECT * INTO personal_record FROM Person WHERE id = id_in;
 RETURN personal_record;
 END;
 $$ LANGUAGE plpgsql; 
@@ -183,7 +180,7 @@ RETURNS VOID AS $$
 BEGIN
 UPDATE Person
 SET fname = (fname_in)
-WHERE id = id_in
+WHERE id = id_in;
 
 END;
 $$ LANGUAGE plpgsql; 
@@ -194,7 +191,7 @@ RETURNS VOID AS $$
 BEGIN
 UPDATE Person
 SET mid_name = (mid_name_in)
-WHERE id = id_in
+WHERE id = id_in;
 
 END;
 $$ LANGUAGE plpgsql; 
@@ -205,53 +202,53 @@ RETURNS VOID AS $$
 BEGIN
 UPDATE Person
 SET lname = (l_name_in)
-WHERE id = id_in
+WHERE id = id_in;
 
 END;
 $$ LANGUAGE plpgsql; 
 
 -
-CREATE FUNCTION updatePersonphone_number(id_in char, phone_number_in text[])
+CREATE FUNCTION updatePersonphone_number(id_in char, phone_number_in text)
 RETURNS VOID AS $$
 
 BEGIN
 UPDATE Person
-SET phone_number[] = (phone_number_in)
-WHERE id = id_in
+SET phone_number = (phone_number_in)
+WHERE id = id_in;
 
 END;
 $$ LANGUAGE plpgsql; 
 
 ---
-CREATE FUNCTION updatePersonhome_number(id_in char,home_number_in text[])
+CREATE FUNCTION updatePersonhome_number(id_in char,home_number_in text)
 RETURNS VOID AS $$
 
 BEGIN
 UPDATE Person
-SET home_number[] = (home_number_in)
-WHERE id = id_in
+SET home_number = (home_number_in)
+WHERE id = id_in;
 
 END;
 $$ LANGUAGE plpgsql; 
--
+
 CREATE FUNCTION updatePersonhome_addr(id_in char,home_addr_in text)
 RETURNS VOID AS $$
 
 BEGIN
 UPDATE Person
 SET home_addr = (home_addr_in)
-WHERE id = id_in
+WHERE id = id_in;
 
 END;
 $$ LANGUAGE plpgsql; 
--
+--
 CREATE FUNCTION updatePersonwork_addr(id_in char,work_addr_in text)
 RETURNS VOID AS $$
 
 BEGIN
 UPDATE Person
 SET work_addr = (work_addr_in)
-WHERE id = id_in
+WHERE id = id_in;
 
 END;
 $$ LANGUAGE plpgsql; 
@@ -269,7 +266,7 @@ RETURNS VOID AS $$
 BEGIN
 UPDATE Branch
 SET phone_number = phone_number_in
-WHERE name = name_in
+WHERE name = name_in;
 
 END;
 $$ LANGUAGE plpgsql;
@@ -280,7 +277,7 @@ RETURNS VOID AS $$
 BEGIN
 UPDATE Branch
 SET fax = fax_in
-WHERE name = name_in
+WHERE name = name_in;
 
 END;
 $$ LANGUAGE plpgsql;
@@ -291,7 +288,7 @@ RETURNS VOID AS $$
 BEGIN
 UPDATE Branch
 SET address = address_in
-WHERE name = name_in
+WHERE name = name_in;
 
 END;
 $$ LANGUAGE plpgsql;
@@ -302,7 +299,7 @@ RETURNS VOID AS $$
 BEGIN
 UPDATE Branch
 SET public_transport = public_transport_in
-WHERE name = name_in
+WHERE name = name_in;
 
 END;
 -
@@ -312,7 +309,7 @@ RETURNS VOID AS $$
 BEGIN
 UPDATE Branch
 SET private_transport = private_transport_in
-WHERE name = name_in
+WHERE name = name_in;
 
 END;
 $$ LANGUAGE plpgsql;
@@ -323,34 +320,20 @@ RETURNS VOID AS $$
 BEGIN
 UPDATE Branch
 SET facilities = facilities_in
-WHERE name = name_in
+WHERE name = name_in;
 
 END;
 $$ LANGUAGE plpgsql;
 
 ---------
 CREATE FUNCTION getTotal(personId_in)
-RETURNS int AS $$
-DECLARE
-	toplam integer;
-SELECT total FROM Sales; WHERE id = personId_in;
-toplam := total;
-RETURN toplam;
+
 ------
 CREATE FUNCTION getUnpaidAmount(personId)
 ------
 CREATE FUNCTION getListOfPaymentsToBeMade(personId) 
 ------
 CREATE FUNCTION getLastPayDate(personId_in)
-RETURNS date AS $$
-DECLARE last_paydate
-BEGIN
-SELECT MAX(pay_date) INTO last_paydate
-FROM Payment;
-WHERE id= personId_in
-
-END;
-$$ LANGUAGE plpgsql;
 
 
 
