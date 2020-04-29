@@ -30,6 +30,7 @@ public class RegistrarActivity extends AppCompatActivity implements View.OnClick
         BtnStudentRegister = (Button)findViewById( R.id.RegistrarActivity_btn_studentRegister );
         BtnStdInfos = (Button)findViewById( R.id.RegistrarActivity_btn_stdInfos );
         BtnLogout = (Button)findViewById( R.id.RegistrarActivity_btn_logout );
+        BtnSell = (Button)findViewById(R.id.RegistrarActivity_btn_sell);
 
     }
 

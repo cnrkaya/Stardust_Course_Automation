@@ -56,7 +56,7 @@ public class  BranchInfoActivity extends AppCompatActivity {
         BtnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                finish();
             }
         });
         BtnClasrooms.setOnClickListener(new View.OnClickListener() {

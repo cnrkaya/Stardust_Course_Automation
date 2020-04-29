@@ -13,7 +13,7 @@
         android:id="@+id/header"
         android:background="#5D7D98"
         android:layout_width="match_parent"
-        android:layout_height="65dp"
+        android:layout_height="60dp"
         android:orientation="horizontal">
         <ImageButton
             android:id="@+id/TeacherInfoActivity_btn_back"
@@ -45,7 +45,7 @@
         android:id="@+id/body"
         android:layout_below="@id/header"
         android:layout_width="match_parent"
-        android:layout_height="620dp"
+        android:layout_height="550dp"
         android:background="#F1F9FF">
 
         <TextView

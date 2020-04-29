@@ -11,7 +11,7 @@
             android:id="@+id/header"
             android:background="#F1F9FF"
             android:layout_width="match_parent"
-            android:layout_height="65dp"
+            android:layout_height="55dp"
             android:orientation="vertical">
             <TextView
                 android:gravity="center"
@@ -28,7 +28,7 @@
             android:id="@+id/body"
             android:layout_below="@id/header"
             android:layout_width="match_parent"
-            android:layout_height="250dp"
+            android:layout_height="220dp"
             android:background="#F1F9FF"
             android:orientation="vertical">
             <ImageView

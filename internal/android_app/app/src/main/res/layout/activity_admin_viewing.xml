@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:fillViewport="true"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <RelativeLayout
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:id="@+id/header"
+            android:background="#F1F9FF"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:orientation="vertical">
+            <TextView
+                android:textSize="15dp"
+                android:gravity="center"
+                android:textColor="#5D7D98"
+                android:textStyle="bold"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="Görüntüleme İşlemleri">
+            </TextView>
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:paddingHorizontal="35dp"
+            android:id="@+id/body2"
+            android:layout_below="@id/header"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#5D7D98"
+            android:orientation="vertical">
+            <Button
+                android:textColor="#3A4E5F"
+                android:layout_marginTop="40dp"
+                android:id="@+id/AdminAddingActivity_btn_viewLesson"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:text="Ders Görüntüle"
+                android:background="#BCE0FD">
+            </Button>
+            <Button
+                android:textColor="#3A4E5F"
+                android:layout_marginTop="40dp"
+                android:id="@+id/AdminAddingActivity_btn_viewClassroom"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:text="Derslik Görüntüle"
+                android:background="#BCE0FD">
+            </Button>
+
+
+
+            <Button
+                android:textColor="#3A4E5F"
+                android:layout_marginTop="40dp"
+                android:id="@+id/AdminAddingActivity_btn_viewKur"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:text="Kur Görüntüle"
+                android:background="#BCE0FD">
+            </Button>
+            <Button
+                android:textColor="#3A4E5F"
+                android:layout_marginTop="40dp"
+                android:id="@+id/AdminAddingActivity_btn_viewCourse"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:text="Kurs Görüntüle "
+                android:background="#BCE0FD">
+            </Button>
+            <Button
+                android:layout_marginTop="40dp"
+                android:id="@+id/AdminAddingActivity_btn_viewBranch"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:text="Şube Görüntüle"
+                android:textColor="#3A4E5F"
+                android:background="#BCE0FD">
+            </Button>
+            <Button
+                android:layout_marginTop="40dp"
+                android:id="@+id/AdminActivity_btn_back"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:text="Geri"
+                android:textColor="#3A4E5F"
+                android:background="#F1F9FF">
+            </Button>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+</ScrollView>

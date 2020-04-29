@@ -49,17 +49,16 @@
             android:textColor="#5D7D98"
             android:layout_marginTop="25dp">
         </TextView>
-        <TextView
+        <EditText
             android:id="@+id/StudentRegistrationActivity_name"
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:layout_toRightOf="@+id/isim"
             android:background="#FFFFFF"
             android:gravity="center"
-            android:text="Mehmet"
             android:textColor="#5D7D98"
             android:layout_marginTop="25dp">
-        </TextView>
+        </EditText>
 
         <TextView
             android:id="@+id/soyisim"
@@ -73,7 +72,7 @@
             android:layout_marginTop="25dp">
         </TextView>
 
-        <TextView
+        <EditText
             android:id="@+id/StudentRegistrationActivity_surname"
             android:layout_width="match_parent"
             android:layout_height="40dp"
@@ -82,9 +81,8 @@
             android:layout_below="@+id/StudentRegistrationActivity_name"
             android:background="#FFFFFF"
             android:gravity="center"
-            android:text="Soyisim"
             android:textColor="#5D7D98">
-        </TextView>
+        </EditText>
 
         <TextView
             android:id="@+id/telefon"
@@ -98,7 +96,7 @@
             android:layout_marginTop="25dp">
         </TextView>
 
-        <TextView
+        <EditText
             android:id="@+id/StudentRegistrationActivity_email"
             android:layout_width="match_parent"
             android:layout_height="40dp"
@@ -107,8 +105,7 @@
             android:layout_below="@+id/StudentRegistrationActivity_surname"
             android:background="#FFFFFF"
             android:gravity="center"
-            android:text="gmail"
-            android:textColor="#5D7D98"> </TextView>
+            android:textColor="#5D7D98"> </EditText>
 
         <TextView
             android:id="@+id/cepTelefon"
@@ -122,7 +119,7 @@
             android:layout_marginTop="25dp">
         </TextView>
 
-        <TextView
+        <EditText
             android:id="@+id/StudentRegistrationActivity_password"
             android:layout_width="match_parent"
             android:layout_height="40dp"
@@ -133,7 +130,7 @@
             android:gravity="center"
             android:inputType="textPassword"
             android:text="12313"
-            android:textColor="#5D7D98"> </TextView>
+            android:textColor="#5D7D98"> </EditText>
 
 
         <TextView
@@ -148,7 +145,7 @@
             android:layout_marginTop="25dp">
         </TextView>
 
-        <TextView
+        <EditText
             android:id="@+id/StudentRegistrationActivity_homeTelephone"
             android:layout_width="match_parent"
             android:layout_height="40dp"
@@ -157,8 +154,8 @@
             android:layout_below="@+id/StudentRegistrationActivity_password"
             android:background="#FFFFFF"
             android:gravity="center"
-            android:text="232 555 55 55"
-            android:textColor="#5D7D98"> </TextView>
+            android:hint="(232) 555 55 55"
+            android:textColor="#5D7D98"> </EditText>
 
         <TextView
             android:id="@+id/cepTelefon"
@@ -181,7 +178,7 @@
             android:layout_below="@+id/StudentRegistrationActivity_homeTelephone"
             android:background="#FFFFFF"
             android:gravity="center"
-            android:text="+90 0555 555 55 55"
+            android:hint="+90 0555 555 55 55"
             android:textColor="#5D7D98"> </TextView>
 
         <TextView
@@ -206,7 +203,7 @@
             android:layout_below="@+id/StudentRegistrationActivity_cellphone"
             android:background="#FFFFFF"
             android:gravity="center"
-            android:text="000000000"
+            android:text=""
             android:textColor="#5D7D98"> </TextView>
 
 

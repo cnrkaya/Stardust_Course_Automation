@@ -1,3 +1,14 @@
 <resources>
     <string name="app_name">DilKursu</string>
+
+    <string-array name="my_header_title">
+        <item></item>
+        <item>Pt</item>
+        <item>Sl</item>
+        <item>Çr</item>
+        <item>Prş</item>
+        <item>Cm</item>
+        <item>Ct</item>
+        <item>Pz</item>
+    </string-array>
 </resources>
