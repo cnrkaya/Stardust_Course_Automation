@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.dilkursu">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -9,38 +11,37 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".AdminDeletingActivity"></activity>
-        <activity android:name=".AdminAddingActivity" />
-        <activity android:name=".AdminViewingActivity" />
-        <activity android:name=".SellActivity" />
-        <activity android:name=".AddLesson3Activity" />
-        <activity android:name=".AddLesson2Activity" />
-        <activity android:name=".PayActivity" />
-        <activity android:name=".PaymentInfoActivity" />
-        <activity android:name=".TeacherTimeTableActivity" />
-        <activity android:name=".AddLessonActivity" />
-        <activity android:name=".AddClassroomActivity" />
-        <activity android:name=".AddBranchActivity" />
-        <activity android:name=".ClasroomInfoActivity" />
-        <activity android:name=".ClassroomListActivity" />
-        <activity android:name=".BranchInfoActivity" />
-        <activity android:name=".BranchListActivity" />
-        <activity android:name=".StudentSearchActivity" />
-        <activity android:name=".StudentRegistrationActivity" />
-        <activity android:name=".StudentInfoActivity" />
-        <activity android:name=".TeacherInfoActivity" />
-        <activity android:name=".RegistrarActivity" />
-        <activity android:name=".AdminActivity" />
-        <activity android:name=".TeacherActivity" />
-        <activity android:name=".StudentActivity" />
-        <activity android:name=".SignInActivity" />
-        <activity android:name=".MainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+        <activity android:name=".views.admin.AdminDeletingActivity" />
+        <activity android:name=".views.admin.AdminAddingActivity" />
+        <activity android:name=".views.admin.AdminViewingActivity" />
+        <activity android:name=".views.registrar.SellActivity" />
+        <activity android:name=".views.admin.adding.AddLesson3Activity" />
+        <activity android:name=".views.admin.adding.AddLesson2Activity" />
+        <activity android:name=".views.other.PayActivity" />
+        <activity android:name=".views.other.PaymentInfoActivity" />
+        <activity android:name=".views.teacher.TeacherTimeTableActivity" />
+        <activity android:name=".views.admin.adding.AddLessonActivity" />
+        <activity android:name=".views.admin.adding.AddClassroomActivity" />
+        <activity android:name=".views.admin.adding.AddBranchActivity" />
+        <activity android:name=".views.other.ClasroomInfoActivity" />
+        <activity android:name=".views.other.ClassroomListActivity" />
+        <activity android:name=".views.other.BranchInfoActivity" />
+        <activity android:name=".views.other.BranchListActivity" />
+        <activity android:name=".views.student.StudentSearchActivity" />
+        <activity android:name=".views.registrar.StudentRegistrationActivity" />
+        <activity android:name=".views.student.StudentInfoActivity" />
+        <activity android:name=".views.teacher.TeacherInfoActivity" />
+        <activity android:name=".views.registrar.RegistrarActivity" />
+        <activity android:name=".views.admin.AdminActivity" />
+        <activity android:name=".views.teacher.TeacherActivity" />
+        <activity android:name=".views.student.StudentActivity" />
+        <activity android:name=".views.other.SignInActivity" />
+        <activity android:name=".views.other.MainActivity">
+
         </activity>
+
+
     </application>
 
 </manifest>
