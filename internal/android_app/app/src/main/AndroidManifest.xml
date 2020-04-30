@@ -36,7 +36,12 @@
         <activity android:name=".views.admin.AdminActivity" />
         <activity android:name=".views.teacher.TeacherActivity" />
         <activity android:name=".views.student.StudentActivity" />
-        <activity android:name=".views.other.SignInActivity" />
+        <activity android:name=".views.other.SignInActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity android:name=".views.other.MainActivity">
 
         </activity>
