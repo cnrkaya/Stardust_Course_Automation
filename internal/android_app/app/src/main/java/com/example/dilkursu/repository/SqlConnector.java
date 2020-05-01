@@ -1,13 +1,13 @@
 package com.example.dilkursu.repository;
 
-import android.util.Log;
-
+import com.example.dilkursu.GlobalConfig;
 import com.example.dilkursu.models.Branch;
 import com.example.dilkursu.models.Classroom;
 import com.example.dilkursu.models.Course;
 import com.example.dilkursu.models.Credential;
 import com.example.dilkursu.models.Login;
 import com.example.dilkursu.models.Person;
+import com.example.dilkursu.models.Student;
 
 import java.sql.CallableStatement;
 import java.sql.PreparedStatement;
@@ -19,6 +19,7 @@ public class SqlConnector implements IDataConnection {
 
     private Database database;
     private ResultSet resultSet;
+
 
     public SqlConnector() {
         database = new Database();
@@ -134,7 +135,7 @@ public class SqlConnector implements IDataConnection {
     }
 
     @Override
-    public String getBranchName(String person_id) {
+    public String getBranchName(String person_id) throws Exception {
 
         String branch_name = null;
         try {
@@ -230,7 +231,7 @@ public class SqlConnector implements IDataConnection {
     }
 
     @Override
-    public void addPerson(Person person) {
+    public void addPerson(Person person) throws Exception {
 
         try {
             CallableStatement callableStatement = database.getConnection().prepareCall("{ CALL addPerson(?, ?, ?, ?, ?, ?, ?) }");
@@ -254,7 +255,7 @@ public class SqlConnector implements IDataConnection {
     }
 
     @Override
-    public void addLogin(Login login) {
+    public void addLogin(Login login) throws Exception {
 
         try {
             CallableStatement callableStatement = database.getConnection().prepareCall("{ CALL addLogin(?, ?, ?, ?) }");
@@ -273,6 +274,28 @@ public class SqlConnector implements IDataConnection {
         }
 
     }
+
+    @Override
+    public int getUserType(String person_id) throws Exception {
+        int userType = 0;
+        try {
+            String storedProcedureCall = "{CALL getUserType(?, ?)}";
+            CallableStatement callableStatement = database.getConnection().prepareCall(storedProcedureCall);
+
+            callableStatement.setString(1, person_id);
+            callableStatement.registerOutParameter(2, Types.INTEGER);
+
+            callableStatement.executeUpdate();
+
+            userType = callableStatement.getInt(2);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return userType;
+    }
+    
 
 
 }
