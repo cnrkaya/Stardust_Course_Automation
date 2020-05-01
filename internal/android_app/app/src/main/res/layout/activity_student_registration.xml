@@ -1,224 +1,223 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <LinearLayout
-        android:padding="10dp"
         android:id="@+id/header"
-        android:background="#5D7D98"
         android:layout_width="match_parent"
         android:layout_height="65dp"
-        android:orientation="horizontal">
+        android:background="#5D7D98"
+        android:orientation="horizontal"
+        android:padding="10dp">
+
         <ImageButton
             android:id="@+id/StudentRegistrationActivity_btn_back"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="7"
-            android:background="@drawable/back_icon">
-        </ImageButton>
+            android:background="@drawable/back_icon" />
 
         <TextView
-            android:layout_weight="1"
-            android:textSize="20dp"
-            android:gravity="center"
-            android:textColor="#FFFFFF"
-            android:textStyle="bold"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="Öğrenci Kaydet">
-        </TextView>
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="Öğrenci Kaydet"
+            android:textColor="#FFFFFF"
+            android:textSize="20dp"
+            android:textStyle="bold" />
 
     </LinearLayout>
 
     <RelativeLayout
         android:id="@+id/body"
-        android:layout_below="@id/header"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_below="@id/header"
         android:background="#F1F9FF">
 
         <TextView
             android:id="@+id/isim"
             android:layout_width="140dp"
             android:layout_height="40dp"
+            android:layout_marginTop="25dp"
             android:background="#FFFFFF"
             android:gravity="center"
             android:text="İsim"
-            android:textColor="#5D7D98"
-            android:layout_marginTop="25dp">
-        </TextView>
+            android:textColor="#5D7D98" />
+
         <EditText
             android:id="@+id/StudentRegistrationActivity_name"
             android:layout_width="match_parent"
             android:layout_height="40dp"
+            android:layout_marginTop="25dp"
             android:layout_toRightOf="@+id/isim"
             android:background="#FFFFFF"
             android:gravity="center"
-            android:textColor="#5D7D98"
-            android:layout_marginTop="25dp">
-        </EditText>
+            android:inputType="textPersonName"
+            android:textColor="#5D7D98" />
 
         <TextView
             android:id="@+id/soyisim"
             android:layout_width="140dp"
             android:layout_height="40dp"
+            android:layout_below="@id/isim"
+            android:layout_marginTop="25dp"
+
             android:background="#FFFFFF"
             android:gravity="center"
-            android:layout_below="@id/isim"
             android:text="Soyisim"
-            android:textColor="#5D7D98"
-            android:layout_marginTop="25dp">
-        </TextView>
+            android:textColor="#5D7D98" />
 
         <EditText
             android:id="@+id/StudentRegistrationActivity_surname"
             android:layout_width="match_parent"
             android:layout_height="40dp"
+            android:layout_below="@+id/StudentRegistrationActivity_name"
             android:layout_marginTop="25dp"
             android:layout_toEndOf="@+id/soyisim"
-            android:layout_below="@+id/StudentRegistrationActivity_name"
             android:background="#FFFFFF"
             android:gravity="center"
-            android:textColor="#5D7D98">
-        </EditText>
+            android:inputType="textPersonName"
+            android:textColor="#5D7D98" />
 
         <TextView
             android:id="@+id/telefon"
             android:layout_width="140dp"
             android:layout_height="40dp"
+            android:layout_below="@id/soyisim"
+            android:layout_marginTop="25dp"
             android:background="#FFFFFF"
             android:gravity="center"
-            android:layout_below="@id/soyisim"
             android:text="E-posta"
-            android:textColor="#5D7D98"
-            android:layout_marginTop="25dp">
-        </TextView>
+            android:textColor="#5D7D98" />
 
         <EditText
             android:id="@+id/StudentRegistrationActivity_email"
             android:layout_width="match_parent"
             android:layout_height="40dp"
+            android:layout_below="@+id/StudentRegistrationActivity_surname"
             android:layout_marginTop="25dp"
             android:layout_toEndOf="@+id/soyisim"
-            android:layout_below="@+id/StudentRegistrationActivity_surname"
             android:background="#FFFFFF"
             android:gravity="center"
-            android:textColor="#5D7D98"> </EditText>
+            android:inputType="textEmailAddress"
+            android:textColor="#5D7D98" />
 
         <TextView
             android:id="@+id/cepTelefon"
             android:layout_width="140dp"
             android:layout_height="40dp"
+            android:layout_below="@id/StudentRegistrationActivity_email"
+            android:layout_marginTop="25dp"
             android:background="#FFFFFF"
             android:gravity="center"
-            android:layout_below="@id/StudentRegistrationActivity_email"
             android:text="Parola"
-            android:textColor="#5D7D98"
-            android:layout_marginTop="25dp">
-        </TextView>
+            android:textColor="#5D7D98" />
 
         <EditText
             android:id="@+id/StudentRegistrationActivity_password"
             android:layout_width="match_parent"
             android:layout_height="40dp"
+            android:layout_below="@+id/StudentRegistrationActivity_email"
             android:layout_marginTop="25dp"
             android:layout_toEndOf="@+id/soyisim"
-            android:layout_below="@+id/StudentRegistrationActivity_email"
             android:background="#FFFFFF"
             android:gravity="center"
             android:inputType="textPassword"
             android:text="12313"
-            android:textColor="#5D7D98"> </EditText>
+            android:textColor="#5D7D98" />
 
 
         <TextView
             android:id="@+id/telefona"
             android:layout_width="140dp"
             android:layout_height="40dp"
+            android:layout_below="@id/StudentRegistrationActivity_password"
+            android:layout_marginTop="25dp"
             android:background="#FFFFFF"
             android:gravity="center"
-            android:layout_below="@id/StudentRegistrationActivity_password"
             android:text="Ev Telefonu"
-            android:textColor="#5D7D98"
-            android:layout_marginTop="25dp">
-        </TextView>
+            android:textColor="#5D7D98" />
 
         <EditText
             android:id="@+id/StudentRegistrationActivity_homeTelephone"
             android:layout_width="match_parent"
             android:layout_height="40dp"
+            android:layout_below="@+id/StudentRegistrationActivity_password"
             android:layout_marginTop="25dp"
             android:layout_toEndOf="@+id/soyisim"
-            android:layout_below="@+id/StudentRegistrationActivity_password"
             android:background="#FFFFFF"
             android:gravity="center"
             android:hint="(232) 555 55 55"
-            android:textColor="#5D7D98"> </EditText>
+            android:inputType="phone"
+            android:maxLength="10"
+            android:textColor="#5D7D98" />
 
         <TextView
             android:id="@+id/cepTelefon"
             android:layout_width="140dp"
             android:layout_height="40dp"
+            android:layout_below="@id/telefona"
+            android:layout_marginTop="25dp"
             android:background="#FFFFFF"
             android:gravity="center"
-            android:layout_below="@id/telefona"
             android:text="Cep Telefonu"
-            android:textColor="#5D7D98"
-            android:layout_marginTop="25dp">
-        </TextView>
+            android:textColor="#5D7D98" />
 
-        <TextView
+        <EditText
             android:id="@+id/StudentRegistrationActivity_cellphone"
             android:layout_width="match_parent"
             android:layout_height="40dp"
+            android:layout_below="@+id/StudentRegistrationActivity_homeTelephone"
             android:layout_marginTop="25dp"
             android:layout_toEndOf="@+id/soyisim"
-            android:layout_below="@+id/StudentRegistrationActivity_homeTelephone"
             android:background="#FFFFFF"
             android:gravity="center"
             android:hint="+90 0555 555 55 55"
-            android:textColor="#5D7D98"> </TextView>
+            android:inputType="phone"
+            android:maxLength="13"
+            android:textColor="#5D7D98" />
+
 
         <TextView
             android:id="@+id/kimlik"
             android:layout_width="140dp"
             android:layout_height="40dp"
+            android:layout_below="@id/cepTelefon"
+            android:layout_marginTop="25dp"
             android:background="#FFFFFF"
             android:gravity="center"
-            android:layout_below="@id/cepTelefon"
             android:text="Kimlik No"
-            android:textColor="#5D7D98"
-            android:layout_marginTop="25dp">
-        </TextView>
+            android:textColor="#5D7D98" />
 
-
-        <TextView
+        <EditText
             android:id="@+id/StudentRegistrationActivity_identityNo"
             android:layout_width="match_parent"
             android:layout_height="40dp"
+            android:layout_below="@+id/StudentRegistrationActivity_cellphone"
             android:layout_marginTop="25dp"
             android:layout_toEndOf="@+id/soyisim"
-            android:layout_below="@+id/StudentRegistrationActivity_cellphone"
             android:background="#FFFFFF"
             android:gravity="center"
-            android:text=""
-            android:textColor="#5D7D98"> </TextView>
+            android:hint="@string/empty"
+            android:inputType="phone"
+            android:maxLength="11"
+            android:textColor="#5D7D98" />
 
 
         <Button
             android:id="@+id/StudentRegistrationActivity_btn_signIn"
-            android:background="#5D7D98"
-            android:textColor="#ffffff"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="50dp"
             android:layout_below="@id/StudentRegistrationActivity_identityNo"
-            android:textSize="15dp"
-            android:textStyle="bold"
+            android:layout_marginTop="50dp"
+            android:background="#5D7D98"
             android:text="Kaydet"
-            > </Button>
+            android:textColor="#ffffff"
+            android:textSize="15dp"
+            android:textStyle="bold" />
     </RelativeLayout>
 
 
