@@ -15,7 +15,11 @@ public class Instructor extends Person {
         this.startTimeStamp = startTimeStamp;
     }
 
-    public boolean isAvailable(Timestamp timestamp){
+    public Instructor() {
+        super();
+    }
+
+    public boolean isAvailable(Timestamp timestamp) {
         return false;
     }
 

@@ -18,6 +18,8 @@ import com.example.dilkursu.views.registrar.RegistrarActivity;
 import com.example.dilkursu.views.student.StudentActivity;
 import com.example.dilkursu.views.teacher.TeacherActivity;
 
+import java.util.LinkedHashSet;
+
 public class SignInActivity extends AppCompatActivity {
 
     private EditText edTxt_email;

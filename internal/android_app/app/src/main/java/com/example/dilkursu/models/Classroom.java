@@ -5,25 +5,46 @@ import java.util.ArrayList;
 
 public class Classroom {
 
-    private int id;
+    private String name;
     private int capacity;
+    private String branchName;
     private ArrayList<Lesson> lessons;
 
-    public Classroom(int capacity) {
+    public Classroom(String name, int capacity, String branchName) {
+        this.name = name;
+        this.capacity = capacity;
+        this.branchName = branchName;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getCapacity() {
+        return capacity;
+    }
+
+    public void setCapacity(int capacity) {
         this.capacity = capacity;
     }
 
-    public static Classroom ClassroomFactory(int id, int capacity, ArrayList<Lesson> lessons){
-        return null;
+    public String getBranchName() {
+        return branchName;
     }
 
-    public static Classroom ClassroomFactory(int id, ArrayList<Integer> lessonIds){
-        return null;
+    public void setBranchName(String branchName) {
+        this.branchName = branchName;
     }
 
-    public boolean isClassOccupied(Timestamp timestamp){
-        return false;
+    public ArrayList<Lesson> getLessons() {
+        return lessons;
     }
 
-
+    public void setLessons(ArrayList<Lesson> lessons) {
+        this.lessons = lessons;
+    }
 }
