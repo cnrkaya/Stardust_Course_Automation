@@ -1,10 +1,12 @@
 package com.example.dilkursu.repository;
 
-import com.example.dilkursu.GlobalConfig;
+import android.util.Log;
+
 import com.example.dilkursu.models.Branch;
 import com.example.dilkursu.models.Classroom;
 import com.example.dilkursu.models.Course;
 import com.example.dilkursu.models.Credential;
+import com.example.dilkursu.models.Login;
 import com.example.dilkursu.models.Person;
 
 import java.sql.CallableStatement;
@@ -17,7 +19,6 @@ public class SqlConnector implements IDataConnection {
 
     private Database database;
     private ResultSet resultSet;
-
 
     public SqlConnector() {
         database = new Database();
@@ -226,6 +227,51 @@ public class SqlConnector implements IDataConnection {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    @Override
+    public void addPerson(Person person) {
+
+        try {
+            CallableStatement callableStatement = database.getConnection().prepareCall("{ CALL addPerson(?, ?, ?, ?, ?, ?, ?) }");
+            callableStatement.setString(1, person.getId());
+            callableStatement.setString(2, person.getFname());
+            callableStatement.setString(3, person.getLname());
+            callableStatement.setArray(4, database.getConnection().createArrayOf("text", new ArrayList[]{person.getPhoneNumbers()}));
+            callableStatement.setArray(5, database.getConnection().createArrayOf("text", new ArrayList[]{person.getHomeNumbers()}));
+            callableStatement.setString(6, person.getAddress());
+            callableStatement.setString(7, ""); //work_addr
+
+            callableStatement.execute();
+
+            callableStatement.close();
+
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    @Override
+    public void addLogin(Login login) {
+
+        try {
+            CallableStatement callableStatement = database.getConnection().prepareCall("{ CALL addLogin(?, ?, ?, ?) }");
+            callableStatement.setString(1, login.getEmail());
+            callableStatement.setString(2, login.getPassword());
+            callableStatement.setString(3, login.getPerson_id());
+            callableStatement.setInt(4, login.getAuthorization_level());
+
+            callableStatement.execute();
+
+            callableStatement.close();
+
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
     }
 
 

@@ -4,6 +4,7 @@ import com.example.dilkursu.models.Branch;
 import com.example.dilkursu.models.Classroom;
 import com.example.dilkursu.models.Course;
 import com.example.dilkursu.models.Credential;
+import com.example.dilkursu.models.Login;
 import com.example.dilkursu.models.Person;
 
 import java.util.ArrayList;
@@ -25,6 +26,10 @@ public interface IDataConnection {
     public Person getPerson(String person_id);
 
     public ArrayList<Classroom> getClassrooms(String branch_name);
+
+    public void addPerson(Person person);
+
+    public void addLogin(Login login);
 
 
 }
