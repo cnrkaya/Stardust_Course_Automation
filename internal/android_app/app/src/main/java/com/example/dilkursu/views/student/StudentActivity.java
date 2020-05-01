@@ -33,17 +33,16 @@ public class StudentActivity extends AppCompatActivity implements View.OnClickLi
     }
 
     private void defineCurrentUser() {
-
         if (GlobalConfig.currentUser == null) {
             GlobalConfig.InitializeCurrentUser(GlobalConfig.UserType.STUDENT);
             Intent intent = getIntent();
             String person_id = intent.getStringExtra("person_id");
 
             GlobalConfig.connection.bindPerson(GlobalConfig.currentUser, person_id);
-            GlobalConfig.currentUser.setBranchName(GlobalConfig.connection.getBranchName(person_id));
-            ((Student) GlobalConfig.currentUser).setGroupNo(GlobalConfig.connection.getCourseId(person_id));
             GlobalConfig.connection.bindCourse(((Student) GlobalConfig.currentUser).getCourse(), ((Student) GlobalConfig.currentUser).getGroupNo());
             GlobalConfig.connection.bindBranch(GlobalConfig.currentUser.getBranch(), GlobalConfig.currentUser.getBranchName());
+
+            ((Student) GlobalConfig.currentUser).setGroupNo(GlobalConfig.connection.getCourseId(person_id));
 
         }
     }
