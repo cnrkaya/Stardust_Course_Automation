@@ -72,9 +72,7 @@ public class Database implements Runnable {
     }
 
     public Connection getConnection() {
-        if (connection == null) {
-            this.connect();
-        }
+        this.connect();
         return connection;
     }
 

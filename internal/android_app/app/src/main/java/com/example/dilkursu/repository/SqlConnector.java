@@ -1,6 +1,8 @@
 package com.example.dilkursu.repository;
 
+import com.example.dilkursu.GlobalConfig;
 import com.example.dilkursu.models.Branch;
+import com.example.dilkursu.models.Classroom;
 import com.example.dilkursu.models.Course;
 import com.example.dilkursu.models.Credential;
 import com.example.dilkursu.models.Person;
@@ -9,6 +11,7 @@ import java.sql.CallableStatement;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Types;
+import java.util.ArrayList;
 
 public class SqlConnector implements IDataConnection {
 
@@ -54,6 +57,98 @@ public class SqlConnector implements IDataConnection {
 
 
         return credential;
+    }
+
+    @Override
+    public Person getPerson(String person_id) {
+
+        Person person = new Person();
+        person.setId(person_id);
+
+        try {
+            PreparedStatement preparedStatement = database.getConnection().prepareStatement("SELECT * FROM PERSON WHERE id = ?");
+            preparedStatement.setString(1, person_id);
+
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                person.setFname(resultSet.getString("fname"));
+                person.setLname(resultSet.getString("lname"));
+                person.setPhoneNumbers(TextProcessor.stringToArray(resultSet.getString("phone_number")));
+                person.setHomeNumbers(TextProcessor.stringToArray(resultSet.getString("home_number")));
+                person.setAddress(resultSet.getString("home_addr"));
+            }
+
+            resultSet.close();
+            preparedStatement.close();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return person;
+    }
+
+    @Override
+    public int getCourseId(String person_id) {
+
+        int course_id = -1;
+        try {
+
+            String query = String.format("SELECT * FROM SALES WHERE customer_id = '%s'", person_id);
+            ResultSet resultSet = database.execute(query);
+            while (resultSet.next()) {
+                course_id = resultSet.getInt("course_id");
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return course_id;
+
+    }
+
+    @Override
+    public ArrayList<Classroom> getClassrooms(String branch_name) {
+
+        ArrayList<Classroom> classrooms = new ArrayList<>();
+
+        try {
+
+            String query = String.format("SELECT * FROM CLASSROOM WHERE branch_name = '%s'", branch_name);
+            ResultSet resultSet = database.execute(query);
+            while (resultSet.next()) {
+                String name = resultSet.getString("name");
+                int capacity = resultSet.getInt("capacity");
+
+                classrooms.add(new Classroom(name, capacity, branch_name));
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return classrooms;
+
+    }
+
+    @Override
+    public String getBranchName(String person_id) {
+
+        String branch_name = null;
+        try {
+
+            String query = String.format("SELECT * FROM WORKS_ON WHERE person_id = '%s'", person_id);
+            ResultSet resultSet = database.execute(query);
+            while (resultSet.next()) {
+                branch_name = resultSet.getString("branch_name");
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return branch_name;
     }
 
     @Override
