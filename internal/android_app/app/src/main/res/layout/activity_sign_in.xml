@@ -129,7 +129,6 @@
         </RelativeLayout>
 
         <ProgressBar
-
             android:id="@+id/SignInActivity_Progressbar"
             style="?android:attr/progressBarStyle"
             android:layout_width="100dp"

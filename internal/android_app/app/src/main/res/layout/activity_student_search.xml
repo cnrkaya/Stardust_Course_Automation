@@ -3,84 +3,100 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <LinearLayout
-        android:id="@+id/header"
-        android:background="#5D7D98"
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="120dp"
-        android:paddingHorizontal="10dp"
-        android:paddingVertical="30dp"
-        android:orientation="horizontal">
-        <ImageButton
-            android:id="@+id/StudentSearchActivity_btn_back"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="6"
-            android:background="@drawable/back_icon">
-        </ImageButton>
-        <TextView
-            android:layout_weight="1"
-            android:textSize="35dp"
-            android:gravity="center"
-            android:textColor="#FFFFFF"
-            android:textStyle="bold"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="Öğrenci Ara">
-        </TextView>
-    </LinearLayout>
+        android:layout_height="match_parent">
 
-    <LinearLayout
-        android:id="@+id/body"
-        android:layout_below="@id/header"
-        android:layout_width="match_parent"
-        android:layout_height="600dp"
-        android:background="#F1F9FF"
-        android:orientation="vertical">
-
-        <TextView
+        <LinearLayout
+            android:id="@+id/header"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="120dp"
             android:background="#5D7D98"
-            android:textSize="17dp"
-            android:text="Öğrenci Kimlik Numarasını Giriniz"
-            android:gravity="center"
-            android:textColor="#FFFFFF"
-            android:textStyle="bold"
-            android:layout_marginTop="150dp">
-        </TextView>
-        <EditText
-            android:id="@+id/StudentSearchActivity_edtTxt_identityNo"
-            android:padding="10dp"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:background="#FFFFFF"
-            android:layout_marginTop="20dp"
-            android:hint="X karakterli öğrenci numarası"> </EditText>
+            android:orientation="horizontal"
+            android:paddingHorizontal="10dp"
+            android:paddingVertical="30dp">
 
-        <TextView
-            android:id="@+id/StudentSearchActivity_edtTxt_errorMessage"
-            android:padding="10dp"
-            android:visibility="invisible"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="70dp"
-            android:gravity="center"
-            android:text="Girilen kimlik numarasına ait öğrenci bulunamadı"
-            android:textColor="#C70039"
-            android:background="#FFFFFF"> </TextView>
-        <Button
-            android:id="@+id/StudentSearchActivity_btn_search"
-            android:text="Ara"
-            android:textColor="#FFFFFF"
-            android:textStyle="bold"
-            android:background="#5D7D98"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            > </Button>
+            <ImageButton
+                android:id="@+id/StudentSearchActivity_btn_back"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="6"
+                android:background="@drawable/back_icon" />
 
-    </LinearLayout>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="Öğrenci Ara"
+                android:textColor="#FFFFFF"
+                android:textSize="35dp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/body"
+            android:layout_width="match_parent"
+            android:layout_height="600dp"
+            android:layout_below="@id/header"
+            android:background="#F1F9FF"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="150dp"
+                android:background="#5D7D98"
+                android:gravity="center"
+                android:text="Öğrenci Kimlik Numarasını Giriniz"
+                android:textColor="#FFFFFF"
+                android:textSize="17dp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/StudentSearchActivity_edtTxt_identityNo"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="20dp"
+                android:background="#FFFFFF"
+                android:hint="11 karakterli öğrenci numarası"
+                android:maxLength="11"
+                android:padding="10dp" />
+
+            <TextView
+                android:id="@+id/StudentSearchActivity_edtTxt_errorMessage"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="70dp"
+                android:background="#FFFFFF"
+                android:gravity="center"
+                android:padding="10dp"
+                android:text="Girilen kimlik numarasına ait öğrenci bulunamadı"
+                android:textColor="#C70039"
+                android:visibility="invisible" />
+
+            <Button
+                android:id="@+id/StudentSearchActivity_btn_search"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:background="#5D7D98"
+                android:text="Ara"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+
+        <ProgressBar
+            android:id="@+id/StudentSearchActivity_Progressbar"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:visibility="invisible" />
+
+    </FrameLayout>
 
 
 </RelativeLayout>
