@@ -84,7 +84,7 @@
         </Button>
         <Button
             android:layout_marginTop="40dp"
-            android:id="@+id/AdminActivity_btn_back"
+            android:id="@+id/AdminAddingActivity_btn_back"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:text="Geri"

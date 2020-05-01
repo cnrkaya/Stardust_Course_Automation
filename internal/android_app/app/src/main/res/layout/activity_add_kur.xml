@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/header"
+        android:background="#5D7D98"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:padding="20dp"
+        android:orientation="horizontal">
+        <ImageButton
+            android:id="@+id/AddKurActivity_btn_back"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="8"
+            android:background="@drawable/back_icon">
+        </ImageButton>
+        <TextView
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="Kur Ekle"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"
+            android:textStyle="bold"> </TextView>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/body"
+        android:layout_below="@id/header"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#F1F9FF"
+        android:orientation="vertical">
+
+        <TextView
+            android:padding="10dp"
+            android:layout_marginTop="30dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textSize="17sp"
+            android:text="Kur Adı"
+            android:textColor="#FFFFFF"
+            android:background="#5D7D98"/>
+        <EditText
+            android:id="@+id/AddKurActivity_edtTxt_KurName"
+            android:padding="10dp"
+            android:layout_marginTop="30dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textSize="17sp"
+            android:textColor="#000000"
+            android:background="#FFFFFF"/>
+        <TextView
+            android:padding="10dp"
+            android:layout_marginTop="30dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textSize="17sp"
+            android:text="Kurs ID numarası"
+            android:textColor="#FFFFFF"
+            android:background="#5D7D98"/>
+
+        <EditText
+            android:id="@+id/AddKurActivity_edtTxt_CourseID"
+            android:padding="10dp"
+            android:layout_marginTop="30dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textSize="17sp"
+            android:textColor="#000000"
+            android:background="#FFFFFF"/>
+
+        <Button
+            android:id="@+id/AddKurActivity_btn_addKur"
+            android:padding="10dp"
+            android:layout_marginTop="30dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textSize="17sp"
+            android:text="Kur Ekle"
+            android:textColor="#FFFFFF"
+            android:background="#5D7D98"/>
+    </LinearLayout>
+
+
+</RelativeLayout>

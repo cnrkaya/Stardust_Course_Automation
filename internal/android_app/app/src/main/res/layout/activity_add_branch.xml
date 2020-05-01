@@ -20,7 +20,7 @@
                 android:id="@+id/AddBranchActivity_btn_back"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_weight="7"
+                android:layout_weight="8"
                 android:background="@drawable/back_icon">
             </ImageButton>
             <TextView
@@ -58,7 +58,6 @@
                 android:layout_toRightOf="@+id/isim"
                 android:background="#FFFFFF"
                 android:gravity="center"
-                android:text="Havza Şubesi"
                 android:textColor="#5D7D98"
                 android:layout_marginTop="50dp">
             </EditText>
@@ -84,7 +83,6 @@
                 android:layout_below="@+id/AddBranchActivity_edtTxt_branchName"
                 android:background="#FFFFFF"
                 android:gravity="center"
-                android:text="Toplu Taşıma"
                 android:textColor="#5D7D98">
             </EditText>
 
@@ -109,8 +107,7 @@
                 android:layout_below="@+id/AddBranchActivity_edtTxt_facilities"
                 android:background="#FFFFFF"
                 android:gravity="center"
-                android:text="41AT Ayazağa-DAvutpaşa"
-                android:textColor="#5D7D98"></EditText>
+                android:textColor="#5D7D98"/>
 
             <TextView
                 android:id="@+id/cepTelefon"
@@ -134,7 +131,6 @@
                 android:layout_below="@+id/AddBranchActivity_edtTxt_publicTransport"
                 android:background="#FFFFFF"
                 android:gravity="center"
-                android:text=""
                 android:textColor="#5D7D98"/>
 
             <TextView
@@ -157,7 +153,6 @@
                 android:layout_below="@+id/AddBranchActivity_edtTxt_privateTransport"
                 android:background="#FFFFFF"
                 android:gravity="center"
-                android:text=""
                 android:textColor="#5D7D98"/>
 
 

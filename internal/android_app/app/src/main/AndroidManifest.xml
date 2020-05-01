@@ -2,8 +2,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.dilkursu">
 
-    <uses-permission android:name="android.permission.INTERNET" />
-
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -11,12 +9,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
+        <activity android:name=".views.other.CourseInfoActivity"></activity>
+        <activity android:name=".views.other.LessonInfoActivity" />
+        <activity android:name=".views.admin.adding.AddCourseActivity" />
+        <activity android:name=".views.admin.adding.AddKurActivity" />
         <activity android:name=".views.admin.AdminDeletingActivity" />
         <activity android:name=".views.admin.AdminAddingActivity" />
         <activity android:name=".views.admin.AdminViewingActivity" />
         <activity android:name=".views.registrar.SellActivity" />
-        <activity android:name=".views.admin.adding.AddLesson3Activity" />
         <activity android:name=".views.admin.adding.AddLesson2Activity" />
         <activity android:name=".views.other.PayActivity" />
         <activity android:name=".views.other.PaymentInfoActivity" />
@@ -24,7 +24,7 @@
         <activity android:name=".views.admin.adding.AddLessonActivity" />
         <activity android:name=".views.admin.adding.AddClassroomActivity" />
         <activity android:name=".views.admin.adding.AddBranchActivity" />
-        <activity android:name=".views.other.ClasroomInfoActivity" />
+        <activity android:name=".views.other.ClassroomInfoActivity" />
         <activity android:name=".views.other.ClassroomListActivity" />
         <activity android:name=".views.other.BranchInfoActivity" />
         <activity android:name=".views.other.BranchListActivity" />
@@ -40,14 +40,13 @@
         <activity android:name=".views.other.SignInActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".views.other.MainActivity">
-
-        </activity>
-
-
+        <activity android:name=".views.other.MainActivity" />
     </application>
+
+    <uses-permission android:name="android.permission.INTERNET" />
 
 </manifest>
