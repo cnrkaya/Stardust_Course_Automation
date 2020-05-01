@@ -35,23 +35,42 @@
             android:background="#5D7D98"
             android:orientation="vertical">
             <LinearLayout
-                android:layout_marginTop="40dp"
+                android:layout_marginTop="30dp"
                 android:layout_width="match_parent"
-                android:layout_height="60dp"
+                android:layout_height="80dp"
                 android:background="#BCE0FD"
                 android:orientation="horizontal">
-
-                <EditText
-                    android:padding="10dp"
-                    android:background="#FFFFFF"
+                <LinearLayout
                     android:layout_weight="1"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:hint="Ders ID"/>
+                    android:background="#DCDCDC"
+                    android:orientation="vertical">
+                    <EditText
+                        android:id="@+id/AdminDeletingActivity_dltLesson_courseID"
+                        android:padding="10dp"
+                        android:background="#FFFFFF"
+                        android:inputType="number"
+                        android:layout_weight="1"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:hint="Kurs ID"/>
+                    <EditText
+                        android:id="@+id/AdminDeletingActivity_dltLesson_lessonName"
+                        android:layout_marginTop="2dp"
+                        android:padding="10dp"
+                        android:background="#FFFFFF"
+                        android:layout_weight="1"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:hint="Ders Adı"/>
+                </LinearLayout>
+
                 <Button
+
                     android:textColor="#3A4E5F"
                     android:background="#BCE0FD"
-                    android:id="@+id/AdminAddingActivity_btn_deleteLesson"
+                    android:id="@+id/AdminDeletingActivity_btn_dltLesson"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -66,16 +85,18 @@
                 android:orientation="horizontal">
 
                 <EditText
+                    android:id="@+id/AdminDeletingActivity_delClassroom_classroomId"
                     android:padding="10dp"
                     android:background="#FFFFFF"
                     android:layout_weight="1"
+                    android:inputType="number"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:hint="Derslik ID"/>
                 <Button
                     android:layout_weight="1"
                     android:textColor="#3A4E5F"
-                    android:id="@+id/AdminAddingActivity_btn_deleteClassroom"
+                    android:id="@+id/AdminDeletingActivity_btn_deleteClassroom"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:text="Derslik Sil"
@@ -85,21 +106,38 @@
             <LinearLayout
                 android:layout_marginTop="40dp"
                 android:layout_width="match_parent"
-                android:layout_height="60dp"
+                android:layout_height="80dp"
                 android:background="#BCE0FD"
                 android:orientation="horizontal">
-
-                <EditText
-                    android:padding="10dp"
-                    android:background="#FFFFFF"
+                <LinearLayout
                     android:layout_weight="1"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:hint="Kur ID"/>
+                    android:background="#DCDCDC"
+                    android:orientation="vertical">
+                    <EditText
+                        android:id="@+id/AdminDeletingActivity_delKur_CourseID"
+                        android:padding="10dp"
+                        android:background="#FFFFFF"
+                        android:layout_weight="1"
+                        android:inputType="number"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:hint="Kurs ID"/>
+                    <EditText
+                        android:id="@+id/AdminDeletingActivity_delKur_kurName"
+                        android:layout_marginTop="2dp"
+                        android:padding="10dp"
+                        android:background="#FFFFFF"
+                        android:layout_weight="1"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:hint="Kur Adı"/>
+                </LinearLayout>
                 <Button
                     android:layout_weight="1"
                     android:textColor="#3A4E5F"
-                    android:id="@+id/AdminAddingActivity_btn_deleteKur"
+                    android:id="@+id/AdminDeletingActivity_btn_deleteKur"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:text="Kur Sil"
@@ -114,16 +152,18 @@
                 android:orientation="horizontal">
 
                 <EditText
+                    android:id="@+id/AdminDeletingActivity_delCourse_CourseID"
                     android:padding="10dp"
                     android:background="#FFFFFF"
                     android:layout_weight="1"
+                    android:inputType="number"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:hint="Kurs ID"/>
                 <Button
                     android:textColor="#3A4E5F"
                     android:layout_weight="1"
-                    android:id="@+id/AdminAddingActivity_btn_deleteCourse"
+                    android:id="@+id/AdminDeletingActivity_btn_deleteCourse"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:text="Kurs Sil "
@@ -138,15 +178,17 @@
                 android:orientation="horizontal">
 
                 <EditText
+                    android:id="@+id/AdminDeletingActivity_delBranch_branchName"
                     android:padding="10dp"
                     android:background="#FFFFFF"
                     android:layout_weight="1"
+                    android:inputType="textPersonName"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:hint="Şube ID"/>
+                    android:hint="Şube Adı"/>
                 <Button
                     android:layout_height="match_parent"
-                    android:id="@+id/AdminAddingActivity_btn_deleteBranch"
+                    android:id="@+id/AdminDeletingActivity_btn_deleteBranch"
                     android:layout_width="match_parent"
                     android:layout_weight="1"
                     android:text="Şube Sil"
@@ -156,10 +198,10 @@
 
             </LinearLayout>
             <Button
-                android:layout_marginTop="40dp"
-                android:id="@+id/AdminActivity_btn_back"
+                android:layout_marginTop="30dp"
+                android:id="@+id/AdminDeletingActivity_btn_back"
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
+                android:layout_height="match_parent"
                 android:text="Geri"
                 android:textColor="#3A4E5F"
                 android:background="#F1F9FF">

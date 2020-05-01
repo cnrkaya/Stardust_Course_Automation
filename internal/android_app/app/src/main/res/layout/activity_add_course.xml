@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/header"
+        android:background="#5D7D98"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:padding="20dp"
+        android:orientation="horizontal">
+        <ImageButton
+            android:id="@+id/AddCourseActivity_btn_back"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="8"
+            android:background="@drawable/back_icon">
+        </ImageButton>
+        <TextView
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="Kur Ekle"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"
+            android:textStyle="bold"> </TextView>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/body"
+        android:layout_below="@id/header"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#F1F9FF"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="60dp"
+            android:background="#5D7D98"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="Kursun Dili"
+            android:textColor="#FFFFFF"
+            android:textSize="17sp" />
+
+        <EditText
+            android:id="@+id/AddCourseActivity_edtTxt_language"
+            android:padding="10dp"
+            android:layout_marginTop="15dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="17sp"
+            android:textColor="#000000"
+            android:hint="zorunlu alan"
+            android:background="#FFFFFF"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:background="#5D7D98"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="Kur Bilgisi"
+            android:textColor="#FFFFFF"
+            android:textSize="17sp" />
+
+        <EditText
+            android:id="@+id/AddCourseActivity_edtTxt_kurName"
+            android:padding="10dp"
+            android:layout_marginTop="15dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="17sp"
+            android:textColor="#000000"
+            android:textStyle="italic"
+            android:hint="Daha sonra girilebilir"
+            android:background="#FFFFFF"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:background="#5D7D98"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="Fiyatı"
+            android:textColor="#FFFFFF"
+            android:textSize="17sp" />
+
+        <EditText
+            android:id="@+id/AddCourseActivity_edtTxt_price"
+            android:padding="10dp"
+            android:layout_marginTop="15dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="zorunlu alan"
+            android:textSize="17sp"
+            android:textColor="#000000"
+            android:background="#FFFFFF"/>
+        <Button
+            android:id="@+id/AddCourseActivity_btn_addCourse"
+            android:padding="15dp"
+            android:layout_marginTop="50dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textSize="17sp"
+            android:text="Kurs Ekle"
+            android:textColor="#FFFFFF"
+            android:background="#5D7D98"/>
+    </LinearLayout>
+
+
+</RelativeLayout>

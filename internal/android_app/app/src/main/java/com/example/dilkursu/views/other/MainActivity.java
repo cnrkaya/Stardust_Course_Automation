@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.example.dilkursu.R;
+import com.example.dilkursu.views.admin.AdminActivity;
 
 public class MainActivity extends AppCompatActivity {
     private EditText tmpActivityName;
@@ -21,9 +22,12 @@ public class MainActivity extends AppCompatActivity {
         tmpActivityName = (EditText)findViewById( R.id.tmp_activityName );
         tmpButon = (Button)findViewById( R.id.tmp_buton );
 
+        Intent intent = new Intent(this, AdminActivity.class);
+        startActivity(intent);
+
         tmpButon.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(View v) {/*
                 String activityToStart;
                 activityToStart = "com.example.dilkursu.";
                 activityToStart += tmpActivityName.getText().toString();
@@ -33,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
                     startActivity(intent);
                 } catch (ClassNotFoundException ignored) {
                 }
-
+*/
 
             }
         });

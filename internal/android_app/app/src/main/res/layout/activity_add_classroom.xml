@@ -9,29 +9,27 @@
 
         <LinearLayout
             android:id="@+id/header"
-            android:padding="10dp"
             android:background="#5D7D98"
             android:layout_width="match_parent"
-            android:layout_height="70dp"
+            android:layout_height="80dp"
+            android:padding="20dp"
             android:orientation="horizontal">
-
+            <ImageButton
+                android:id="@+id/AddClassroomActivity_btn_back"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="8"
+                android:background="@drawable/back_icon">
+            </ImageButton>
             <TextView
                 android:layout_weight="1"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:gravity="center"
-                android:text="Derslik Bilgieri"
+                android:text="Derslik Ekle"
                 android:textColor="#FFFFFF"
-                android:textSize="35dp"
-                android:textStyle="bold"></TextView>
-
-            <ImageButton
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@drawable/save"
-                android:layout_weight="6">
-
-            </ImageButton>
+                android:textSize="20sp"
+                android:textStyle="bold"> </TextView>
         </LinearLayout>
 
         <LinearLayout
@@ -43,18 +41,15 @@
             android:background="#F1F9FF"
             android:orientation="vertical">
 
-            <ListView
-                android:layout_weight="1"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-            </ListView>
             <LinearLayout
+                android:layout_marginTop="40dp"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_weight="3"
+                android:layout_weight="1"
                 android:orientation="vertical">
                 <LinearLayout
-                    android:layout_marginTop="10dp"
+                    android:padding="10dp"
+                    android:layout_marginTop="30dp"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="horizontal"
@@ -62,16 +57,35 @@
                     android:background="#FFFFFF">
 
                     <TextView
+                        android:textColor="#000000"
                         android:layout_marginTop="10dp"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:gravity="center"
-                        android:text="Ders Adı"
+                        android:text="Derslik Adı"
                         >
                     </TextView>
+                    <EditText
+                        android:id="@+id/AddClassroomActivity_edtTxt_classroomName"
+                        android:inputType="textPersonName"
+                        android:layout_marginTop="10dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center"/>
 
+                </LinearLayout>
+                <LinearLayout
+                    android:padding="10dp"
+                    android:layout_marginTop="30dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:layout_weight="1"
+                    android:background="#FFFFFF">
                     <TextView
+                        android:textColor="#000000"
                         android:layout_marginTop="10dp"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
@@ -80,53 +94,49 @@
                         android:text="Kapasite">
                     </TextView>
 
+
+                    <EditText
+                        android:id="@+id/AddClassroomActivity_edtTxt_capacity"
+                        android:inputType="number"
+                        android:layout_marginTop="10dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center">
+                    </EditText>
+
                 </LinearLayout>
-                <LinearLayout
+
+                <TextView
+                    android:textColor="#000000"
+                    android:padding="15dp"
+                    android:background="#FFFFFF"
+                    android:layout_marginTop="30dp"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="horizontal"
-                    android:layout_weight="1"
-                    android:background="#FFFFFF">
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="Şube Seçiniz">
+                </TextView>
+                <Spinner
+                    android:id="@+id/AddClassroomActivity_spinner_branches"
+                    android:layout_weight="1.15"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
 
-                    <EditText
-                        android:layout_marginTop="10dp"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:text="10 - A"
-                        android:gravity="center"
-                        >
-                    </EditText>
-
-                    <EditText
-                        android:layout_marginTop="10dp"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:gravity="center"
-                        android:text="40">
-                    </EditText>
-
-                </LinearLayout>
-
+                </Spinner>
                 <Button
+                    android:id="@+id/AddClassroomActivity_btn_addClassroom"
+                    android:layout_marginTop="50dp"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:background="#5D7D98"
                     android:textColor="#FFFFFF"
-                    android:text="Derslik Ekle">
-
-                </Button>
-
-
+                    android:textStyle="bold"
+                    android:text="Derslik Ekle"/>
             </LinearLayout>
 
-
-
         </LinearLayout>
-
-
 
 
     </RelativeLayout>
