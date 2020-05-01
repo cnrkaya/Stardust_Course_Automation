@@ -26,6 +26,8 @@ public interface IDataConnection {
 
     public Person getPerson(String person_id);
 
+    public Student getStudent(String person_id) throws Exception;
+
     public ArrayList<Classroom> getClassrooms(String branch_name);
 
     public void addPerson(Person person) throws Exception;

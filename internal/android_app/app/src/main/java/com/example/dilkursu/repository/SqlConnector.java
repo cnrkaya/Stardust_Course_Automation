@@ -295,7 +295,27 @@ public class SqlConnector implements IDataConnection {
 
         return userType;
     }
-    
+
+    @Override
+    public Student getStudent(String person_id) throws Exception {
+
+        Student student = new Student();
+        bindPerson(student, person_id);
+
+        try {
+            student.setBranchName(GlobalConfig.connection.getBranchName(person_id));
+        } catch (Exception e) {
+            student.setBranchName("");
+        }
+
+        GlobalConfig.connection.bindPerson(student, person_id);
+        GlobalConfig.connection.bindCourse(student.getCourse(), student.getGroupNo());
+        GlobalConfig.connection.bindBranch(student.getBranch(), student.getBranchName());
+
+        student.setGroupNo(GlobalConfig.connection.getCourseId(person_id));
+
+        return student;
+    }
 
 
 }
