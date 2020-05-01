@@ -1,6 +1,12 @@
 <resources>
     <string name="app_name">DilKursu</string>
     <string name="empty" />
+    <string name="giri_yap">Giriş Yap</string>
+    <string name="ubelerimiz">Şubelerimiz</string>
+    <string name="e_er_bir_hesab_n_z_yoksa_kay_t_olabilece_iniz_ubelerin_listesi_i_in_a_a_ya_t_klay_n_z">Eğer bir hesabınız yoksa kayıt olabileceğiniz şubelerin listesi için aşağıya tıklayınız</string>
+    <string name="arrow">→</string>
+    <string name="parola">Parola</string>
+    <string name="e_mail">E-mail</string>
 
     <string-array name="my_header_title">
         <item></item>
