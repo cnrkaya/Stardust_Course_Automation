@@ -37,6 +37,7 @@
         <activity android:name=".views.teacher.TeacherActivity" />
         <activity android:name=".views.student.StudentActivity" />
         <activity android:name=".views.student.ClassesActivity" />
+        <activity android:name=".views.registrar.StudentInfoActivity" />
         <activity android:name=".views.other.SignInActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
