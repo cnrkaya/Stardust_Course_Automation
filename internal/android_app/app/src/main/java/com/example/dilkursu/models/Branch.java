@@ -15,6 +15,89 @@ public class Branch {
     private ArrayList<Course> courses;
     private EducationAcademy educationAcademy;
 
+    public Branch() {
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public ArrayList<String> getPhoneNumbers() {
+        return phoneNumbers;
+    }
+
+    public void setPhoneNumbers(ArrayList<String> phoneNumbers) {
+        this.phoneNumbers = phoneNumbers;
+    }
+
+    public ArrayList<String> getFaxNumbers() {
+        return faxNumbers;
+    }
+
+    public void setFaxNumbers(ArrayList<String> faxNumbers) {
+        this.faxNumbers = faxNumbers;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public ArrayList<String> getPublicTransports() {
+        return publicTransports;
+    }
+
+    public void setPublicTransports(ArrayList<String> publicTransports) {
+        this.publicTransports = publicTransports;
+    }
+
+    public ArrayList<String> getPrivateTransports() {
+        return privateTransports;
+    }
+
+    public void setPrivateTransports(ArrayList<String> privateTransports) {
+        this.privateTransports = privateTransports;
+    }
+
+    public ArrayList<String> getFacilities() {
+        return facilities;
+    }
+
+    public void setFacilities(ArrayList<String> facilities) {
+        this.facilities = facilities;
+    }
+
+    public ArrayList<Classroom> getClassrooms() {
+        return classrooms;
+    }
+
+    public void setClassrooms(ArrayList<Classroom> classrooms) {
+        this.classrooms = classrooms;
+    }
+
+    public ArrayList<Course> getCourses() {
+        return courses;
+    }
+
+    public void setCourses(ArrayList<Course> courses) {
+        this.courses = courses;
+    }
+
+    public EducationAcademy getEducationAcademy() {
+        return educationAcademy;
+    }
+
+    public void setEducationAcademy(EducationAcademy educationAcademy) {
+        this.educationAcademy = educationAcademy;
+    }
+
     public Branch(String name, ArrayList<String> phoneNumbers, ArrayList<String> faxNumbers, String address, ArrayList<String> publicTransports, ArrayList<String> privateTransports, ArrayList<String> facilities, ArrayList<Classroom> classrooms, ArrayList<Course> courses, EducationAcademy educationAcademy) {
         this.name = name;
         this.phoneNumbers = phoneNumbers;
@@ -37,15 +120,15 @@ public class Branch {
 
     }
 
-    public static Branch BranchFactory(String name, ArrayList<String> phoneNumbers, ArrayList<String> faxNumbers, String address, ArrayList<String> publicTransports, ArrayList<String> privateTransports, ArrayList<String> facilities, ArrayList<Classroom> classrooms, ArrayList<Course> courses, EducationAcademy educationAcademy){
+    public static Branch BranchFactory(String name, ArrayList<String> phoneNumbers, ArrayList<String> faxNumbers, String address, ArrayList<String> publicTransports, ArrayList<String> privateTransports, ArrayList<String> facilities, ArrayList<Classroom> classrooms, ArrayList<Course> courses, EducationAcademy educationAcademy) {
         return null;
     }
 
-    public boolean addClassroom(Classroom classroom){
+    public boolean addClassroom(Classroom classroom) {
         return false;
     }
 
-    public ArrayList<Instructor> availableInstructors(){
+    public ArrayList<Instructor> availableInstructors() {
         return null;
     }
 
@@ -64,4 +147,5 @@ public class Branch {
                 ", educationAcademy=" + educationAcademy +
                 '}';
     }
+
 }

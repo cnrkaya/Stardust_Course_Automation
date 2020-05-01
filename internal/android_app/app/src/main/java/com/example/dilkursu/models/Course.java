@@ -7,29 +7,55 @@ public class Course {
     private int id;
     private String name;
     private String language;
-    private int price;
+    private float price;
     private ArrayList<Lesson> lessons;
     private ArrayList<Person> persons;
 
-    public Course(String name, String language, int price) {
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
         this.name = name;
+    }
+
+    public String getLanguage() {
+        return language;
+    }
+
+    public void setLanguage(String language) {
         this.language = language;
+    }
+
+    public float getPrice() {
+        return price;
+    }
+
+    public void setPrice(float price) {
         this.price = price;
     }
 
-    private Course(){
-
+    public ArrayList<Lesson> getLessons() {
+        return lessons;
     }
 
-    public static Course CourseFactory(int id, String name, String language, int price){
-        Course course = new Course();
-        course.id = id;
-        course.name=name;
-        course.price=price;
-        course.language=language;
-
-        return course;
+    public void setLessons(ArrayList<Lesson> lessons) {
+        this.lessons = lessons;
     }
 
+    public ArrayList<Person> getPersons() {
+        return persons;
+    }
 
+    public void setPersons(ArrayList<Person> persons) {
+        this.persons = persons;
+    }
 }
