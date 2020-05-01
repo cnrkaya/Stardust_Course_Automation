@@ -21,14 +21,16 @@ public class Person {
         this.address = address;
         this.id = id;
         this.branchName = branchName;
-    }
 
-    public Person PersonFactory(String fname, String lname, ArrayList<String> phoneNumbers, ArrayList<String> homeNumbers, String address, String id, String branchName) {
-        return null;
+        branch = new Branch();
+        phoneNumbers = new ArrayList<>();
+        homeNumbers = new ArrayList<>();
     }
 
     public Person() {
         branch = new Branch();
+        phoneNumbers = new ArrayList<>();
+        homeNumbers = new ArrayList<>();
     }
 
     public String getFname() {
