@@ -335,7 +335,16 @@ CREATE FUNCTION getListOfPaymentsToBeMade(personId)
 ------
 CREATE FUNCTION getLastPayDate(personId_in)
 
-
-
-
+CREATE OR REPLACE FUNCTION public.checkUserCredentials(
+	IN email LOGIN.email%TYPE, 
+	IN password LOGIN.password%TYPE,
+	OUT person_id LOGIN.person_id%TYPE,
+	OUT authorization_level LOGIN.authorization_level%TYPE
+) AS $$
+BEGIN
+	SELECT l.person_id, l.authorization_level INTO person_id, authorization_level 
+	FROM LOGIN loglin 
+	WHERE l.email = email AND l.password = password;
+END;
+$$ LANGUAGE plpgsql; 
 
