@@ -377,3 +377,14 @@ BEGIN
 	RETURN person_id;
 END;
 $$ LANGUAGE plpgsql;
+
+CREATE OR REPLACE FUNCTION public.getUserType(
+	IN id LOGIN.person_id%TYPE,
+	OUT authLevel LOGIN.authorization_level%TYPE
+) RETURNS INTEGER AS $$
+BEGIN
+	SELECT authorization_level INTO authLevel
+	FROM LOGIN
+	WHERE person_id = id;
+END;
+$$ LANGUAGE plpgsql; 
