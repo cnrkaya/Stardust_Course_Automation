@@ -348,3 +348,32 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql; 
 
+
+CREATE OR REPLACE FUNCTION public.addPerson(
+	IN person_id PERSON.id%TYPE,
+	IN fname PERSON.fname%TYPE,
+	IN lname PERSON.lname%TYPE,
+	IN phone_number PERSON.phone_number%TYPE,
+	IN home_number PERSON.home_number%TYPE,
+	IN home_addr PERSON.home_addr%TYPE,
+	IN work_addr PERSON.work_addr%TYPE
+) RETURNS PERSON.id%TYPE AS $$
+BEGIN
+	INSERT INTO Person (id, fname, lname, phone_number, home_number, home_addr, work_addr)
+	VALUES (person_id, fname, lname, phone_number, home_number, home_addr, work_addr);
+	RETURN person_id;
+END;
+$$ LANGUAGE plpgsql; 
+
+CREATE OR REPLACE FUNCTION public.addLogin(
+	IN email LOGIN.email%TYPE,
+	IN password LOGIN.password%TYPE,
+	IN person_id LOGIN.person_id%TYPE,
+	IN authorization_level LOGIN.authorization_level%TYPE
+) RETURNS LOGIN.person_id%TYPE AS $$
+BEGIN
+	INSERT INTO LOGIN (email, password, person_id, authorization_level)
+	VALUES (email, password, person_id, authorization_level);
+	RETURN person_id;
+END;
+$$ LANGUAGE plpgsql;
