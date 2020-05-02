@@ -43,14 +43,15 @@
 
             <!-- TODO: Relocate the progress bar -->
             <ProgressBar
+                android:layout_marginTop="30dp"
                 android:id="@+id/AddBranchActivity_ProgressBar"
                 style="?android:attr/progressBarStyle"
-                android:layout_width="100dp"
-                android:layout_height="match_parent"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
                 android:layout_gravity="center"
                 android:visibility="invisible" />
-
             <TextView
+
                 android:id="@+id/isim"
                 android:layout_width="140dp"
                 android:layout_height="40dp"
@@ -58,6 +59,7 @@
                 android:gravity="center"
                 android:text="Şube İsmi"
                 android:textColor="#FFFFFF"
+                android:layout_below="@+id/AddBranchActivity_ProgressBar"
                 android:layout_marginTop="50dp">
             </TextView>
             <EditText
@@ -68,6 +70,7 @@
                 android:background="#FFFFFF"
                 android:gravity="center"
                 android:textColor="#5D7D98"
+                android:layout_below="@+id/AddBranchActivity_ProgressBar"
                 android:layout_marginTop="50dp">
             </EditText>
 
