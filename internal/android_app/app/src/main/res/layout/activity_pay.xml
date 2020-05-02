@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:fillViewport="true"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
     <LinearLayout
         android:id="@+id/header"
@@ -15,7 +18,7 @@
             android:id="@+id/PayActivity_btn_back"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="7"
+            android:layout_weight="8"
             android:background="@drawable/back_icon">
         </ImageButton>
         <TextView
@@ -42,7 +45,7 @@
         <TextView
             android:id="@+id/PayActivity_unpaidAmount"
             android:textColor="#5D7D98"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="10dp"
             android:textSize="30sp"
             android:gravity="center"
             android:layout_width="match_parent"
@@ -59,7 +62,7 @@
             android:background="#FFFFFF"
             android:padding="10dp"
             android:layout_width="match_parent"
-            android:layout_height="75dp"
+            android:layout_height="65dp"
             android:orientation="horizontal">
             <EditText
                 android:id="@+id/PayActivity_cardNo"
@@ -119,16 +122,43 @@
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:text="917"> </EditText>
+
+        <RadioGroup
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <RadioButton
+                android:id="@+id/PayActivity_rBtn_installment"
+                android:text="Taksitli"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+            </RadioButton>
+            <RadioButton
+                android:text="Peşin"
+                android:checked="true"
+                android:id="@+id/PayActivity_rBtn_cash"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+            </RadioButton>
+
+        </RadioGroup>
         <TextView
+            android:id="@+id/PayActivity_tv_installmentHeader"
+            android:visibility="invisible"
             android:layout_marginTop="20dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="#5D7D98"
-            android:text="Taksit Sayısı"> </TextView>
+            android:text="Taksit Sayısı"/>
+
         <Spinner
+            android:visibility="invisible"
             android:id="@+id/PayActivity_spinner_installmentsNum"
             android:layout_width="match_parent"
-            android:layout_height="50dp"></Spinner>
+            android:layout_height="50dp"/>
 
     </LinearLayout>
 
@@ -143,3 +173,4 @@
     </Button>
 
 </RelativeLayout>
+</ScrollView>
