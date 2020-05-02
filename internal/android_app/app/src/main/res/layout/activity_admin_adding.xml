@@ -55,15 +55,7 @@
 
 
 
-        <Button
-            android:textColor="#3A4E5F"
-            android:layout_marginTop="40dp"
-            android:id="@+id/AdminAddingActivity_btn_addKur"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:text="Kur Ekle"
-            android:background="#BCE0FD">
-        </Button>
+
         <Button
             android:textColor="#3A4E5F"
             android:layout_marginTop="40dp"
@@ -91,6 +83,20 @@
             android:textColor="#3A4E5F"
             android:background="#F1F9FF">
         </Button>
+        <Button
+            android:clickable="false"
+            android:focusable="false"
+            android:visibility="invisible"
+            android:textColor="#3A4E5F"
+            android:layout_marginTop="40dp"
+            android:id="@+id/AdminAddingActivity_btn_addKur"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:text="Kur Ekle"
+            android:background="#BCE0FD">
+        </Button>
+
+
 
     </LinearLayout>
 
