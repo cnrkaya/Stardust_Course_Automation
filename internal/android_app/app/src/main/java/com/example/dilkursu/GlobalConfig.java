@@ -1,5 +1,7 @@
 package com.example.dilkursu;
 
+import android.util.Log;
+
 import com.example.dilkursu.models.AcademyAdmin;
 import com.example.dilkursu.models.Branch;
 import com.example.dilkursu.models.Classroom;
@@ -24,6 +26,8 @@ public class GlobalConfig {
     public static Person currentUser = null;
     private static ArrayList<Branch> branches = null;
     private static ArrayList<Classroom> classrooms = null;
+
+    public static UserType currentUserType;
 
     public enum UserType {
         STUDENT,
@@ -52,7 +56,7 @@ public class GlobalConfig {
     }
 
     public static void InitializeCurrentUser(UserType userType) {
-
+        currentUserType = userType;
         switch (userType) {
             case STUDENT:
                 currentUser = new Student();

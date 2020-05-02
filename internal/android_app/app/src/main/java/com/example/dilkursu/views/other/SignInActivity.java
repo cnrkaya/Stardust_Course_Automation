@@ -134,6 +134,7 @@ public class SignInActivity extends AppCompatActivity {
                 if (intent != null) {
                     intent.putExtra("person_id", credential.getPerson_id());
                     startActivity(intent);
+
                 }
 
             }

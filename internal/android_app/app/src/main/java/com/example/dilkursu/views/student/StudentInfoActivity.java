@@ -72,8 +72,6 @@ public class StudentInfoActivity extends AppCompatActivity implements View.OnCli
         Branch.setText(((Student) GlobalConfig.currentUser).getBranchName());
         IdentityNo.setText(((Student) GlobalConfig.currentUser).getId());
         Kur.setText(((Student) GlobalConfig.currentUser).getCourse().getName());
-
-
     }
 
     @Override

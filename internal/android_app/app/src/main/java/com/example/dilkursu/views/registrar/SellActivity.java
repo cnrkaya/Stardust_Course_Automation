@@ -1,13 +1,14 @@
 package com.example.dilkursu.views.registrar;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -15,6 +16,7 @@ import com.example.dilkursu.GlobalConfig;
 import com.example.dilkursu.R;
 import com.example.dilkursu.models.Branch;
 import com.example.dilkursu.models.Course;
+import com.example.dilkursu.views.other.PayActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,27 +29,28 @@ public class SellActivity extends AppCompatActivity implements View.OnClickListe
     private Button BtnNext;
     private Branch selectedBranch;
     private float price;
+    private EditText studentId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sell);
 
-        findViews();
+        defineVariables();
         initViews();
         defineListeners();
 
     }
 
-    private void findViews() {
+    private void defineVariables() {
         SpinnerBranches = (Spinner) findViewById(R.id.SellActivity_spinner_branches);
         SpinnerCourses = (Spinner) findViewById(R.id.SellActivity_spinner_courses);
         SpinnerKur = (Spinner) findViewById(R.id.SellActivity_spinner_kur);
         TvAmount = (TextView) findViewById(R.id.SellActivity_tv_amount);
         BtnNext = (Button) findViewById(R.id.SellActivity_btn_next);
-
-        BtnNext.setOnClickListener(this);
+        studentId = findViewById(R.id.SellActivity_edtTxt_studentID);
     }
+
 
     private void initViews() {
         List<String> branchNames = new ArrayList<>();
@@ -65,6 +68,7 @@ public class SellActivity extends AppCompatActivity implements View.OnClickListe
         SpinnerBranches.setOnItemSelectedListener(this);
         SpinnerCourses.setOnItemSelectedListener(this);
         SpinnerKur.setOnItemSelectedListener(this);
+        BtnNext.setOnClickListener(this);
 
     }
 
@@ -73,6 +77,9 @@ public class SellActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
         if (v == BtnNext) {
             // Handle clicks for BtnNext
+            Intent intent = new Intent(getApplicationContext(), PayActivity.class);
+            intent.putExtra("studentId", studentId.getText().toString());
+            startActivity(intent);
         }
     }
 
