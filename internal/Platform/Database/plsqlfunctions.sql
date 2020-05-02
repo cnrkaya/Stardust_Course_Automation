@@ -64,13 +64,13 @@ END;
 $$ LANGUAGE plpgsql; 
 -------
 
-CREATE FUNCTION addBranch(name_in char, phone_number_in text[], fax_in text[], address_in text, public_transport_in text[], private_transport_in text[], facilties_in text[], academy_name_in text)
+CREATE OR REPLACE FUNCTION addBranch(name_in varchar(31), phone_number_in text[], fax_in text[], address_in text, public_transport_in text[], private_transport_in text[], facilities_in text[])
 
 RETURNS VOID AS $$
 BEGIN
 
-INSERT INTO Branch(name, phone_number, fax, address, public_transport, private_transport, facilities, academy_name)
-VALUES(name_in, phone_number_in, fax_in, address_in, public_transport_in, private_transport_in, facilities_in, academy_name_in);
+INSERT INTO Branch(name, phone_number, fax, address, public_transport, private_transport, facilities)
+VALUES(name_in, phone_number_in, fax_in, address_in, public_transport_in, private_transport_in, facilities_in);
 END;
 $$ LANGUAGE plpgsql; 
 ------
