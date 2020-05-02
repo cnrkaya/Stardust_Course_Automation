@@ -2,8 +2,7 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fillViewport="true"
-    >
+    android:fillViewport="true">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -14,10 +13,10 @@
             android:background="#5D7D98"
             android:layout_width="match_parent"
             android:layout_height="130dp"
-            android:padding="30dp"
+            android:padding="35dp"
             android:orientation="horizontal">
             <ImageButton
-                android:id="@+id/ClasroomInfoActivity_btn_back"
+                android:id="@+id/ClassroomInfoActivity_btn_back"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="5"
@@ -28,7 +27,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:gravity="center"
-                android:text="10-A Dersliği"
+                android:text="Derslik Bilgileri"
                 android:textColor="#FFFFFF"
                 android:textSize="30dp"
                 android:textStyle="bold"> </TextView>
@@ -39,62 +38,115 @@
             android:padding="10dp"
             android:layout_below="@id/header"
             android:layout_width="match_parent"
-            android:layout_height="600dp"
+            android:layout_height="match_parent"
             android:background="#F1F9FF"
             android:orientation="vertical">
+
+                <ImageView
+                    android:layout_marginTop="15dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/classroom">
+
+                </ImageView>
             <LinearLayout
-                android:layout_weight="1"
+                android:layout_marginTop="40dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp">
-                <ListView
+                android:background="#5D7D98"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_marginHorizontal="5dp"
+                    android:layout_marginVertical="5dp"
+                    android:layout_weight="2"
+                    android:padding="10dp"
+                    android:background="#d8f1f8"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-                </ListView>
-            </LinearLayout>
-            <LinearLayout
-                android:layout_weight="1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp">
-                <ListView
+                    android:text="Ad"
+                    android:textStyle="bold"
+                    android:textSize="20sp"
+                    android:textColor="#5D7D98"
+                    android:layout_height="wrap_content">
+                </TextView>
+                <TextView
+                    android:id="@+id/ClassroomInfoActivity_classroomName"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:padding="10dp"
+                    android:background="#d8f1f8"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-                </ListView>
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:textColor="#5D7D98"
+                    android:layout_height="wrap_content">
+                </TextView>
             </LinearLayout>
 
             <LinearLayout
-                android:layout_weight="1"
+                android:layout_marginTop="20dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp">
-                <ListView
+                android:background="#5D7D98"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_marginHorizontal="5dp"
+                    android:layout_marginVertical="5dp"
+                    android:layout_weight="2"
+                    android:padding="10dp"
+                    android:background="#d8f1f8"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-                </ListView>
+                    android:text="Kapasite"
+                    android:textStyle="bold"
+                    android:textSize="20sp"
+                    android:textColor="#5D7D98"
+                    android:layout_height="wrap_content">
+                </TextView>
+                <TextView
+                    android:id="@+id/ClassroomInfoActivity_classroomCapacity"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:padding="10dp"
+                    android:background="#d8f1f8"
+                    android:layout_width="match_parent"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:textColor="#5D7D98"
+                    android:layout_height="wrap_content">
+                </TextView>
             </LinearLayout>
-
             <LinearLayout
-                android:layout_weight="1"
+                android:layout_marginTop="20dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp">
-                <ListView
+                android:background="#5D7D98"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_marginHorizontal="5dp"
+                    android:layout_marginVertical="5dp"
+                    android:layout_weight="2"
+                    android:padding="10dp"
+                    android:background="#d8f1f8"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-                </ListView>
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_weight="1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp">
-                <ListView
+                    android:text="Şube"
+                    android:textStyle="bold"
+                    android:textSize="20sp"
+                    android:textColor="#5D7D98"
+                    android:layout_height="wrap_content">
+                </TextView>
+                <TextView
+                    android:id="@+id/ClassroomInfoActivity_classroomBranch"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:padding="10dp"
+                    android:background="#d8f1f8"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-                </ListView>
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:textColor="#5D7D98"
+                    android:layout_height="wrap_content">
+                </TextView>
             </LinearLayout>
         </LinearLayout>
+
     </RelativeLayout>
 </ScrollView>

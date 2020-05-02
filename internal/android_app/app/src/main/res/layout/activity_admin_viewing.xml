@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:fillViewport="true"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <RelativeLayout
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:id="@+id/header"
+            android:background="#F1F9FF"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:orientation="vertical">
+            <TextView
+                android:textSize="15dp"
+                android:gravity="center"
+                android:textColor="#5D7D98"
+                android:textStyle="bold"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="Görüntüleme İşlemleri">
+            </TextView>
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:paddingHorizontal="35dp"
+            android:id="@+id/body2"
+            android:layout_below="@id/header"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#5D7D98"
+            android:orientation="vertical">
+            <LinearLayout
+                android:layout_marginTop="40dp"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:background="#DCDCDC"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="#DCDCDC"
+                    android:orientation="vertical">
+                    <EditText
+                        android:id="@+id/AdminViewingActivity_vLesson_courseID"
+                        android:padding="10dp"
+                        android:inputType="number"
+                        android:background="#FFFFFF"
+                        android:layout_weight="1"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:hint="Kurs ID"/>
+                    <EditText
+                        android:id="@+id/AdminViewingActivity_vLesson_lessonName"
+                        android:layout_marginTop="2dp"
+                        android:padding="10dp"
+                        android:background="#FFFFFF"
+                        android:layout_weight="1"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:hint="Ders Adı"/>
+                </LinearLayout>
+                <Button
+                    android:layout_marginLeft="2dp"
+                    android:textColor="#3A4E5F"
+                    android:background="#BCE0FD"
+                    android:id="@+id/AdminViewingActivity_btn_vLesson"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="Ders Görüntüle">
+                </Button>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_marginTop="40dp"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:background="#BCE0FD"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/AdminViewingActivity_vClassrom_classroomID"
+                    android:padding="10dp"
+                    android:inputType="number"
+                    android:background="#FFFFFF"
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:hint="Derslik ID"/>
+                <Button
+                    android:layout_weight="1"
+                    android:textColor="#3A4E5F"
+                    android:id="@+id/AdminViewingActivity_btn_vClassroom"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="Derslik Görüntüle"
+                    android:background="#BCE0FD">
+                </Button>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_marginTop="40dp"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:background="#BCE0FD"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/AdminViewingActivity_vCourse_courseID"
+                    android:padding="10dp"
+                    android:inputType="number"
+                    android:background="#FFFFFF"
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:hint="Kurs ID"/>
+                <Button
+                    android:textColor="#3A4E5F"
+                    android:layout_weight="1"
+                    android:id="@+id/AdminViewingActivity_btn_vCourse"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="Kurs Görüntüle "
+                    android:background="#BCE0FD">
+                </Button>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_marginTop="40dp"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:background="#BCE0FD"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/AdminViewingActivity_vBranch_branchName"
+                    android:padding="10dp"
+                    android:background="#FFFFFF"
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:hint="Şube Adı"/>
+                <Button
+                    android:layout_height="match_parent"
+                    android:id="@+id/AdminViewingActivity_btn_vBranch"
+                    android:layout_width="match_parent"
+                    android:layout_weight="1"
+                    android:text="Şube Görüntüle"
+                    android:textColor="#3A4E5F"
+                    android:background="#BCE0FD">
+                </Button>
+            </LinearLayout>
+            <Button
+                android:layout_marginTop="60dp"
+                android:id="@+id/AdminViewingActivity_btn_back"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:text="Geri"
+                android:textColor="#3A4E5F"
+                android:background="#F1F9FF">
+            </Button>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+</ScrollView>

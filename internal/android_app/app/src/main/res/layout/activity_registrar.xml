@@ -7,7 +7,7 @@
         android:id="@+id/header"
         android:background="#F1F9FF"
         android:layout_width="match_parent"
-        android:layout_height="65dp"
+        android:layout_height="60dp"
         android:orientation="vertical">
         <TextView
             android:gravity="center"
@@ -24,13 +24,13 @@
         android:id="@+id/body"
         android:layout_below="@id/header"
         android:layout_width="match_parent"
-        android:layout_height="250dp"
+        android:layout_height="220dp"
         android:background="#F1F9FF"
         android:orientation="vertical">
         <ImageView
             android:layout_width="match_parent"
             android:background="@drawable/person"
-            android:layout_height="150dp">
+            android:layout_height="140dp">
         </ImageView>
         <TextView
             android:id="@+id/RegistrarActivity_username"
@@ -64,39 +64,49 @@
         android:background="#5D7D98"
         android:orientation="vertical">
 
-        <Button
-            android:layout_marginTop="40dp"
-            android:id="@+id/RegistrarActivity_btn_searchBranch"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:text="Şube Ara"
-            android:textColor="#5D7D98"
-            android:background="#BCE0FD">
-        </Button>
+
         <Button
             android:textColor="#5D7D98"
             android:layout_marginTop="30dp"
             android:id="@+id/RegistrarActivity_btn_studentRegister"
             android:layout_width="match_parent"
-            android:layout_height="60dp"
+            android:layout_height="50dp"
             android:text="Öğrenci Kaydı"
             android:background="#BCE0FD">
         </Button>
         <Button
-            android:textColor="#5D7D98"
-            android:layout_marginTop="30dp"
             android:id="@+id/RegistrarActivity_btn_stdInfos"
             android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:text="Öğrenci Bilgileri"
+            android:layout_height="50dp"
+            android:layout_marginTop="20dp"
+            android:background="#BCE0FD"
+            android:text="Öğrenci Ara"
+            android:textColor="#5D7D98"/>
+        <Button
+            android:id="@+id/RegistrarActivity_btn_sell"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="20dp"
+            android:background="#BCE0FD"
+            android:text="Kurs Kaydı"
+            android:textColor="#5D7D98"/>
+
+
+        <Button
+            android:layout_marginTop="20dp"
+            android:id="@+id/RegistrarActivity_btn_listBranch"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text="Şube Listesi"
+            android:textColor="#5D7D98"
             android:background="#BCE0FD">
         </Button>
         <Button
             android:textColor="#5D7D98"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="20dp"
             android:id="@+id/RegistrarActivity_btn_logout"
             android:layout_width="match_parent"
-            android:layout_height="60dp"
+            android:layout_height="50dp"
             android:text="oturumu kapat"
             android:background="#BCE0FD">
         </Button>

@@ -1,276 +1,316 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:fillViewport="true"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-
-    <LinearLayout
-        android:padding="10dp"
-        android:id="@+id/header"
-        android:background="#5D7D98"
-        android:layout_width="match_parent"
-        android:layout_height="65dp"
-        android:orientation="horizontal">
-        <ImageButton
-            android:id="@+id/StudentInfoActivity_btn_back"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="4"
-            android:background="@drawable/back_icon">
-        </ImageButton>
-        <TextView
-            android:layout_weight="1"
-            android:textSize="20sp"
-            android:gravity="center"
-            android:textColor="#FFFFFF"
-            android:textStyle="bold"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="Öğrenci Bilgisi">
-        </TextView>
-        <ImageButton
-            android:id="@+id/StudentInfoActivity_btn_edit"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="4"
-            android:background="@drawable/edit">
-        </ImageButton>
-    </LinearLayout>
-
     <RelativeLayout
-        android:id="@+id/body"
-        android:layout_below="@id/header"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="620dp"
-        android:background="#F1F9FF">
+        android:layout_height="match_parent">
 
-        <TextView
-            android:id="@+id/isim"
-            android:layout_width="140dp"
-            android:layout_height="40dp"
+        <LinearLayout
+            android:padding="10dp"
+            android:id="@+id/header"
             android:background="#5D7D98"
-            android:gravity="center"
-            android:text="İsim"
-            android:textColor="#FFFFFF"
-            android:layout_marginTop="25dp">
-        </TextView>
-        <TextView
-            android:id="@+id/StudentInfoActivity_edtTxt_name"
             android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_toRightOf="@+id/isim"
-            android:background="#FFFFFF"
-            android:gravity="center"
-            android:text="Mehmet"
-            android:textColor="#5D7D98"
-            android:layout_marginTop="25dp">
-        </TextView>
+            android:layout_height="65dp"
+            android:orientation="horizontal">
+            <ImageButton
+                android:id="@+id/StudentInfoActivity_btn_back"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="4"
+                android:background="@drawable/back_icon">
+            </ImageButton>
+            <TextView
+                android:layout_weight="1"
+                android:textSize="20sp"
+                android:gravity="center"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="Öğrenci Bilgisi">
+            </TextView>
+            <ImageButton
+                android:id="@+id/StudentInfoActivity_btn_edit"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="4"
+                android:background="@drawable/edit">
+            </ImageButton>
+        </LinearLayout>
 
-        <TextView
-            android:id="@+id/soyisim"
-            android:layout_width="140dp"
-            android:layout_height="40dp"
+        <RelativeLayout
+            android:id="@+id/body"
+            android:layout_below="@id/header"
+            android:layout_width="match_parent"
+            android:layout_height="620dp"
+            android:background="#F1F9FF">
+
+            <TextView
+                android:id="@+id/isim"
+                android:layout_width="140dp"
+                android:layout_height="40dp"
+                android:background="#5D7D98"
+                android:gravity="center"
+                android:text="İsim"
+                android:textColor="#FFFFFF"
+                android:layout_marginTop="25dp">
+            </TextView>
+            <EditText
+                android:id="@+id/StudentInfoActivity_edtTxt_name"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_toRightOf="@+id/isim"
+                android:background="#FFFFFF"
+                android:gravity="center"
+                android:clickable="false"
+                android:focusable="false"
+                android:focusableInTouchMode="false"
+                android:text="Mehmet"
+                android:textColor="#5D7D98"
+                android:layout_marginTop="25dp">
+            </EditText>
+
+            <TextView
+                android:id="@+id/soyisim"
+                android:layout_width="140dp"
+                android:layout_height="40dp"
+                android:background="#5D7D98"
+                android:gravity="center"
+                android:layout_below="@id/isim"
+                android:text="Soyisim"
+                android:textColor="#FFFFFF"
+                android:layout_marginTop="25dp">
+            </TextView>
+
+            <EditText
+                android:id="@+id/StudentInfoActivity_surname"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="25dp"
+                android:layout_toEndOf="@+id/soyisim"
+                android:layout_below="@+id/StudentInfoActivity_edtTxt_name"
+                android:background="#FFFFFF"
+                android:gravity="center"
+                android:clickable="false"
+                android:focusable="false"
+                android:focusableInTouchMode="false"
+                android:text="Soyisim"
+                android:textColor="#5D7D98">
+            </EditText>
+
+            <TextView
+                android:id="@+id/telefon"
+                android:layout_width="140dp"
+                android:layout_height="40dp"
+                android:background="#5D7D98"
+                android:gravity="center"
+                android:layout_below="@id/StudentInfoActivity_surname"
+                android:text="Ev Telefonu"
+                android:textColor="#FFFFFF"
+                android:layout_marginTop="25dp">
+            </TextView>
+
+            <EditText
+                android:id="@+id/StudentInfoActivity_homeTelephone"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="25dp"
+                android:layout_toEndOf="@+id/soyisim"
+                android:layout_below="@+id/StudentInfoActivity_surname"
+                android:background="#FFFFFF"
+                android:gravity="center"
+                android:text="232 555 55 55"
+                android:textColor="#5D7D98"
+                android:clickable="false"
+                android:focusable="false"
+                android:focusableInTouchMode="false"/>
+
+            <TextView
+                android:id="@+id/cepTelefon"
+                android:layout_width="140dp"
+                android:layout_height="40dp"
+                android:background="#5D7D98"
+                android:gravity="center"
+                android:layout_below="@id/telefon"
+                android:text="Cep Telefonu"
+                android:textColor="#FFFFFF"
+                android:layout_marginTop="25dp">
+            </TextView>
+
+            <EditText
+                android:id="@+id/StudentInfoActivity_cellPhone"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="25dp"
+                android:layout_toEndOf="@+id/soyisim"
+                android:layout_below="@+id/StudentInfoActivity_homeTelephone"
+                android:background="#FFFFFF"
+                android:gravity="center"
+                android:text="+90 0555 555 55 55"
+                android:textColor="#5D7D98"
+                android:clickable="false"
+                android:focusable="false"
+                android:focusableInTouchMode="false"
+                />
+
+            <TextView
+                android:id="@+id/kurs"
+                android:layout_width="140dp"
+                android:layout_height="40dp"
+                android:background="#5D7D98"
+                android:gravity="center"
+                android:layout_below="@id/cepTelefon"
+                android:text="Kurs"
+                android:textColor="#FFFFFF"
+                android:layout_marginTop="25dp">
+            </TextView>
+
+            <EditText
+                android:id="@+id/StudentInfoActivity_course"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="25dp"
+                android:layout_toEndOf="@+id/soyisim"
+                android:layout_below="@+id/StudentInfoActivity_cellPhone"
+                android:background="#FFFFFF"
+                android:gravity="center"
+                android:text="+90 0555 555 55 55"
+                android:textColor="#5D7D98"
+                android:clickable="false"
+                android:focusable="false"
+                android:focusableInTouchMode="false"/>
+
+            <TextView
+                android:id="@+id/kur"
+                android:layout_width="140dp"
+                android:layout_height="40dp"
+                android:background="#5D7D98"
+                android:gravity="center"
+                android:layout_below="@id/kurs"
+                android:text="Kur"
+                android:textColor="#FFFFFF"
+                android:layout_marginTop="25dp">
+            </TextView>
+
+            <EditText
+                android:id="@+id/StudentInfoActivity_kur"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="25dp"
+                android:layout_toEndOf="@+id/soyisim"
+                android:layout_below="@+id/StudentInfoActivity_course"
+                android:background="#FFFFFF"
+                android:gravity="center"
+                android:text="B2"
+                android:textColor="#5D7D98"
+                android:clickable="false"
+                android:focusable="false"
+                android:focusableInTouchMode="false"/>
+            <TextView
+                android:id="@+id/sube"
+                android:layout_width="140dp"
+                android:layout_height="40dp"
+                android:background="#5D7D98"
+                android:gravity="center"
+                android:layout_below="@id/kur"
+                android:text="Şube"
+                android:textColor="#FFFFFF"
+                android:layout_marginTop="25dp">
+            </TextView>
+
+            <EditText
+                android:id="@+id/StudentInfoActivity_branch"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="25dp"
+                android:layout_toEndOf="@+id/soyisim"
+                android:layout_below="@+id/StudentInfoActivity_kur"
+                android:background="#FFFFFF"
+                android:gravity="center"
+                android:text="şubeadi"
+                android:textColor="#5D7D98"
+                android:clickable="false"
+                android:focusable="false"
+                android:focusableInTouchMode="false"/>
+
+            <TextView
+                android:id="@+id/odemeler"
+                android:layout_width="140dp"
+                android:layout_height="40dp"
+                android:background="#5D7D98"
+                android:gravity="center"
+                android:layout_below="@id/sube"
+                android:text="Ödeme Bilgisi"
+                android:textColor="#FFFFFF"
+                android:layout_marginTop="25dp">
+            </TextView>
+
+            <EditText
+                android:id="@+id/StudentInfoActivity_payments"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="25dp"
+                android:layout_toEndOf="@+id/soyisim"
+                android:layout_below="@+id/StudentInfoActivity_branch"
+                android:background="#FFFFFF"
+                android:gravity="center"
+                android:text="Ödenmemiş Taksit Mevcut"
+                android:textColor="#5D7D98"
+                android:clickable="false"
+                android:focusable="false"
+                android:focusableInTouchMode="false"/>
+            <TextView
+                android:id="@+id/kimlikNo"
+                android:layout_width="140dp"
+                android:layout_height="40dp"
+                android:background="#5D7D98"
+                android:gravity="center"
+                android:layout_below="@id/odemeler"
+                android:text="Kimlik No"
+                android:textColor="#FFFFFF"
+                android:layout_marginTop="25dp">
+            </TextView>
+
+            <EditText
+                android:id="@+id/StudentInfoActivity_identityNo"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="25dp"
+                android:layout_toEndOf="@+id/soyisim"
+                android:layout_below="@+id/StudentInfoActivity_payments"
+                android:background="#FFFFFF"
+                android:gravity="center"
+                android:text="000000000"
+                android:textColor="#5D7D98"
+                android:clickable="false"
+                android:focusable="false"
+                android:focusableInTouchMode="false"/>
+
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/bottom"
+            android:layout_below="@id/body"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:background="#5D7D98"
-            android:gravity="center"
-            android:layout_below="@id/isim"
-            android:text="Soyisim"
-            android:textColor="#FFFFFF"
-            android:layout_marginTop="25dp">
-        </TextView>
+            android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/StudentInfoActivity_surname"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_marginTop="25dp"
-            android:layout_toEndOf="@+id/soyisim"
-            android:layout_below="@+id/StudentInfoActivity_edtTxt_name"
-            android:background="#FFFFFF"
-            android:gravity="center"
-            android:text="Soyisim"
-            android:textColor="#5D7D98">
-        </TextView>
+            <Button
+                android:id="@+id/StudentInfoActivity_btn_saveEdits"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:visibility="invisible"
+                android:clickable="false"
+                android:text="Kaydet"/>
 
-        <TextView
-            android:id="@+id/telefon"
-            android:layout_width="140dp"
-            android:layout_height="40dp"
-            android:background="#5D7D98"
-            android:gravity="center"
-            android:layout_below="@id/StudentInfoActivity_surname"
-            android:text="Ev Telefonu"
-            android:textColor="#FFFFFF"
-            android:layout_marginTop="25dp">
-        </TextView>
-
-        <TextView
-            android:id="@+id/StudentInfoActivity_homeTelephone"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_marginTop="25dp"
-            android:layout_toEndOf="@+id/soyisim"
-            android:layout_below="@+id/StudentInfoActivity_surname"
-            android:background="#FFFFFF"
-            android:gravity="center"
-            android:text="232 555 55 55"
-            android:textColor="#5D7D98"></TextView>
-
-        <TextView
-            android:id="@+id/cepTelefon"
-            android:layout_width="140dp"
-            android:layout_height="40dp"
-            android:background="#5D7D98"
-            android:gravity="center"
-            android:layout_below="@id/telefon"
-            android:text="Cep Telefonu"
-            android:textColor="#FFFFFF"
-            android:layout_marginTop="25dp">
-        </TextView>
-
-        <TextView
-            android:id="@+id/StudentInfoActivity_cellPhone"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_marginTop="25dp"
-            android:layout_toEndOf="@+id/soyisim"
-            android:layout_below="@+id/StudentInfoActivity_homeTelephone"
-            android:background="#FFFFFF"
-            android:gravity="center"
-            android:text="+90 0555 555 55 55"
-            android:textColor="#5D7D98"></TextView>
-
-        <TextView
-            android:id="@+id/kurs"
-            android:layout_width="140dp"
-            android:layout_height="40dp"
-            android:background="#5D7D98"
-            android:gravity="center"
-            android:layout_below="@id/cepTelefon"
-            android:text="Kurs"
-            android:textColor="#FFFFFF"
-            android:layout_marginTop="25dp">
-        </TextView>
-
-        <TextView
-            android:id="@+id/StudentInfoActivity_course"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_marginTop="25dp"
-            android:layout_toEndOf="@+id/soyisim"
-            android:layout_below="@+id/StudentInfoActivity_cellPhone"
-            android:background="#FFFFFF"
-            android:gravity="center"
-            android:text="+90 0555 555 55 55"
-            android:textColor="#5D7D98"></TextView>
-
-        <TextView
-            android:id="@+id/kur"
-            android:layout_width="140dp"
-            android:layout_height="40dp"
-            android:background="#5D7D98"
-            android:gravity="center"
-            android:layout_below="@id/kurs"
-            android:text="Kur"
-            android:textColor="#FFFFFF"
-            android:layout_marginTop="25dp">
-        </TextView>
-
-        <TextView
-            android:id="@+id/StudentInfoActivity_kur"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_marginTop="25dp"
-            android:layout_toEndOf="@+id/soyisim"
-            android:layout_below="@+id/StudentInfoActivity_course"
-            android:background="#FFFFFF"
-            android:gravity="center"
-            android:text="B2"
-            android:textColor="#5D7D98">
-        </TextView>
-        <TextView
-            android:id="@+id/sube"
-            android:layout_width="140dp"
-            android:layout_height="40dp"
-            android:background="#5D7D98"
-            android:gravity="center"
-            android:layout_below="@id/kur"
-            android:text="Şube"
-            android:textColor="#FFFFFF"
-            android:layout_marginTop="25dp">
-        </TextView>
-
-        <TextView
-            android:id="@+id/StudentInfoActivity_branch"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_marginTop="25dp"
-            android:layout_toEndOf="@+id/soyisim"
-            android:layout_below="@+id/StudentInfoActivity_kur"
-            android:background="#FFFFFF"
-            android:gravity="center"
-            android:text="şubeadi"
-            android:textColor="#5D7D98">
-        </TextView>
-
-        <TextView
-            android:id="@+id/odemeler"
-            android:layout_width="140dp"
-            android:layout_height="40dp"
-            android:background="#5D7D98"
-            android:gravity="center"
-            android:layout_below="@id/sube"
-            android:text="Ödeme Bilgisi"
-            android:textColor="#FFFFFF"
-            android:layout_marginTop="25dp">
-        </TextView>
-
-        <TextView
-            android:id="@+id/StudentInfoActivity_payments"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_marginTop="25dp"
-            android:layout_toEndOf="@+id/soyisim"
-            android:layout_below="@+id/StudentInfoActivity_branch"
-            android:background="#FFFFFF"
-            android:gravity="center"
-            android:text="Ödenmemiş Taksit Mevcut"
-            android:textColor="#5D7D98"></TextView>
-        <TextView
-            android:id="@+id/kimlikNo"
-            android:layout_width="140dp"
-            android:layout_height="40dp"
-            android:background="#5D7D98"
-            android:gravity="center"
-            android:layout_below="@id/odemeler"
-            android:text="Kimlik No"
-            android:textColor="#FFFFFF"
-            android:layout_marginTop="25dp">
-        </TextView>
-
-        <TextView
-            android:id="@+id/StudentInfoActivity_identityNo"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_marginTop="25dp"
-            android:layout_toEndOf="@+id/soyisim"
-            android:layout_below="@+id/StudentInfoActivity_payments"
-            android:background="#FFFFFF"
-            android:gravity="center"
-            android:text="000000000"
-            android:textColor="#5D7D98"></TextView>
-
-
+        </LinearLayout>
     </RelativeLayout>
 
-    <LinearLayout
-        android:id="@+id/bottom"
-        android:layout_below="@id/body"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="#5D7D98"
-        android:orientation="vertical">
-
-    </LinearLayout>
-</RelativeLayout>
 
 
+</ScrollView>

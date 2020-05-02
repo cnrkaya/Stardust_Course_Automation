@@ -85,77 +85,7 @@
             android:textColor="#5D7D98">
         </TextView>
 
-        <TextView
-            android:id="@+id/telefon"
-            android:layout_width="140dp"
-            android:layout_height="40dp"
-            android:background="#5D7D98"
-            android:gravity="center"
-            android:layout_below="@id/soyisim"
-            android:text="Ülke"
-            android:textColor="#FFFFFF"
-            android:layout_marginTop="25dp">
-        </TextView>
 
-        <TextView
-            android:id="@+id/BranchInfoActivity_branchCountry"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_marginTop="25dp"
-            android:layout_toEndOf="@+id/soyisim"
-            android:layout_below="@+id/BranchInfoActivity_branchTransportation"
-            android:background="#FFFFFF"
-            android:gravity="center"
-            android:text="Türkiye"
-            android:textColor="#5D7D98"> </TextView>
-
-        <TextView
-            android:id="@+id/cepTelefon"
-            android:layout_width="140dp"
-            android:layout_height="40dp"
-            android:background="#5D7D98"
-            android:gravity="center"
-            android:layout_below="@id/telefon"
-            android:text="İl"
-            android:textColor="#FFFFFF"
-            android:layout_marginTop="25dp">
-        </TextView>
-
-        <TextView
-            android:id="@+id/BranchInfoActivity_branchCity"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_marginTop="25dp"
-            android:layout_toEndOf="@+id/soyisim"
-            android:layout_below="@+id/BranchInfoActivity_branchCountry"
-            android:background="#FFFFFF"
-            android:gravity="center"
-            android:text="İzmir"
-            android:textColor="#5D7D98"></TextView>
-
-        <TextView
-            android:id="@+id/kurs"
-            android:layout_width="140dp"
-            android:layout_height="40dp"
-            android:background="#5D7D98"
-            android:gravity="center"
-            android:layout_below="@id/cepTelefon"
-            android:text="İlçe"
-            android:textColor="#FFFFFF"
-            android:layout_marginTop="25dp">
-        </TextView>
-
-        <TextView
-            android:id="@+id/BranchInfoActivity_branchDistrict"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_marginTop="25dp"
-            android:layout_toEndOf="@+id/soyisim"
-            android:layout_below="@+id/BranchInfoActivity_branchCity"
-            android:background="#FFFFFF"
-            android:gravity="center"
-            android:text="Buca"
-            android:textColor="#5D7D98"></TextView>
 
         <TextView
             android:id="@+id/kur"
@@ -163,7 +93,7 @@
             android:layout_height="40dp"
             android:background="#5D7D98"
             android:gravity="center"
-            android:layout_below="@id/kurs"
+            android:layout_below="@id/BranchInfoActivity_branchTransportation"
             android:text="Adres"
             android:textColor="#FFFFFF"
             android:layout_marginTop="25dp">
@@ -175,7 +105,7 @@
             android:layout_height="40dp"
             android:layout_marginTop="25dp"
             android:layout_toEndOf="@+id/soyisim"
-            android:layout_below="@+id/BranchInfoActivity_branchDistrict"
+            android:layout_below="@+id/BranchInfoActivity_branchTransportation"
             android:background="#FFFFFF"
             android:gravity="center"
             android:text="Kıbrıs Caddesi"
@@ -232,7 +162,7 @@
 
         <Button
             android:id="@+id/BranchInfoActivity_btn_clasrooms"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="130dp"
             android:layout_below="@id/olanaklar"
             android:layout_width="match_parent"
             android:background="#5D7D98"

@@ -1,0 +1,62 @@
+package com.example.dilkursu.views.admin.adding;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ImageButton;
+import android.widget.Spinner;
+import android.widget.Toast;
+
+import com.example.dilkursu.R;
+
+public class AddLesson2Activity extends AppCompatActivity implements View.OnClickListener {
+    private ImageButton BtnBack;
+    private Spinner SpinnerAvailableTeachers;
+    private Spinner SpinnerAvailableClasrooms;
+    private Button BtnComplete;
+
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_add_lesson2);
+
+        findViews();
+    }
+
+    private void findViews() {
+        BtnBack = (ImageButton)findViewById( R.id. AddLesson2Activity_btn_back );
+        SpinnerAvailableTeachers = (Spinner)findViewById( R.id. AddLesson2Activity_spinner_availableTeachers );
+        SpinnerAvailableClasrooms = (Spinner)findViewById( R.id. AddLesson2Activity_spinner_availableClasrooms );
+        BtnComplete = (Button)findViewById( R.id. AddLesson2Activity_btn_complete );
+
+        //TODO Get extras from previous activity
+        //TODO list available teachers and classroom on spinner
+
+        BtnBack.setOnClickListener( this );
+        BtnComplete.setOnClickListener( this );
+    }
+    @Override
+    public void onClick(View v) {
+        if ( v == BtnBack ) {
+            // Handle clicks for BtnBack
+            finish();
+        } else if ( v == BtnComplete ) {
+            // Handle clicks for BtnComplete
+
+            if( addLesson() )
+                Toast.makeText(getApplicationContext(), "Kurs Başarıyla Eklendi" , Toast.LENGTH_LONG).show();
+            else
+                Toast.makeText(getApplicationContext(), "Eklenme Sırasında Hata Oluştu" , Toast.LENGTH_LONG).show();
+        }
+    }
+
+    private boolean addLesson(){
+        //TODO addLesson to db
+        //name , courseid , starthour-finishhour , day
+        //teacherid, classroomid
+        return true;
+    }
+}

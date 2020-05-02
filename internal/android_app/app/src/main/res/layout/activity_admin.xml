@@ -7,7 +7,7 @@
         android:id="@+id/header"
         android:background="#F1F9FF"
         android:layout_width="match_parent"
-        android:layout_height="65dp"
+        android:layout_height="50dp"
         android:orientation="vertical">
         <TextView
             android:textSize="15dp"
@@ -24,7 +24,7 @@
         android:id="@+id/body"
         android:layout_below="@id/header"
         android:layout_width="match_parent"
-        android:layout_height="250dp"
+        android:layout_height="230dp"
         android:background="#F1F9FF"
         android:orientation="vertical">
         <ImageView
@@ -66,29 +66,29 @@
 
         <Button
             android:layout_marginTop="40dp"
-            android:id="@+id/AdminActivity_btn_showBranch"
+            android:id="@+id/AdminActivity_btn_show"
             android:layout_width="match_parent"
             android:layout_height="60dp"
-            android:text="Şube Göster"
+            android:text="Görüntüleme İşlemleri"
             android:textColor="#5D7D98"
             android:background="#BCE0FD">
         </Button>
         <Button
             android:textColor="#5D7D98"
             android:layout_marginTop="30dp"
-            android:id="@+id/AdminActivity_btn_addBranch"
+            android:id="@+id/AdminActivity_btn_add"
             android:layout_width="match_parent"
             android:layout_height="60dp"
-            android:text="Şube ekle"
+            android:text="Ekleme İşlemleri"
             android:background="#BCE0FD">
         </Button>
         <Button
             android:textColor="#5D7D98"
             android:layout_marginTop="30dp"
-            android:id="@+id/AdminActivity_btn_addCourse"
+            android:id="@+id/AdminActivity_btn_delete"
             android:layout_width="match_parent"
             android:layout_height="60dp"
-            android:text="Ders Ekle"
+            android:text="Silme İşlemleri"
             android:background="#BCE0FD">
         </Button>
         <Button

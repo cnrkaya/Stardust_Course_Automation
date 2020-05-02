@@ -1,97 +1,142 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F1F9FF">
+    android:fillViewport="true">
 
-    <LinearLayout
-        android:id="@+id/header"
-        android:background="#5D7D98"
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="65dp"
-        android:orientation="vertical">
-        <TextView
-            android:gravity="center"
-            android:textColor="#FFFFFF"
-            android:textStyle="bold"
+        android:layout_height="wrap_content">
+
+
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="Giriş Yap">
-        </TextView>
-    </LinearLayout>
+            android:background="#F1F9FF">
 
-    <LinearLayout
-        android:layout_marginTop="100dp"
-        android:layout_marginHorizontal="30dp"
-        android:id="@+id/body"
-        android:layout_below="@id/header"
-        android:layout_width="match_parent"
-        android:layout_height="500dp"
-        android:background="#F1F9FF"
-        android:orientation="vertical">
 
-       <TextView
-           android:layout_width="match_parent"
-           android:layout_height="30dp"
-           android:text="İsim Soyisim">
-       </TextView>
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:id="@+id/SignInActivity_edTxt_userName"
-            android:inputType="textPersonName"
-            android:background="#FFFFFF">
-        </EditText>
+            <LinearLayout
+                android:id="@+id/header"
+                android:layout_width="match_parent"
+                android:layout_height="75dp"
+                android:background="#5D7D98"
+                android:orientation="vertical">
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="30dp"
-            android:text="E-mail">
-        </TextView>
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:id="@+id/SignInActivity_edTxt_email"
-            android:inputType="textEmailAddress"
-            android:background="#FFFFFF">
-        </EditText>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="10dp"
+                    android:gravity="center"
+                    android:text="@string/giri_yap"
+                    android:textColor="#F1F9FF"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="30dp"
-            android:text="Parola">
-        </TextView>
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:id="@+id/SignInActivity_edTxt_password"
-            android:inputType="textPassword"
-            android:background="#FFFFFF">
-        </EditText>
+            <LinearLayout
 
-        <Button
-            android:id="@+id/SignInActivity_btn_signIn"
-            android:background="#5D7D98"
-            android:textColor="#ffffff"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="125dp"
-            android:textSize="30dp"
-            android:textStyle="bold"
-            android:text="→"
-            ></Button>
+                android:id="@+id/body"
+                android:layout_width="match_parent"
+                android:layout_height="500dp"
+                android:layout_below="@id/header"
+                android:layout_marginHorizontal="30dp"
+                android:layout_marginTop="100dp"
+                android:background="#F1F9FF"
+                android:orientation="vertical">
 
-    </LinearLayout>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:text="@string/e_mail" />
 
-    <LinearLayout
-        android:id="@+id/bottom"
-        android:layout_below="@id/body"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="#BCE0FD"
-        android:orientation="vertical">
+                <EditText
+                    android:id="@+id/SignInActivity_edTxt_email"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:background="#FFFFFF"
+                    android:inputType="textEmailAddress" />
 
-    </LinearLayout>
-</RelativeLayout>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:text="@string/parola" />
+
+                <EditText
+                    android:id="@+id/SignInActivity_edTxt_password"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:background="#FFFFFF"
+                    android:inputType="textPassword" />
+
+
+                <Button
+                    android:id="@+id/SignInActivity_btn_signIn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="50dp"
+                    android:background="#5D7D98"
+                    android:text="@string/arrow"
+                    android:textColor="#ffffff"
+                    android:textSize="30sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/SignInActivity_txtV_errorMessage"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:background="#FFFFFF"
+                    android:gravity="center"
+                    android:text=""
+                    android:textColor="#985D7D"
+                    android:textStyle="bold"
+                    android:visibility="invisible" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="85dp"
+                    android:background="#FFFFFF"
+                    android:gravity="center"
+                    android:text="@string/e_er_bir_hesab_n_z_yoksa_kay_t_olabilece_iniz_ubelerin_listesi_i_in_a_a_ya_t_klay_n_z"
+                    android:textColor="#5D7D98"
+                    android:textStyle="bold" />
+
+                <Button
+                    android:id="@+id/SignInActivity_btn_branches"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="25dp"
+                    android:layout_marginVertical="10dp"
+                    android:background="#985D7D"
+                    android:text="@string/ubelerimiz"
+                    android:textColor="#DCDCDC"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/bottom"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@id/body"
+                android:background="#BCE0FD"
+                android:orientation="vertical">
+
+            </LinearLayout>
+        </RelativeLayout>
+
+        <ProgressBar
+            android:id="@+id/SignInActivity_Progressbar"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:visibility="invisible" />
+
+    </FrameLayout>
+
+
+</ScrollView>
