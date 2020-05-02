@@ -10,7 +10,9 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.dilkursu.GlobalConfig;
 import com.example.dilkursu.R;
+import com.example.dilkursu.models.Instructor;
 
 public class TeacherInfoActivity extends AppCompatActivity {
     TextView name;
@@ -30,7 +32,9 @@ public class TeacherInfoActivity extends AppCompatActivity {
 
         defineVariables();
         defineListeners();
+        initViews();
     }
+
     public void defineVariables(){
         name = findViewById(R.id.TeacherInfoActivity_name);
         surname = findViewById(R.id.TeacherInfoActivity_surname);
@@ -68,6 +72,17 @@ public class TeacherInfoActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    private void initViews() {
+        name.setText(GlobalConfig.currentUser.getFname());
+        surname.setText(GlobalConfig.currentUser.getLname());
+        homeTelephone.setText(GlobalConfig.currentUser.getHomeNumbers().get(0));
+        cellphone.setText(GlobalConfig.currentUser.getPhoneNumbers().get(0));
+        startDate.setText(((Instructor) GlobalConfig.currentUser).getStartTimeStamp().toString());
+        branch.setText(GlobalConfig.currentUser.getBranchName());
+        // languages.setText(((Instructor) GlobalConfig.currentUser).getKnownLanguages()); //TODO: KnownLanguages is not stored in the database
+        identityNo.setText(GlobalConfig.currentUser.getId());
     }
 
     private boolean updateTeacherInfo() {

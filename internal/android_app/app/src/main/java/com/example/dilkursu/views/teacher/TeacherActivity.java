@@ -7,26 +7,51 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
-import com.example.dilkursu.views.other.BranchInfoActivity;
+import com.example.dilkursu.GlobalConfig;
+import com.example.dilkursu.models.Instructor;
+import com.example.dilkursu.models.Student;
+import com.example.dilkursu.views.student.BranchInfoActivity;
 import com.example.dilkursu.R;
 import com.example.dilkursu.views.other.SignInActivity;
 
 public class TeacherActivity extends AppCompatActivity implements View.OnClickListener {
     TextView edTxt_userName;
-    Button  btn_showBranch;
-    Button  btn_timeTable;
-    Button  btn_myInfos;
-    Button  btn_logout;
+    Button btn_showBranch;
+    Button btn_timeTable;
+    Button btn_myInfos;
+    Button btn_logout;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_teacher);
-
+        defineCurrentUser();
         defineVariables();
         defineListeners();
+        initViews();
     }
-    public void defineVariables(){
+
+    private void defineCurrentUser() {
+        if (GlobalConfig.currentUser == null) {
+            GlobalConfig.InitializeCurrentUser(GlobalConfig.UserType.INSTRUCTOR);
+            Intent intent = getIntent();
+            String person_id = intent.getStringExtra("person_id");
+
+            try {
+                GlobalConfig.currentUser.setBranchName(GlobalConfig.connection.getBranchName(person_id));
+            } catch (Exception e) {
+                GlobalConfig.currentUser.setBranchName("");
+            }
+
+            GlobalConfig.connection.bindPerson(GlobalConfig.currentUser, person_id);
+            GlobalConfig.connection.bindBranch(GlobalConfig.currentUser.getBranch(), GlobalConfig.currentUser.getBranchName());
+
+        }
+    }
+
+    public void defineVariables() {
         edTxt_userName = findViewById(R.id.TeacherActivity_edTxt_userName);
         btn_showBranch = findViewById(R.id.TeacherActivity_btn_showBranch);
         btn_timeTable = findViewById(R.id.TeacherActivity_btn_timeTable);
@@ -34,7 +59,7 @@ public class TeacherActivity extends AppCompatActivity implements View.OnClickLi
         btn_logout = findViewById(R.id.TeacherActivity_btn_logout);
     }
 
-    public void defineListeners(){
+    public void defineListeners() {
         btn_myInfos.setOnClickListener(this);
         btn_timeTable.setOnClickListener(this);
         btn_showBranch.setOnClickListener(this);
@@ -43,20 +68,28 @@ public class TeacherActivity extends AppCompatActivity implements View.OnClickLi
 
     }
 
+    private void initViews() {
+        String userName = String.format("%s %s", GlobalConfig.currentUser.getFname(), GlobalConfig.currentUser.getLname());
+        edTxt_userName.setText(userName);
+    }
+
     @Override
     public void onClick(View v) {
         if (v == btn_showBranch) {
-            // Handle clicks for BtnShowBranch
-            Intent intent = new Intent(getApplicationContext(), BranchInfoActivity.class);
-            intent.putExtra("BranchID","11111"); //TODO get branch id from teacher bracnh
-            startActivity(intent);
+            if (!"".equals(GlobalConfig.currentUser.getBranch().getName())) {
+                // Handle clicks for BtnShowBranch
+                Intent intent = new Intent(getApplicationContext(), BranchInfoActivity.class);
+                startActivity(intent);
+            } else {
+                Toast.makeText(this, "Şube bilgilerinizi görüntülerken hata oluştu.", Toast.LENGTH_LONG).show();
+            }
         } else if (v == btn_timeTable) {
             // Handle clicks for BtnMyPayments
-            Intent intent = new Intent(getApplicationContext(),TeacherTimeTableActivity.class);
+            Intent intent = new Intent(getApplicationContext(), TeacherTimeTableActivity.class);
             startActivity(intent);
         } else if (v == btn_myInfos) {
             // Handle clicks for BtnMyInfos
-            Intent intent = new Intent(getApplicationContext(),TeacherInfoActivity.class);
+            Intent intent = new Intent(getApplicationContext(), TeacherInfoActivity.class);
             startActivity(intent);
         } else if (v == btn_logout) {
             // Handle clicks for BtnLogout
