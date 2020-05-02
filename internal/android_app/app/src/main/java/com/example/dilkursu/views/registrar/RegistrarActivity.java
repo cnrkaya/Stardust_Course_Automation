@@ -38,7 +38,7 @@ public class RegistrarActivity extends AppCompatActivity implements View.OnClick
 
     private void defineCurrentUser() {
         if (GlobalConfig.currentUser == null) {
-            GlobalConfig.InitializeCurrentUser(GlobalConfig.UserType.STUDENT);
+            GlobalConfig.InitializeCurrentUser(GlobalConfig.UserType.REGISTRAR);
             Intent intent = getIntent();
             String person_id = intent.getStringExtra("person_id");
 
