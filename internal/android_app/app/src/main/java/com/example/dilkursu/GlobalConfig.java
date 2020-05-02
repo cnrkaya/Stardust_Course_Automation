@@ -75,6 +75,7 @@ public class GlobalConfig {
     }
 
     public static ArrayList<Branch> getAllBranches() {
+        branches = connection.getAllBranches();
         return branches;
     }
 
