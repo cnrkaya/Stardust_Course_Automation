@@ -166,18 +166,16 @@ LANGUAGE 'plpgsql';
 ------
 CREATE FUNCTION getAvailableInstructors 168b map??//	
 ------
-CREATE FUNCTION addLesson(name_in text, course_no_in int, instructor_id_in char(11), classroom_id_in varchar(20))
+CREATE FUNCTION addLesson(name_in text, course_no_in int, instructor_id_in char(11), classroom_id_in varchar(20), lesson_date_in varchar(20), lesson_ts_in varchar(20))
 RETURNS VOID AS $$
 
 BEGIN
 
-INSERT INTO Lesson (name, course_no, instructor_id, classroom_id)
-VALUES(name_in , course_no_in , instructor_id_in , classroom_id_in);
+INSERT INTO Lesson (name, course_no, instructor_id, classroom_id, lesson_date, lesson_ts)
+VALUES(name_in , course_no_in , instructor_id_in , classroom_id_in, lesson_date_in, lesson_ts_in);
 
 END;
 $$ LANGUAGE plpgsql; 
-
-SELECT * FROM lesson;
 ------
 CREATE TYPE personal_record Person%ROWTYPE;
 CREATE FUNCTION getPersonalDetails (id_in char)
