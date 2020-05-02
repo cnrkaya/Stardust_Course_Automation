@@ -122,11 +122,13 @@ END;
 $$ LANGUAGE plpgsql; 
 
 ------
-CREATE FUNCTION addCourse(id_in int, name varchar, language_in varchar, price_in int)
+CREATE OR REPLACE FUNCTION addCourse(name varchar(15), language_in varchar(15), price_in int)
 RETURNS VOID AS $$
 BEGIN
-INSERT INTO Course(id, name, language_in, price_in)
-VALUES (id_in, name_in, language_in, price_in);
+	
+INSERT INTO Course(name, language, price)
+VALUES (name, language_in, price_in);
+
 END;
 $$ LANGUAGE plpgsql; 
 ------
