@@ -386,8 +386,14 @@ BEGIN
 	SELECT authorization_level INTO authLevel
 	FROM LOGIN
 	WHERE person_id = id;
+	
+	if authLevel IS null then
+      authLevel=-1;
+    end if;
+	
+	
 END;
-$$ LANGUAGE plpgsql; 
+$$ LANGUAGE plpgsql;
 
 
 CREATE OR REPLACE FUNCTION public.getCourses(
