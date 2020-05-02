@@ -41,7 +41,7 @@
             android:layout_height="match_parent"
             android:background="#F1F9FF">
 
-            <!-- Relocate the progress bar -->
+            <!-- TODO: Relocate the progress bar -->
             <ProgressBar
                 android:id="@+id/AddBranchActivity_ProgressBar"
                 style="?android:attr/progressBarStyle"
