@@ -2,7 +2,6 @@ package com.example.dilkursu.views.admin.adding;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
@@ -15,11 +14,6 @@ import android.widget.Toast;
 import com.example.dilkursu.GlobalConfig;
 import com.example.dilkursu.R;
 import com.example.dilkursu.models.Branch;
-import com.example.dilkursu.models.Login;
-import com.example.dilkursu.models.Person;
-import com.example.dilkursu.views.registrar.StudentRegistrationActivity;
-
-import java.util.ArrayList;
 
 public class AddBranchActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -56,10 +50,10 @@ public class AddBranchActivity extends AppCompatActivity implements View.OnClick
     @Override
     public void onClick(View v) {
         if ( v ==  BtnBack ) {
-            // Handle clicks for  BtnBack
+            //TODO: Handle clicks for  BtnBack
             finish();
         } else if ( v == BtnSave) {
-            // Handle clicks for  BtnSave
+            //TODO: Handle clicks for  BtnSave
 
             if( addBranch() )
                 Toast.makeText(getApplicationContext(), "Şube Başarıyla Eklendi" , Toast.LENGTH_LONG).show();
