@@ -388,3 +388,30 @@ BEGIN
 	WHERE person_id = id;
 END;
 $$ LANGUAGE plpgsql; 
+
+
+CREATE OR REPLACE FUNCTION public.getCourses(
+	IN branchName CLASSROOM.branch_name%TYPE
+) RETURNS TABLE 
+	(id COURSE.id%TYPE,
+	language COURSE.language%TYPE,
+	name COURSE.name%TYPE,
+	price COURSE.price%TYPE)
+AS $$
+BEGIN
+
+RETURN QUERY 
+	SELECT *
+	FROM COURSE c 
+	WHERE c.id IN (
+		SELECT course_no
+		FROM LESSON l
+		WHERE classroom_id IN (
+			SELECT c.name
+			FROM CLASSROOM c
+			WHERE c.branch_name=branchName
+		)
+	);
+
+END;
+$$ LANGUAGE plpgsql; 
