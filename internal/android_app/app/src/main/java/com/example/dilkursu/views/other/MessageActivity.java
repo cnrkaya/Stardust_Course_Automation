@@ -10,7 +10,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.dilkursu.GlobalConfig;
 import com.example.dilkursu.R;
+import com.example.dilkursu.views.registrar.RegistrarActivity;
 import com.example.dilkursu.views.student.StudentActivity;
 
 public class MessageActivity extends AppCompatActivity implements View.OnClickListener {
@@ -54,24 +56,28 @@ public class MessageActivity extends AppCompatActivity implements View.OnClickLi
 
 
         //TODO get authorization of current user and return the user' menu
-/*
-        if(userstudent){
-            returnIntent = new Intent(getApplicationContext(), StudentActivity.class);
-        }else if(userteacher){
-            returnIntent = new Intent(getApplicationContext(), TeacherActivity.class);
-        }else if(userregistrar){
-            returnIntent = new Intent(getApplicationContext(), AdminActivity.class);
-        }else if(useradmin){
-            returnIntent = new Intent(getApplicationContext(), RegistrarActivity.class);
 
-*/
-        BtnOkey.setOnClickListener( this );
+        switch (GlobalConfig.currentUserType){
+            case ADMIN:
+                break;
+            case STUDENT:
+                break;
+            case REGISTRAR:
+                returnIntent = new Intent(getApplicationContext(), RegistrarActivity.class);
+                break;
+        }
+
+
+
+
+
+                BtnOkey.setOnClickListener( this );
     }
     @Override
     public void onClick(View v) {
         if ( v == BtnOkey ) {
             // Handle clicks for BtnOkey
-
+            finish();
             //startActivity(returnIntent);
         }
     }

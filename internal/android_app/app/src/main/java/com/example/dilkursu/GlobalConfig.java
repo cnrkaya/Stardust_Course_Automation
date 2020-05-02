@@ -1,5 +1,7 @@
 package com.example.dilkursu;
 
+import android.util.Log;
+
 import com.example.dilkursu.models.AcademyAdmin;
 import com.example.dilkursu.models.Instructor;
 import com.example.dilkursu.models.Person;
@@ -19,6 +21,8 @@ public class GlobalConfig {
     public static IDataConnection connection;
     public static Person currentUser = null;
 
+    public static UserType currentUserType;
+
     public enum UserType {
         STUDENT,
         INSTRUCTOR,
@@ -37,7 +41,8 @@ public class GlobalConfig {
     }
 
     public static void InitializeCurrentUser(UserType userType) {
-
+        currentUserType = userType;
+        Log.i("APP_TEST", cu)
         switch (userType) {
             case STUDENT:
                 currentUser = new Student();
