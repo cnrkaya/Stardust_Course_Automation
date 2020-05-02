@@ -1,11 +1,41 @@
 name,phone_number,fax,address,public_transport,facilities,private_transport
-Madrid,4149334053,4782663169,Madrid,Yes,Cep Sinema,Yok
-Barcelona,4738937166,1517606085,Barcelona,Yes,Açık Spor Salonu,Servis
-Sevilla,1993649352,1086348481,Sevilla,Yes,Yüzme Havuzu,Yok
-Bilbao,1910107563,3786373237,Bilbao,Yes,Kapalı Spor Salonu,Yok
-Valencia,9636624300,1991364905,Valencia,Yes,Cep Sinema,Yok
-Zaragoza,7560551869,3328853410,Zaragoza,Yes,Açık Spor Salonu,Servis
-Málaga,9476811626,7092666783,Málaga,No,Kapalı Spor Salonu,Servis
-Murcia,9747124981,4337175034,Murcia,No,Açık Spor Salonu,Yok
-Granada,3338330279,5635706739,Granada,No,Açık Spor Salonu,Servis
-Vigo,1659815936,0201131365,Vigo,No,Açık Spor Salonu,Servis
+Madrid,5249623943,3227886230,Madrid,Tramvay,Halısaha,Yok
+Barcelona,0014939459,6098560946,Barcelona,Otobüs,Açık Spor Salonu,Servis
+Sevilla,6852386003,2126108000,Sevilla,Minibüs,Halısaha,Yok
+Bilbao,7023603684,0406840810,Bilbao,Tramvay,Yüzme Havuzu,Servis
+Valencia,0582633721,0262414920,Valencia,Tren,Yüzme Havuzu,Otomobil
+Zaragoza,4078081131,1710169337,Zaragoza,Yok,Kapalı Spor Salonu,Otomobil
+Málaga,5913323117,1006696052,Málaga,Tren,Cep Sinema,Servis
+Murcia,8885180465,5183115123,Murcia,Minibüs,Açık Spor Salonu,Servis
+Granada,7097058092,4517290861,Granada,Minibüs,Yüzme Havuzu,Servis
+Vigo,2929483874,1525374784,Vigo,Minibüs,Halısaha,Yok
+Palma,3438822922,5165370969,Palma,Tren,Yüzme Havuzu,Kamyon
+A Coruña,9168345343,3126468472,A Coruña,Otobüs,Cep Sinema,Servis
+Santa María de Gracia,8925387581,9193766193,Santa María de Gracia,Tren,Kapalı Spor Salonu,Servis
+Gijón,5249650097,2138289229,Gijón,Minibüs,Yüzme Havuzu,Servis
+Valladolid,7877935761,3799579024,Valladolid,Yok,Yüzme Havuzu,Servis
+Córdoba,8659905256,4603487504,Córdoba,Tramvay,Halısaha,Kamyon
+Alicante,5465220558,9844372162,Alicante,Tren,Cep Sinema,Otomobil
+Cádiz,2432298890,7052033526,Cádiz,Minibüs,Cep Sinema,Kamyon
+Pamplona,5834970284,0770598450,Pamplona,Minibüs,Kapalı Spor Salonu,Kamyon
+Oviedo,8613159370,4619312836,Oviedo,Tren,Kapalı Spor Salonu,Yok
+Zuazo de Vitoria,4614712455,6590402447,Zuazo de Vitoria,Otobüs,Açık Spor Salonu,Yok
+Santander,2036268232,7120192822,Santander,Tramvay,Kapalı Spor Salonu,Kamyon
+Cartagena,1490464767,0520675222,Cartagena,Tren,Yüzme Havuzu,Servis
+Marbella,0239565335,5994877776,Marbella,Tren,Halısaha,Kamyon
+Mataró,9664683981,3807090164,Mataró,Tramvay,Halısaha,Otomobil
+Almería,7608209472,5898145687,Almería,Otobüs,Cep Sinema,Kamyon
+Burgos,5960674558,2026551001,Burgos,Minibüs,Kapalı Spor Salonu,Otomobil
+Salamanca,6483858648,9363849984,Salamanca,Minibüs,Açık Spor Salonu,Otomobil
+Albacete,1139168811,7707362352,Albacete,Minibüs,Halısaha,Servis
+Huelva,9202713566,5260733089,Huelva,Tramvay,Halısaha,Yok
+Logroño,1497253540,3434566021,Logroño,Minibüs,Cep Sinema,Yok
+Badajoz,6576309804,8208996955,Badajoz,Yok,Yüzme Havuzu,Kamyon
+León,0986485383,9593192003,León,Tramvay,Cep Sinema,Servis
+Tarragona,3908487557,6719610275,Tarragona,Tramvay,Halısaha,Otomobil
+Ourense,3144945498,4168455486,Ourense,Minibüs,Açık Spor Salonu,Yok
+Jaén,8181843190,1592652281,Jaén,Tren,Cep Sinema,Servis
+Algeciras,5760074502,8645244794,Algeciras,Otobüs,Açık Spor Salonu,Yok
+Santiago de Compostela,9534694160,3874248635,Santiago de Compostela,Tren,Halısaha,Yok
+Lorca,9262659527,3007016760,Lorca,Yok,Açık Spor Salonu,Servis
+Toledo,1776221979,8763812333,Toledo,Yok,Cep Sinema,Servis
