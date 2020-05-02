@@ -121,6 +121,17 @@ WHERE name = name_in AND course_no = course_no_in;
 END;
 $$ LANGUAGE plpgsql; 
 
+--  Create a Classroom
+CREATE OR REPLACE FUNCTION addClassroom(name varchar(20), capacity int, branch_name varchar(31))
+RETURNS VOID AS $$
+BEGIN
+	
+INSERT INTO Classroom(name, capacity, branch_name)
+VALUES (name, capacity, branch_name);
+
+END;
+$$ LANGUAGE plpgsql; 
+
 ------
 CREATE OR REPLACE FUNCTION addCourse(name varchar(15), language_in varchar(15), price_in int)
 RETURNS VOID AS $$
