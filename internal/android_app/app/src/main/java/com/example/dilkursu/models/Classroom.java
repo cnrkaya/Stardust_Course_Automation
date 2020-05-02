@@ -14,6 +14,7 @@ public class Classroom {
         this.name = name;
         this.capacity = capacity;
         this.branchName = branchName;
+        this.lessons = new ArrayList<Lesson>();
     }
 
     public String getName() {

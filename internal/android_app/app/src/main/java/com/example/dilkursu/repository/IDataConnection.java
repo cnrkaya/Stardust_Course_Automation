@@ -43,4 +43,6 @@ public interface IDataConnection {
     void addBranch(Branch branch);
 
     void addCourse(Course course);
+
+    void addClassroom(Classroom classroom);
 }

@@ -399,6 +399,23 @@ public class SqlConnector implements IDataConnection {
         }
     }
 
+
+    @Override
+    public void addClassroom(Classroom classroom) {
+        Connection conn = database.getConnection();
+        try {
+            CallableStatement callableStatement = conn.prepareCall("{ CALL addClassroom(?, ?, ?)}");
+            callableStatement.setString(1, classroom.getName());
+            callableStatement.setInt(2, classroom.getCapacity());
+            callableStatement.setString(3, classroom.getBranchName());
+
+            callableStatement.execute();
+            callableStatement.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
     @Override
     public void addBranch(Branch branch) {
         Connection conn = database.getConnection();

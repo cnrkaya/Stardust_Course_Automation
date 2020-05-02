@@ -3,15 +3,22 @@ package com.example.dilkursu.views.admin.adding;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ProgressBar;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.example.dilkursu.GlobalConfig;
 import com.example.dilkursu.R;
+import com.example.dilkursu.models.Branch;
+import com.example.dilkursu.models.Classroom;
+
+import java.util.ArrayList;
 
 public class AddClassroomActivity extends AppCompatActivity implements View.OnClickListener {
     private ImageButton BtnBack;
@@ -19,6 +26,8 @@ public class AddClassroomActivity extends AppCompatActivity implements View.OnCl
     private EditText EdtTxtCapacity;
     private Spinner SpinnerBranches;
     private Button BtnAddClassroom;
+    private ProgressBar progressBar;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,10 +38,8 @@ public class AddClassroomActivity extends AppCompatActivity implements View.OnCl
     @Override
     public void onClick(View v) {
         if ( v == BtnBack ) {
-            // Handle clicks for BtnBack
             finish();
         } else if ( v == BtnAddClassroom ) {
-            // Handle clicks for BtnAddClassroom
             if( addClassroom() )  //TODO save to db
                 Toast.makeText(getApplicationContext(), "Ders Başarıyla Eklendi" , Toast.LENGTH_LONG).show();
             else
@@ -45,25 +52,70 @@ public class AddClassroomActivity extends AppCompatActivity implements View.OnCl
         EdtTxtCapacity = (EditText)findViewById( R.id.AddClassroomActivity_edtTxt_capacity );
         SpinnerBranches = (Spinner)findViewById( R.id.AddClassroomActivity_spinner_branches );
         BtnAddClassroom = (Button)findViewById( R.id.AddClassroomActivity_btn_addClassroom );
+        progressBar = (ProgressBar)findViewById( R.id.AddClassroomActivity_ProgressBar);
+
+
+        ArrayList<Branch> branches = GlobalConfig.getAllBranches();
+        for (Branch branch : branches){
+            String curr_branch_name = branch.getName();
+            // TODO: Add each curr_branch_name to the spinner
+        }
 
         BtnBack.setOnClickListener( this );
         BtnAddClassroom.setOnClickListener( this );
     }
 
     private boolean addClassroom(){
+        Classroom classroom;
 
-        EdtTxtClassroomName.getText().toString();
+        String className = EdtTxtClassroomName.getText().toString();
+        Integer capacity;
+        // TODO: Make sure spinner gets the branch data
+        String branchName = SpinnerBranches.getSelectedItem().toString();;
         try {
-            Integer.valueOf( EdtTxtCapacity.getText().toString());
+            capacity = Integer.valueOf( EdtTxtCapacity.getText().toString());
         }catch (Exception e){
             e.printStackTrace();
-            Toast.makeText(getApplicationContext(), "Kapasite Id integer olmalı" , Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), "Kapasite integer olmalı" , Toast.LENGTH_SHORT).show();
             return false;
         }
-
-        //SpinnerBranches get branchname from spinner also
-
+        classroom = new Classroom(className, capacity, branchName);
+        new AddClassroomActivity.RegisterClassroomAsyncTask().execute(classroom);
         return true;
+    }
+
+    private class RegisterClassroomAsyncTask extends AsyncTask<Object, Void, Boolean> {
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            progressBar.setVisibility(View.VISIBLE);
+        }
+
+        @Override
+        protected Boolean doInBackground(Object... objects) {
+            try {
+                GlobalConfig.connection.addClassroom((Classroom)objects[0]);
+                return true;
+            } catch (Exception e) {
+                return false;
+            }
+
+        }
+
+        @Override
+        protected void onPostExecute(Boolean aBoolean) {
+            super.onPostExecute(aBoolean);
+            progressBar.setVisibility(View.INVISIBLE);
+
+            if (aBoolean.booleanValue() == true) {
+                setResult(RESULT_OK);
+            } else {
+                setResult(RESULT_CANCELED);
+            }
+
+            finish();
+        }
     }
 
 }
