@@ -1,4 +1,4 @@
-package com.example.dilkursu.views.other;
+package com.example.dilkursu.views.student;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -47,7 +47,7 @@ public class BranchInfoActivity extends AppCompatActivity implements View.OnClic
         BranchName.setText(GlobalConfig.currentUser.getBranch().getName());
         BranchTransportation.setText(GlobalConfig.currentUser.getBranch().getPublicTransports().get(0));
         BranchAddress.setText(GlobalConfig.currentUser.getBranch().getAddress());
-        BranchAddress.setText(GlobalConfig.currentUser.getBranch().getFacilities().get(0));
+        SocialFacilities.setText(GlobalConfig.currentUser.getBranch().getFacilities().get(0));
     }
 
     private void defineListeners() {
