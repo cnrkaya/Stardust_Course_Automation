@@ -38,11 +38,10 @@
         android:background="#F1F9FF"
         android:orientation="vertical">
 
-        <ListView
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/BranchListActivity_RecyclerView"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
-        </ListView>
-
+            android:layout_height="match_parent" />
     </LinearLayout>
 
 

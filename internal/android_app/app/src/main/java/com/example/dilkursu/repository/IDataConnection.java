@@ -30,6 +30,10 @@ public interface IDataConnection {
 
     public ArrayList<Classroom> getClassrooms(String branch_name);
 
+    public ArrayList<Course> getCourses(String branch_name);
+
+    public ArrayList<Branch> getAllBranches();
+
     public void addPerson(Person person) throws Exception;
 
     public void addLogin(Login login) throws Exception;

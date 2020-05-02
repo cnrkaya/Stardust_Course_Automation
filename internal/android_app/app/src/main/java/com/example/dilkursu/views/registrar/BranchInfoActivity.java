@@ -1,4 +1,4 @@
-package com.example.dilkursu.views.other;
+package com.example.dilkursu.views.registrar;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,9 +9,7 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.dilkursu.GlobalConfig;
 import com.example.dilkursu.R;
-import com.example.dilkursu.views.student.ClassesActivity;
 
 public class BranchInfoActivity extends AppCompatActivity implements View.OnClickListener {
     private TextView BranchName;
@@ -44,10 +42,12 @@ public class BranchInfoActivity extends AppCompatActivity implements View.OnClic
     }
 
     private void initViews() {
-        BranchName.setText(GlobalConfig.currentUser.getBranch().getName());
-        BranchTransportation.setText(GlobalConfig.currentUser.getBranch().getPublicTransports().get(0));
-        BranchAddress.setText(GlobalConfig.currentUser.getBranch().getAddress());
-        BranchAddress.setText(GlobalConfig.currentUser.getBranch().getFacilities().get(0));
+
+        Intent intent = getIntent();
+        BranchName.setText(intent.getStringExtra("name"));
+        BranchTransportation.setText(intent.getStringExtra("transport"));
+        BranchAddress.setText(intent.getStringExtra("address"));
+        SocialFacilities.setText(intent.getStringExtra("facilities"));
     }
 
     private void defineListeners() {
@@ -59,6 +59,7 @@ public class BranchInfoActivity extends AppCompatActivity implements View.OnClic
     public void onClick(View view) {
         if (view == BtnClasrooms) {
             Intent intent = new Intent(this, ClassesActivity.class);
+            intent.putExtra("branch_name", BranchName.getText().toString());
             startActivity(intent);
         } else if (view == BtnBack) {
             // Handle clicks for BtnBack

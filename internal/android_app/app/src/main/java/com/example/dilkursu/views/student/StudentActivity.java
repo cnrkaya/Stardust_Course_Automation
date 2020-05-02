@@ -5,13 +5,13 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.dilkursu.GlobalConfig;
 import com.example.dilkursu.R;
 import com.example.dilkursu.models.Student;
-import com.example.dilkursu.views.other.BranchInfoActivity;
 import com.example.dilkursu.views.other.PaymentInfoActivity;
 import com.example.dilkursu.views.other.SignInActivity;
 
@@ -38,6 +38,11 @@ public class StudentActivity extends AppCompatActivity implements View.OnClickLi
             Intent intent = getIntent();
             String person_id = intent.getStringExtra("person_id");
 
+            try {
+                GlobalConfig.currentUser.setBranchName(GlobalConfig.connection.getBranchName(person_id));
+            } catch (Exception e) {
+                GlobalConfig.currentUser.setBranchName("");
+            }
             GlobalConfig.connection.bindPerson(GlobalConfig.currentUser, person_id);
             GlobalConfig.connection.bindCourse(((Student) GlobalConfig.currentUser).getCourse(), ((Student) GlobalConfig.currentUser).getGroupNo());
             GlobalConfig.connection.bindBranch(GlobalConfig.currentUser.getBranch(), GlobalConfig.currentUser.getBranchName());
@@ -70,9 +75,13 @@ public class StudentActivity extends AppCompatActivity implements View.OnClickLi
     @Override
     public void onClick(View v) {
         if (v == BtnShowBranch) {
-            // Handle clicks for BtnShowBranch
-            Intent intent = new Intent(getApplicationContext(), BranchInfoActivity.class);
-            startActivity(intent);
+            if ("".equals(GlobalConfig.currentUser.getBranch().getName())) {
+                // Handle clicks for BtnShowBranch
+                Intent intent = new Intent(getApplicationContext(), BranchInfoActivity.class);
+                startActivity(intent);
+            } else {
+                Toast.makeText(this, "Şube kaydınızı yapılmamış.\nKayıt Yöneticisiyle görüşünüz", Toast.LENGTH_LONG).show();
+            }
         } else if (v == BtnMyPayments) {
             // Handle clicks for BtnMyPayments
             Intent intent = new Intent(getApplicationContext(), PaymentInfoActivity.class);
@@ -84,6 +93,7 @@ public class StudentActivity extends AppCompatActivity implements View.OnClickLi
         } else if (v == BtnLogout) {
             // Handle clicks for BtnLogout
             Intent intent = new Intent(getApplicationContext(), SignInActivity.class);
+            GlobalConfig.currentUser = null;
             finish();
             startActivity(intent);
         }

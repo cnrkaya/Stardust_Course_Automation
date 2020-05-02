@@ -1,6 +1,8 @@
 package com.example.dilkursu.views.student;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -14,6 +16,9 @@ import com.example.dilkursu.R;
 import com.example.dilkursu.models.Student;
 
 public class StudentInfoActivity extends AppCompatActivity implements View.OnClickListener {
+
+    private final String TAG = this.getClass().getSimpleName();
+
     private ImageButton BtnBack;
     private ImageButton BtnEdit;
     private Button BtnSaveEdits;
@@ -31,11 +36,11 @@ public class StudentInfoActivity extends AppCompatActivity implements View.OnCli
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_student_info);
-
         defineVariables();
         defineListeners();
         initViews();
     }
+
 
     public void defineVariables() {
         BtnBack = (ImageButton) findViewById(R.id.StudentInfoActivity_btn_back);

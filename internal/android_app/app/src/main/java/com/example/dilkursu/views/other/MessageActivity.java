@@ -12,8 +12,10 @@ import android.widget.Toast;
 
 import com.example.dilkursu.GlobalConfig;
 import com.example.dilkursu.R;
+import com.example.dilkursu.views.admin.AdminActivity;
 import com.example.dilkursu.views.registrar.RegistrarActivity;
 import com.example.dilkursu.views.student.StudentActivity;
+import com.example.dilkursu.views.teacher.TeacherActivity;
 
 public class MessageActivity extends AppCompatActivity implements View.OnClickListener {
     private ImageView ImgView;
@@ -21,21 +23,19 @@ public class MessageActivity extends AppCompatActivity implements View.OnClickLi
     private Button BtnOkey;
     private String message;
     private boolean type;  //defines succes or error message
-    private Intent returnIntent;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_message);
 
         findViews();
-
-
     }
 
     private void findViews() {
-        ImgView = (ImageView)findViewById( R.id.MessageActivity_imgView );
-        TvMessage = (TextView)findViewById( R.id.MessageActivity_tv_message );
-        BtnOkey = (Button)findViewById( R.id.MessageActivity_btn_okey );
+        ImgView = (ImageView) findViewById(R.id.MessageActivity_imgView);
+        TvMessage = (TextView) findViewById(R.id.MessageActivity_tv_message);
+        BtnOkey = (Button) findViewById(R.id.MessageActivity_btn_okey);
 
         Bundle bundle = getIntent().getExtras();
 
@@ -48,37 +48,37 @@ public class MessageActivity extends AppCompatActivity implements View.OnClickLi
             e.printStackTrace();
         }
 
-        if(!type){
+        if (!type) {
             //if error messega print error image
             ImgView.setImageResource(R.drawable.error);
         }
 
-
-
-        //TODO get authorization of current user and return the user' menu
-
-        switch (GlobalConfig.currentUserType){
-            case ADMIN:
-                break;
-            case STUDENT:
-                break;
-            case REGISTRAR:
-                returnIntent = new Intent(getApplicationContext(), RegistrarActivity.class);
-                break;
-        }
-
-
-
-
-
-                BtnOkey.setOnClickListener( this );
+        BtnOkey.setOnClickListener(this);
     }
+
     @Override
     public void onClick(View v) {
-        if ( v == BtnOkey ) {
+        Intent intent = null;
+        if (v == BtnOkey) {
             // Handle clicks for BtnOkey
+            switch (GlobalConfig.currentUserType) {
+                case ADMIN:
+                    intent = new Intent(getApplicationContext(), AdminActivity.class);
+                    break;
+                case STUDENT:
+                    intent = new Intent(getApplicationContext(), StudentActivity.class);
+                    break;
+                case REGISTRAR:
+                    intent = new Intent(getApplicationContext(), RegistrarActivity.class);
+                    break;
+                case INSTRUCTOR:
+                    intent = new Intent(getApplicationContext(), TeacherActivity.class);
+                    break;
+            }
+            intent.putExtra("person_id", GlobalConfig.currentUser.getId());
+            startActivity(intent);
             finish();
-            //startActivity(returnIntent);
+
         }
     }
 }

@@ -7,6 +7,7 @@
     <string name="arrow">→</string>
     <string name="parola">Parola</string>
     <string name="e_mail">E-mail</string>
+    <string name="y_kleniyor">Yükleniyor...</string>
 
     <string-array name="my_header_title">
         <item></item>

@@ -1,7 +1,5 @@
 package com.example.dilkursu.views.other;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -11,6 +9,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.dilkursu.GlobalConfig;
 import com.example.dilkursu.R;
@@ -34,11 +34,6 @@ public class SignInActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_in);
-
-        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
-        StrictMode.setThreadPolicy(policy);
-
-        GlobalConfig.InitializeConnections();
 
         defineVariables();
         defineListeners();
@@ -119,20 +114,20 @@ public class SignInActivity extends AppCompatActivity {
             } else {
                 //Login succesfull
                 txtV_errorMessage.setVisibility(View.INVISIBLE);
-                clearEditTexts();
+                //clearEditTexts();
                 Intent intent = null;
                 switch (credential.getAuthorization_level()) {
-                    case 1:
+                    case 0:
                         intent = new Intent(getApplicationContext(), StudentActivity.class);
                         break;
-                    case 2:
+                    case 1:
                         intent = new Intent(getApplicationContext(), TeacherActivity.class);
                         break;
-                    case 3:
+                    case 2:
                         intent = new Intent(getApplicationContext(), RegistrarActivity.class);
 
                         break;
-                    case 4:
+                    case 3:
                         intent = new Intent(getApplicationContext(), AdminActivity.class);
                         break;
                 }

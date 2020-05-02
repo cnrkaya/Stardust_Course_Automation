@@ -58,4 +58,6 @@ public class Course {
     public void setPersons(ArrayList<Person> persons) {
         this.persons = persons;
     }
+
+
 }

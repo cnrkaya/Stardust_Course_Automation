@@ -10,8 +10,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.dilkursu.R;
-import com.example.dilkursu.models.Classroom;
-import com.example.dilkursu.views.other.BranchInfoActivity;
+import com.example.dilkursu.views.student.BranchInfoActivity;
 import com.example.dilkursu.views.other.ClassroomInfoActivity;
 import com.example.dilkursu.views.other.CourseInfoActivity;
 import com.example.dilkursu.views.other.LessonInfoActivity;

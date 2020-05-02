@@ -3,12 +3,16 @@ package com.example.dilkursu;
 import android.util.Log;
 
 import com.example.dilkursu.models.AcademyAdmin;
+import com.example.dilkursu.models.Branch;
+import com.example.dilkursu.models.Classroom;
 import com.example.dilkursu.models.Instructor;
 import com.example.dilkursu.models.Person;
 import com.example.dilkursu.models.Registrar;
 import com.example.dilkursu.models.Student;
 import com.example.dilkursu.repository.IDataConnection;
 import com.example.dilkursu.repository.SqlConnector;
+
+import java.util.ArrayList;
 
 public class GlobalConfig {
 
@@ -20,6 +24,8 @@ public class GlobalConfig {
 
     public static IDataConnection connection;
     public static Person currentUser = null;
+    private static ArrayList<Branch> branches = null;
+    private static ArrayList<Classroom> classrooms = null;
 
     public static UserType currentUserType;
 
@@ -40,9 +46,17 @@ public class GlobalConfig {
         connection = sql;
     }
 
+    public static void InitializeArrays() {
+        branches = connection.getAllBranches();
+
+        for(Branch branch : branches){
+            branch.setCourses(connection.getCourses(branch.getName()));
+        }
+
+    }
+
     public static void InitializeCurrentUser(UserType userType) {
         currentUserType = userType;
-        Log.i("APP_TEST", cu)
         switch (userType) {
             case STUDENT:
                 currentUser = new Student();
@@ -58,6 +72,19 @@ public class GlobalConfig {
                 break;
         }
 
+    }
+
+    public static ArrayList<Branch> getAllBranches() {
+        return branches;
+    }
+
+    public static ArrayList<Classroom> getBranchClassrooms(String branchName) {
+        for (Branch branch : branches) {
+            if (branch.getName().equals(branchName)) {
+                return branch.getClassrooms();
+            }
+        }
+        return null;
     }
 
 }

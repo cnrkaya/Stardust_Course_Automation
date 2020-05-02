@@ -1,5 +1,8 @@
 package com.example.dilkursu.repository;
 
+import android.util.Log;
+import android.widget.ArrayAdapter;
+
 import com.example.dilkursu.GlobalConfig;
 import com.example.dilkursu.models.Branch;
 import com.example.dilkursu.models.Classroom;
@@ -131,6 +134,68 @@ public class SqlConnector implements IDataConnection {
         }
 
         return classrooms;
+
+    }
+
+    @Override
+    public ArrayList<Course> getCourses(String branch_name) {
+        ArrayList<Course> courses = new ArrayList<>();
+
+        try {
+            String query = String.format("SELECT getCourses('%s')", branch_name);
+            ResultSet resultSet = database.execute(query);
+            while (resultSet.next()) {
+                Course course = new Course();
+                String[] attributes = TextProcessor.parseRecords(resultSet.getString("getcourses"));
+                course.setId(Integer.parseInt(attributes[0]));
+                course.setLanguage(attributes[1]);
+                course.setName(attributes[2]);
+                course.setPrice(Float.parseFloat(attributes[3].substring(attributes[3].indexOf("$") + 1)));
+
+                courses.add(course);
+
+            }
+
+            resultSet.close();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return courses;
+    }
+
+    @Override
+    public ArrayList<Branch> getAllBranches() {
+
+        ArrayList<Branch> branches = new ArrayList<>();
+
+        try {
+
+            String query = "SELECT * FROM BRANCH";
+            ResultSet resultSet = database.execute(query);
+            while (resultSet.next()) {
+                Branch branch = new Branch();
+                branch.setName(resultSet.getString("name"));
+                branch.setPhoneNumbers(TextProcessor.stringToArray(resultSet.getString("phone_number")));
+                branch.setFaxNumbers(TextProcessor.stringToArray(resultSet.getString("fax")));
+                branch.setAddress(resultSet.getString("address"));
+                branch.setPublicTransports(TextProcessor.stringToArray(resultSet.getString("public_transport")));
+                branch.setPrivateTransports(TextProcessor.stringToArray(resultSet.getString("private_transport")));
+                branch.setFacilities(TextProcessor.stringToArray(resultSet.getString("facilities")));
+
+                branch.setClassrooms(getClassrooms(branch.getName()));
+
+                Log.i("APP_TEST", branch.getName());
+
+                branches.add(branch);
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return branches;
 
     }
 
@@ -277,7 +342,7 @@ public class SqlConnector implements IDataConnection {
 
     @Override
     public int getUserType(String person_id) throws Exception {
-        int userType = 0;
+        int userType = -1;
         try {
             String storedProcedureCall = "{CALL getUserType(?, ?)}";
             CallableStatement callableStatement = database.getConnection().prepareCall(storedProcedureCall);
@@ -290,7 +355,7 @@ public class SqlConnector implements IDataConnection {
             userType = callableStatement.getInt(2);
 
         } catch (Exception e) {
-            e.printStackTrace();
+
         }
 
         return userType;
