@@ -151,7 +151,7 @@ public class SqlConnector implements IDataConnection {
                 course.setId(Integer.parseInt(attributes[0]));
                 course.setLanguage(attributes[1]);
                 course.setName(attributes[2]);
-                course.setPrice(Float.parseFloat(attributes[3].substring(attributes[3].indexOf("$") + 1)));
+                course.setPrice(Integer.parseInt(attributes[3].substring(attributes[3].indexOf("$") + 1)));
 
                 courses.add(course);
 
@@ -257,7 +257,7 @@ public class SqlConnector implements IDataConnection {
             while (resultSet.next()) {
                 course.setLanguage(resultSet.getString("language"));
                 course.setName(resultSet.getString("name"));
-                course.setPrice(resultSet.getFloat("price"));
+                course.setPrice(resultSet.getInt("price"));
             }
 
             resultSet.close();
@@ -383,6 +383,21 @@ public class SqlConnector implements IDataConnection {
 
     }
 
+    @Override
+    public void addCourse(Course course) {
+        Connection conn = database.getConnection();
+        try {
+            CallableStatement callableStatement = conn.prepareCall("{ CALL addCourse(?, ?, ?)}");
+            callableStatement.setString(1, course.getName());
+            callableStatement.setString(2, course.getLanguage());
+            callableStatement.setInt(3, course.getPrice());
+
+            callableStatement.execute();
+            callableStatement.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
     @Override
     public void addBranch(Branch branch) {
