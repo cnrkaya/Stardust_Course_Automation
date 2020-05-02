@@ -9,7 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".views.other.MessageActivity"></activity>
+        <activity android:name=".views.other.MessageActivity" />
         <activity android:name=".views.other.CourseInfoActivity" />
         <activity android:name=".views.other.LessonInfoActivity" />
         <activity android:name=".views.admin.adding.AddCourseActivity" />
@@ -25,7 +25,6 @@
         <activity android:name=".views.admin.adding.AddClassroomActivity" />
         <activity android:name=".views.admin.adding.AddBranchActivity" />
         <activity android:name=".views.other.ClassroomInfoActivity" />
-        <activity android:name=".views.other.ClassroomListActivity" />
         <activity android:name=".views.student.BranchInfoActivity" />
         <activity android:name=".views.other.BranchListActivity" />
         <activity android:name=".views.student.StudentSearchActivity" />
@@ -45,10 +44,10 @@
         <activity android:name=".views.other.LoadingActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
     </application>
 
     <uses-permission android:name="android.permission.INTERNET" />

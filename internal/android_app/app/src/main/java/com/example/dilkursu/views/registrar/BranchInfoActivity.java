@@ -15,7 +15,7 @@ public class BranchInfoActivity extends AppCompatActivity implements View.OnClic
     private TextView BranchName;
     private TextView BranchTransportation;
     private TextView BranchAddress;
-    private TextView Courses;
+    private Button BtnCourses;
     private TextView SocialFacilities;
     private ImageButton BtnBack;
     private Button BtnClasrooms;
@@ -35,7 +35,7 @@ public class BranchInfoActivity extends AppCompatActivity implements View.OnClic
         BranchName = (TextView) findViewById(R.id.BranchInfoActivity_branchName);
         BranchTransportation = (TextView) findViewById(R.id.BranchInfoActivity_branchTransportation);
         BranchAddress = (TextView) findViewById(R.id.BranchInfoActivity_branchAddress);
-        Courses = (TextView) findViewById(R.id.BranchInfoActivity_Courses);
+        BtnCourses = (Button) findViewById(R.id.BranchInfoActivity_btn_courses);
         SocialFacilities = (TextView) findViewById(R.id.BranchInfoActivity_socialFacilities);
         BtnBack = (ImageButton) findViewById(R.id.BranchInfoActivity_btn_back);
         BtnClasrooms = (Button) findViewById(R.id.BranchInfoActivity_btn_clasrooms);
@@ -53,6 +53,7 @@ public class BranchInfoActivity extends AppCompatActivity implements View.OnClic
     private void defineListeners() {
         BtnBack.setOnClickListener(this);
         BtnClasrooms.setOnClickListener(this);
+        BtnCourses.setOnClickListener(this);
     }
 
     @Override
@@ -64,6 +65,9 @@ public class BranchInfoActivity extends AppCompatActivity implements View.OnClic
         } else if (view == BtnBack) {
             // Handle clicks for BtnBack
             finish();
+        }else if (view == BtnCourses) {
+            // Handle clicks for BtnCourses
+            //TODO
         }
     }
 }

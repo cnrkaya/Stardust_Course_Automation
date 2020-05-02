@@ -111,30 +111,6 @@
             android:text="Kıbrıs Caddesi"
             android:textColor="#5D7D98">
         </TextView>
-        <TextView
-            android:id="@+id/sube"
-            android:layout_width="140dp"
-            android:layout_height="40dp"
-            android:background="#5D7D98"
-            android:gravity="center"
-            android:layout_below="@id/kur"
-            android:text="Kurslar"
-            android:textColor="#FFFFFF"
-            android:layout_marginTop="25dp">
-        </TextView>
-
-        <TextView
-            android:id="@+id/BranchInfoActivity_Courses"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_marginTop="25dp"
-            android:layout_toEndOf="@+id/soyisim"
-            android:layout_below="@+id/BranchInfoActivity_branchAddress"
-            android:background="#FFFFFF"
-            android:gravity="center"
-            android:text="İng - Almanca"
-            android:textColor="#5D7D98">
-        </TextView>
 
         <TextView
             android:id="@+id/olanaklar"
@@ -142,7 +118,7 @@
             android:layout_height="40dp"
             android:background="#5D7D98"
             android:gravity="center"
-            android:layout_below="@id/sube"
+            android:layout_below="@id/BranchInfoActivity_branchAddress"
             android:text="Sosyal Olanakalar"
             android:textColor="#FFFFFF"
             android:layout_marginTop="25dp">
@@ -154,7 +130,7 @@
             android:layout_height="40dp"
             android:layout_marginTop="25dp"
             android:layout_toEndOf="@+id/soyisim"
-            android:layout_below="@+id/BranchInfoActivity_Courses"
+            android:layout_below="@+id/BranchInfoActivity_branchAddress"
             android:background="#FFFFFF"
             android:gravity="center"
             android:text="Park , bahçe"
@@ -162,11 +138,22 @@
 
         <Button
             android:id="@+id/BranchInfoActivity_btn_clasrooms"
-            android:layout_marginTop="130dp"
+            android:layout_marginTop="50dp"
             android:layout_below="@id/olanaklar"
             android:layout_width="match_parent"
             android:background="#5D7D98"
             android:text="DERSLİKLER"
+            android:textColor="#FFFFFF"
+            android:layout_height="60dp">
+        </Button>
+
+        <Button
+            android:id="@+id/BranchInfoActivity_btn_courses"
+            android:layout_marginTop="50dp"
+            android:layout_below="@id/BranchInfoActivity_btn_clasrooms"
+            android:layout_width="match_parent"
+            android:background="#5D7D98"
+            android:text="Kurslar"
             android:textColor="#FFFFFF"
             android:layout_height="60dp">
         </Button>
