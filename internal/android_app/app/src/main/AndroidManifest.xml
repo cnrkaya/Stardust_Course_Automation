@@ -26,7 +26,7 @@
         <activity android:name=".views.admin.adding.AddBranchActivity" />
         <activity android:name=".views.other.ClassroomInfoActivity" />
         <activity android:name=".views.other.ClassroomListActivity" />
-        <activity android:name=".views.other.BranchInfoActivity" />
+        <activity android:name=".views.student.BranchInfoActivity" />
         <activity android:name=".views.other.BranchListActivity" />
         <activity android:name=".views.student.StudentSearchActivity" />
         <activity android:name=".views.registrar.StudentRegistrationActivity" />
@@ -37,14 +37,17 @@
         <activity android:name=".views.teacher.TeacherActivity" />
         <activity android:name=".views.student.StudentActivity" />
         <activity android:name=".views.student.ClassesActivity" />
+        <activity android:name=".views.registrar.ClassesActivity" />
         <activity android:name=".views.registrar.StudentInfoActivity" />
-        <activity android:name=".views.other.SignInActivity">
+        <activity android:name=".views.registrar.BranchInfoActivity" />
+        <activity android:name=".views.other.SignInActivity" />
+        <activity android:name=".views.other.LoadingActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
     </application>
 
     <uses-permission android:name="android.permission.INTERNET" />
