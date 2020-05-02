@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
@@ -11,6 +12,7 @@ import android.widget.LinearLayout;
 
 import com.example.dilkursu.GlobalConfig;
 import com.example.dilkursu.R;
+import com.example.dilkursu.adapters.BranchAdapter;
 import com.example.dilkursu.adapters.ClassAdapter;
 
 public class BranchListActivity extends AppCompatActivity {
@@ -30,8 +32,8 @@ public class BranchListActivity extends AppCompatActivity {
     }
 
     public void defineVariables() {
-        BtnBack = findViewById(R.id.ListClassesActivity_btn_back);
-        recyclerView = findViewById(R.id.ListClassesActivity_recyclerView);
+        BtnBack = findViewById(R.id.BranchListActivity_btn_back);
+        recyclerView = findViewById(R.id.BranchListActivity_RecyclerView);
     }
 
     private void defineListeners() {
@@ -44,6 +46,11 @@ public class BranchListActivity extends AppCompatActivity {
     }
 
     private void initRecyclerView() {
+        recyclerView.setHasFixedSize(true);
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
+        recyclerView.setLayoutManager(layoutManager);
+        BranchAdapter branchAdapter = new BranchAdapter(this, GlobalConfig.getAllBranches());
+        recyclerView.setAdapter(branchAdapter);
     }
 
 }
