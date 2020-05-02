@@ -13,6 +13,7 @@ import com.example.dilkursu.models.Person;
 import com.example.dilkursu.models.Student;
 
 import java.sql.CallableStatement;
+import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Types;
@@ -296,30 +297,6 @@ public class SqlConnector implements IDataConnection {
     }
 
     @Override
-    public void addPerson(Person person) throws Exception {
-
-        try {
-            CallableStatement callableStatement = database.getConnection().prepareCall("{ CALL addPerson(?, ?, ?, ?, ?, ?, ?) }");
-            callableStatement.setString(1, person.getId());
-            callableStatement.setString(2, person.getFname());
-            callableStatement.setString(3, person.getLname());
-            callableStatement.setArray(4, database.getConnection().createArrayOf("text", new ArrayList[]{person.getPhoneNumbers()}));
-            callableStatement.setArray(5, database.getConnection().createArrayOf("text", new ArrayList[]{person.getHomeNumbers()}));
-            callableStatement.setString(6, person.getAddress());
-            callableStatement.setString(7, ""); //work_addr
-
-            callableStatement.execute();
-
-            callableStatement.close();
-
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-    }
-
-    @Override
     public void addLogin(Login login) throws Exception {
 
         try {
@@ -382,5 +359,48 @@ public class SqlConnector implements IDataConnection {
         return student;
     }
 
+    @Override
+    public void addPerson(Person person) throws Exception {
 
+        try {
+            CallableStatement callableStatement = database.getConnection().prepareCall("{ CALL addPerson(?, ?, ?, ?, ?, ?, ?) }");
+            callableStatement.setString(1, person.getId());
+            callableStatement.setString(2, person.getFname());
+            callableStatement.setString(3, person.getLname());
+            callableStatement.setArray(4, database.getConnection().createArrayOf("text", new ArrayList[]{person.getPhoneNumbers()}));
+            callableStatement.setArray(5, database.getConnection().createArrayOf("text", new ArrayList[]{person.getHomeNumbers()}));
+            callableStatement.setString(6, person.getAddress());
+            callableStatement.setString(7, ""); //work_addr
+
+            callableStatement.execute();
+
+            callableStatement.close();
+
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+    }
+
+
+    @Override
+    public void addBranch(Branch branch) {
+        Connection conn = database.getConnection();
+        try {
+            CallableStatement callableStatement = conn.prepareCall("{ CALL addBranch(?, ?, ?, ?, ?, ?, ?)}");
+            callableStatement.setString(1, branch.getName());
+            callableStatement.setArray(2, conn.createArrayOf("text", new ArrayList[]{branch.getPhoneNumbers()}));
+            callableStatement.setArray(3, conn.createArrayOf("text", new ArrayList[]{branch.getFaxNumbers()}));
+            callableStatement.setString(4, branch.getAddress());
+            callableStatement.setArray(5, conn.createArrayOf("text", new ArrayList[]{branch.getPublicTransports()}));
+            callableStatement.setArray(6, conn.createArrayOf("text", new ArrayList[]{branch.getPrivateTransports()}));
+            callableStatement.setArray(7, conn.createArrayOf("text", new ArrayList[]{branch.getFacilities()}));
+
+            callableStatement.execute();
+            callableStatement.close();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
 }

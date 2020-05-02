@@ -18,7 +18,26 @@ public class Branch {
     private EducationAcademy educationAcademy;
 
     public Branch() {
+
     }
+
+    public Branch(String name, String facilities, String publicTransport, String privateTransport, String address){
+        this.name = name;
+
+        this.phoneNumbers = new ArrayList<>();
+        this.faxNumbers = new ArrayList<>();
+        this.publicTransports = new ArrayList<>();
+        this.privateTransports = new ArrayList<>();
+        this.facilities = new ArrayList<>();
+        this.classrooms = new ArrayList<>();
+        this.courses = new ArrayList<>();
+
+        this.facilities.add(facilities);
+        this.publicTransports.add(publicTransport);
+        this.privateTransports.add(privateTransport);
+        this.address = address;
+    }
+
 
     public String getName() {
         return name;

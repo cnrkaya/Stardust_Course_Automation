@@ -41,6 +41,15 @@
             android:layout_height="match_parent"
             android:background="#F1F9FF">
 
+            <!-- Relocate the progress bar -->
+            <ProgressBar
+                android:id="@+id/AddBranchActivity_ProgressBar"
+                style="?android:attr/progressBarStyle"
+                android:layout_width="100dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:visibility="invisible" />
+
             <TextView
                 android:id="@+id/isim"
                 android:layout_width="140dp"

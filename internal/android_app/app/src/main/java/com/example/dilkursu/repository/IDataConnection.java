@@ -40,5 +40,6 @@ public interface IDataConnection {
 
     public int getUserType(String person_id) throws Exception;
 
+    void addBranch(Branch branch);
 
 }

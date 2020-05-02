@@ -3,19 +3,28 @@ package com.example.dilkursu.views.admin.adding;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
+import com.example.dilkursu.GlobalConfig;
 import com.example.dilkursu.R;
 import com.example.dilkursu.models.Branch;
+import com.example.dilkursu.models.Login;
+import com.example.dilkursu.models.Person;
+import com.example.dilkursu.views.registrar.StudentRegistrationActivity;
+
+import java.util.ArrayList;
 
 public class AddBranchActivity extends AppCompatActivity implements View.OnClickListener {
 
     private ImageButton  BtnBack;
+    private ProgressBar progressBar;
     private EditText  EdtTxtBranchName;
     private EditText  EdtTxtFacilities;
     private EditText  EdtTxtPublicTransport;
@@ -38,6 +47,7 @@ public class AddBranchActivity extends AppCompatActivity implements View.OnClick
          EdtTxtPrivateTransport = (EditText)findViewById( R.id.AddBranchActivity_edtTxt_privateTransport );
          EdtTxtAddress =  (EditText)findViewById( R.id.AddBranchActivity_address);
          BtnSave = (Button)findViewById( R.id.AddBranchActivity_btn_signIn );
+         progressBar = (ProgressBar) findViewById(R.id.AddBranchActivity_ProgressBar);
 
          BtnBack.setOnClickListener( this );
          BtnSave.setOnClickListener( this );
@@ -61,16 +71,53 @@ public class AddBranchActivity extends AppCompatActivity implements View.OnClick
 
 
     private boolean addBranch(){
+        Branch branch = new Branch(
+                EdtTxtBranchName.getText().toString(),
+                EdtTxtFacilities.getText().toString(),
+                EdtTxtPublicTransport.getText().toString(),
+                EdtTxtPrivateTransport.getText().toString(),
+                EdtTxtAddress.getText().toString()
+        );
 
-        EdtTxtBranchName.getText().toString();
-        EdtTxtFacilities.getText().toString();
-        EdtTxtPublicTransport.getText().toString();
-        EdtTxtPrivateTransport.getText().toString();
-        EdtTxtAddress.getText().toString();
-
-        //TODO save to db
+        new AddBranchActivity.RegisterBranchAsyncTask().execute(branch);
 
         return true;
 
     }
+
+
+    private class RegisterBranchAsyncTask extends AsyncTask<Object, Void, Boolean> {
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            progressBar.setVisibility(View.VISIBLE);
+        }
+
+        @Override
+        protected Boolean doInBackground(Object... objects) {
+            try {
+                GlobalConfig.connection.addBranch((Branch)objects[0]);
+                return true;
+            } catch (Exception e) {
+                return false;
+            }
+
+        }
+
+        @Override
+        protected void onPostExecute(Boolean aBoolean) {
+            super.onPostExecute(aBoolean);
+            progressBar.setVisibility(View.INVISIBLE);
+
+            if (aBoolean.booleanValue() == true) {
+                setResult(RESULT_OK);
+            } else {
+                setResult(RESULT_CANCELED);
+            }
+
+            finish();
+        }
+    }
+
 }

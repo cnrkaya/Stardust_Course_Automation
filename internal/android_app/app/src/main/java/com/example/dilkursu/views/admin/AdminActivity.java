@@ -10,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.dilkursu.GlobalConfig;
 import com.example.dilkursu.R;
+import com.example.dilkursu.models.Person;
 import com.example.dilkursu.views.other.SignInActivity;
 
 public class AdminActivity extends AppCompatActivity implements View.OnClickListener {
@@ -41,7 +42,12 @@ public class AdminActivity extends AppCompatActivity implements View.OnClickList
     }
 
     private void initViews() {
-        String userName = String.format("%s %s", GlobalConfig.currentUser.getFname(), GlobalConfig.currentUser.getLname());
+        Person curr_user = GlobalConfig.currentUser;
+        String userName;
+        if (curr_user == null)                      // In case admin has no associated person
+            userName = "Anonim";
+        else
+            userName = String.format("%s %s", GlobalConfig.currentUser.getFname(), GlobalConfig.currentUser.getLname());
         Username.setText(userName);
     }
 
