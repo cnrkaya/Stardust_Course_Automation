@@ -49,6 +49,10 @@ public interface IDataConnection {
 
     void addLesson(Lesson lesson);
 
+    ArrayList<ArrayList<String>> getClassSchedules(String classroomId) throws Exception;
+
+    void attachClassroomWithLesson(Lesson lesson, String teacherId) throws Exception;
+
     ArrayList<Course> getAllCourses();
 
     Branch getBranch(String branchName);

@@ -13,6 +13,7 @@ import com.example.dilkursu.models.Login;
 import com.example.dilkursu.models.Person;
 import com.example.dilkursu.models.Student;
 
+import java.sql.Array;
 import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -93,6 +94,44 @@ public class SqlConnector implements IDataConnection {
         }
 
         return person;
+    }
+
+    public void attachClassroomWithLesson(Lesson lesson, String teacherId) throws Exception{
+
+        // SELECT attachClassroomWithLesson('BZ-45', '3/27/2020', '16:52:38', 'Listening', 3, '37781245624');
+        CallableStatement callableStatement = database.getConnection().prepareCall("{ CALL attachClassroomWithLesson(?, ?, ?, ?, ?, ?) }");
+        callableStatement.setString(1, lesson.getClassroomId());
+        callableStatement.setString(2, lesson.getDate());
+        callableStatement.setString(3, lesson.getTs());
+        callableStatement.setString(4, lesson.getName());
+        callableStatement.setInt(5, lesson.getCourseId());
+        callableStatement.setString(6, teacherId);
+
+        callableStatement.execute();
+        callableStatement.close();
+    }
+
+
+    @Override
+    public ArrayList<ArrayList<String>> getClassSchedules(String classroomId) throws Exception{
+        ArrayList<ArrayList<String>> list = new ArrayList<>();
+
+        PreparedStatement preparedStatement = database.getConnection().prepareStatement("{ CALL getClassroomSchedule(?) }");
+        preparedStatement.setString(1, classroomId);
+
+        ResultSet resultSet = preparedStatement.executeQuery();
+        while (resultSet.next()) {
+            ArrayList<String> data = new ArrayList<>();
+            data.add(resultSet.getString("classroom_id"));
+            data.add(resultSet.getString("lesson_date"));
+            data.add(resultSet.getString("lesson_ts"));
+            list.add(data);
+        }
+
+        resultSet.close();
+        preparedStatement.close();
+
+        return list;
     }
 
     @Override
@@ -454,7 +493,7 @@ public class SqlConnector implements IDataConnection {
     public void addLesson(Lesson lesson) {
         Connection conn = database.getConnection();
         try {
-            CallableStatement callableStatement = conn.prepareCall("{ CALL addCourse(?, ?, ?, ?, ?, ?)}");
+            CallableStatement callableStatement = conn.prepareCall("{ CALL addLesson(?, ?, ?, ?, ?, ?)}");
             callableStatement.setString(1, lesson.getName());
             callableStatement.setInt(2, lesson.getCourseId());
             callableStatement.setString(3, lesson.getInstructorId());
