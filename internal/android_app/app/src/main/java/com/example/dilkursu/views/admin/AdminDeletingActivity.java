@@ -78,7 +78,7 @@ public class AdminDeletingActivity extends AppCompatActivity implements View.OnC
 
         BtnDelLesson.setOnClickListener( this );
         BtnDeleteClassroom.setOnClickListener( this );
-        BtnDeleteKur.setOnClickListener( this );
+        //BtnDeleteKur.setOnClickListener( this );
         BtnDeleteCourse.setOnClickListener( this );
         BtnDeleteBranch.setOnClickListener( this );
         BtnBack.setOnClickListener( this );

@@ -1,9 +1,153 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".views.other.CourseInfoActivity">
+    android:fillViewport="true">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:id="@+id/header"
+            android:background="#5D7D98"
+            android:layout_width="match_parent"
+            android:layout_height="130dp"
+            android:padding="35dp"
+            android:orientation="horizontal">
+            <ImageButton
+                android:id="@+id/CoursesInfoActivity_btn_back"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="5"
+                android:background="@drawable/back_icon">
+            </ImageButton>
+            <TextView
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="Kurs Bilgileri"
+                android:textColor="#FFFFFF"
+                android:textSize="30dp"
+                android:textStyle="bold"> </TextView>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/body"
+            android:padding="10dp"
+            android:layout_below="@id/header"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#F1F9FF"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="15dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/courses">
+
+            </ImageView>
+            <LinearLayout
+                android:layout_marginTop="40dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#5D7D98"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_marginHorizontal="5dp"
+                    android:layout_marginVertical="5dp"
+                    android:layout_weight="2"
+                    android:padding="10dp"
+                    android:background="#d8f1f8"
+                    android:layout_width="match_parent"
+                    android:text="Kurs Adı"
+                    android:textStyle="bold"
+                    android:textSize="20sp"
+                    android:textColor="#5D7D98"
+                    android:layout_height="wrap_content">
+                </TextView>
+                <TextView
+                    android:id="@+id/CoursesInfoActivity_txtV_courseName"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:padding="10dp"
+                    android:background="#d8f1f8"
+                    android:layout_width="match_parent"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:textColor="#5D7D98"
+                    android:layout_height="wrap_content">
+                </TextView>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_marginTop="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#5D7D98"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_marginHorizontal="5dp"
+                    android:layout_marginVertical="5dp"
+                    android:layout_weight="2"
+                    android:padding="10dp"
+                    android:background="#d8f1f8"
+                    android:layout_width="match_parent"
+                    android:text="Kur"
+                    android:textStyle="bold"
+                    android:textSize="20sp"
+                    android:textColor="#5D7D98"
+                    android:layout_height="wrap_content">
+                </TextView>
+                <TextView
+                    android:id="@+id/CoursesInfoActivity_txtV_kurName"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:padding="10dp"
+                    android:background="#d8f1f8"
+                    android:layout_width="match_parent"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:textColor="#5D7D98"
+                    android:layout_height="wrap_content">
+                </TextView>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_marginTop="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#5D7D98"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_marginHorizontal="5dp"
+                    android:layout_marginVertical="5dp"
+                    android:layout_weight="2"
+                    android:padding="10dp"
+                    android:background="#d8f1f8"
+                    android:layout_width="match_parent"
+                    android:text="Fiyat"
+                    android:textStyle="bold"
+                    android:textSize="20sp"
+                    android:textColor="#5D7D98"
+                    android:layout_height="wrap_content">
+                </TextView>
+                <TextView
+                    android:id="@+id/CoursesInfoActivity_txtV_price"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:padding="10dp"
+                    android:background="#d8f1f8"
+                    android:layout_width="match_parent"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:textColor="#5D7D98"
+                    android:layout_height="wrap_content">
+                </TextView>
+            </LinearLayout>
+        </LinearLayout>
+
+    </RelativeLayout>
+</ScrollView>
