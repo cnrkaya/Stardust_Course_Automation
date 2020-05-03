@@ -55,6 +55,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:background="#5D7D98"
                 android:orientation="vertical">
                 <LinearLayout
                     android:padding="10dp"
@@ -71,6 +72,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
+                        android:textStyle="bold"
                         android:gravity="center"
                         android:text="Derslik Adı"
                         >
@@ -100,6 +102,7 @@
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:gravity="center"
+                        android:textStyle="bold"
                         android:text="Kapasite">
                     </TextView>
 
@@ -124,9 +127,11 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
+                    android:textStyle="bold"
                     android:text="Şube Seçiniz">
                 </TextView>
                 <Spinner
+                    android:background="#FFFFFF"
                     android:id="@+id/AddClassroomActivity_spinner_branches"
                     android:layout_weight="1.15"
                     android:layout_width="match_parent"
@@ -139,8 +144,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:background="#5D7D98"
-                    android:textColor="#FFFFFF"
+                    android:background="#DCDCDC"
+                    android:textColor="#000000"
                     android:textStyle="bold"
                     android:text="Derslik Ekle"/>
             </LinearLayout>

@@ -92,13 +92,6 @@ public class StudentInfoActivity extends AppCompatActivity implements View.OnCli
     }
 
     private void setEditable(boolean mode) {
-        Name.setClickable(mode);
-        Name.setFocusable(mode);
-        Name.setFocusableInTouchMode(mode);
-
-        Surname.setClickable(mode);
-        Surname.setFocusable(mode);
-        Surname.setFocusableInTouchMode(mode);
 
         HomeTelephone.setClickable(mode);
         HomeTelephone.setFocusable(mode);
@@ -108,25 +101,6 @@ public class StudentInfoActivity extends AppCompatActivity implements View.OnCli
         CellPhone.setFocusable(mode);
         CellPhone.setFocusableInTouchMode(mode);
 
-        Course.setClickable(mode);
-        Course.setFocusable(mode);
-        Course.setFocusableInTouchMode(mode);
-
-        Kur.setClickable(mode);
-        Kur.setFocusable(mode);
-        Kur.setFocusableInTouchMode(mode);
-
-        Branch.setClickable(mode);
-        Branch.setFocusable(mode);
-        Branch.setFocusableInTouchMode(mode);
-
-        Payments.setClickable(mode);
-        Payments.setFocusable(mode);
-        Payments.setFocusableInTouchMode(mode);
-
-        IdentityNo.setClickable(mode);
-        IdentityNo.setFocusable(mode);
-        IdentityNo.setFocusableInTouchMode(mode);
 
         if (mode) {
             BtnSaveEdits.setVisibility(View.VISIBLE);
@@ -141,15 +115,10 @@ public class StudentInfoActivity extends AppCompatActivity implements View.OnCli
 
     private boolean updateStudentInfo() {
 
-        Name.getText().toString();
-        Surname.getText().toString();
+
         HomeTelephone.getText().toString();
         CellPhone.getText().toString();
-        Course.getText().toString();
-        Kur.getText().toString();
-        Branch.getText().toString();
-        Payments.getText().toString();
-        IdentityNo.getText().toString();
+
 
         return true;
     }
