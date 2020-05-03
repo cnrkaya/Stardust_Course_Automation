@@ -25,41 +25,47 @@ $$ LANGUAGE plpgsql;
 
 ---------
 CREATE FUNCTION deleteLesson (name_in text)
-RETURNS VOID AS '
-
-BEGIN
-DELETE FROM Lesson 
-WHERE name=name_in;
-END;
-'LANGUAGE plpgsql; 
-
----------
-CREATE FUNCTION deleteBranch (name_in text)
-RETURNS VOID AS '
-
-BEGIN
-DELETE  FROM Branch 
-WHERE name=name_in;
-END;
-' LANGUAGE plpgsql; 
----------
-
-CREATE FUNCTION deleteCourse(CourseId_in char)
-RETURNS VOID AS '
-
-BEGIN
-DELETE FROM Course 
-WHERE id=CourseId_in;
-END;
-' LANGUAGE plpgsql; 
---------
-
-CREATE FUNCTION deleteClassroom(ClassroomId_in char)
 RETURNS VOID AS $$
 
 BEGIN
-DELETE FROM  Classroom
-WHERE id=ClassroomId_in;
+
+DELETE FROM Lesson 
+WHERE name=name_in;
+
+END;
+$$ LANGUAGE plpgsql; 
+
+---------
+CREATE FUNCTION deleteBranch(name_in varchar(31))
+RETURNS VOID AS $$
+
+BEGIN
+
+DELETE FROM Branch WHERE name=name_in;
+
+END;
+$$ LANGUAGE plpgsql; 
+---------
+
+CREATE FUNCTION deleteCourse(CourseId_in int)
+RETURNS VOID AS $$
+
+BEGIN
+
+DELETE FROM Course 
+WHERE id=CourseId_in;
+
+END;
+$$ LANGUAGE plpgsql; 
+--------
+
+CREATE FUNCTION deleteClassroom(ClassroomId_in varchar(20))
+RETURNS VOID AS $$
+
+BEGIN
+
+DELETE FROM  Classroom WHERE id=ClassroomId_in;
+
 END;
 $$ LANGUAGE plpgsql; 
 -------
