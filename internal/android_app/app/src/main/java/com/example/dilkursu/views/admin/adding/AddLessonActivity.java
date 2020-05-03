@@ -39,24 +39,31 @@ public class AddLessonActivity extends AppCompatActivity {
         spinner_day = findViewById(R.id.AddLessonActivity_spinner_chooseDay);
         spinner_hour = findViewById(R.id.AddLessonActivity_spinner_chooseHour);
 
-        //TODO get course list from db and make spinner
-
     }
 
     public void defineListeners(){
         btn_next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(),AddLesson2Activity.class);
-                intent.putExtra("LessonName",lessonName.getText().toString());
-                // TODO: Get day and time with textview
-                // TODO: create spinner with the data provided below
-
+                // TODO: convert day and time from spinner to textview
+                // TODO: create course spinner with the data provided below
                 for(Course course: GlobalConfig.connection.getAllCourses()){
                     // here courses have id, language, name and price.
+                    // Add these courses to spinner
+
                 }
 
-                // TODO: class addLessonToDB to add the lessons to the database, function is found in AddLesson2Activity
+                // TODO: get these data from UI
+                int courseId = -1;
+                String lessonTs = "";
+                String lessonDate = "";
+
+                Intent intent = new Intent(getApplicationContext(),AddLesson2Activity.class);
+                intent.putExtra("lessonName",lessonName.getText().toString());
+                intent.putExtra("lessonDate", lessonDate);
+                intent.putExtra("lessonTs", lessonTs);
+                intent.putExtra("courseId", courseId);
+
 
                 startActivity(intent);
             }

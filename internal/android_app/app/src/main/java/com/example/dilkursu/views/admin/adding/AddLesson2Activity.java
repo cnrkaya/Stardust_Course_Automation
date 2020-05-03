@@ -2,6 +2,7 @@ package com.example.dilkursu.views.admin.adding;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
@@ -15,6 +16,8 @@ import com.example.dilkursu.GlobalConfig;
 import com.example.dilkursu.R;
 import com.example.dilkursu.models.Lesson;
 
+import java.util.ArrayList;
+
 public class AddLesson2Activity extends AppCompatActivity implements View.OnClickListener {
     private ImageButton BtnBack;
     private Spinner SpinnerAvailableTeachers;
@@ -22,6 +25,12 @@ public class AddLesson2Activity extends AppCompatActivity implements View.OnClic
     private Button BtnComplete;
     private ProgressBar progressBar;
 
+    private String lessonName;
+    private int courseId;
+    private String lessonDate;
+    private String lessonTs;
+    private String instructorId;
+    private String classroomId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,8 +46,16 @@ public class AddLesson2Activity extends AppCompatActivity implements View.OnClic
         SpinnerAvailableClasrooms = (Spinner)findViewById( R.id. AddLesson2Activity_spinner_availableClasrooms );
         BtnComplete = (Button)findViewById( R.id. AddLesson2Activity_btn_complete );
         progressBar = (ProgressBar) findViewById( R.id.AddLesson2Activity_ProgressBar);
-        //TODO Get extras from previous activity
+
+
+        Intent intent = getIntent();
+        lessonName = intent.getStringExtra("lessonName");
+        courseId = intent.getIntExtra("courseId", -1);
+        lessonDate = intent.getStringExtra("lessonDate");
+        lessonTs = intent.getStringExtra("lessonTs");
         //TODO list available teachers and classroom on spinner
+        instructorId = ""; // TODO: fill in according to spinner
+        classroomId = ""; // TODO: fill in according to spinner
 
         BtnBack.setOnClickListener( this );
         BtnComplete.setOnClickListener( this );
@@ -46,30 +63,26 @@ public class AddLesson2Activity extends AppCompatActivity implements View.OnClic
     @Override
     public void onClick(View v) {
         if ( v == BtnBack ) {
-            // Handle clicks for BtnBack
             finish();
         } else if ( v == BtnComplete ) {
-            // Handle clicks for BtnComplete
-
-//            if( addLesson() )
-//                Toast.makeText(getApplicationContext(), "Kurs Başarıyla Eklendi" , Toast.LENGTH_LONG).show();
-//            else
-//                Toast.makeText(getApplicationContext(), "Eklenme Sırasında Hata Oluştu" , Toast.LENGTH_LONG).show();
+            if( addLesson() )
+                Toast.makeText(getApplicationContext(), "Kurs Başarıyla Eklendi" , Toast.LENGTH_LONG).show();
+            else
+                Toast.makeText(getApplicationContext(), "Eklenme Sırasında Hata Oluştu" , Toast.LENGTH_LONG).show();
         }
     }
 
-    private boolean addLesson(String lessonName, int courseId, String insructorId, String classroomId, String lessonDate, String lessonTime){
-        //If and only if the start-finish times are not appropriate, checkClassAvailability returns false
-        if( !checkClassAvailability(classroomId, lessonDate, lessonTime))
+    private boolean addLesson(){
+        if(this.courseId == -1)
             return false;
 
+        //If and only if the start-finish times are not appropriate, checkClassAvailability returns false
+        if( !checkClassAvailability(this.classroomId, this.lessonDate, this.lessonTs))
+            return false;
 
-        //TODO addLesson to db
-        Lesson lesson = addLessonToDB(lessonName, courseId, insructorId, classroomId, lessonDate, lessonTime);
-        attachLessonWithTeacher(lesson);
-        attachLessonWithClassroom(lesson);
+        Lesson lesson = addLessonToDB(this.lessonName, this.courseId, this.instructorId, this.classroomId, this.lessonDate, this.lessonTs);
 
-        return true;
+        return lesson != null;
     }
 
     public Lesson addLessonToDB(String lessonName, int courseId, String insructorId, String classroomId, String lessonDate, String lessonTime){
@@ -79,17 +92,40 @@ public class AddLesson2Activity extends AppCompatActivity implements View.OnClic
         return lesson;
     }
 
-    public void attachLessonWithTeacher(Lesson lesson){
-        // attach with lesson.instructorId
-    }
+    public boolean attachClassroomWithLesson(Lesson lesson, String teacherId){
+        // SELECT attachClassroomWithLesson('BZ-45', '3/27/2020', '16:52:38', 'Listening', 3, '72');
+        try{
+            GlobalConfig.connection.attachClassroomWithLesson(lesson, teacherId);
+        }catch (Exception e){
+            e.printStackTrace();
+            return false;
+        }
 
-    public void attachLessonWithClassroom(Lesson lesson){
-        // attach with lesson.classroomId
+        return true;
     }
 
     public boolean checkClassAvailability(String classroomId, String lessonDate, String lessonTime){
+        ArrayList<ArrayList<String>> classroom_schedules;
+        try{
 
-        return false;
+            // Get all schedule records which consists of classroom_id, lesson_date, lesson_time
+            classroom_schedules = GlobalConfig.connection.getClassSchedules(classroomId);
+            for(int i = 0; i < classroom_schedules.size(); i++ ){
+                ArrayList<String> classLessons = classroom_schedules.get(i);
+                String classroomLessonDate = classLessons.get(1);
+                String classroomLessonTs = classLessons.get(2);
+
+                if (classroomLessonDate.equals(lessonDate) && classroomLessonTs.equals(lessonTime))
+                    return false;
+            }
+
+        }catch (Exception e){
+            e.printStackTrace();
+            Toast.makeText(getApplicationContext(), "Exception when getting class schedules" , Toast.LENGTH_SHORT).show();
+            return false;
+        }
+
+        return true;
     }
 
     private class RegisterLessonAsyncTask extends AsyncTask<Object, Void, Boolean> {
