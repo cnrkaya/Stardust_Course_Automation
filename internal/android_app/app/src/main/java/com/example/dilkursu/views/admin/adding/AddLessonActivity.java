@@ -3,13 +3,17 @@ package com.example.dilkursu.views.admin.adding;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 
+import com.example.dilkursu.GlobalConfig;
 import com.example.dilkursu.R;
+import com.example.dilkursu.models.Course;
+import com.example.dilkursu.models.Lesson;
 
 public class AddLessonActivity extends AppCompatActivity {
     Button  btn_next;
@@ -45,11 +49,18 @@ public class AddLessonActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(),AddLesson2Activity.class);
                 intent.putExtra("LessonName",lessonName.getText().toString());
-                //get day and hour from spinner and put extra
-                //get course !!id!! from spinner and put extra
+                // TODO: Get day and time with textview
+                // TODO: create spinner with the data provided below
+
+                for(Course course: GlobalConfig.connection.getAllCourses()){
+                    // here courses have id, language, name and price.
+                }
+
+                // TODO: class addLessonToDB to add the lessons to the database, function is found in AddLesson2Activity
 
                 startActivity(intent);
             }
         });
     }
+
 }

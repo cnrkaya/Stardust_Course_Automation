@@ -4,6 +4,7 @@ import com.example.dilkursu.models.Branch;
 import com.example.dilkursu.models.Classroom;
 import com.example.dilkursu.models.Course;
 import com.example.dilkursu.models.Credential;
+import com.example.dilkursu.models.Lesson;
 import com.example.dilkursu.models.Login;
 import com.example.dilkursu.models.Person;
 import com.example.dilkursu.models.Student;
@@ -45,4 +46,8 @@ public interface IDataConnection {
     void addCourse(Course course);
 
     void addClassroom(Classroom classroom);
+
+    void addLesson(Lesson lesson);
+
+    ArrayList<Course> getAllCourses();
 }

@@ -8,6 +8,7 @@ import com.example.dilkursu.models.Branch;
 import com.example.dilkursu.models.Classroom;
 import com.example.dilkursu.models.Course;
 import com.example.dilkursu.models.Credential;
+import com.example.dilkursu.models.Lesson;
 import com.example.dilkursu.models.Login;
 import com.example.dilkursu.models.Person;
 import com.example.dilkursu.models.Student;
@@ -158,6 +159,31 @@ public class SqlConnector implements IDataConnection {
             }
 
             resultSet.close();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return courses;
+    }
+
+    @Override
+    public ArrayList<Course> getAllCourses() {
+
+        ArrayList<Course> courses = new ArrayList<>();
+
+        try {
+            String query = "SELECT * FROM Course";
+            ResultSet resultSet = database.execute(query);
+            while (resultSet.next()) {
+                Course course = Course.courseFactory(
+                        resultSet.getString("name"),
+                        resultSet.getString("language"),
+                        (resultSet.getInt("price"))
+                );
+                course.setId(resultSet.getInt("id"));
+                courses.add(course);
+            }
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -399,6 +425,23 @@ public class SqlConnector implements IDataConnection {
         }
     }
 
+    @Override
+    public void addLesson(Lesson lesson) {
+        Connection conn = database.getConnection();
+        try {
+            CallableStatement callableStatement = conn.prepareCall("{ CALL addCourse(?, ?, ?, ?, ?, ?)}");
+            callableStatement.setString(1, lesson.getName());
+            callableStatement.setInt(2, lesson.getCourseId());
+            callableStatement.setString(3, lesson.getInstructorId());
+            callableStatement.setString(4, lesson.getClassroomId());
+            callableStatement.setString(5, lesson.getDate());
+            callableStatement.setString(6, lesson.getTs());
+            callableStatement.execute();
+            callableStatement.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
     @Override
     public void addClassroom(Classroom classroom) {
