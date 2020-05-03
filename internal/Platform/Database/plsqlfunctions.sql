@@ -1,4 +1,31 @@
+CREATE OR REPLACE FUNCTION attachClassroomWithLesson(classroom_id_in VARCHAR(20), lesson_date_in VARCHAR(20), lesson_ts_in VARCHAR(20), lesson_name_in TEXT, lesson_course_no_in INT)
+RETURNS VOID AS $$
 
+BEGIN
+
+UPDATE lesson
+SET classroom_id = classroom_id_in ,lesson_date = lesson_date_in, lesson_ts = lesson_ts_in
+WHERE lesson.name = lesson_name_in AND lesson.course_no = lesson_course_no_in;
+
+END;
+$$ LANGUAGE plpgsql; 
+
+CREATE FUNCTION getClassroomSchedule(classroomId varchar(20))
+RETURNS TABLE (
+		classroom_id VARCHAR(20),
+		lesson_date VARCHAR(20),
+		lesson_ts VARCHAR(20)
+) AS $$
+
+BEGIN
+
+RETURN QUERY SELECT lesson.classroom_id, lesson.lesson_date, lesson.lesson_ts 
+From lesson
+WHERE lesson.classroom_id = classroomId
+ORDER BY classroom_id;
+
+END;
+$$ LANGUAGE plpgsql; 
 
 CREATE FUNCTION createStudent (id_in char, fname_in varchar,mid_name_in varchar,lname_in varchar,phone_number_in text[],home_number_in text[],home_addr_in text, work_addr_in text)
 RETURNS VOID AS '
@@ -24,13 +51,12 @@ END;
 $$ LANGUAGE plpgsql; 
 
 ---------
-CREATE FUNCTION deleteLesson (name_in text)
+CREATE FUNCTION deleteLesson (name_in text, course_no_in int)
 RETURNS VOID AS $$
 
 BEGIN
 
-DELETE FROM Lesson 
-WHERE name=name_in;
+DELETE FROM lesson WHERE name = name_in and course_no = course_no_in;
 
 END;
 $$ LANGUAGE plpgsql; 
@@ -41,7 +67,7 @@ RETURNS VOID AS $$
 
 BEGIN
 
-DELETE FROM Branch WHERE name=name_in;
+DELETE FROM branch WHERE name=name_in;
 
 END;
 $$ LANGUAGE plpgsql; 
@@ -52,7 +78,7 @@ RETURNS VOID AS $$
 
 BEGIN
 
-DELETE FROM Course 
+DELETE FROM course 
 WHERE id=CourseId_in;
 
 END;
@@ -64,7 +90,7 @@ RETURNS VOID AS $$
 
 BEGIN
 
-DELETE FROM  Classroom WHERE id=ClassroomId_in;
+DELETE FROM  classroom WHERE id=ClassroomId_in;
 
 END;
 $$ LANGUAGE plpgsql; 
