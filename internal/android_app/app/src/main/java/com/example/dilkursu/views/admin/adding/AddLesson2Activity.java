@@ -51,10 +51,10 @@ public class AddLesson2Activity extends AppCompatActivity implements View.OnClic
         } else if ( v == BtnComplete ) {
             // Handle clicks for BtnComplete
 
-            if( addLesson() )
-                Toast.makeText(getApplicationContext(), "Kurs Başarıyla Eklendi" , Toast.LENGTH_LONG).show();
-            else
-                Toast.makeText(getApplicationContext(), "Eklenme Sırasında Hata Oluştu" , Toast.LENGTH_LONG).show();
+//            if( addLesson() )
+//                Toast.makeText(getApplicationContext(), "Kurs Başarıyla Eklendi" , Toast.LENGTH_LONG).show();
+//            else
+//                Toast.makeText(getApplicationContext(), "Eklenme Sırasında Hata Oluştu" , Toast.LENGTH_LONG).show();
         }
     }
 

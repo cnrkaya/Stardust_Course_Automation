@@ -226,6 +226,31 @@ public class SqlConnector implements IDataConnection {
 
     }
 
+    public Branch getBranch(String branchName) {
+
+        //TODO: Update
+        Branch branch = new Branch();
+
+        try {
+            String query = "SELECT * FROM BRANCH WHERE name = " + branchName;
+            ResultSet resultSet = database.execute(query);
+
+            branch.setName(resultSet.getString("name"));
+            branch.setPhoneNumbers(TextProcessor.stringToArray(resultSet.getString("phone_number")));
+            branch.setFaxNumbers(TextProcessor.stringToArray(resultSet.getString("fax")));
+            branch.setAddress(resultSet.getString("address"));
+            branch.setPublicTransports(TextProcessor.stringToArray(resultSet.getString("public_transport")));
+            branch.setPrivateTransports(TextProcessor.stringToArray(resultSet.getString("private_transport")));
+            branch.setFacilities(TextProcessor.stringToArray(resultSet.getString("facilities")));
+            branch.setClassrooms(getClassrooms(branch.getName()));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return branch;
+
+    }
+
     @Override
     public String getBranchName(String person_id) throws Exception {
 
@@ -477,5 +502,38 @@ public class SqlConnector implements IDataConnection {
         }catch (Exception e){
             e.printStackTrace();
         }
+    }
+
+    public void deleteClassroom(String classroomId) throws Exception {
+        Connection conn = database.getConnection();
+        CallableStatement callableStatement = conn.prepareCall("{ CALL deleteClassroom(?)}");
+        callableStatement.setString(1, classroomId);
+        callableStatement.execute();
+        callableStatement.close();
+    }
+
+    public void deleteCourse(int courseId) throws Exception {
+        Connection conn = database.getConnection();
+        CallableStatement callableStatement = conn.prepareCall("{ CALL deleteCourse(?)}");
+        callableStatement.setInt(1, courseId);
+        callableStatement.execute();
+        callableStatement.close();
+    }
+
+    public void deleteBranch(String branchName) throws Exception{
+        Connection conn = database.getConnection();
+        CallableStatement callableStatement = conn.prepareCall("{ CALL deleteBranch(?)}");
+        callableStatement.setString(1, branchName);
+        callableStatement.execute();
+        callableStatement.close();
+    }
+
+    public void deleteLesson(String lessonName, int courseId) throws Exception{
+        Connection conn = database.getConnection();
+        CallableStatement callableStatement = conn.prepareCall("{ CALL deleteLesson(?, ?)}");
+        callableStatement.setString(1, lessonName);
+        callableStatement.setInt(2, courseId);
+        callableStatement.execute();
+        callableStatement.close();
     }
 }

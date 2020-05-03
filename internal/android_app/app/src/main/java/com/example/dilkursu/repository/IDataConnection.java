@@ -50,4 +50,15 @@ public interface IDataConnection {
     void addLesson(Lesson lesson);
 
     ArrayList<Course> getAllCourses();
+
+    Branch getBranch(String branchName);
+
+    /****** Deletion Methods ******/
+    void deleteLesson(String lessonName, int courseId) throws Exception;
+
+    void deleteBranch(String branchName) throws Exception;
+
+    void deleteCourse(int courseId) throws Exception;
+
+    void deleteClassroom(String classroomId) throws Exception;
 }

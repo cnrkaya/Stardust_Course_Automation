@@ -125,10 +125,10 @@ public class AdminViewingActivity extends AppCompatActivity implements View.OnCl
         return true;
     }
     private boolean viewBranch(){
-    String branchName;
-         branchName = VBranchBranchName.getText().toString();
+        String branchName;
+        branchName = VBranchBranchName.getText().toString();
         Intent intent = new Intent(getApplicationContext(), BranchInfoActivity.class);
-        intent.putExtra("branchName",branchName);
+        intent.putExtra("branchName", branchName);
         startActivity(intent);
 
         return true;

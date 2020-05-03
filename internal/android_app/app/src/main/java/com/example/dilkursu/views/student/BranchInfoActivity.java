@@ -11,6 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.dilkursu.GlobalConfig;
 import com.example.dilkursu.R;
+import com.example.dilkursu.models.Branch;
 
 public class BranchInfoActivity extends AppCompatActivity implements View.OnClickListener {
     private TextView BranchName;
@@ -28,7 +29,9 @@ public class BranchInfoActivity extends AppCompatActivity implements View.OnClic
 
         defineVariables();
         defineListeners();
-        initViews();
+        Intent intent = getIntent();
+        String strExtra = intent.getStringExtra("branchName");
+        initViews(strExtra);
     }
 
 
@@ -47,6 +50,17 @@ public class BranchInfoActivity extends AppCompatActivity implements View.OnClic
         BranchTransportation.setText(GlobalConfig.currentUser.getBranch().getPublicTransports().get(0));
         BranchAddress.setText(GlobalConfig.currentUser.getBranch().getAddress());
         SocialFacilities.setText(GlobalConfig.currentUser.getBranch().getFacilities().get(0));
+    }
+
+    private void initViews(String branchName) {
+        if (branchName == null)
+            initViews();
+
+        Branch branch = GlobalConfig.connection.getBranch(branchName);
+        BranchName.setText(branchName);
+        BranchTransportation.setText(branch.getPublicTransports().get(0));
+        BranchAddress.setText(branch.getAddress());
+        SocialFacilities.setText(branch.getFacilities().get(0));
     }
 
     private void defineListeners() {

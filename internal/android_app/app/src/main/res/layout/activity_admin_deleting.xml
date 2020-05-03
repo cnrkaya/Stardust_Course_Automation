@@ -25,7 +25,7 @@
             </TextView>
         </LinearLayout>
 
-
+        <!-- TODO:Kurs silme islemini gecici olarak görünmez hale getir.-->
         <LinearLayout
             android:paddingHorizontal="35dp"
             android:id="@+id/body2"
@@ -50,7 +50,7 @@
                         android:id="@+id/AdminDeletingActivity_dltLesson_courseID"
                         android:padding="10dp"
                         android:background="#FFFFFF"
-                        android:inputType="number"
+                        android:inputType="text"
                         android:layout_weight="1"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
@@ -89,7 +89,7 @@
                     android:padding="10dp"
                     android:background="#FFFFFF"
                     android:layout_weight="1"
-                    android:inputType="number"
+                    android:inputType="text"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:hint="Derslik ID"/>

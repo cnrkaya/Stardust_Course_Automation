@@ -8,6 +8,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.dilkursu.GlobalConfig;
 import com.example.dilkursu.R;
 
 public class AdminDeletingActivity extends AppCompatActivity implements View.OnClickListener{
@@ -16,9 +17,6 @@ public class AdminDeletingActivity extends AppCompatActivity implements View.OnC
     private Button BtnDelLesson;
     private EditText DelClassroomClassroomId;
     private Button BtnDeleteClassroom;
-    private EditText DelKurCourseID;
-    private EditText DelKurKurName;
-    private Button BtnDeleteKur;
     private EditText DelCourseCourseID;
     private Button BtnDeleteCourse;
     private EditText DelBranchBranchName;
@@ -29,7 +27,7 @@ public class AdminDeletingActivity extends AppCompatActivity implements View.OnC
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_deleting);
-        
+
         findViews();
         
     }
@@ -38,42 +36,30 @@ public class AdminDeletingActivity extends AppCompatActivity implements View.OnC
     public void onClick(View v) {
         //TODO write functions for all delete operations
         if ( v == BtnDelLesson ) {
-            // Handle clicks for BtnDelLesson
             if( deleteLesson() )
                 Toast.makeText(getApplicationContext(), "Ders Başarıyla Silindi" , Toast.LENGTH_LONG).show();
             else
                 Toast.makeText(getApplicationContext(), "Silme Sırasında Hata Oluştu" , Toast.LENGTH_LONG).show();
 
         } else if ( v == BtnDeleteClassroom ) {
-            // Handle clicks for BtnDeleteClassroom
             if( deleteClassroom() )
                 Toast.makeText(getApplicationContext(), "Sınıf Başarıyla Silindi" , Toast.LENGTH_LONG).show();
             else
                 Toast.makeText(getApplicationContext(), "Silme Sırasında Hata Oluştu" , Toast.LENGTH_LONG).show();
 
-        } else if ( v == BtnDeleteKur ) {
-            // Handle clicks for BtnDeleteKur
-            if( deleteKur() )
-                Toast.makeText(getApplicationContext(), "Kur Başarıyla Silindi" , Toast.LENGTH_LONG).show();
-            else
-                Toast.makeText(getApplicationContext(), "Silme Sırasında Hata Oluştu" , Toast.LENGTH_LONG).show();
-
-        } else if ( v == BtnDeleteCourse ) {
-            // Handle clicks for BtnDeleteCourse
+        }else if ( v == BtnDeleteCourse ) {
             if( deleteCourse() )
                 Toast.makeText(getApplicationContext(), "Kurs Başarıyla Silindi" , Toast.LENGTH_LONG).show();
             else
                 Toast.makeText(getApplicationContext(), "Silme Sırasında Hata Oluştu" , Toast.LENGTH_LONG).show();
 
         } else if ( v == BtnDeleteBranch ) {
-            // Handle clicks for BtnDeleteBranch
             if( deleteBranch() )
                 Toast.makeText(getApplicationContext(), "Şube Başarıyla Silindi" , Toast.LENGTH_LONG).show();
             else
                 Toast.makeText(getApplicationContext(), "Silme Sırasında Hata Oluştu" , Toast.LENGTH_LONG).show();
 
         } else if ( v == BtnBack ) {
-            // Handle clicks for BtnBack
             finish();
         }
     }
@@ -84,9 +70,6 @@ public class AdminDeletingActivity extends AppCompatActivity implements View.OnC
         BtnDelLesson = (Button)findViewById( R.id.AdminDeletingActivity_btn_dltLesson );
         DelClassroomClassroomId = (EditText)findViewById( R.id.AdminDeletingActivity_delClassroom_classroomId );
         BtnDeleteClassroom = (Button)findViewById( R.id.AdminDeletingActivity_btn_deleteClassroom );
-        DelKurCourseID = (EditText)findViewById( R.id.AdminDeletingActivity_delKur_CourseID );
-        DelKurKurName = (EditText)findViewById( R.id.AdminDeletingActivity_delKur_kurName );
-        BtnDeleteKur = (Button)findViewById( R.id.AdminDeletingActivity_btn_deleteKur );
         DelCourseCourseID = (EditText)findViewById( R.id.AdminDeletingActivity_delCourse_CourseID );
         BtnDeleteCourse = (Button)findViewById( R.id.AdminDeletingActivity_btn_deleteCourse );
         DelBranchBranchName = (EditText)findViewById( R.id.AdminDeletingActivity_delBranch_branchName );
@@ -102,61 +85,55 @@ public class AdminDeletingActivity extends AppCompatActivity implements View.OnC
     }
 
     private boolean deleteLesson(){
-
+        String lessonName;
+        Integer courseId;
         try {
-            Integer.valueOf( DelLessonCourseID.getText().toString());
+
+            courseId = Integer.parseInt(DelLessonCourseID.getText().toString());
+            lessonName = DelLessonLessonName.getText().toString();
+
+            GlobalConfig.connection.deleteLesson(lessonName, courseId);
         }catch (Exception e){
             e.printStackTrace();
-            Toast.makeText(getApplicationContext(), "Id integer olmalı" , Toast.LENGTH_SHORT).show();
             return false;
         }
-        DelLessonLessonName.getText().toString();
-
         return true;
     }
+
     private boolean deleteClassroom(){
-
+        String className;
         try {
-            Integer.valueOf( DelClassroomClassroomId.getText().toString());
+            className = DelClassroomClassroomId.getText().toString();
+            GlobalConfig.connection.deleteClassroom(className);
         }catch (Exception e){
             e.printStackTrace();
-            Toast.makeText(getApplicationContext(), "Id integer olmalı" , Toast.LENGTH_SHORT).show();
             return false;
         }
-
-
         return true;
     }
 
-    private boolean deleteKur(){
-
-        try {
-            Integer.valueOf( DelKurCourseID.getText().toString());
-        }catch (Exception e){
-            e.printStackTrace();
-            Toast.makeText(getApplicationContext(), "Id integer olmalı" , Toast.LENGTH_SHORT).show();
-            return false;
-        }
-        DelKurKurName.getText().toString();
-
-        return true;
-    }
     private boolean deleteCourse(){
 
+        Integer courseId;
         try {
-            Integer.valueOf( DelCourseCourseID.getText().toString());
+            courseId = Integer.parseInt(DelCourseCourseID.getText().toString());
+            GlobalConfig.connection.deleteCourse(courseId);
         }catch (Exception e){
             e.printStackTrace();
-            Toast.makeText(getApplicationContext(), "Id integer olmalı" , Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), "Kurs id geçerli ve integer olmalı" , Toast.LENGTH_SHORT).show();
             return false;
         }
 
         return true;
     }
     private boolean deleteBranch(){
-
-        DelBranchBranchName.getText().toString();
-
+        String branchName = DelBranchBranchName.getText().toString();
+        try {
+            GlobalConfig.connection.deleteBranch(branchName);
+        }catch (Exception e){
+            e.printStackTrace();
+            return false;
+        }
         return true;
     }
 }
