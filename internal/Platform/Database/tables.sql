@@ -102,7 +102,7 @@ CREATE TABLE CLASSROOM(
 
 CREATE TABLE LESSON(
 	name text,
-	course_no int 
+	course_no char(11) 
 		NOT NULL 		
 		DEFAULT 0,	 
 	instructor_id char(11)
