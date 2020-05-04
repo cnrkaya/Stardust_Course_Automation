@@ -1,41 +1,41 @@
 name,phone_number,fax,address,public_transport,facilities,private_transport
-Madrid,['3914035330'],"['0648794159', '2033613305']",Madrid,"['Minibüs', 'Otobüs', 'Tren', 'Tramvay']",['Cep Sinema'],"['Kamyon', 'Otomobil', 'Servis']"
-Barcelona,['9253979023'],"['5823741798', '0648794159']",Barcelona,['Otobüs'],"['Halısaha', 'Kapalı Spor Salonu', 'Açık Spor Salonu']","['Servis', 'Otomobil']"
-Sevilla,"['2244011782', '2187896919']",['6518072492'],Sevilla,"['Tramvay', 'Minibüs', 'Otobüs', 'Tren']","['Yüzme Havuzu', 'Cep Sinema', 'Kapalı Spor Salonu', 'Açık Spor Salonu', 'Halısaha']","['Kamyon', 'Servis']"
-Bilbao,"['7565362243', '4936307474']",['7237086829'],Bilbao,['Tramvay'],['Yüzme Havuzu'],"['Otomobil', 'Servis', 'Kamyon']"
-Valencia,"['0709322700', '8879774255']","['8347658996', '5466221288']",Valencia,"['Tren', 'Minibüs', 'Tramvay', 'Otobüs']","['Yüzme Havuzu', 'Cep Sinema', 'Kapalı Spor Salonu', 'Açık Spor Salonu', 'Halısaha']",['Otomobil']
-Zaragoza,['9321783725'],['6418769953'],Zaragoza,"['Minibüs', 'Tramvay', 'Tren', 'Otobüs']","['Kapalı Spor Salonu', 'Açık Spor Salonu', 'Yüzme Havuzu', 'Halısaha']",['Servis']
-Málaga,['6411238919'],"['8585696920', '6728335290']",Málaga,"['Tren', 'Tramvay', 'Minibüs']","['Açık Spor Salonu', 'Halısaha', 'Cep Sinema', 'Yüzme Havuzu', 'Kapalı Spor Salonu']",['Servis']
-Murcia,"['9463548683', '8058944865']","['9971042350', '6728335290']",Murcia,"['Tramvay', 'Minibüs', 'Otobüs', 'Tren']","['Kapalı Spor Salonu', 'Halısaha', 'Açık Spor Salonu', 'Yüzme Havuzu', 'Cep Sinema']","['Kamyon', 'Servis']"
-Granada,"['5846836286', '8058944865']",['1060134029'],Granada,"['Tren', 'Minibüs', 'Otobüs']",['Açık Spor Salonu'],"['Otomobil', 'Kamyon']"
-Vigo,"['8879774255', '0111544519']",['6557108102'],Vigo,['Otobüs'],"['Halısaha', 'Kapalı Spor Salonu', 'Yüzme Havuzu']",['Servis']
-Palma,"['8062813456', '8879774255']",['8111147274'],Palma,"['Tren', 'Tramvay', 'Otobüs', 'Minibüs']","['Kapalı Spor Salonu', 'Halısaha', 'Yüzme Havuzu']",['Kamyon']
-A Coruña,"['4907642570', '7565362243']",['3475787165'],A Coruña,['Minibüs'],"['Yüzme Havuzu', 'Kapalı Spor Salonu', 'Açık Spor Salonu']","['Kamyon', 'Otomobil', 'Servis']"
-Santa María de Gracia,"['8058944865', '2244011782']",['5466221288'],Santa María de Gracia,['Minibüs'],"['Açık Spor Salonu', 'Kapalı Spor Salonu', 'Cep Sinema']",['Kamyon']
-Gijón,"['2896480765', '5846836286']","['0648794159', '7487363240']",Gijón,"['Minibüs', 'Otobüs', 'Tren', 'Tramvay']","['Halısaha', 'Açık Spor Salonu', 'Yüzme Havuzu']",['Servis']
-Valladolid,['9253979023'],"['6418769953', '5823741798']",Valladolid,['Otobüs'],['Yüzme Havuzu'],"['Kamyon', 'Otomobil', 'Servis']"
-Córdoba,"['8879774255', '5846836286']","['8972820520', '5032850981']",Córdoba,"['Otobüs', 'Tramvay', 'Tren']","['Cep Sinema', 'Kapalı Spor Salonu', 'Halısaha']","['Otomobil', 'Kamyon']"
-Alicante,"['7565362243', '4231264172']",['6035576637'],Alicante,"['Minibüs', 'Tramvay', 'Tren', 'Otobüs']","['Halısaha', 'Cep Sinema', 'Yüzme Havuzu']","['Kamyon', 'Otomobil']"
-Cádiz,"['2244011782', '2896480765']",['4014224657'],Cádiz,"['Tramvay', 'Tren', 'Otobüs']","['Halısaha', 'Cep Sinema', 'Kapalı Spor Salonu', 'Açık Spor Salonu']","['Otomobil', 'Servis']"
-Pamplona,"['5480254291', '9321783725']","['4133370146', '3475787165']",Pamplona,['Tren'],['Açık Spor Salonu'],"['Servis', 'Otomobil', 'Kamyon']"
-Oviedo,['7947178726'],['9101326710'],Oviedo,"['Tramvay', 'Tren', 'Otobüs']","['Cep Sinema', 'Kapalı Spor Salonu', 'Halısaha']","['Kamyon', 'Servis', 'Otomobil']"
-Zuazo de Vitoria,['7565362243'],"['0648794159', '5823741798']",Zuazo de Vitoria,['Otobüs'],"['Halısaha', 'Cep Sinema']","['Servis', 'Otomobil']"
-Santander,"['0709322700', '6385570554']",['3357902863'],Santander,"['Tramvay', 'Otobüs', 'Tren', 'Minibüs']","['Halısaha', 'Kapalı Spor Salonu', 'Cep Sinema', 'Yüzme Havuzu', 'Açık Spor Salonu']","['Servis', 'Otomobil', 'Kamyon']"
-Cartagena,"['4936307474', '8058944865']","['0451593747', '5636011552']",Cartagena,"['Otobüs', 'Tren']","['Kapalı Spor Salonu', 'Açık Spor Salonu']",['Kamyon']
-Marbella,['2678512278'],"['8347658996', '9640484799']",Marbella,"['Tren', 'Minibüs']","['Kapalı Spor Salonu', 'Halısaha', 'Yüzme Havuzu']",['Otomobil']
-Mataró,"['4461447707', '6580858373']","['5466221288', '9971042350']",Mataró,"['Minibüs', 'Otobüs', 'Tramvay']",['Yüzme Havuzu'],['Otomobil']
-Almería,"['2896480765', '8879774255']","['7302654536', '0648794159']",Almería,"['Tren', 'Minibüs', 'Tramvay', 'Otobüs']","['Yüzme Havuzu', 'Kapalı Spor Salonu']",['Otomobil']
-Burgos,"['5480254291', '5846836286']",['8972820520'],Burgos,"['Tramvay', 'Otobüs']",['Cep Sinema'],['Kamyon']
-Salamanca,"['6580858373', '4461447707']","['5427068307', '7302654536']",Salamanca,['Otobüs'],"['Halısaha', 'Yüzme Havuzu', 'Kapalı Spor Salonu', 'Cep Sinema']",['Kamyon']
-Albacete,['4907642570'],['9971042350'],Albacete,"['Minibüs', 'Otobüs', 'Tren', 'Tramvay']",['Açık Spor Salonu'],"['Servis', 'Kamyon']"
-Huelva,['4936307474'],['6418769953'],Huelva,"['Otobüs', 'Minibüs', 'Tren', 'Tramvay']",['Açık Spor Salonu'],"['Servis', 'Kamyon']"
-Logroño,"['0111544519', '9253979023']",['8111147274'],Logroño,"['Otobüs', 'Tren', 'Minibüs']","['Açık Spor Salonu', 'Cep Sinema']",['Otomobil']
-Badajoz,['5846836286'],['0451593747'],Badajoz,['Minibüs'],['Kapalı Spor Salonu'],['Servis']
-León,"['5762073609', '2776086916']","['6557108102', '7181887039']",León,"['Otobüs', 'Tramvay']","['Kapalı Spor Salonu', 'Halısaha']","['Servis', 'Otomobil', 'Kamyon']"
-Tarragona,"['6809828596', '4231264172']",['6728335290'],Tarragona,['Tren'],['Cep Sinema'],"['Kamyon', 'Servis']"
-Ourense,['4231264172'],['0451593747'],Ourense,['Minibüs'],"['Açık Spor Salonu', 'Yüzme Havuzu', 'Halısaha']",['Servis']
-Jaén,['5480254291'],"['7487363240', '8347658996']",Jaén,"['Otobüs', 'Minibüs', 'Tramvay']","['Yüzme Havuzu', 'Kapalı Spor Salonu', 'Halısaha', 'Cep Sinema']","['Kamyon', 'Otomobil']"
-Algeciras,"['6809828596', '8058944865']",['7237086829'],Algeciras,"['Otobüs', 'Tren', 'Minibüs', 'Tramvay']","['Yüzme Havuzu', 'Kapalı Spor Salonu', 'Açık Spor Salonu', 'Halısaha']","['Servis', 'Kamyon', 'Otomobil']"
-Santiago de Compostela,['7146198274'],"['6418769953', '9148213520']",Santiago de Compostela,"['Otobüs', 'Tren', 'Tramvay']","['Yüzme Havuzu', 'Açık Spor Salonu', 'Kapalı Spor Salonu', 'Cep Sinema', 'Halısaha']","['Kamyon', 'Otomobil']"
-Lorca,"['8285374576', '5762073609']","['9148213520', '2033613305']",Lorca,"['Tren', 'Otobüs']","['Yüzme Havuzu', 'Halısaha']",['Otomobil']
-Toledo,"['7998021850', '6385570554']",['5466221288'],Toledo,"['Tren', 'Tramvay', 'Minibüs', 'Otobüs']","['Açık Spor Salonu', 'Yüzme Havuzu', 'Halısaha']","['Kamyon', 'Otomobil', 'Servis']"
+Madrid,'{'3914035330'}','{'0648794159', '2033613305'}',Madrid,'{'Minibüs', 'Otobüs', 'Tren', 'Tramvay'}','{'Cep Sinema'}','{'Kamyon', 'Otomobil', 'Servis'}'
+Barcelona,'{'9253979023'}','{'5823741798', '0648794159'}',Barcelona,'{'Otobüs'}','{'Halısaha', 'Kapalı Spor Salonu', 'Açık Spor Salonu'}','{'Servis', 'Otomobil'}'
+Sevilla,'{'2244011782', '2187896919'}','{'6518072492'}',Sevilla,'{'Tramvay', 'Minibüs', 'Otobüs', 'Tren'}','{'Yüzme Havuzu', 'Cep Sinema', 'Kapalı Spor Salonu', 'Açık Spor Salonu', 'Halısaha'}','{'Kamyon', 'Servis'}'
+Bilbao,'{'7565362243', '4936307474'}','{'7237086829'}',Bilbao,'{'Tramvay'}','{'Yüzme Havuzu'}','{'Otomobil', 'Servis', 'Kamyon'}'
+Valencia,'{'0709322700', '8879774255'}','{'8347658996', '5466221288'}',Valencia,'{'Tren', 'Minibüs', 'Tramvay', 'Otobüs'}','{'Yüzme Havuzu', 'Cep Sinema', 'Kapalı Spor Salonu', 'Açık Spor Salonu', 'Halısaha'}','{'Otomobil'}
+Zaragoza,'{'9321783725'}','{'6418769953'}',Zaragoza,'{'Minibüs', 'Tramvay', 'Tren', 'Otobüs'}','{'Kapalı Spor Salonu', 'Açık Spor Salonu', 'Yüzme Havuzu', 'Halısaha'}','{'Servis'}
+Málaga,'{'6411238919'}','{'8585696920', '6728335290'}',Málaga,'{'Tren', 'Tramvay', 'Minibüs'}','{'Açık Spor Salonu', 'Halısaha', 'Cep Sinema', 'Yüzme Havuzu', 'Kapalı Spor Salonu'}','{'Servis'}
+Murcia,'{'9463548683', '8058944865'}','{'9971042350', '6728335290'}',Murcia,'{'Tramvay', 'Minibüs', 'Otobüs', 'Tren'}','{'Kapalı Spor Salonu', 'Halısaha', 'Açık Spor Salonu', 'Yüzme Havuzu', 'Cep Sinema'}','{'Kamyon', 'Servis'}'
+Granada,'{'5846836286', '8058944865'}','{'1060134029'}',Granada,'{'Tren', 'Minibüs', 'Otobüs'}','{'Açık Spor Salonu'}','{'Otomobil', 'Kamyon'}'
+Vigo,'{'8879774255', '0111544519'}','{'6557108102'}',Vigo,'{'Otobüs'}','{'Halısaha', 'Kapalı Spor Salonu', 'Yüzme Havuzu'}','{'Servis'}
+Palma,'{'8062813456', '8879774255'}','{'8111147274'}',Palma,'{'Tren', 'Tramvay', 'Otobüs', 'Minibüs'}','{'Kapalı Spor Salonu', 'Halısaha', 'Yüzme Havuzu'}','{'Kamyon'}
+A Coruña,'{'4907642570', '7565362243'}','{'3475787165'}',A Coruña,'{'Minibüs'}','{'Yüzme Havuzu', 'Kapalı Spor Salonu', 'Açık Spor Salonu'}','{'Kamyon', 'Otomobil', 'Servis'}'
+Santa María de Gracia,'{'8058944865', '2244011782'}','{'5466221288'}',Santa María de Gracia,'{'Minibüs'}','{'Açık Spor Salonu', 'Kapalı Spor Salonu', 'Cep Sinema'}','{'Kamyon'}
+Gijón,'{'2896480765', '5846836286'}','{'0648794159', '7487363240'}',Gijón,'{'Minibüs', 'Otobüs', 'Tren', 'Tramvay'}','{'Halısaha', 'Açık Spor Salonu', 'Yüzme Havuzu'}','{'Servis'}
+Valladolid,'{'9253979023'}','{'6418769953', '5823741798'}',Valladolid,'{'Otobüs'}','{'Yüzme Havuzu'}','{'Kamyon', 'Otomobil', 'Servis'}'
+Córdoba,'{'8879774255', '5846836286'}','{'8972820520', '5032850981'}',Córdoba,'{'Otobüs', 'Tramvay', 'Tren'}','{'Cep Sinema', 'Kapalı Spor Salonu', 'Halısaha'}','{'Otomobil', 'Kamyon'}'
+Alicante,'{'7565362243', '4231264172'}','{'6035576637'}',Alicante,'{'Minibüs', 'Tramvay', 'Tren', 'Otobüs'}','{'Halısaha', 'Cep Sinema', 'Yüzme Havuzu'}','{'Kamyon', 'Otomobil'}'
+Cádiz,'{'2244011782', '2896480765'}','{'4014224657'}',Cádiz,'{'Tramvay', 'Tren', 'Otobüs'}','{'Halısaha', 'Cep Sinema', 'Kapalı Spor Salonu', 'Açık Spor Salonu'}','{'Otomobil', 'Servis'}'
+Pamplona,'{'5480254291', '9321783725'}','{'4133370146', '3475787165'}',Pamplona,'{'Tren'}','{'Açık Spor Salonu'}','{'Servis', 'Otomobil', 'Kamyon'}'
+Oviedo,'{'7947178726'}','{'9101326710'}',Oviedo,'{'Tramvay', 'Tren', 'Otobüs'}','{'Cep Sinema', 'Kapalı Spor Salonu', 'Halısaha'}','{'Kamyon', 'Servis', 'Otomobil'}'
+Zuazo de Vitoria,'{'7565362243'}','{'0648794159', '5823741798'}',Zuazo de Vitoria,'{'Otobüs'}','{'Halısaha', 'Cep Sinema'}','{'Servis', 'Otomobil'}'
+Santander,'{'0709322700', '6385570554'}','{'3357902863'}',Santander,'{'Tramvay', 'Otobüs', 'Tren', 'Minibüs'}','{'Halısaha', 'Kapalı Spor Salonu', 'Cep Sinema', 'Yüzme Havuzu', 'Açık Spor Salonu'}','{'Servis', 'Otomobil', 'Kamyon'}'
+Cartagena,'{'4936307474', '8058944865'}','{'0451593747', '5636011552'}',Cartagena,'{'Otobüs', 'Tren'}','{'Kapalı Spor Salonu', 'Açık Spor Salonu'}','{'Kamyon'}
+Marbella,'{'2678512278'}','{'8347658996', '9640484799'}',Marbella,'{'Tren', 'Minibüs'}','{'Kapalı Spor Salonu', 'Halısaha', 'Yüzme Havuzu'}','{'Otomobil'}
+Mataró,'{'4461447707', '6580858373'}','{'5466221288', '9971042350'}',Mataró,'{'Minibüs', 'Otobüs', 'Tramvay'}','{'Yüzme Havuzu'}','{'Otomobil'}
+Almería,'{'2896480765', '8879774255'}','{'7302654536', '0648794159'}',Almería,'{'Tren', 'Minibüs', 'Tramvay', 'Otobüs'}','{'Yüzme Havuzu', 'Kapalı Spor Salonu'}','{'Otomobil'}
+Burgos,'{'5480254291', '5846836286'}','{'8972820520'}',Burgos,'{'Tramvay', 'Otobüs'}','{'Cep Sinema'}','{'Kamyon'}
+Salamanca,'{'6580858373', '4461447707'}','{'5427068307', '7302654536'}',Salamanca,'{'Otobüs'}','{'Halısaha', 'Yüzme Havuzu', 'Kapalı Spor Salonu', 'Cep Sinema'}','{'Kamyon'}
+Albacete,'{'4907642570'}','{'9971042350'}',Albacete,'{'Minibüs', 'Otobüs', 'Tren', 'Tramvay'}','{'Açık Spor Salonu'}','{'Servis', 'Kamyon'}'
+Huelva,'{'4936307474'}','{'6418769953'}',Huelva,'{'Otobüs', 'Minibüs', 'Tren', 'Tramvay'}','{'Açık Spor Salonu'}','{'Servis', 'Kamyon'}'
+Logroño,'{'0111544519', '9253979023'}','{'8111147274'}',Logroño,'{'Otobüs', 'Tren', 'Minibüs'}','{'Açık Spor Salonu', 'Cep Sinema'}','{'Otomobil'}
+Badajoz,'{'5846836286'}','{'0451593747'}',Badajoz,'{'Minibüs'}','{'Kapalı Spor Salonu'}','{'Servis'}
+León,'{'5762073609', '2776086916'}','{'6557108102', '7181887039'}',León,'{'Otobüs', 'Tramvay'}','{'Kapalı Spor Salonu', 'Halısaha'}','{'Servis', 'Otomobil', 'Kamyon'}'
+Tarragona,'{'6809828596', '4231264172'}','{'6728335290'}',Tarragona,'{'Tren'}','{'Cep Sinema'}','{'Kamyon', 'Servis'}'
+Ourense,'{'4231264172'}','{'0451593747'}',Ourense,'{'Minibüs'}','{'Açık Spor Salonu', 'Yüzme Havuzu', 'Halısaha'}','{'Servis'}
+Jaén,'{'5480254291'}','{'7487363240', '8347658996'}',Jaén,'{'Otobüs', 'Minibüs', 'Tramvay'}','{'Yüzme Havuzu', 'Kapalı Spor Salonu', 'Halısaha', 'Cep Sinema'}','{'Kamyon', 'Otomobil'}'
+Algeciras,'{'6809828596', '8058944865'}','{'7237086829'}',Algeciras,'{'Otobüs', 'Tren', 'Minibüs', 'Tramvay'}','{'Yüzme Havuzu', 'Kapalı Spor Salonu', 'Açık Spor Salonu', 'Halısaha'}','{'Servis', 'Kamyon', 'Otomobil'}'
+Santiago de Compostela,'{'7146198274'}','{'6418769953', '9148213520'}',Santiago de Compostela,'{'Otobüs', 'Tren', 'Tramvay'}','{'Yüzme Havuzu', 'Açık Spor Salonu', 'Kapalı Spor Salonu', 'Cep Sinema', 'Halısaha'}','{'Kamyon', 'Otomobil'}'
+Lorca,'{'8285374576', '5762073609'}','{'9148213520', '2033613305'}',Lorca,'{'Tren', 'Otobüs'}','{'Yüzme Havuzu', 'Halısaha'}','{'Otomobil'}
+Toledo,'{'7998021850', '6385570554'}','{'5466221288'}',Toledo,'{'Tren', 'Tramvay', 'Minibüs', 'Otobüs'}','{'Açık Spor Salonu', 'Yüzme Havuzu', 'Halısaha'}','{'Kamyon', 'Otomobil', 'Servis'}'
