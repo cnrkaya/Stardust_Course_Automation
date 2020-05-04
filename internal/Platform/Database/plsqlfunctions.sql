@@ -1,3 +1,18 @@
+CREATE FUNCTION getInstructorLessons(instructor_id_in VARCHAR(11))
+RETURNS TABLE (
+		name TEXT,
+		classroom_id VARCHAR(20),
+		lesson_date VARCHAR(20),
+		lesson_ts VARCHAR(20)
+) AS $$
+
+BEGIN
+
+RETURN QUERY SELECT name, classroom_id, lesson_date, lesson_ts FROM lesson WHERE instructor_id = instructor_id_in;
+
+END;
+$$ LANGUAGE plpgsql; 
+
 CREATE OR REPLACE FUNCTION updateInstructorInfo(instructor_id_in VARCHAR(11), homePhone text[], cellPhone text[], knownLangs text[] )
 RETURNS VOID AS $$
 
