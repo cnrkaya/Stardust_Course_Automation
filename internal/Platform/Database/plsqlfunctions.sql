@@ -1,10 +1,10 @@
-CREATE OR REPLACE FUNCTION attachClassroomWithLesson(classroom_id_in VARCHAR(20), lesson_date_in VARCHAR(20), lesson_ts_in VARCHAR(20), lesson_name_in TEXT, lesson_course_no_in INT)
+CREATE OR REPLACE FUNCTION attachClassroomWithLesson(classroom_id_in VARCHAR(20), lesson_date_in VARCHAR(20), lesson_ts_in VARCHAR(20), lesson_name_in TEXT, lesson_course_no_in INT, instructor_id_in VARCHAR(11))
 RETURNS VOID AS $$
 
 BEGIN
 
 UPDATE lesson
-SET classroom_id = classroom_id_in ,lesson_date = lesson_date_in, lesson_ts = lesson_ts_in
+SET classroom_id = classroom_id_in ,lesson_date = lesson_date_in, lesson_ts = lesson_ts_in, instructor_id = instructor_id_in
 WHERE lesson.name = lesson_name_in AND lesson.course_no = lesson_course_no_in;
 
 END;
