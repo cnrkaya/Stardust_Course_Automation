@@ -1,3 +1,31 @@
+CREATE OR REPLACE FUNCTION updateInstructorInfo(instructor_id_in VARCHAR(11), homePhone text[], cellPhone text[], knownLangs text[] )
+RETURNS VOID AS $$
+
+BEGIN
+
+UPDATE person
+SET home_number = homePhone , phone_number = cellPhone
+WHERE person.id = instructor_id_in;
+
+UPDATE instructor
+SET known_languages = knownLangs
+WHERE instructor.id = instructor_id_in;
+
+END;
+$$ LANGUAGE plpgsql; 
+
+CREATE OR REPLACE FUNCTION updateStudentInfo(student_id_in VARCHAR(11), homePhone text[], cellPhone text[])
+RETURNS VOID AS $$
+
+BEGIN
+
+UPDATE person
+SET home_number = homePhone , phone_number = cellPhone
+WHERE person.id = student_id_in;
+
+END;
+$$ LANGUAGE plpgsql; 
+
 CREATE OR REPLACE FUNCTION getInstructors(branchName_in VARCHAR(31))
 RETURNS TABLE (
 		id CHAR(11),
