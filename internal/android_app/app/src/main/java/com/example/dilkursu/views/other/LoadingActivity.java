@@ -24,7 +24,6 @@ public class LoadingActivity extends AppCompatActivity {
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
         GlobalConfig.InitializeConnections();
-        GlobalConfig.InitializeArrays();
         Intent intent = new Intent(getApplicationContext(), SignInActivity.class);
         startActivity(intent);
         finish();

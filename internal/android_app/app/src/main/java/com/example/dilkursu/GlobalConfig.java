@@ -47,11 +47,14 @@ public class GlobalConfig {
     }
 
     public static void InitializeArrays() {
+        if( GlobalConfig.branches != null )
+            return;
+
         branches = connection.getAllBranches();
 
-        for(Branch branch : branches){
-            branch.setCourses(connection.getCourses(branch.getName()));
-        }
+//        for(Branch branch : branches){
+//            branch.setCourses(connection.getCourses(branch.getName()));
+//        }
 
     }
 
@@ -75,8 +78,13 @@ public class GlobalConfig {
     }
 
     public static ArrayList<Branch> getAllBranches() {
-        branches = connection.getAllBranches();
-        return branches;
+        if(GlobalConfig.branches == null){
+            GlobalConfig.InitializeArrays();
+        }
+
+        // branches = connection.getAllBranches();
+
+        return GlobalConfig.branches;
     }
 
     public static ArrayList<Classroom> getBranchClassrooms(String branchName) {
