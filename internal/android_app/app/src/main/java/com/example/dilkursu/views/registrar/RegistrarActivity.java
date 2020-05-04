@@ -75,7 +75,6 @@ public class RegistrarActivity extends AppCompatActivity implements View.OnClick
     public void onClick(View v) {
 
         if (v == BtnListBranch) {
-            // Handle clicks for BtnShowBranch
             Intent intent = new Intent(getApplicationContext(), BranchListActivity.class);
             startActivity(intent);
         } else if (v == BtnStudentRegister) {
@@ -83,11 +82,9 @@ public class RegistrarActivity extends AppCompatActivity implements View.OnClick
             Intent intent = new Intent(getApplicationContext(), StudentRegistrationActivity.class);
             startActivityForResult(intent, STUDENT_REGISTER_ACTIVITY_REQUEST_CODE);
         } else if (v == BtnStdInfos) {
-            // Handle clicks for BtnStdInfos
             Intent intent = new Intent(getApplicationContext(), StudentSearchActivity.class);
             startActivity(intent);
         } else if (v == BtnLogout) {
-            // Handle clicks for BtnLogout
             Intent intent = new Intent(getApplicationContext(), SignInActivity.class);
             GlobalConfig.currentUser = null;
             finish();

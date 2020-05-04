@@ -94,14 +94,9 @@ public class AdminViewingActivity extends AppCompatActivity implements View.OnCl
         return true;
     }
     private boolean viewClassroom(){
-        Integer classroomID;
-        try {
-            classroomID = Integer.valueOf(  VClassromClassroomID.getText().toString());
-        }catch (Exception e){
-            e.printStackTrace();
-            Toast.makeText(getApplicationContext(), "Id integer olmalı" , Toast.LENGTH_SHORT).show();
-            return false;
-        }
+        String classroomID;
+
+        classroomID = VClassromClassroomID.getText().toString();
 
         Intent intent = new Intent(getApplicationContext(), ClassroomInfoActivity.class);
         intent.putExtra("classroomID",classroomID);

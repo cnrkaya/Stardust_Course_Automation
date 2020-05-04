@@ -87,7 +87,7 @@
                 <EditText
                     android:id="@+id/AdminViewingActivity_vClassrom_classroomID"
                     android:padding="10dp"
-                    android:inputType="number"
+                    android:inputType="text"
                     android:background="#FFFFFF"
                     android:layout_weight="1"
                     android:layout_width="match_parent"

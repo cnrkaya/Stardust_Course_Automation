@@ -7,15 +7,18 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.example.dilkursu.GlobalConfig;
 import com.example.dilkursu.R;
+import com.example.dilkursu.models.Classroom;
 
 public class ClassroomInfoActivity extends AppCompatActivity {
     private ImageButton BtnBack;
     private TextView classroomName;
     private TextView classroomCapacity;
     private TextView classroomBranch;
-    private Integer classroomID;
+    private String classroomID;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,18 +36,20 @@ public class ClassroomInfoActivity extends AppCompatActivity {
         classroomBranch= findViewById(R.id.ClassroomInfoActivity_classroomBranch);
     }
     private void initViews(){
+        Classroom c;
         //init classroom informations
         Intent intent = getIntent();
-        classroomID = intent.getIntExtra("classroomID",0);
-
-        //TODO connect with DB
-        /*
-        classroomName.setText();
-        classroomCapacity.setText();
-        classroomBranch.setText();
-        */
-
-
+        classroomID = intent.getStringExtra("classroomID");
+        try{
+            c = GlobalConfig.connection.getClassroom(classroomID);
+            classroomName.setText(c.getName());
+            classroomCapacity.setText(String.valueOf(c.getCapacity()));
+            classroomBranch.setText(c.getBranchName());
+        }catch (Exception e){
+            e.printStackTrace();
+            Toast.makeText(getApplicationContext(), "Sinifi yüklerken hata olustu." , Toast.LENGTH_SHORT).show();
+            finish();
+        }
     }
 
     private void defineListeners(){

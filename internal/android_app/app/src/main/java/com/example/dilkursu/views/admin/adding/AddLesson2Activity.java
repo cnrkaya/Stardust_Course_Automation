@@ -18,7 +18,12 @@ import com.example.dilkursu.models.Classroom;
 import com.example.dilkursu.models.Instructor;
 import com.example.dilkursu.models.Lesson;
 
+import java.lang.reflect.Array;
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Locale;
 
 public class AddLesson2Activity extends AppCompatActivity implements View.OnClickListener {
     private ImageButton BtnBack;
@@ -56,62 +61,20 @@ public class AddLesson2Activity extends AppCompatActivity implements View.OnClic
         lessonTs = intent.getStringExtra("lessonTs");
 
         //TODO: use getAvailableInstructors method(see below) to fill in the spinner
-        // TODO: SQL-Java getAvailableClassrooms
-
-
 
         //TODO list available teachers and classroom on spinner
+        // use getAvailableClassroomNames, getAvailableInstructors methods
         instructorId = ""; // TODO: fill in according to spinner
         classroomId = ""; // TODO: fill in according to spinner
+
+        // Test
+        System.out.println(getAvailableInstructors("Swindon", "11/29/2019", "15:39:07"));
+        System.out.println(getAvailableClassroomNames("11/29/2019", "15:39:07"));
+
 
         BtnBack.setOnClickListener( this );
         BtnComplete.setOnClickListener( this );
     }
-
-    public ArrayList<Classroom> getAvailableClassrooms(String branchName, int day, int hour){
-        ArrayList<Classroom> availableClassrooms = new ArrayList<>();
-
-//        try{
-//            ArrayList<Classroom> classrooms = GlobalConfig.connection.getClassrooms(branchName);
-//
-//            for(Instructor i : instructors){
-//                int[][] availableHours = i.getAvailableHours();
-//                if( availableHours[day][hour] == 1)
-//                    availableInstructors.add(i);
-//            }
-//
-//        }catch (Exception e){
-//            e.printStackTrace();
-//            return null;
-//        }
-
-        return availableClassrooms;
-    }
-
-
-    public ArrayList<Instructor> getAvailableInstructors(String branchName, int day, int hour){
-        // hour -> for 14:00 o'clock, hour=14
-        // day -> for tuesday, day = 2
-
-        ArrayList<Instructor> availableInstructors = new ArrayList<>();
-
-        try{
-            ArrayList<Instructor> instructors = GlobalConfig.connection.getInstructors(branchName);
-
-            for(Instructor i : instructors){
-                int[][] availableHours = i.getAvailableHours();
-                if( availableHours[day][hour] == 1)
-                    availableInstructors.add(i);
-            }
-
-        }catch (Exception e){
-            e.printStackTrace();
-            return null;
-        }
-
-        return availableInstructors;
-    }
-
 
     @Override
     public void onClick(View v) {
@@ -126,16 +89,12 @@ public class AddLesson2Activity extends AppCompatActivity implements View.OnClic
     }
 
     private boolean addLesson(){
-        if(this.courseId == -1)
-            return false;
-
-        //If and only if the start-finish times are not appropriate, checkClassAvailability returns false
-        if( !checkClassAvailability(this.classroomId, this.lessonDate, this.lessonTs))
+        if(this.courseId == 0)
             return false;
 
         Lesson lesson = addLessonToDB(this.lessonName, this.courseId, this.instructorId, this.classroomId, this.lessonDate, this.lessonTs);
 
-        return lesson != null;
+        return attachClassroomWithLesson(lesson);
     }
 
     public Lesson addLessonToDB(String lessonName, int courseId, String insructorId, String classroomId, String lessonDate, String lessonTime){
@@ -145,10 +104,10 @@ public class AddLesson2Activity extends AppCompatActivity implements View.OnClic
         return lesson;
     }
 
-    public boolean attachClassroomWithLesson(Lesson lesson, String teacherId){
+    public boolean attachClassroomWithLesson(Lesson lesson){
         // SELECT attachClassroomWithLesson('BZ-45', '3/27/2020', '16:52:38', 'Listening', 3, '72');
         try{
-            GlobalConfig.connection.attachClassroomWithLesson(lesson, teacherId);
+            GlobalConfig.connection.attachClassroomWithLesson(lesson);
         }catch (Exception e){
             e.printStackTrace();
             return false;
@@ -157,28 +116,66 @@ public class AddLesson2Activity extends AppCompatActivity implements View.OnClic
         return true;
     }
 
-    public boolean checkClassAvailability(String classroomId, String lessonDate, String lessonTime){
-        ArrayList<ArrayList<String>> classroom_schedules;
-        try{
+    public ArrayList<Instructor> getAvailableInstructors(String branchName, String date, String ts){
+        // hour -> for 14:00 o'clock, hour=14
+        // day -> for tuesday, day = 2
+        DateTimeFormatter fIn = DateTimeFormatter.ofPattern( "MM/dd/uuuu" , Locale.UK );
+        LocalDate lessonDate_ = LocalDate.parse( date , fIn);
+        LocalTime lessonTime_ = LocalTime.parse( ts );
 
+        int day = lessonDate_.getDayOfWeek().getValue();
+        int hour = lessonTime_.getHour();
+
+        ArrayList<Instructor> availableInstructors = new ArrayList<>();
+
+        try{
+            ArrayList<Instructor> instructors = GlobalConfig.connection.getInstructors(branchName);
+
+            for(Instructor i : instructors){
+                instructors.add(i);
+                int[][] availableHours = i.getAvailableHours();
+                if( availableHours[day][hour] == 0)
+                    availableInstructors.remove(i);
+            }
+
+        }catch (Exception e){
+            e.printStackTrace();
+            return null;
+        }
+
+        return availableInstructors;
+    }
+
+    public ArrayList<String> getAvailableClassroomNames(String lessonDate, String lessonTime){
+        ArrayList<String> availableClassrooms = new ArrayList<>();
+        ArrayList<ArrayList<String>> classroom_schedules;
+        DateTimeFormatter fIn = DateTimeFormatter.ofPattern( "MM/dd/uuuu" , Locale.UK );
+        LocalDate lessonDate_ = LocalDate.parse( lessonDate , fIn);
+        LocalTime lessonTime_ = LocalTime.parse( lessonTime );
+        LocalDate date;
+        LocalTime ts;
+
+        try{
             // Get all schedule records which consists of classroom_id, lesson_date, lesson_time
             classroom_schedules = GlobalConfig.connection.getClassSchedules(classroomId);
             for(int i = 0; i < classroom_schedules.size(); i++ ){
                 ArrayList<String> classLessons = classroom_schedules.get(i);
-                String classroomLessonDate = classLessons.get(1);
-                String classroomLessonTs = classLessons.get(2);
+                date = LocalDate.parse( classLessons.get(1) , fIn);
+                ts = LocalTime.parse(classLessons.get(2));
 
-                if (classroomLessonDate.equals(lessonDate) && classroomLessonTs.equals(lessonTime))
-                    return false;
+                if( lessonDate_.equals(date) && lessonTime_.equals(ts))
+                    continue;
+
+                availableClassrooms.add(classLessons.get(0));
             }
 
         }catch (Exception e){
             e.printStackTrace();
             Toast.makeText(getApplicationContext(), "Exception when getting class schedules" , Toast.LENGTH_SHORT).show();
-            return false;
+            return null;
         }
 
-        return true;
+        return availableClassrooms;
     }
 
     private class RegisterLessonAsyncTask extends AsyncTask<Object, Void, Boolean> {

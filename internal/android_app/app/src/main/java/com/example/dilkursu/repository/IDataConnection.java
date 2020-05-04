@@ -52,7 +52,7 @@ public interface IDataConnection {
 
     ArrayList<ArrayList<String>> getClassSchedules(String classroomId) throws Exception;
 
-    void attachClassroomWithLesson(Lesson lesson, String teacherId) throws Exception;
+    void attachClassroomWithLesson(Lesson lesson) throws Exception;
 
     ArrayList<Course> getAllCourses();
 
@@ -76,5 +76,10 @@ public interface IDataConnection {
 
     /****** Getter Methods ******/
     ArrayList<Lesson> getInstructorLessons(String instructorId) throws Exception;
+
     Course getCourse(int courseId) throws Exception;
+
+    Classroom getClassroom(String name) throws Exception;
+
+    Lesson getLesson(String name, int courseNo) throws Exception;
 }
