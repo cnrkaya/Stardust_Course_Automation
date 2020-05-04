@@ -24,7 +24,7 @@ CREATE TABLE LOGIN(
 
 -- https://stackoverflow.com/questions/18656528/how-do-i-encrypt-passwords-with-postgresql
 CREATE TABLE INVOICE(
-	id int PRIMARY KEY,							
+	id chq PRIMARY KEY,							
 	invoice_date date NOT NULL,
 	total int NOT NULL,	
 	executo_id char(11) 								-- references to Turkish Identity number
@@ -37,10 +37,10 @@ CREATE TABLE INVOICE(
 
 
 CREATE TABLE PAYMENT(
-	id int PRIMARY KEY,
+	id char(11) PRIMARY KEY,
 	pay_date date NOT NULL,
 	amount varchar(10) NOT NULL,
-	invoice_id int 
+	invoice_id char(11) 
 		NOT NULL 
 		DEFAULT 0,
 	
@@ -62,7 +62,7 @@ CREATE TABLE BRANCH(
 
 
 CREATE TABLE COURSE(
-	id int PRIMARY KEY,
+	id char(11) PRIMARY KEY,
 	language varchar(15) NOT NULL,
 	name varchar(15),
 	price varchar(10) NOT NULL
@@ -74,7 +74,7 @@ CREATE TABLE SALES(
 		DEFAULT 0,		
 	customer_id char(11)		
 		DEFAULT '00000000000',		
-	course_id int,
+	course_id char(11),
 	total int,
 	max_no_of_payments int,
 	
