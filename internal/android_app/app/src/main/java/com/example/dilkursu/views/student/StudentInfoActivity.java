@@ -77,7 +77,6 @@ public class StudentInfoActivity extends AppCompatActivity implements View.OnCli
     @Override
     public void onClick(View v) {
         if (v == BtnBack) {
-            // Handle clicks for BtnBack
             finish();
         } else if (v == BtnEdit) {
             // Handle clicks for BtnEdits
@@ -114,12 +113,14 @@ public class StudentInfoActivity extends AppCompatActivity implements View.OnCli
     }
 
     private boolean updateStudentInfo() {
-
-
-        HomeTelephone.getText().toString();
-        CellPhone.getText().toString();
-
-
+        try{
+            GlobalConfig.connection.updateStudentInfo(GlobalConfig.currentUser.getId(),
+                                                      HomeTelephone.getText().toString(),
+                                                      CellPhone.getText().toString());
+        }catch (Exception e){
+            e.printStackTrace();
+            return false;
+        }
         return true;
     }
 }

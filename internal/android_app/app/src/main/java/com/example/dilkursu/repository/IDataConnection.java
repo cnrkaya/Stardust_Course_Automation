@@ -68,4 +68,7 @@ public interface IDataConnection {
     void deleteCourse(int courseId) throws Exception;
 
     void deleteClassroom(String classroomId) throws Exception;
+
+    /****** Update Methods ******/
+    void updateStudentInfo(String id, String homePhone, String cellPhone) throws Exception;
 }

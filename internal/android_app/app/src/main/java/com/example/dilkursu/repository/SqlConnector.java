@@ -598,4 +598,18 @@ public class SqlConnector implements IDataConnection {
         callableStatement.execute();
         callableStatement.close();
     }
+
+    @Override
+    public void updateStudentInfo(String id, String homePhone, String cellPhone) throws Exception {
+        String[] homePhones = {homePhone};
+        String[] cellPhones = {cellPhone};
+
+        Connection conn = database.getConnection();
+        CallableStatement callableStatement = conn.prepareCall("{ CALL updateStudentInfo(?, ?, ?)}");
+        callableStatement.setString(1, id);
+        callableStatement.setArray(2, database.getConnection().createArrayOf("text", homePhones));
+        callableStatement.setArray(3, database.getConnection().createArrayOf("text", cellPhones));
+        callableStatement.execute();
+        callableStatement.close();
+    }
 }
