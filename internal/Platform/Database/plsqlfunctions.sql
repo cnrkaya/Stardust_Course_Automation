@@ -1,3 +1,19 @@
+CREATE OR REPLACE FUNCTION getInstructors(branchName_in VARCHAR(31))
+RETURNS TABLE (
+		id CHAR(11),
+		known_languages TEXT[],
+		pworking_hours CHAR(21)
+) AS $$
+
+BEGIN
+
+RETURN QUERY SELECT instructor.id, instructor.known_languages, instructor.pworking_hours 
+FROM instructor, instructor_can_work_in 
+WHERE instructor.id = instructor_id and branch_name = branchName_in ORDER BY id;
+
+END;
+$$ LANGUAGE plpgsql; 
+
 CREATE OR REPLACE FUNCTION attachClassroomWithLesson(classroom_id_in VARCHAR(20), lesson_date_in VARCHAR(20), lesson_ts_in VARCHAR(20), lesson_name_in TEXT, lesson_course_no_in INT, instructor_id_in VARCHAR(11))
 RETURNS VOID AS $$
 
