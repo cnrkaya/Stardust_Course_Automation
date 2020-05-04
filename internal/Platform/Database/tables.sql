@@ -130,7 +130,7 @@ CREATE TABLE INSTRUCTOR(
 	id char(11),	
 	start_date date NOT NULL,
 	known_languages text[] NOT NULL,
-	pworking_hours char(21),		      -- possible working hours, 168bit map
+	pworking_hours char(42),		      -- possible working hours, 168bit map
 	
 	PRIMARY KEY(id),
 	FOREIGN KEY (id) REFERENCES Person(id) 
