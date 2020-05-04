@@ -58,9 +58,13 @@ public class BranchInfoActivity extends AppCompatActivity implements View.OnClic
 
         Branch branch = GlobalConfig.connection.getBranch(branchName);
         BranchName.setText(branchName);
-        BranchTransportation.setText(branch.getPublicTransports().get(0));
+        if(branch.getPublicTransports() != null){
+            BranchTransportation.setText(branch.getPublicTransports().get(0));
+        }
         BranchAddress.setText(branch.getAddress());
-        SocialFacilities.setText(branch.getFacilities().get(0));
+        if(branch.getFacilities() != null){
+            SocialFacilities.setText(branch.getFacilities().get(0));
+        }
     }
 
     private void defineListeners() {

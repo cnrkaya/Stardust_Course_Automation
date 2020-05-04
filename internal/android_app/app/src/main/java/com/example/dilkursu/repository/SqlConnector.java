@@ -289,8 +289,6 @@ public class SqlConnector implements IDataConnection {
     }
 
     public Branch getBranch(String branchName) {
-
-        //TODO: Update
         Branch branch = new Branch();
 
         try {
