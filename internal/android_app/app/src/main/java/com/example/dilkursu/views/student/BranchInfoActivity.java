@@ -12,6 +12,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.dilkursu.GlobalConfig;
 import com.example.dilkursu.R;
 import com.example.dilkursu.models.Branch;
+import com.example.dilkursu.views.other.CourseInfoActivity;
 
 public class BranchInfoActivity extends AppCompatActivity implements View.OnClickListener {
     private TextView BranchName;
@@ -79,11 +80,12 @@ public class BranchInfoActivity extends AppCompatActivity implements View.OnClic
             Intent intent = new Intent(this, ClassesActivity.class);
             startActivity(intent);
         } else if (view == BtnBack) {
-            // Handle clicks for BtnBack
             finish();
         }else if (view == BtnCourses) {
-            // Handle clicks for BtnCourses
-            //TODO
+            Intent intent = new Intent(this, CourseInfoActivity.class);
+            intent.putExtra("courseID",5);   // TODO: send the course id from list of courses of the branch
+            // GlobalConfig.connection.getCourses(branch_name); // TODO: get the course list from this method
+            startActivity(intent);
         }
     }
 }

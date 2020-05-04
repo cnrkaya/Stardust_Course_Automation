@@ -192,7 +192,7 @@ public class SqlConnector implements IDataConnection {
                 course.setId(Integer.parseInt(attributes[0]));
                 course.setLanguage(attributes[1]);
                 course.setName(attributes[2]);
-                course.setPrice(Integer.parseInt(attributes[3].substring(attributes[3].indexOf("$") + 1)));
+                course.setPrice(attributes[3]);
 
                 courses.add(course);
 
@@ -219,7 +219,7 @@ public class SqlConnector implements IDataConnection {
                 Course course = Course.courseFactory(
                         resultSet.getString("name"),
                         resultSet.getString("language"),
-                        (resultSet.getInt("price"))
+                        resultSet.getString("price")
                 );
                 course.setId(resultSet.getInt("id"));
                 courses.add(course);
@@ -288,29 +288,6 @@ public class SqlConnector implements IDataConnection {
         return instructors;
     }
 
-    public Branch getBranch(String branchName) {
-        Branch branch = new Branch();
-
-        try {
-            String query = "SELECT * FROM BRANCH WHERE name = " + branchName;
-            ResultSet resultSet = database.execute(query);
-
-            branch.setName(resultSet.getString("name"));
-            branch.setPhoneNumbers(TextProcessor.stringToArray(resultSet.getString("phone_number")));
-            branch.setFaxNumbers(TextProcessor.stringToArray(resultSet.getString("fax")));
-            branch.setAddress(resultSet.getString("address"));
-            branch.setPublicTransports(TextProcessor.stringToArray(resultSet.getString("public_transport")));
-            branch.setPrivateTransports(TextProcessor.stringToArray(resultSet.getString("private_transport")));
-            branch.setFacilities(TextProcessor.stringToArray(resultSet.getString("facilities")));
-            branch.setClassrooms(getClassrooms(branch.getName()));
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-        return branch;
-
-    }
-
     @Override
     public String getBranchName(String person_id) throws Exception {
 
@@ -368,7 +345,7 @@ public class SqlConnector implements IDataConnection {
             while (resultSet.next()) {
                 course.setLanguage(resultSet.getString("language"));
                 course.setName(resultSet.getString("name"));
-                course.setPrice(resultSet.getInt("price"));
+                course.setPrice(resultSet.getString("price"));
             }
 
             resultSet.close();
@@ -501,7 +478,7 @@ public class SqlConnector implements IDataConnection {
             CallableStatement callableStatement = conn.prepareCall("{ CALL addCourse(?, ?, ?)}");
             callableStatement.setString(1, course.getName());
             callableStatement.setString(2, course.getLanguage());
-            callableStatement.setInt(3, course.getPrice());
+            callableStatement.setString(3, course.getPrice());
 
             callableStatement.execute();
             callableStatement.close();
@@ -653,5 +630,63 @@ public class SqlConnector implements IDataConnection {
         return lessons;
     }
 
+    @Override
+    public Course getCourse(int courseId) throws Exception{
+        PreparedStatement preparedStatement = database.getConnection().prepareStatement("SELECT * FROM course WHERE id = (?);");
+        preparedStatement.setInt(1,courseId);
 
+        ResultSet resultSet = preparedStatement.executeQuery();
+        resultSet.next();
+        int id = resultSet.getInt("id");
+        String name = resultSet.getString("name");
+        String lang = resultSet.getString("language");
+        String price = resultSet.getString("price");
+
+        resultSet.close();
+        preparedStatement.close();
+
+        Course c = new Course();
+        c.setName(name);
+        c.setLanguage(lang);
+        c.setPrice(price);
+        c.setId(id);
+
+        return c;
+    }
+
+    @Override
+    public Branch getBranch(String branchName) {
+        Branch branch = new Branch();
+
+        // In case invalid branchName is send, just return empty branch
+        if( branchName == null || branchName.length() < 2)
+            return branch;
+
+        try {
+            PreparedStatement preparedStatement = database.getConnection().prepareStatement("SELECT * FROM BRANCH WHERE name = ?;");
+            preparedStatement.setString(1, branchName);
+
+            ResultSet resultSet = preparedStatement.executeQuery();
+            resultSet.next();
+
+            branch.setName(resultSet.getString("name"));
+            branch.setPhoneNumbers(TextProcessor.stringToArray(resultSet.getString("phone_number")));
+            branch.setFaxNumbers(TextProcessor.stringToArray(resultSet.getString("fax")));
+            branch.setAddress(resultSet.getString("address"));
+            branch.setPublicTransports(TextProcessor.stringToArray(resultSet.getString("public_transport")));
+            branch.setPrivateTransports(TextProcessor.stringToArray(resultSet.getString("private_transport")));
+            branch.setFacilities(TextProcessor.stringToArray(resultSet.getString("facilities")));
+            branch.setClassrooms(getClassrooms(branch.getName()));
+            resultSet.next();
+
+            resultSet.close();
+            preparedStatement.close();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return branch;
+
+    }
 }

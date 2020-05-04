@@ -28,7 +28,7 @@ public class SellActivity extends AppCompatActivity implements View.OnClickListe
     private TextView TvAmount;
     private Button BtnNext;
     private Branch selectedBranch;
-    private float price;
+    private String price;
     private EditText studentId;
 
     @Override
@@ -110,7 +110,7 @@ public class SellActivity extends AppCompatActivity implements View.OnClickListe
                 SpinnerKur.setAdapter(adapter3);
                 break;
             case R.id.SellActivity_spinner_kur:
-                TvAmount.setText("$" + Float.toString(price));
+                TvAmount.setText("$" + price);
                 break;
 
         }

@@ -1,5 +1,7 @@
 package com.example.dilkursu.models;
 
+import com.example.dilkursu.GlobalConfig;
+
 import java.util.ArrayList;
 
 public class Person {
@@ -22,7 +24,8 @@ public class Person {
         this.id = id;
         this.branchName = branchName;
 
-        branch = new Branch();
+
+        branch = GlobalConfig.getAllBranches().get(0);      // init with random branch instead of null
         phoneNumbers = new ArrayList<>();
         homeNumbers = new ArrayList<>();
     }

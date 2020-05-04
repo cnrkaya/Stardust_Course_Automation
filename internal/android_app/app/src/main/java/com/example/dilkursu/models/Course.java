@@ -7,7 +7,7 @@ public class Course {
     private int id;
     private String name;
     private String language;
-    private int price;
+    private String price;
     private ArrayList<Lesson> lessons;
     private ArrayList<Person> persons;
 
@@ -22,7 +22,7 @@ public class Course {
      * @param price is the price of the course where no discount is added.
      * @return newly created course object
      */
-    public static Course courseFactory(String name, String language, int price){
+    public static Course courseFactory(String name, String language, String price){
         Course course = new Course();
         course.name = name;
         course.language = language;
@@ -58,11 +58,11 @@ public class Course {
         this.language = language;
     }
 
-    public int getPrice() {
+    public String getPrice() {
         return price;
     }
 
-    public void setPrice(int price) {
+    public void setPrice(String price) {
         this.price = price;
     }
 
@@ -81,6 +81,19 @@ public class Course {
     public void setPersons(ArrayList<Person> persons) {
         this.persons = persons;
     }
+
+    public String getCourseName() {
+        // Greek A-2  --> language name - id
+        StringBuilder courseName = new StringBuilder(language);
+        courseName.append(" ");
+        courseName.append(name);
+        courseName.append("-");
+        courseName.append(id);
+
+
+        return courseName.toString();
+    }
+
 
 
 }

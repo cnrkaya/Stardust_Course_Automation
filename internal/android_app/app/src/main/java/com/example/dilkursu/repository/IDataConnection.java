@@ -76,4 +76,5 @@ public interface IDataConnection {
 
     /****** Getter Methods ******/
     ArrayList<Lesson> getInstructorLessons(String instructorId) throws Exception;
+    Course getCourse(int courseId) throws Exception;
 }

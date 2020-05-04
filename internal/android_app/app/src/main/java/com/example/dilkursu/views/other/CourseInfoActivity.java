@@ -8,7 +8,9 @@ import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import com.example.dilkursu.GlobalConfig;
 import com.example.dilkursu.R;
+import com.example.dilkursu.models.Course;
 
 public class CourseInfoActivity extends AppCompatActivity implements View.OnClickListener{
     private ImageButton BtnBack;
@@ -37,21 +39,22 @@ public class CourseInfoActivity extends AppCompatActivity implements View.OnClic
     @Override
     public void onClick(View v) {
         if ( v == BtnBack ) {
-            // Handle clicks for BtnBack
             finish();
         }
     }
     private void initViews(){
-        //init course informations
+        Course c;
         Intent intent = getIntent();
-        courseID = intent.getIntExtra("courseID",0);
+        courseID = intent.getIntExtra("courseID",5);
 
-        //TODO connect with DB
-        /*
-        TxtVCourseName.setText();
-        TxtVKurName.setText();
-        TxtVPrice.setText();
-        */
+        try{
+            c = GlobalConfig.connection.getCourse(courseID);
+            TxtVCourseName.setText(c.getCourseName());
+            TxtVKurName.setText(c.getName());
+            TxtVPrice.setText(c.getPrice());
+        }catch (Exception e){
+            e.printStackTrace();
+        }
 
     }
 

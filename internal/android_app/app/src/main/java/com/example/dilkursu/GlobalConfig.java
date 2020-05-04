@@ -82,8 +82,6 @@ public class GlobalConfig {
             GlobalConfig.InitializeArrays();
         }
 
-        // branches = connection.getAllBranches();
-
         return GlobalConfig.branches;
     }
 

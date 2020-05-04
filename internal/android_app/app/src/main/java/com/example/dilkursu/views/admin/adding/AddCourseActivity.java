@@ -56,9 +56,9 @@ public class AddCourseActivity extends AppCompatActivity implements View.OnClick
     }
 
     private boolean addCourse(){
-            int price;
+            String price;
         try {
-            price = Integer.valueOf( EdtTxtPrice.getText().toString());
+            price = EdtTxtPrice.getText().toString();
         }catch (Exception e){
             e.printStackTrace();
             Toast.makeText(getApplicationContext(), "Ücret integer olmalı" , Toast.LENGTH_SHORT).show();
