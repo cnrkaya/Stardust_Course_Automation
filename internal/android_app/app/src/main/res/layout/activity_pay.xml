@@ -11,7 +11,7 @@
         android:id="@+id/header"
         android:background="#5D7D98"
         android:layout_width="match_parent"
-        android:layout_height="65dp"
+        android:layout_height="70dp"
         android:padding="15dp"
         android:orientation="horizontal">
         <ImageButton
