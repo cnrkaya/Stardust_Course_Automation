@@ -24,7 +24,7 @@ CREATE TABLE LOGIN(
 
 -- https://stackoverflow.com/questions/18656528/how-do-i-encrypt-passwords-with-postgresql
 CREATE TABLE INVOICE(
-	id chq PRIMARY KEY,							
+	id char(11) PRIMARY KEY,							
 	invoice_date date NOT NULL,
 	total int NOT NULL,	
 	executo_id char(11) 								-- references to Turkish Identity number
@@ -70,7 +70,7 @@ CREATE TABLE COURSE(
 
 
 CREATE TABLE SALES(
-	invoice_number int		
+	invoice_number char(11)		
 		DEFAULT 0,		
 	customer_id char(11)		
 		DEFAULT '00000000000',		
