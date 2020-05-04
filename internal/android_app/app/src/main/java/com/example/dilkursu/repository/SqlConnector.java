@@ -629,4 +629,31 @@ public class SqlConnector implements IDataConnection {
         callableStatement.close();
     }
 
+    @Override
+    public ArrayList<Lesson> getInstructorLessons(String instructorId) throws Exception{
+        if(instructorId == null)
+            return null;
+
+        ArrayList<Lesson> lessons = new ArrayList<>();
+
+        PreparedStatement preparedStatement = database.getConnection().prepareStatement("SELECT name, classroom_id, lesson_date, lesson_ts FROM getInstructorLessons(?);");
+        preparedStatement.setString(1, instructorId);
+
+        ResultSet resultSet = preparedStatement.executeQuery();
+        while (resultSet.next()) {
+            Lesson l = new Lesson();
+            l.setName(resultSet.getString("name"));
+            l.setClassroomId(resultSet.getString("classroom_id"));
+            l.setDate(resultSet.getString("lesson_date"));
+            l.setTs(resultSet.getString("lesson_ts"));
+            lessons.add(l);
+        }
+
+        resultSet.close();
+        preparedStatement.close();
+
+        return lessons;
+    }
+
+
 }

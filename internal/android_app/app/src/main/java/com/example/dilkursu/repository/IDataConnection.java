@@ -73,4 +73,7 @@ public interface IDataConnection {
     void updateStudentInfo(String id, String homePhone, String cellPhone) throws Exception;
 
     void updateInstructorInfo(String instructorId, String homePhone, String cellPhone, String knownLanguages) throws Exception;
+
+    /****** Getter Methods ******/
+    ArrayList<Lesson> getInstructorLessons(String instructorId) throws Exception;
 }
