@@ -687,6 +687,37 @@ public class SqlConnector implements IDataConnection {
         }
 
         return branch;
-
     }
+
+    @Override
+    public Classroom getClassroom(String name) throws Exception{
+        Classroom c = null;
+
+        // In case invalid name is send, just return empty branch
+        if( name == null || name.length() < 2)
+            return null;
+
+        try {
+            PreparedStatement preparedStatement = database.getConnection().prepareStatement("SELECT * FROM classroom WHERE name = (?);");
+            preparedStatement.setString(1,name);
+
+            ResultSet resultSet = preparedStatement.executeQuery();
+            resultSet.next();
+            int capacity = resultSet.getInt("capacity");
+            String branchName = resultSet.getString("branch_name");
+
+            resultSet.close();
+            preparedStatement.close();
+
+             c = new Classroom(name, capacity, branchName);
+
+            return c;
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return c;
+    }
+
 }
