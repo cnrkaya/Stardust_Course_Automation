@@ -86,7 +86,7 @@ public class AdminViewingActivity extends AppCompatActivity implements View.OnCl
             Toast.makeText(getApplicationContext(), "Id integer olmalı" , Toast.LENGTH_SHORT).show();
             return false;
         }
-         lessonName = VLessonLessonName.getText().toString();
+        lessonName = VLessonLessonName.getText().toString();
         Intent intent = new Intent(getApplicationContext(), LessonInfoActivity.class);
         intent.putExtra("courseID",courseID);
         intent.putExtra("lessonName",lessonName);
