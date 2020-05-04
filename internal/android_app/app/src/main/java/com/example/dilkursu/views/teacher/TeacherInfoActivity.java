@@ -66,7 +66,7 @@ public class TeacherInfoActivity extends AppCompatActivity {
             public void onClick(View v) {
             setEditable(false);
             if( updateTeacherInfo() ) //TODO save changes of teacher's info to database
-                Toast.makeText(TeacherInfoActivity.this, "Bilgileriniz", Toast.LENGTH_SHORT).show();
+                Toast.makeText(TeacherInfoActivity.this, "Bilgileriniz Kaydedildi.", Toast.LENGTH_SHORT).show();
             else
                 Toast.makeText(TeacherInfoActivity.this, "İşlem Başarısız", Toast.LENGTH_LONG).show();
             }
@@ -86,13 +86,16 @@ public class TeacherInfoActivity extends AppCompatActivity {
     }
 
     private boolean updateTeacherInfo() {
-
-            homeTelephone.getText().toString();
-            cellphone.getText().toString();
-            languages.getText().toString();
-
-            return true;
-
+        try{
+            GlobalConfig.connection.updateInstructorInfo(GlobalConfig.currentUser.getId(),
+                    homeTelephone.getText().toString(),
+                    cellphone.getText().toString(),
+                    languages.getText().toString());
+        }catch (Exception e){
+            e.printStackTrace();
+            return false;
+        }
+        return true;
     }
 
     private void setEditable(boolean mode){

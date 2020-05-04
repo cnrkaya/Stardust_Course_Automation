@@ -71,4 +71,6 @@ public interface IDataConnection {
 
     /****** Update Methods ******/
     void updateStudentInfo(String id, String homePhone, String cellPhone) throws Exception;
+
+    void updateInstructorInfo(String instructorId, String homePhone, String cellPhone, String knownLanguages) throws Exception;
 }
