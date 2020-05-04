@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:fillViewport="true"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
     <RelativeLayout
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
+        android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <LinearLayout
@@ -88,23 +88,25 @@
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginTop="10dp"/>
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:background="#5D7D98"
-            android:textSize="17dp"
-            android:text="Kur Seçiniz"
-            android:gravity="center"
-            android:textColor="#FFFFFF"
-            android:textStyle="bold"
-            android:layout_marginTop="20dp">
-        </TextView>
 
-        <Spinner
-            android:id="@+id/SellActivity_spinner_kur"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginTop="10dp"/>
+<!--        <TextView-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="50dp"-->
+<!--            android:layout_marginTop="20dp"-->
+<!--            android:background="#5D7D98"-->
+<!--            android:gravity="center"-->
+<!--            android:text="Kur Seçiniz"-->
+<!--            android:textColor="#FFFFFF"-->
+<!--            android:textSize="17dp"-->
+<!--            android:textStyle="bold"-->
+<!--            android:visibility="visible"></TextView>-->
+
+<!--        <Spinner-->
+<!--            android:id="@+id/SellActivity_spinner_kur"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="50dp"-->
+<!--            android:layout_marginTop="10dp"-->
+<!--            android:visibility="visible" />-->
 
         <TextView
             android:id="@+id/SellActivity_tv_amount"

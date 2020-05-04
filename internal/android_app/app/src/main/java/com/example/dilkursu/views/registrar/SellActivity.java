@@ -45,7 +45,7 @@ public class SellActivity extends AppCompatActivity implements View.OnClickListe
     private void defineVariables() {
         SpinnerBranches = (Spinner) findViewById(R.id.SellActivity_spinner_branches);
         SpinnerCourses = (Spinner) findViewById(R.id.SellActivity_spinner_courses);
-        SpinnerKur = (Spinner) findViewById(R.id.SellActivity_spinner_kur);
+//        SpinnerKur = (Spinner) findViewById(R.id.SellActivity_spinner_kur);
         TvAmount = (TextView) findViewById(R.id.SellActivity_tv_amount);
         BtnNext = (Button) findViewById(R.id.SellActivity_btn_next);
         studentId = findViewById(R.id.SellActivity_edtTxt_studentID);
@@ -85,12 +85,14 @@ public class SellActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+        List<Course> all_courses = null;
         TvAmount.setText("$0");
         switch (adapterView.getId()) {
             case R.id.SellActivity_spinner_branches:
-                selectedBranch = Branch.getBranch(adapterView.getItemAtPosition(i).toString());
+                selectedBranch = GlobalConfig.connection.getBranch(adapterView.getItemAtPosition(i).toString());
                 List<String> courses = new ArrayList<>();
-                for (Course course : selectedBranch.getCourses()) {
+                all_courses = GlobalConfig.connection.getCourses(selectedBranch.getName());
+                for (Course course : all_courses) {
                     courses.add(String.valueOf(course.getId()));
                 }
                 ArrayAdapter<String> adapter2 = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, courses);
@@ -99,18 +101,20 @@ public class SellActivity extends AppCompatActivity implements View.OnClickListe
 
             case R.id.SellActivity_spinner_courses:
                 List<String> levels = new ArrayList<>();
-                for (Course course : selectedBranch.getCourses()) {
+                if( all_courses == null)
+                    all_courses = GlobalConfig.connection.getCourses(selectedBranch.getName());
+                for (Course course : all_courses) {
                     if (Integer.toString(course.getId()).equals(adapterView.getItemAtPosition(i).toString())) {
                         price = course.getPrice();
-                        levels.add(course.getName());
+                        levels.add(course.getCourseName());
                     }
                 }
                 ArrayAdapter<String> adapter3 = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, levels);
                 SpinnerKur.setAdapter(adapter3);
                 break;
-            case R.id.SellActivity_spinner_kur:
-                TvAmount.setText(price);
-                break;
+//            case R.id.SellActivity_spinner_kur:
+//                TvAmount.setText(price);
+//                break;
 
         }
 
