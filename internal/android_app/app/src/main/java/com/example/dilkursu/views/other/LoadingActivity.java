@@ -20,7 +20,7 @@ public class LoadingActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_loading);
 
-        //TODO: Needs a fix, UIThread does not work
+        // TODO: Needs a fix, UIThread does not work
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
         GlobalConfig.InitializeConnections();

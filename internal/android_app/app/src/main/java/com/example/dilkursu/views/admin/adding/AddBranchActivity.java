@@ -50,11 +50,8 @@ public class AddBranchActivity extends AppCompatActivity implements View.OnClick
     @Override
     public void onClick(View v) {
         if ( v ==  BtnBack ) {
-            //TODO: Handle clicks for  BtnBack
             finish();
         } else if ( v == BtnSave) {
-            //TODO: Handle clicks for  BtnSave
-
             if( addBranch() )
                 Toast.makeText(getApplicationContext(), "Şube Başarıyla Eklendi" , Toast.LENGTH_LONG).show();
             else

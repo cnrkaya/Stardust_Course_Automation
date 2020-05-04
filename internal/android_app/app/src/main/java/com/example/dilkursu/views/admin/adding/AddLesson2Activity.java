@@ -60,12 +60,12 @@ public class AddLesson2Activity extends AppCompatActivity implements View.OnClic
         lessonDate = intent.getStringExtra("lessonDate");
         lessonTs = intent.getStringExtra("lessonTs");
 
-        //TODO: use getAvailableInstructors method(see below) to fill in the spinner
+        //TODO CANER use getAvailableInstructors method(see below) to fill in the spinner
 
-        //TODO list available teachers and classroom on spinner
+        //TODO CANER list available teachers and classroom on spinner
         // use getAvailableClassroomNames, getAvailableInstructors methods
-        instructorId = ""; // TODO: fill in according to spinner
-        classroomId = ""; // TODO: fill in according to spinner
+        instructorId = ""; // TODO CANER fill in according to spinner
+        classroomId = ""; // TODO CANER fill in according to spinner
 
         // Test
         System.out.println(getAvailableInstructors("Swindon", "11/29/2019", "15:39:07"));
