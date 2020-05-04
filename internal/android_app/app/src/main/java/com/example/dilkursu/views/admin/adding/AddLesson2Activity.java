@@ -14,6 +14,8 @@ import android.widget.Toast;
 
 import com.example.dilkursu.GlobalConfig;
 import com.example.dilkursu.R;
+import com.example.dilkursu.models.Classroom;
+import com.example.dilkursu.models.Instructor;
 import com.example.dilkursu.models.Lesson;
 
 import java.util.ArrayList;
@@ -47,12 +49,17 @@ public class AddLesson2Activity extends AppCompatActivity implements View.OnClic
         BtnComplete = (Button)findViewById( R.id. AddLesson2Activity_btn_complete );
         progressBar = (ProgressBar) findViewById( R.id.AddLesson2Activity_ProgressBar);
 
-
         Intent intent = getIntent();
         lessonName = intent.getStringExtra("lessonName");
         courseId = intent.getIntExtra("courseId", -1);
         lessonDate = intent.getStringExtra("lessonDate");
         lessonTs = intent.getStringExtra("lessonTs");
+
+        //TODO: use getAvailableInstructors method(see below) to fill in the spinner
+        // TODO: SQL-Java getAvailableClassrooms
+
+
+
         //TODO list available teachers and classroom on spinner
         instructorId = ""; // TODO: fill in according to spinner
         classroomId = ""; // TODO: fill in according to spinner
@@ -60,6 +67,52 @@ public class AddLesson2Activity extends AppCompatActivity implements View.OnClic
         BtnBack.setOnClickListener( this );
         BtnComplete.setOnClickListener( this );
     }
+
+    public ArrayList<Classroom> getAvailableClassrooms(String branchName, int day, int hour){
+        ArrayList<Classroom> availableClassrooms = new ArrayList<>();
+
+//        try{
+//            ArrayList<Classroom> classrooms = GlobalConfig.connection.getClassrooms(branchName);
+//
+//            for(Instructor i : instructors){
+//                int[][] availableHours = i.getAvailableHours();
+//                if( availableHours[day][hour] == 1)
+//                    availableInstructors.add(i);
+//            }
+//
+//        }catch (Exception e){
+//            e.printStackTrace();
+//            return null;
+//        }
+
+        return availableClassrooms;
+    }
+
+
+    public ArrayList<Instructor> getAvailableInstructors(String branchName, int day, int hour){
+        // hour -> for 14:00 o'clock, hour=14
+        // day -> for tuesday, day = 2
+
+        ArrayList<Instructor> availableInstructors = new ArrayList<>();
+
+        try{
+            ArrayList<Instructor> instructors = GlobalConfig.connection.getInstructors(branchName);
+
+            for(Instructor i : instructors){
+                int[][] availableHours = i.getAvailableHours();
+                if( availableHours[day][hour] == 1)
+                    availableInstructors.add(i);
+            }
+
+        }catch (Exception e){
+            e.printStackTrace();
+            return null;
+        }
+
+        return availableInstructors;
+    }
+
+
     @Override
     public void onClick(View v) {
         if ( v == BtnBack ) {

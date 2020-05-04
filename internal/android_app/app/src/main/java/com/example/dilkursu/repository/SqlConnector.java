@@ -8,6 +8,7 @@ import com.example.dilkursu.models.Branch;
 import com.example.dilkursu.models.Classroom;
 import com.example.dilkursu.models.Course;
 import com.example.dilkursu.models.Credential;
+import com.example.dilkursu.models.Instructor;
 import com.example.dilkursu.models.Lesson;
 import com.example.dilkursu.models.Login;
 import com.example.dilkursu.models.Person;
@@ -252,7 +253,7 @@ public class SqlConnector implements IDataConnection {
 
                 branch.setClassrooms(getClassrooms(branch.getName()));
 
-                Log.i("APP_TEST", branch.getName());
+                //Log.i("APP_TEST", branch.getName());
 
                 branches.add(branch);
             }
@@ -263,6 +264,28 @@ public class SqlConnector implements IDataConnection {
 
         return branches;
 
+    }
+
+    @Override
+    public ArrayList<Instructor> getInstructors(String branch_name) throws Exception {
+        ArrayList<Instructor> instructors = new ArrayList<>();
+
+        PreparedStatement preparedStatement = database.getConnection().prepareStatement("{ CALL getInstructors(?) }");
+        preparedStatement.setString(1, branch_name);
+
+        ResultSet resultSet = preparedStatement.executeQuery();
+        while (resultSet.next()) {
+            Instructor i = new Instructor();
+            i.setId(resultSet.getString("id"));
+            i.setKnownLanguages(TextProcessor.stringToArray(resultSet.getString("known_languages")));
+            i.setPworking_hours(resultSet.getString("pworking_hours"));
+            instructors.add(i);
+        }
+
+        resultSet.close();
+        preparedStatement.close();
+
+        return instructors;
     }
 
     public Branch getBranch(String branchName) {

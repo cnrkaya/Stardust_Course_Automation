@@ -4,6 +4,7 @@ import com.example.dilkursu.models.Branch;
 import com.example.dilkursu.models.Classroom;
 import com.example.dilkursu.models.Course;
 import com.example.dilkursu.models.Credential;
+import com.example.dilkursu.models.Instructor;
 import com.example.dilkursu.models.Lesson;
 import com.example.dilkursu.models.Login;
 import com.example.dilkursu.models.Person;
@@ -56,6 +57,8 @@ public interface IDataConnection {
     ArrayList<Course> getAllCourses();
 
     Branch getBranch(String branchName);
+
+    ArrayList<Instructor> getInstructors(String branch_name) throws Exception;
 
     /****** Deletion Methods ******/
     void deleteLesson(String lessonName, int courseId) throws Exception;
