@@ -7,8 +7,11 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.example.dilkursu.GlobalConfig;
 import com.example.dilkursu.R;
+import com.example.dilkursu.models.Lesson;
 
 public class  LessonInfoActivity extends AppCompatActivity implements View.OnClickListener{
     private ImageButton BtnBack;
@@ -42,21 +45,29 @@ public class  LessonInfoActivity extends AppCompatActivity implements View.OnCli
     }
 
     private void initViews(){
+        Lesson l;
+
         //init lesson informations
         Intent intent = getIntent();
         courseID = intent.getIntExtra("courseID",0);
         lessonName = intent.getStringExtra("lessonName");
 
-        //TODO connect with DB
-        /*
-        TxtVLessonName.setText();
-        TxtVClassroom.setText(); //may need extra search for finding classromname
-        TxtVTeacherName.setText();//may need extra search for finding name
-        TxtVDate.setText();
-        TxtVTime.setText();
-        */
+        try{
+            l = GlobalConfig.connection.getLesson(lessonName, courseID);
+            TxtVLessonName.setText(l.getName());
+            TxtVTeacherName.setText(l.getInstructorId());
+            TxtVClassroom.setText(l.getClassroomId());
+            TxtVDate.setText(l.getDate());
+            TxtVTime.setText(l.getTs());
+
+        }catch (Exception e){
+            e.printStackTrace();
+            Toast.makeText(getApplicationContext(), "Dersi yüklerken hata olustu." , Toast.LENGTH_SHORT).show();
+            finish();
+        }
 
     }
+
     @Override
     public void onClick(View v) {
         if ( v == BtnBack ) {

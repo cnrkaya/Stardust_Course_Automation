@@ -720,4 +720,32 @@ public class SqlConnector implements IDataConnection {
         return c;
     }
 
+    @Override
+    public Lesson getLesson(String name, int courseNo) throws Exception{
+        Lesson l = null;
+
+        // In case invalid name is send, just return empty branch
+        if( name == null || name.length() < 2)
+            return null;
+
+        PreparedStatement preparedStatement = database.getConnection().prepareStatement("SELECT * FROM lesson WHERE name = INITCAP(?) and course_no = ?;");
+        preparedStatement.setString(1,name);
+        preparedStatement.setInt(2,courseNo);
+
+        ResultSet resultSet = preparedStatement.executeQuery();
+        resultSet.next();
+
+        name = resultSet.getString("name");
+        String lessonDate = resultSet.getString("lesson_date");
+        String lessonTs = resultSet.getString("lesson_ts");
+        String classroomId = resultSet.getString("classroom_id");
+        String instructorId = resultSet.getString("instructor_id");
+
+        resultSet.close();
+        preparedStatement.close();
+
+        l = new Lesson(name, courseNo,instructorId, classroomId, lessonDate, lessonTs );
+
+        return l;
+    }
 }
