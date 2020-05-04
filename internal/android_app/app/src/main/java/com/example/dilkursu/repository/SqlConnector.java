@@ -97,7 +97,7 @@ public class SqlConnector implements IDataConnection {
         return person;
     }
 
-    public void attachClassroomWithLesson(Lesson lesson, String teacherId) throws Exception{
+    public void attachClassroomWithLesson(Lesson lesson) throws Exception{
 
         // SELECT attachClassroomWithLesson('BZ-45', '3/27/2020', '16:52:38', 'Listening', 3, '37781245624');
         CallableStatement callableStatement = database.getConnection().prepareCall("{ CALL attachClassroomWithLesson(?, ?, ?, ?, ?, ?) }");
@@ -106,33 +106,9 @@ public class SqlConnector implements IDataConnection {
         callableStatement.setString(3, lesson.getTs());
         callableStatement.setString(4, lesson.getName());
         callableStatement.setInt(5, lesson.getCourseId());
-        callableStatement.setString(6, teacherId);
-
+        callableStatement.setString(6, lesson.getInstructorId());
         callableStatement.execute();
         callableStatement.close();
-    }
-
-
-    @Override
-    public ArrayList<ArrayList<String>> getClassSchedules(String classroomId) throws Exception{
-        ArrayList<ArrayList<String>> list = new ArrayList<>();
-
-        PreparedStatement preparedStatement = database.getConnection().prepareStatement("{ CALL getClassroomSchedule(?) }");
-        preparedStatement.setString(1, classroomId);
-
-        ResultSet resultSet = preparedStatement.executeQuery();
-        while (resultSet.next()) {
-            ArrayList<String> data = new ArrayList<>();
-            data.add(resultSet.getString("classroom_id"));
-            data.add(resultSet.getString("lesson_date"));
-            data.add(resultSet.getString("lesson_ts"));
-            list.add(data);
-        }
-
-        resultSet.close();
-        preparedStatement.close();
-
-        return list;
     }
 
     @Override
@@ -264,28 +240,6 @@ public class SqlConnector implements IDataConnection {
 
         return branches;
 
-    }
-
-    @Override
-    public ArrayList<Instructor> getInstructors(String branch_name) throws Exception {
-        ArrayList<Instructor> instructors = new ArrayList<>();
-
-        PreparedStatement preparedStatement = database.getConnection().prepareStatement("{ CALL getInstructors(?) }");
-        preparedStatement.setString(1, branch_name);
-
-        ResultSet resultSet = preparedStatement.executeQuery();
-        while (resultSet.next()) {
-            Instructor i = new Instructor();
-            i.setId(resultSet.getString("id"));
-            i.setKnownLanguages(TextProcessor.stringToArray(resultSet.getString("known_languages")));
-            i.setPworking_hours(resultSet.getString("pworking_hours"));
-            instructors.add(i);
-        }
-
-        resultSet.close();
-        preparedStatement.close();
-
-        return instructors;
     }
 
     @Override
@@ -478,7 +432,7 @@ public class SqlConnector implements IDataConnection {
             CallableStatement callableStatement = conn.prepareCall("{ CALL addCourse(?, ?, ?)}");
             callableStatement.setString(1, course.getName());
             callableStatement.setString(2, course.getLanguage());
-            callableStatement.setString(3, course.getPrice());
+            callableStatement.setInt(3, Integer.parseInt(course.getPrice()));
 
             callableStatement.execute();
             callableStatement.close();
@@ -628,6 +582,54 @@ public class SqlConnector implements IDataConnection {
         preparedStatement.close();
 
         return lessons;
+    }
+
+    @Override
+    public ArrayList<Instructor> getInstructors(String branch_name) throws Exception {
+        ArrayList<Instructor> instructors = new ArrayList<>();
+
+        PreparedStatement preparedStatement = database.getConnection().prepareStatement("SELECT * FROM getInstructors(?);");
+        preparedStatement.setString(1, branch_name);
+
+        ResultSet resultSet = preparedStatement.executeQuery();
+        while (resultSet.next()) {
+            Instructor i = new Instructor();
+            i.setId(resultSet.getString("id"));
+
+            ArrayList<String> known_langs = new ArrayList<>();
+            known_langs.add(resultSet.getString("known_languages"));
+            i.setKnownLanguages(known_langs);
+
+            i.setPworking_hours(resultSet.getString("pworking_hours"));
+            instructors.add(i);
+        }
+
+        resultSet.close();
+        preparedStatement.close();
+
+        return instructors;
+    }
+
+    @Override
+    public ArrayList<ArrayList<String>> getClassSchedules(String classroomId) throws Exception{
+        ArrayList<ArrayList<String>> list = new ArrayList<>();
+
+        PreparedStatement preparedStatement = database.getConnection().prepareStatement("SELECT * FROM getClassroomSchedule(?);");
+        preparedStatement.setString(1, classroomId);
+
+        ResultSet resultSet = preparedStatement.executeQuery();
+        while (resultSet.next()) {
+            ArrayList<String> data = new ArrayList<>();
+            data.add(resultSet.getString("classroom_id"));
+            data.add(resultSet.getString("lesson_date"));
+            data.add(resultSet.getString("lesson_ts"));
+            list.add(data);
+        }
+
+        resultSet.close();
+        preparedStatement.close();
+
+        return list;
     }
 
     @Override

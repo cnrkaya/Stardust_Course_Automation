@@ -78,14 +78,22 @@ public class GlobalConfig {
     }
 
     public static ArrayList<Branch> getAllBranches() {
-        if(GlobalConfig.branches == null){
+        if(GlobalConfig.connection == null)
+            GlobalConfig.InitializeConnections();
+
+        if(GlobalConfig.branches == null)
             GlobalConfig.InitializeArrays();
-        }
 
         return GlobalConfig.branches;
     }
 
     public static ArrayList<Classroom> getBranchClassrooms(String branchName) {
+        if(GlobalConfig.connection == null)
+            GlobalConfig.InitializeConnections();
+
+        if(GlobalConfig.branches == null)
+            GlobalConfig.InitializeArrays();
+
         for (Branch branch : branches) {
             if (branch.getName().equals(branchName)) {
                 return branch.getClassrooms();

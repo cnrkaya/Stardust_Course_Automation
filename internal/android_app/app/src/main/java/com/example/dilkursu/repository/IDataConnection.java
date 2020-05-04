@@ -52,7 +52,7 @@ public interface IDataConnection {
 
     ArrayList<ArrayList<String>> getClassSchedules(String classroomId) throws Exception;
 
-    void attachClassroomWithLesson(Lesson lesson, String teacherId) throws Exception;
+    void attachClassroomWithLesson(Lesson lesson) throws Exception;
 
     ArrayList<Course> getAllCourses();
 

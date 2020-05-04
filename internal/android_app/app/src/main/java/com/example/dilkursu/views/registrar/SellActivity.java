@@ -61,7 +61,6 @@ public class SellActivity extends AppCompatActivity implements View.OnClickListe
         ArrayAdapter<String> adapter1 = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, branchNames);
         SpinnerBranches.setAdapter(adapter1);
 
-
     }
 
     private void defineListeners() {
@@ -110,7 +109,7 @@ public class SellActivity extends AppCompatActivity implements View.OnClickListe
                 SpinnerKur.setAdapter(adapter3);
                 break;
             case R.id.SellActivity_spinner_kur:
-                TvAmount.setText("$" + price);
+                TvAmount.setText(price);
                 break;
 
         }

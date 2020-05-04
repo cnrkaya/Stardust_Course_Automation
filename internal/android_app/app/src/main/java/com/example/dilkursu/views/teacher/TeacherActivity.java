@@ -92,7 +92,6 @@ public class TeacherActivity extends AppCompatActivity implements View.OnClickLi
             Intent intent = new Intent(getApplicationContext(), TeacherInfoActivity.class);
             startActivity(intent);
         } else if (v == btn_logout) {
-            // Handle clicks for BtnLogout
             Intent intent = new Intent(getApplicationContext(), SignInActivity.class);
             finish();
             startActivity(intent);
