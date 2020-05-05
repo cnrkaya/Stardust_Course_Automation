@@ -10,6 +10,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".views.registrar.CoursesActivity"></activity>
         <activity android:name=".views.other.MessageActivity" />
         <activity android:name=".views.other.CourseInfoActivity" />
         <activity android:name=".views.other.LessonInfoActivity" />
