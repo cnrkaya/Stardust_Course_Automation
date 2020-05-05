@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -27,6 +28,8 @@ public class AddClassroomActivity extends AppCompatActivity implements View.OnCl
     private Spinner SpinnerBranches;
     private Button BtnAddClassroom;
     private ProgressBar progressBar;
+    private ArrayAdapter<String> adapterBranchList;
+    private ArrayList<String> branchList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,12 +57,20 @@ public class AddClassroomActivity extends AppCompatActivity implements View.OnCl
         BtnAddClassroom = (Button)findViewById( R.id.AddClassroomActivity_btn_addClassroom );
         progressBar = (ProgressBar)findViewById( R.id.AddClassroomActivity_ProgressBar);
 
-
+        branchList = new ArrayList<>();
+        //TODO fix : can't pull branch list
+        if(GlobalConfig.connection == null)
+            GlobalConfig.InitializeConnections();
         ArrayList<Branch> branches = GlobalConfig.getAllBranches();
         for (Branch branch : branches){
             String curr_branch_name = branch.getName();
-            // TODO CANER Add each curr_branch_name to the spinner
+            branchList.add(curr_branch_name);
         }
+        adapterBranchList = new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_spinner_item,branchList);
+        adapterBranchList.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        SpinnerBranches.setAdapter(adapterBranchList);
+
+
 
         BtnBack.setOnClickListener( this );
         BtnAddClassroom.setOnClickListener( this );
@@ -70,7 +81,7 @@ public class AddClassroomActivity extends AppCompatActivity implements View.OnCl
 
         String className = EdtTxtClassroomName.getText().toString();
         Integer capacity;
-        // TODO: CANER Make sure spinner gets the branch data
+        // TODO: TEST
         String branchName = SpinnerBranches.getSelectedItem().toString();;
         try {
             capacity = Integer.valueOf( EdtTxtCapacity.getText().toString());
