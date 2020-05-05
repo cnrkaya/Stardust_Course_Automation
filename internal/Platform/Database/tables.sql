@@ -56,8 +56,9 @@ CREATE TABLE BRANCH(
 	fax text[],
 	address text NOT NULL,
 	public_transport text[],			
-	private_transport text[],			
-	facilities text[]
+	facilities text[],
+	private_transport text[]			
+
 );
 
 
