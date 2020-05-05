@@ -1,18 +1,16 @@
 package com.example.dilkursu.views.other;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
-import com.example.dilkursu.GlobalConfig;
-import com.example.dilkursu.R;
-import com.example.dilkursu.models.Course;
+import androidx.appcompat.app.AppCompatActivity;
 
-public class CourseInfoActivity extends AppCompatActivity implements View.OnClickListener{
+import com.example.dilkursu.R;
+
+public class CourseInfoActivity extends AppCompatActivity implements View.OnClickListener {
     private ImageButton BtnBack;
     private TextView TxtVCourseName;
     private TextView TxtVKurName;
@@ -28,33 +26,28 @@ public class CourseInfoActivity extends AppCompatActivity implements View.OnClic
     }
 
     private void findViews() {
-        BtnBack = (ImageButton)findViewById( R.id.CoursesInfoActivity_btn_back );
-        TxtVCourseName = (TextView)findViewById( R.id.CoursesInfoActivity_txtV_courseName );
-        TxtVKurName = (TextView)findViewById( R.id.CoursesInfoActivity_txtV_kurName );
-        TxtVPrice = (TextView)findViewById( R.id.CoursesInfoActivity_txtV_price );
+        BtnBack = (ImageButton) findViewById(R.id.CoursesInfoActivity_btn_back);
+        TxtVCourseName = (TextView) findViewById(R.id.CoursesInfoActivity_txtV_courseName);
+        TxtVKurName = (TextView) findViewById(R.id.CoursesInfoActivity_txtV_kurName);
+        TxtVPrice = (TextView) findViewById(R.id.CoursesInfoActivity_txtV_price);
 
-        BtnBack.setOnClickListener( this );
+        BtnBack.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View v) {
-        if ( v == BtnBack ) {
+        if (v == BtnBack) {
             finish();
         }
     }
-    private void initViews(){
-        Course c;
-        Intent intent = getIntent();
-        courseID = intent.getIntExtra("courseID",5);
 
-        try{
-            c = GlobalConfig.connection.getCourse(courseID);
-            TxtVCourseName.setText(c.getCourseName());
-            TxtVKurName.setText(c.getName());
-            TxtVPrice.setText(c.getPrice());
-        }catch (Exception e){
-            e.printStackTrace();
-        }
+    private void initViews() {
+        Intent intent = getIntent();
+
+        TxtVCourseName.setText(intent.getStringExtra("name"));
+        TxtVKurName.setText(intent.getStringExtra("language"));
+        TxtVPrice.setText(intent.getStringExtra("price") + " TL");
+
 
     }
 
