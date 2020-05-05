@@ -26,8 +26,12 @@ public class TextProcessor {
 
             String[] temp = string.split(",");
             for (String s : temp) {
-                s = s.substring(s.indexOf('"') + 1);
-                s = s.substring(0, s.indexOf('"'));
+                if (s.contains("\"")) {
+                    s = s.substring(s.indexOf('"') + 1);
+                    s = s.substring(0, s.indexOf('"'));
+                }
+
+
                 items.add(s);
             }
 
@@ -41,6 +45,8 @@ public class TextProcessor {
         string = string.substring(0, string.indexOf(")"));
 
         String[] items = string.split(",");
+        items[0] = items[0].replace("\"", "");
+        items[0] = items[0].replace(" ", "");
         return items;
     }
 
