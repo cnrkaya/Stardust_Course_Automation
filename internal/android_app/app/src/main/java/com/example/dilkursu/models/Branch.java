@@ -1,7 +1,5 @@
 package com.example.dilkursu.models;
 
-import com.example.dilkursu.GlobalConfig;
-
 import java.util.ArrayList;
 
 public class Branch {
@@ -21,7 +19,7 @@ public class Branch {
 
     }
 
-    public Branch(String name, String facilities, String publicTransport, String privateTransport, String address){
+    public Branch(String name, String facilities, String publicTransport, String privateTransport, String address) {
         this.name = name;
 
         this.phoneNumbers = new ArrayList<>();
@@ -169,13 +167,5 @@ public class Branch {
                 '}';
     }
 
-    public static Branch getBranch(String branch_name) {
-        for (Branch branch : GlobalConfig.getAllBranches()) {
-            if (branch.getName().equals(branch_name)) {
-                return branch;
-            }
-        }
-        return null;
-    }
 
 }

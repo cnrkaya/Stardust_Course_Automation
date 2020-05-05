@@ -1,19 +1,16 @@
 package com.example.dilkursu.views.other;
 
+import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageButton;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.os.AsyncTask;
-import android.os.Bundle;
-import android.view.View;
-import android.widget.ImageButton;
-import android.widget.LinearLayout;
-
 import com.example.dilkursu.GlobalConfig;
 import com.example.dilkursu.R;
 import com.example.dilkursu.adapters.BranchAdapter;
-import com.example.dilkursu.adapters.ClassAdapter;
 
 public class BranchListActivity extends AppCompatActivity {
 

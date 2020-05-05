@@ -170,7 +170,7 @@ public class SqlConnector implements IDataConnection {
 
                 courses.add(course);
 
-                Log.i("APP_TEST", course.getCourseName());
+                Log.i("APP_TEST - DB: COURSE", course.toString());
 
             }
 
@@ -228,7 +228,7 @@ public class SqlConnector implements IDataConnection {
                 branch.setFacilities(TextProcessor.stringToArray(resultSet.getString("facilities")));
 
                 branch.setClassrooms(getClassrooms(branch.getName()));
-                Log.i("APP_TEST", branch.getName());
+                Log.i("APP_TEST - DB: BRANCH", branch.toString());
                 branches.add(branch);
             }
 
