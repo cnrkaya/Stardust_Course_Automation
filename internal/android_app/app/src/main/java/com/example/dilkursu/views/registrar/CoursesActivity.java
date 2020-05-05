@@ -1,27 +1,33 @@
 package com.example.dilkursu.views.registrar;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.ListView;
+import android.widget.ImageButton;
+import android.widget.ProgressBar;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.dilkursu.GlobalConfig;
 import com.example.dilkursu.R;
+import com.example.dilkursu.adapters.CourseAdapter;
 import com.example.dilkursu.models.Course;
-import com.example.dilkursu.views.other.CourseInfoActivity;
 
 import java.util.ArrayList;
 
 public class CoursesActivity extends AppCompatActivity {
-private ArrayAdapter<String> itemsAdapter;
-private String branchName;
-private ArrayList<Course> courses;
-private ArrayList<String> courseNames;
-private ListView listView;
+    private ArrayAdapter<String> itemsAdapter;
+    private String branchName;
+    private ArrayList<Course> courses;
+    private ArrayList<String> courseNames;
+    private RecyclerView recyclerView;
+    private ProgressBar progressBar;
+    private ImageButton backButton;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,31 +38,62 @@ private ListView listView;
         branchName = intent.getStringExtra("branchName");
 
         defineViews();
+        new GetCoursesAsyncTask().execute();
+        initViews();
 
     }
 
-    private void defineViews(){
 
-        courses = GlobalConfig.connection.getCourses(branchName);
-        for(Course aCourse : courses){
-            courseNames.add(aCourse.getName());
+    private void defineViews() {
+
+        recyclerView = (RecyclerView) findViewById(R.id.CoursesActivity_RecyclerView);
+        progressBar = (ProgressBar) findViewById(R.id.CoursesActivity_ProgressBar);
+        backButton = (ImageButton) findViewById(R.id.CoursesActivity_Button_Back);
+
+    }
+
+    private void initViews() {
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
+    }
+
+    private void initRecyclerView() {
+        recyclerView.setHasFixedSize(true);
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
+        recyclerView.setLayoutManager(layoutManager);
+
+        CourseAdapter courseAdapter = new CourseAdapter(getApplicationContext(), courses);
+        recyclerView.setAdapter(courseAdapter);
+    }
+
+    private class GetCoursesAsyncTask extends AsyncTask<Void, Void, Void> {
+
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            progressBar.setVisibility(View.VISIBLE);
         }
 
-        itemsAdapter = new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_list_item_1, courseNames);
-        listView = (ListView) findViewById(R.id.CoursesActivity_listView);
-        listView.setAdapter(itemsAdapter);
+        @Override
+        protected Void doInBackground(Void... voids) {
+            courses = GlobalConfig.connection.getCourses(branchName);
+            return null;
+        }
 
-        //TODO test : this activity not tested yet due to db problems
+        @Override
+        protected void onPostExecute(Void aVoid) {
+            super.onPostExecute(aVoid);
+            progressBar.setVisibility(View.INVISIBLE);
+            initRecyclerView();
 
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Integer courseId = courses.get(position).getId();
-                Intent intent =  new Intent(getApplicationContext(), CourseInfoActivity.class);
-                intent.putExtra("courseID",courseId);
-                startActivity(intent);
-            }
-        });  
+        }
+
+
     }
 
 }
