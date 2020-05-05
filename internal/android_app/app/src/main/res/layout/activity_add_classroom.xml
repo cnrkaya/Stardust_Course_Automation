@@ -131,7 +131,6 @@
                     android:text="Şube Seçiniz">
                 </TextView>
                 <Spinner
-                    android:background="#FFFFFF"
                     android:id="@+id/AddClassroomActivity_spinner_branches"
                     android:layout_weight="1.15"
                     android:layout_width="match_parent"
