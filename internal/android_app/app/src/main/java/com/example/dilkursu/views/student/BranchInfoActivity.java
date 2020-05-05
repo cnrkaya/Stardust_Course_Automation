@@ -13,6 +13,7 @@ import com.example.dilkursu.GlobalConfig;
 import com.example.dilkursu.R;
 import com.example.dilkursu.models.Branch;
 import com.example.dilkursu.views.other.CourseInfoActivity;
+import com.example.dilkursu.views.registrar.CoursesActivity;
 
 public class BranchInfoActivity extends AppCompatActivity implements View.OnClickListener {
     private TextView BranchName;
@@ -82,9 +83,8 @@ public class BranchInfoActivity extends AppCompatActivity implements View.OnClic
         } else if (view == BtnBack) {
             finish();
         }else if (view == BtnCourses) {
-            Intent intent = new Intent(this, CourseInfoActivity.class);
-            intent.putExtra("courseID",5);   // TODO: send the course id from list of courses of the branch
-            // GlobalConfig.connection.getCourses(branch_name); // TODO: get the course list from this method
+            Intent intent = new Intent(this, CoursesActivity.class);
+            intent.putExtra("branchName", BranchName.getText().toString());
             startActivity(intent);
         }
     }

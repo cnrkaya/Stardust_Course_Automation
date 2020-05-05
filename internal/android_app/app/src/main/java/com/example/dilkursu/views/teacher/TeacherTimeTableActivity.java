@@ -60,9 +60,7 @@ public class TeacherTimeTableActivity extends AppCompatActivity {
         }catch (Exception e){
             e.printStackTrace();
         }
-        //TODO get teacher schedule from db and decode
-//        addSchedule("Mobil Programming", "D111", 2, new Time(14, 00), new Time(17, 00));
-//        addSchedule("Almanca Listening", "A10", 3, new Time(9, 00), new Time(12, 00));
+
     }
 
     public void defineListeners() {

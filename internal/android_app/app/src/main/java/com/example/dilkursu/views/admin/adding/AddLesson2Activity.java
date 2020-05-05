@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ProgressBar;
@@ -14,6 +15,7 @@ import android.widget.Toast;
 
 import com.example.dilkursu.GlobalConfig;
 import com.example.dilkursu.R;
+import com.example.dilkursu.models.Branch;
 import com.example.dilkursu.models.Classroom;
 import com.example.dilkursu.models.Instructor;
 import com.example.dilkursu.models.Lesson;
@@ -32,12 +34,19 @@ public class AddLesson2Activity extends AppCompatActivity implements View.OnClic
     private Button BtnComplete;
     private ProgressBar progressBar;
 
+    private ArrayList<String> availableClassrooms;
+    private ArrayList<Instructor> availableInstructors;
+    private ArrayList<String> availableInstructorNames;
+    private ArrayList<String> availableInstructorIDs;
+    private ArrayAdapter<String> adapterClassroomList;
+    private ArrayAdapter<String> adapterInstructorList;
     private String lessonName;
     private int courseId;
     private String lessonDate;
     private String lessonTs;
     private String instructorId;
     private String classroomId;
+    private String branchName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,21 +68,45 @@ public class AddLesson2Activity extends AppCompatActivity implements View.OnClic
         courseId = intent.getIntExtra("courseId", -1);
         lessonDate = intent.getStringExtra("lessonDate");
         lessonTs = intent.getStringExtra("lessonTs");
-
-        //TODO CANER use getAvailableInstructors method(see below) to fill in the spinner
-
-        //TODO CANER list available teachers and classroom on spinner
-        // use getAvailableClassroomNames, getAvailableInstructors methods
-        instructorId = ""; // TODO CANER fill in according to spinner
-        classroomId = ""; // TODO CANER fill in according to spinner
-
-        // Test
-        System.out.println(getAvailableInstructors("Swindon", "11/29/2019", "15:39:07"));
-        System.out.println(getAvailableClassroomNames("11/29/2019", "15:39:07"));
-
+        //branchName =  intent.getStringExtra("branchName");
+        setSpinners();
 
         BtnBack.setOnClickListener( this );
         BtnComplete.setOnClickListener( this );
+    }
+    private void setSpinners(){
+        /*TEACHER SPINNERS*/
+
+        //Month July used because compitable with given days of week
+        //  01/06 Monday
+        //  02/06 Tuesday
+        String formattedLessonDate = "0"+lessonDate + "/06/2020";
+        String formattedLessonTime = lessonTs + ":00:00";
+        //TODO edit the branchName when the passing was completed in the previous activity
+        availableInstructors = getAvailableInstructors("Swindon", formattedLessonDate, formattedLessonTime);
+        //availableInstructors = getAvailableInstructors(branchName, formattedLessonDate, formattedLessonTime);
+      //availableInstructors = getAvailableInstructors("Swindon", "11/29/2019", "15:39:07");
+
+        availableInstructorNames = new ArrayList<>();
+        availableInstructorIDs = new ArrayList<>();
+        for (Instructor aInst : availableInstructors){
+            String curr_instructor_name = aInst.getFname() + " " + aInst.getLname();
+            String curr_instructorID = aInst.getId();
+            availableInstructorNames.add(curr_instructor_name);
+            availableInstructorIDs.add(curr_instructorID);
+        }
+
+        adapterInstructorList = new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_spinner_item,availableInstructorNames);
+        adapterInstructorList.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        SpinnerAvailableTeachers.setAdapter(adapterInstructorList);
+
+        /*CLASSROOM SPINNER*/
+
+        //availableClassrooms = getAvailableClassroomNames("11/29/2019", "15:39:07");
+        availableClassrooms = getAvailableClassroomNames(formattedLessonDate, formattedLessonTime);
+        adapterClassroomList = new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_spinner_item,availableClassrooms);
+        adapterClassroomList.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        SpinnerAvailableClasrooms.setAdapter(adapterClassroomList);
     }
 
     @Override
@@ -81,6 +114,16 @@ public class AddLesson2Activity extends AppCompatActivity implements View.OnClic
         if ( v == BtnBack ) {
             finish();
         } else if ( v == BtnComplete ) {
+
+            int item_pos = SpinnerAvailableTeachers.getSelectedItemPosition(); // TODO TEST
+            instructorId = availableInstructorIDs.get(item_pos);
+
+            //TODO Provide classroom Ids to somewhere
+            String classroom_name = SpinnerAvailableClasrooms.getSelectedItem().toString(); //returns classroom name
+            //The below method can be used to get the selected item position
+            //int classroom_item_pos = SpinnerAvailableClasrooms.getSelectedItemPosition();
+            classroomId = "";
+
             if( addLesson() )
                 Toast.makeText(getApplicationContext(), "Kurs Başarıyla Eklendi" , Toast.LENGTH_LONG).show();
             else
