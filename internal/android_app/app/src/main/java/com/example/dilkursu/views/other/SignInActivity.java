@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -37,6 +38,7 @@ public class SignInActivity extends AppCompatActivity {
 
         defineVariables();
         defineListeners();
+        btn_signIn.setEnabled(false);   // dont let the user click on the branches until it is loaded.
     }
 
     public void defineVariables() {
@@ -62,6 +64,10 @@ public class SignInActivity extends AppCompatActivity {
         btn_branches.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if(!GlobalConfig.branchLoadingDone) {
+                    Toast.makeText(SignInActivity.this, "Şubeler yükleniyor, birazdan tekrar deneyiniz.", Toast.LENGTH_LONG).show();
+                    return;
+                }
                 Intent intent = new Intent(getApplicationContext(), BranchListActivity.class);
                 startActivity(intent);
             }

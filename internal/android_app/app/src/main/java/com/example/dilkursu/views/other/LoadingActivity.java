@@ -45,6 +45,7 @@ public class LoadingActivity extends AppCompatActivity {
         @Override
         protected void onPostExecute(Void aVoid) {
             super.onPostExecute(aVoid);
+            GlobalConfig.branchLoadingDone = true;
             Log.i("APP_TEST", "Loading branches is complete");
         }
     }

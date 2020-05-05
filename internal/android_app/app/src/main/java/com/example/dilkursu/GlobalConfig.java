@@ -30,6 +30,8 @@ public class GlobalConfig {
 
     public static UserType currentUserType;
 
+    public static boolean branchLoadingDone = false;
+
     public enum UserType {
         STUDENT,
         INSTRUCTOR,
