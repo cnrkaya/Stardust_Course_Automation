@@ -26,6 +26,7 @@ public class GlobalConfig {
     public static Person currentUser = null;
     private static ArrayList<Branch> branches = null;
     private static ArrayList<Classroom> classrooms = null;
+    private static ArrayList<String> branch_names;
 
     public static UserType currentUserType;
 
@@ -50,6 +51,8 @@ public class GlobalConfig {
 //        for(Branch branch : branches){
 //            branch.setCourses(connection.getCourses(branch.getName()));
 //        }
+
+        branch_names = connection.getAllBranchNames();
     }
 
     public static void InitializeCurrentUser(UserType userType) {
@@ -69,6 +72,16 @@ public class GlobalConfig {
                 break;
         }
 
+    }
+
+    public static ArrayList<String> getAllBranchNames(){
+        if (GlobalConfig.connection == null)
+            GlobalConfig.InitializeConnection();
+
+        if (GlobalConfig.branches == null)
+            GlobalConfig.InitializeArrays();
+
+        return GlobalConfig.branch_names;
     }
 
     public static ArrayList<Branch> getAllBranches() {

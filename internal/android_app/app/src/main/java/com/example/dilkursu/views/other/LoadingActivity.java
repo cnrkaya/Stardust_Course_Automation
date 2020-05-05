@@ -3,6 +3,7 @@ package com.example.dilkursu.views.other;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 
 import androidx.annotation.Nullable;
@@ -18,9 +19,16 @@ public class LoadingActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_loading);
 
-        Log.i("APP_TEST", "sadas");
-
         new InitAsyncTask().execute();
+
+        Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            public void run() {
+                startActivity(new Intent(getApplicationContext(), SignInActivity.class));
+                finish();
+            }
+        }, 7500);   //7.5 seconds
+
     }
 
 
@@ -37,9 +45,7 @@ public class LoadingActivity extends AppCompatActivity {
         @Override
         protected void onPostExecute(Void aVoid) {
             super.onPostExecute(aVoid);
-
-            startActivity(new Intent(getApplicationContext(), SignInActivity.class));
-            finish();
+            Log.i("APP_TEST", "Loading branches is complete");
         }
     }
 
