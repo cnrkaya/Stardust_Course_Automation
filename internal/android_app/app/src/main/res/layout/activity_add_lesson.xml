@@ -54,7 +54,7 @@
                 android:gravity="center"
                 android:textColor="#FFFFFF"
                 android:textStyle="bold"
-                android:layout_marginTop="80dp">
+                android:layout_marginTop="20dp">
             </TextView>
 
             <EditText
@@ -65,28 +65,41 @@
                 android:layout_height="50dp"
                 android:layout_marginTop="20dp">
             </EditText>
-
             <TextView
                 android:padding="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="#5D7D98"
                 android:textSize="20sp"
-                android:text="Kurs No"
+                android:text="Şube Seçiniz"
                 android:gravity="center"
                 android:textColor="#FFFFFF"
                 android:textStyle="bold"
                 android:layout_marginTop="30dp">
             </TextView>
-            <EditText
-                android:id="@+id/AddLessonActivity_edtTxt_chooseCourse"
+            <Spinner
+                android:id="@+id/AddLessonActivity_spinner_chooseBranch"
                 android:layout_width="match_parent"
+                android:layout_height="50dp">
+            </Spinner>
+            <TextView
                 android:padding="10dp"
-                android:inputType="number"
-                android:background="#FFFFFF"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#5D7D98"
+                android:textSize="20sp"
+                android:text="Kurs Seçiniz"
+                android:gravity="center"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold"
+                android:layout_marginTop="30dp">
+            </TextView>
+            <Spinner
+                android:id="@+id/AddLessonActivity_spinner_chooseCourse"
+                android:layout_width="match_parent"
                 android:layout_marginBottom="32dp"
                 android:layout_height="50dp">
-            </EditText>
+            </Spinner>
 <!--            <Spinner-->
 <!--                android:id="@+id/AddLessonActivity_spinner_chooseCourse"-->
 <!--                android:layout_width="match_parent"-->
@@ -115,21 +128,12 @@
                         android:textColor="#FFFFFF"
                         android:textStyle="bold">
                     </TextView>
-                    <EditText
-                        android:id="@+id/AddLessonActivity_edtTxt_chooseDay"
-                        android:layout_width="match_parent"
-                        android:padding="10dp"
-                        android:background="#FFFFFF"
-                        android:layout_height="match_parent"
-                        android:inputType="date"
-                        android:layout_weight="1">
-                    </EditText>
-<!--                    <Spinner-->
-<!--                        android:id="@+id/AddLessonActivity_spinner_chooseDay"-->
-<!--                        android:layout_width="match_parent"-->
-<!--                        android:layout_height="match_parent"-->
-<!--                        android:layout_weight="1">-->
-<!--                    </Spinner>-->
+
+                 <Spinner
+                    android:id="@+id/AddLessonActivity_spinner_chooseDay"
+                     android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                     android:layout_weight="1"/>
 
                 </LinearLayout>
                 <LinearLayout
@@ -150,21 +154,12 @@
                         android:textColor="#FFFFFF"
                         android:textStyle="bold">
                     </TextView>
-                    <EditText
-                        android:id="@+id/AddLessonActivity_edtTxt_chooseHour"
-                        android:layout_width="match_parent"
-                        android:padding="10dp"
-                        android:background="#FFFFFF"
-                        android:inputType="time"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1">
-                    </EditText>
-<!--                    <Spinner-->
-<!--                        android:id="@+id/AddLessonActivity_spinner_chooseHour"-->
-<!--                        android:layout_width="match_parent"-->
-<!--                        android:layout_height="match_parent"-->
-<!--                        android:layout_weight="1">-->
-<!--                    </Spinner>-->
+
+             <Spinner
+                 android:id="@+id/AddLessonActivity_spinner_chooseHour"
+                 android:layout_width="match_parent"
+                 android:layout_height="match_parent"
+                 android:layout_weight="1"/>
 
                 </LinearLayout>
 
