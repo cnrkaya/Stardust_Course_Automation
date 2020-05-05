@@ -65,7 +65,7 @@ public class SignInActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if(!GlobalConfig.branchLoadingDone) {
-                    Toast.makeText(SignInActivity.this, "Şubeler yükleniyor, birazdan tekrar deneyiniz.", Toast.LENGTH_LONG).show();
+                    Toast.makeText(SignInActivity.this, "Şubeler yükleniyor, lütfen birazdan tekrar deneyiniz.", Toast.LENGTH_LONG).show();
                     return;
                 }
                 Intent intent = new Intent(getApplicationContext(), BranchListActivity.class);
