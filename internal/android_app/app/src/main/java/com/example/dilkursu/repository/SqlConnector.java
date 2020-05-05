@@ -209,6 +209,25 @@ public class SqlConnector implements IDataConnection {
     }
 
     @Override
+    public ArrayList<String> getAllBranchNames(){
+        ArrayList<String> branches = new ArrayList<>();
+
+        try {
+
+            String query = "SELECT name FROM BRANCH";
+            ResultSet resultSet = database.execute2(query);
+            while (resultSet.next()) {
+                branches.add(resultSet.getString("name"));
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return branches;
+    }
+
+    @Override
     public ArrayList<Branch> getAllBranches() {
 
         ArrayList<Branch> branches = new ArrayList<>();
@@ -237,7 +256,6 @@ public class SqlConnector implements IDataConnection {
         }
 
         return branches;
-
     }
 
     @Override
