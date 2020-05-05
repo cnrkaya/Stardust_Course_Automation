@@ -40,7 +40,7 @@ public class AddClassroomActivity extends AppCompatActivity implements View.OnCl
         if ( v == BtnBack ) {
             finish();
         } else if ( v == BtnAddClassroom ) {
-            if( addClassroom() )  //TODO save to db
+            if( addClassroom() )
                 Toast.makeText(getApplicationContext(), "Ders Başarıyla Eklendi" , Toast.LENGTH_LONG).show();
             else
                 Toast.makeText(getApplicationContext(), "Eklenme Sırasında Hata Oluştu" , Toast.LENGTH_LONG).show();
@@ -58,7 +58,7 @@ public class AddClassroomActivity extends AppCompatActivity implements View.OnCl
         ArrayList<Branch> branches = GlobalConfig.getAllBranches();
         for (Branch branch : branches){
             String curr_branch_name = branch.getName();
-            // TODO: Add each curr_branch_name to the spinner
+            // TODO CANER Add each curr_branch_name to the spinner
         }
 
         BtnBack.setOnClickListener( this );
@@ -70,7 +70,7 @@ public class AddClassroomActivity extends AppCompatActivity implements View.OnCl
 
         String className = EdtTxtClassroomName.getText().toString();
         Integer capacity;
-        // TODO: Make sure spinner gets the branch data
+        // TODO: CANER Make sure spinner gets the branch data
         String branchName = SpinnerBranches.getSelectedItem().toString();;
         try {
             capacity = Integer.valueOf( EdtTxtCapacity.getText().toString());

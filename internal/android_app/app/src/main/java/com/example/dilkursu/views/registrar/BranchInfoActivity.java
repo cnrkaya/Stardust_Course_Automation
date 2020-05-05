@@ -68,7 +68,7 @@ public class BranchInfoActivity extends AppCompatActivity implements View.OnClic
         }else if (view == BtnCourses) {
             Intent intent = new Intent(this, CourseInfoActivity.class);
             intent.putExtra("courseID",5);   // TODO: send the course id from list of courses of the branch
-            // GlobalConfig.connection.getCourses(branch_name); // TODO: get the course list from this method
+            // GlobalConfig.connection.getCourses(branch_name); // TODO CANER get the course list from this method
             startActivity(intent);
         }
     }

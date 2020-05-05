@@ -60,8 +60,6 @@ public class AddKurActivity extends AppCompatActivity implements View.OnClickLis
             return false;
         }
 
-
-        //TODO save to db
         return true;
     }
 }

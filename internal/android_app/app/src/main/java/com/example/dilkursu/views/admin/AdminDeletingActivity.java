@@ -34,7 +34,6 @@ public class AdminDeletingActivity extends AppCompatActivity implements View.OnC
 
     @Override
     public void onClick(View v) {
-        //TODO write functions for all delete operations
         if ( v == BtnDelLesson ) {
             if( deleteLesson() )
                 Toast.makeText(getApplicationContext(), "Ders Başarıyla Silindi" , Toast.LENGTH_LONG).show();
