@@ -1,7 +1,6 @@
 package com.example.dilkursu.repository;
 
 import android.util.Log;
-import android.widget.ArrayAdapter;
 
 import com.example.dilkursu.GlobalConfig;
 import com.example.dilkursu.models.Branch;
@@ -14,7 +13,6 @@ import com.example.dilkursu.models.Login;
 import com.example.dilkursu.models.Person;
 import com.example.dilkursu.models.Student;
 
-import java.sql.Array;
 import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -97,7 +95,7 @@ public class SqlConnector implements IDataConnection {
         return person;
     }
 
-    public void attachClassroomWithLesson(Lesson lesson) throws Exception{
+    public void attachClassroomWithLesson(Lesson lesson) throws Exception {
 
         // SELECT attachClassroomWithLesson('BZ-45', '3/27/2020', '16:52:38', 'Listening', 3, '37781245624');
         CallableStatement callableStatement = database.getConnection().prepareCall("{ CALL attachClassroomWithLesson(?, ?, ?, ?, ?, ?) }");
@@ -139,7 +137,7 @@ public class SqlConnector implements IDataConnection {
         try {
 
             String query = String.format("SELECT * FROM CLASSROOM WHERE branch_name = '%s'", branch_name);
-            ResultSet resultSet = database.execute(query);
+            ResultSet resultSet = database.execute2(query);
             while (resultSet.next()) {
                 String name = resultSet.getString("name");
                 int capacity = resultSet.getInt("capacity");
@@ -161,7 +159,7 @@ public class SqlConnector implements IDataConnection {
 
         try {
             String query = String.format("SELECT getCourses('%s')", branch_name);
-            ResultSet resultSet = database.execute(query);
+            ResultSet resultSet = database.execute2(query);
             while (resultSet.next()) {
                 Course course = new Course();
                 String[] attributes = TextProcessor.parseRecords(resultSet.getString("getcourses"));
@@ -171,6 +169,8 @@ public class SqlConnector implements IDataConnection {
                 course.setPrice(attributes[3]);
 
                 courses.add(course);
+
+                Log.i("APP_TEST", course.getCourseName());
 
             }
 
@@ -190,7 +190,7 @@ public class SqlConnector implements IDataConnection {
 
         try {
             String query = "SELECT * FROM Course";
-            ResultSet resultSet = database.execute(query);
+            ResultSet resultSet = database.execute2(query);
             while (resultSet.next()) {
                 Course course = Course.courseFactory(
                         resultSet.getString("name"),
@@ -216,7 +216,7 @@ public class SqlConnector implements IDataConnection {
         try {
 
             String query = "SELECT * FROM BRANCH";
-            ResultSet resultSet = database.execute(query);
+            ResultSet resultSet = database.execute2(query);
             while (resultSet.next()) {
                 Branch branch = new Branch();
                 branch.setName(resultSet.getString("name"));
@@ -228,9 +228,7 @@ public class SqlConnector implements IDataConnection {
                 branch.setFacilities(TextProcessor.stringToArray(resultSet.getString("facilities")));
 
                 branch.setClassrooms(getClassrooms(branch.getName()));
-
-                //Log.i("APP_TEST", branch.getName());
-
+                Log.i("APP_TEST", branch.getName());
                 branches.add(branch);
             }
 
@@ -490,7 +488,7 @@ public class SqlConnector implements IDataConnection {
 
             callableStatement.execute();
             callableStatement.close();
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
@@ -511,7 +509,7 @@ public class SqlConnector implements IDataConnection {
         callableStatement.close();
     }
 
-    public void deleteBranch(String branchName) throws Exception{
+    public void deleteBranch(String branchName) throws Exception {
         Connection conn = database.getConnection();
         CallableStatement callableStatement = conn.prepareCall("{ CALL deleteBranch(?)}");
         callableStatement.setString(1, branchName);
@@ -519,7 +517,7 @@ public class SqlConnector implements IDataConnection {
         callableStatement.close();
     }
 
-    public void deleteLesson(String lessonName, int courseId) throws Exception{
+    public void deleteLesson(String lessonName, int courseId) throws Exception {
         Connection conn = database.getConnection();
         CallableStatement callableStatement = conn.prepareCall("{ CALL deleteLesson(?, ?)}");
         callableStatement.setString(1, lessonName);
@@ -559,8 +557,8 @@ public class SqlConnector implements IDataConnection {
     }
 
     @Override
-    public ArrayList<Lesson> getInstructorLessons(String instructorId) throws Exception{
-        if(instructorId == null)
+    public ArrayList<Lesson> getInstructorLessons(String instructorId) throws Exception {
+        if (instructorId == null)
             return null;
 
         ArrayList<Lesson> lessons = new ArrayList<>();
@@ -611,7 +609,7 @@ public class SqlConnector implements IDataConnection {
     }
 
     @Override
-    public ArrayList<ArrayList<String>> getClassSchedules(String classroomId) throws Exception{
+    public ArrayList<ArrayList<String>> getClassSchedules(String classroomId) throws Exception {
         ArrayList<ArrayList<String>> list = new ArrayList<>();
 
         PreparedStatement preparedStatement = database.getConnection().prepareStatement("SELECT * FROM getClassroomSchedule(?);");
@@ -633,9 +631,9 @@ public class SqlConnector implements IDataConnection {
     }
 
     @Override
-    public Course getCourse(int courseId) throws Exception{
+    public Course getCourse(int courseId) throws Exception {
         PreparedStatement preparedStatement = database.getConnection().prepareStatement("SELECT * FROM course WHERE id = (?);");
-        preparedStatement.setInt(1,courseId);
+        preparedStatement.setInt(1, courseId);
 
         ResultSet resultSet = preparedStatement.executeQuery();
         resultSet.next();
@@ -661,7 +659,7 @@ public class SqlConnector implements IDataConnection {
         Branch branch = new Branch();
 
         // In case invalid branchName is send, just return empty branch
-        if( branchName == null || branchName.length() < 2)
+        if (branchName == null || branchName.length() < 2)
             return branch;
 
         try {
@@ -692,16 +690,16 @@ public class SqlConnector implements IDataConnection {
     }
 
     @Override
-    public Classroom getClassroom(String name) throws Exception{
+    public Classroom getClassroom(String name) throws Exception {
         Classroom c = null;
 
         // In case invalid name is send, just return empty branch
-        if( name == null || name.length() < 2)
+        if (name == null || name.length() < 2)
             return null;
 
         try {
             PreparedStatement preparedStatement = database.getConnection().prepareStatement("SELECT * FROM classroom WHERE name = (?);");
-            preparedStatement.setString(1,name);
+            preparedStatement.setString(1, name);
 
             ResultSet resultSet = preparedStatement.executeQuery();
             resultSet.next();
@@ -711,7 +709,7 @@ public class SqlConnector implements IDataConnection {
             resultSet.close();
             preparedStatement.close();
 
-             c = new Classroom(name, capacity, branchName);
+            c = new Classroom(name, capacity, branchName);
 
             return c;
 
@@ -723,16 +721,16 @@ public class SqlConnector implements IDataConnection {
     }
 
     @Override
-    public Lesson getLesson(String name, int courseNo) throws Exception{
+    public Lesson getLesson(String name, int courseNo) throws Exception {
         Lesson l = null;
 
         // In case invalid name is send, just return empty branch
-        if( name == null || name.length() < 2)
+        if (name == null || name.length() < 2)
             return null;
 
         PreparedStatement preparedStatement = database.getConnection().prepareStatement("SELECT * FROM lesson WHERE name = INITCAP(?) and course_no = ?;");
-        preparedStatement.setString(1,name);
-        preparedStatement.setInt(2,courseNo);
+        preparedStatement.setString(1, name);
+        preparedStatement.setInt(2, courseNo);
 
         ResultSet resultSet = preparedStatement.executeQuery();
         resultSet.next();
@@ -746,7 +744,7 @@ public class SqlConnector implements IDataConnection {
         resultSet.close();
         preparedStatement.close();
 
-        l = new Lesson(name, courseNo,instructorId, classroomId, lessonDate, lessonTs );
+        l = new Lesson(name, courseNo, instructorId, classroomId, lessonDate, lessonTs);
 
         return l;
     }

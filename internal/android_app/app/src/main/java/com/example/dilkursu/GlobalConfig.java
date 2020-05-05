@@ -1,6 +1,6 @@
 package com.example.dilkursu;
 
-import android.util.Log;
+import android.content.Context;
 
 import com.example.dilkursu.models.AcademyAdmin;
 import com.example.dilkursu.models.Branch;
@@ -41,21 +41,15 @@ public class GlobalConfig {
         return String.format(url, host, port, database);
     }
 
-    public static void InitializeConnections() {
-        SqlConnector sql = new SqlConnector();
-        connection = sql;
+    public static void InitializeConnection() {
+        connection = new SqlConnector();
     }
 
     public static void InitializeArrays() {
-        if( GlobalConfig.branches != null )
-            return;
-
         branches = connection.getAllBranches();
-
 //        for(Branch branch : branches){
 //            branch.setCourses(connection.getCourses(branch.getName()));
 //        }
-
     }
 
     public static void InitializeCurrentUser(UserType userType) {
@@ -78,20 +72,20 @@ public class GlobalConfig {
     }
 
     public static ArrayList<Branch> getAllBranches() {
-        if(GlobalConfig.connection == null)
-            GlobalConfig.InitializeConnections();
+        if (GlobalConfig.connection == null)
+            GlobalConfig.InitializeConnection();
 
-        if(GlobalConfig.branches == null)
+        if (GlobalConfig.branches == null)
             GlobalConfig.InitializeArrays();
 
         return GlobalConfig.branches;
     }
 
     public static ArrayList<Classroom> getBranchClassrooms(String branchName) {
-        if(GlobalConfig.connection == null)
-            GlobalConfig.InitializeConnections();
+        if (GlobalConfig.connection == null)
+            GlobalConfig.InitializeConnection();
 
-        if(GlobalConfig.branches == null)
+        if (GlobalConfig.branches == null)
             GlobalConfig.InitializeArrays();
 
         for (Branch branch : branches) {
