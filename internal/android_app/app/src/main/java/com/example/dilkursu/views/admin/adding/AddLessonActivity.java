@@ -116,7 +116,7 @@ public class AddLessonActivity extends AppCompatActivity {
 
         //TODO fix : can't pull branch list
         if(GlobalConfig.connection == null)
-            GlobalConfig.InitializeConnections();
+            GlobalConfig.InitializeConnection();
         ArrayList<Branch> branches = GlobalConfig.getAllBranches();
         for (Branch branch : branches){
             String curr_branch_name = branch.getName();
