@@ -1,11 +1,12 @@
 package com.example.dilkursu.views.student;
 
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
-import android.widget.Toast;
+import android.widget.ProgressBar;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -29,6 +30,8 @@ public class StudentInfoActivity extends AppCompatActivity implements View.OnCli
     private EditText Branch;
     private EditText Payments;
     private EditText IdentityNo;
+    private ProgressBar progressBar;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,6 +56,7 @@ public class StudentInfoActivity extends AppCompatActivity implements View.OnCli
         Payments = (EditText) findViewById(R.id.StudentInfoActivity_payments);
         IdentityNo = (EditText) findViewById(R.id.StudentInfoActivity_identityNo);
         BtnSaveEdits = (Button) findViewById(R.id.StudentInfoActivity_btn_saveEdits);
+        progressBar = (ProgressBar) findViewById(R.id.StudentInfoActivity_ProgressBar);
     }
 
     public void defineListeners() {
@@ -70,6 +74,8 @@ public class StudentInfoActivity extends AppCompatActivity implements View.OnCli
         Branch.setText(((Student) GlobalConfig.currentUser).getBranchName());
         IdentityNo.setText(((Student) GlobalConfig.currentUser).getId());
         Kur.setText(((Student) GlobalConfig.currentUser).getCourse().getName());
+        progressBar.setVisibility(View.INVISIBLE);
+
     }
 
     @Override
@@ -81,7 +87,7 @@ public class StudentInfoActivity extends AppCompatActivity implements View.OnCli
             setEditable(true);
         } else if (v == BtnSaveEdits) {
             setEditable(false);
-            updateStudentInfo();
+            new UpdateInfoAsyncTask().execute();
         }
     }
 
@@ -122,6 +128,26 @@ public class StudentInfoActivity extends AppCompatActivity implements View.OnCli
         finish();
 
         return true;
+    }
+
+    private class UpdateInfoAsyncTask extends AsyncTask {
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            progressBar.setVisibility(View.VISIBLE);
+        }
+
+        @Override
+        protected Object doInBackground(Object[] objects) {
+            updateStudentInfo();
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(Object o) {
+            super.onPostExecute(o);
+        }
     }
 
 

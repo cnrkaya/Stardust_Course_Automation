@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -23,6 +24,7 @@ public class StudentActivity extends AppCompatActivity implements View.OnClickLi
     private Button BtnMyInfos;
     private Button BtnLogout;
 
+
     private static final int STUDENT_INFO_ACTIVITY_REQUEST_CODE = 0;
 
     @Override
@@ -36,23 +38,20 @@ public class StudentActivity extends AppCompatActivity implements View.OnClickLi
     }
 
     private void defineCurrentUser() {
-        if (GlobalConfig.currentUser == null) {
-            GlobalConfig.InitializeCurrentUser(GlobalConfig.UserType.STUDENT);
-            Intent intent = getIntent();
-            String person_id = intent.getStringExtra("person_id");
+        GlobalConfig.InitializeCurrentUser(GlobalConfig.UserType.STUDENT);
+        Intent intent = getIntent();
+        String person_id = intent.getStringExtra("person_id");
 
-            try {
-                GlobalConfig.currentUser.setBranchName(GlobalConfig.connection.getBranchName(person_id));
-            } catch (Exception e) {
-                GlobalConfig.currentUser.setBranchName("");
-            }
-            GlobalConfig.connection.bindPerson(GlobalConfig.currentUser, person_id);
-            GlobalConfig.connection.bindCourse(((Student) GlobalConfig.currentUser).getCourse(), ((Student) GlobalConfig.currentUser).getGroupNo());
-            GlobalConfig.connection.bindBranch(GlobalConfig.currentUser.getBranch(), GlobalConfig.currentUser.getBranchName());
-
-            ((Student) GlobalConfig.currentUser).setGroupNo(GlobalConfig.connection.getCourseId(person_id));
-
+        try {
+            GlobalConfig.currentUser.setBranchName(GlobalConfig.connection.getBranchName(person_id));
+        } catch (Exception e) {
+            GlobalConfig.currentUser.setBranchName("");
         }
+        GlobalConfig.connection.bindPerson(GlobalConfig.currentUser, person_id);
+        GlobalConfig.connection.bindCourse(((Student) GlobalConfig.currentUser).getCourse(), ((Student) GlobalConfig.currentUser).getGroupNo());
+        GlobalConfig.connection.bindBranch(GlobalConfig.currentUser.getBranch(), GlobalConfig.currentUser.getBranchName());
+
+        ((Student) GlobalConfig.currentUser).setGroupNo(GlobalConfig.connection.getCourseId(person_id));
     }
 
     public void defineVariables() {
@@ -61,6 +60,7 @@ public class StudentActivity extends AppCompatActivity implements View.OnClickLi
         BtnMyPayments = (Button) findViewById(R.id.StudentActivity_btn_myPayments);
         BtnMyInfos = (Button) findViewById(R.id.StudentActivity_btn_myInfos);
         BtnLogout = (Button) findViewById(R.id.StudentActivity_btn_logout);
+
     }
 
     public void defineListeners() {
@@ -92,7 +92,7 @@ public class StudentActivity extends AppCompatActivity implements View.OnClickLi
         } else if (v == BtnMyInfos) {
             // Handle clicks for BtnMyInfos
             Intent intent = new Intent(getApplicationContext(), StudentInfoActivity.class);
-            //startActivityForResult(intent, );
+            startActivityForResult(intent, STUDENT_INFO_ACTIVITY_REQUEST_CODE);
         } else if (v == BtnLogout) {
             // Handle clicks for BtnLogout
             Intent intent = new Intent(getApplicationContext(), SignInActivity.class);
