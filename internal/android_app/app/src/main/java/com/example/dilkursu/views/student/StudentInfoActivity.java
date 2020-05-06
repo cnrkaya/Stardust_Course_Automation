@@ -75,7 +75,6 @@ public class StudentInfoActivity extends AppCompatActivity implements View.OnCli
         IdentityNo.setText(((Student) GlobalConfig.currentUser).getId());
         Kur.setText(((Student) GlobalConfig.currentUser).getCourse().getName());
         progressBar.setVisibility(View.INVISIBLE);
-
     }
 
     @Override

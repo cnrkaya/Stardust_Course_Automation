@@ -1,3 +1,19 @@
+CREATE OR REPLACE FUNCTION getInstructor(id_in CHAR(11))
+RETURNS TABLE (
+		id CHAR(11),
+		known_languages TEXT[],
+		pworking_hours CHAR(21)
+) AS $$
+
+BEGIN
+
+RETURN QUERY SELECT instructor.id, instructor.known_languages, instructor.pworking_hours 
+FROM instructor
+WHERE instructor.id = id_in;
+
+END;
+$$ LANGUAGE plpgsql; 
+
 CREATE FUNCTION getInstructorLessons(instructor_id_in VARCHAR(11))
 RETURNS TABLE (
 		name TEXT,

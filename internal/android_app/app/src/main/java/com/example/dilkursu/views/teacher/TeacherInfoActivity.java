@@ -2,17 +2,22 @@ package com.example.dilkursu.views.teacher;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.dilkursu.GlobalConfig;
 import com.example.dilkursu.R;
 import com.example.dilkursu.models.Instructor;
+import com.example.dilkursu.views.student.StudentInfoActivity;
+
+import java.util.ArrayList;
 
 public class TeacherInfoActivity extends AppCompatActivity {
     TextView name;
@@ -25,6 +30,8 @@ public class TeacherInfoActivity extends AppCompatActivity {
     TextView identityNo;
     Button btn_saveEdits;
     ImageButton btn_edit ,btn_back ;
+    private ProgressBar progressBar;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,6 +54,8 @@ public class TeacherInfoActivity extends AppCompatActivity {
         btn_edit = findViewById(R.id.TeacherInfoActivity_btn_edit);
         btn_back = findViewById(R.id.TeacherInfoActivity_btn_back);
         btn_saveEdits = findViewById(R.id.TeacherInfoActivity_btn_saveEdits);
+        progressBar = findViewById(R.id.TeacherInfoActivity_ProgressBar);
+        progressBar.setVisibility(View.INVISIBLE);
     }
     public void defineListeners(){
         btn_edit.setOnClickListener(new View.OnClickListener() {
@@ -65,10 +74,11 @@ public class TeacherInfoActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
             setEditable(false);
-            if( updateTeacherInfo() ) //TODO save changes of teacher's info to database
-                Toast.makeText(TeacherInfoActivity.this, "Bilgileriniz Kaydedildi.", Toast.LENGTH_SHORT).show();
-            else
-                Toast.makeText(TeacherInfoActivity.this, "İşlem Başarısız", Toast.LENGTH_LONG).show();
+            new TeacherInfoActivity.UpdateInfoAsyncTask().execute();
+//            if( updateTeacherInfo() ) //TODO save changes of teacher's info to database
+//                Toast.makeText(TeacherInfoActivity.this, "Bilgileriniz Kaydedildi.", Toast.LENGTH_SHORT).show();
+//            else
+//                Toast.makeText(TeacherInfoActivity.this, "İşlem Başarısız", Toast.LENGTH_LONG).show();
             }
         });
 
@@ -81,20 +91,35 @@ public class TeacherInfoActivity extends AppCompatActivity {
         cellphone.setText(GlobalConfig.currentUser.getPhoneNumbers().get(0));
         startDate.setText(((Instructor) GlobalConfig.currentUser).getStartTimeStamp().toString());
         branch.setText(GlobalConfig.currentUser.getBranchName());
-        // languages.setText(((Instructor) GlobalConfig.currentUser).getKnownLanguages()); //TODO: KnownLanguages is not stored in the database
+        languages.setText(((Instructor) GlobalConfig.currentUser).getKnownLanguages().get(0)); //TODO: KnownLanguages is not stored in the database
         identityNo.setText(GlobalConfig.currentUser.getId());
     }
 
     private boolean updateTeacherInfo() {
+        Instructor i = null;
+        String updatedHomePhone =homeTelephone.getText().toString();
+        String updatedCellPhone = cellphone.getText().toString();
+        String updatedLanguages = languages.getText().toString();
+
         try{
-            GlobalConfig.connection.updateInstructorInfo(GlobalConfig.currentUser.getId(),
-                    homeTelephone.getText().toString(),
-                    cellphone.getText().toString(),
-                    languages.getText().toString());
+            GlobalConfig.connection.updateInstructorInfo(
+                    GlobalConfig.currentUser.getId(),
+                    updatedHomePhone,
+                    updatedCellPhone,
+                    updatedLanguages);
+            i = GlobalConfig.connection.getInstructor(GlobalConfig.currentUser.getId());
         }catch (Exception e){
             e.printStackTrace();
+            setResult(RESULT_CANCELED);
             return false;
         }
+        GlobalConfig.connection.bindPerson(GlobalConfig.currentUser, GlobalConfig.currentUser.getId());
+        if( i != null)
+            ((Instructor)(GlobalConfig.currentUser)).setKnownLanguages(i.getKnownLanguages());
+
+        setResult(RESULT_OK);
+        finish();
+
         return true;
     }
 
@@ -124,6 +149,26 @@ public class TeacherInfoActivity extends AppCompatActivity {
             btn_edit.setBackgroundResource(R.drawable.edit);
         }
         btn_saveEdits.setClickable(mode);
-
     }
+
+    private class UpdateInfoAsyncTask extends AsyncTask {
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            progressBar.setVisibility(View.VISIBLE);
+        }
+
+        @Override
+        protected Object doInBackground(Object[] objects) {
+            updateTeacherInfo();
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(Object o) {
+            super.onPostExecute(o);
+        }
+    }
+
 }

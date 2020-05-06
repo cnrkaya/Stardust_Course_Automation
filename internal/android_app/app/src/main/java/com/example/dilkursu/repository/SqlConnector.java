@@ -216,7 +216,7 @@ public class SqlConnector implements IDataConnection {
         try {
 
             String query = "SELECT name FROM BRANCH";
-            ResultSet resultSet = database.execute2(query);
+            ResultSet resultSet = database.execute2(database.getExtraConnection(), query);
             while (resultSet.next()) {
                 branches.add(resultSet.getString("name"));
             }
@@ -619,9 +619,7 @@ public class SqlConnector implements IDataConnection {
             Instructor i = new Instructor();
             i.setId(resultSet.getString("id"));
 
-            ArrayList<String> known_langs = new ArrayList<>();
-            known_langs.add(resultSet.getString("known_languages"));
-            i.setKnownLanguages(known_langs);
+            i.setKnownLanguages(TextProcessor.stringToArray(resultSet.getString("known_languages")));
 
             i.setPworking_hours(resultSet.getString("pworking_hours"));
             instructors.add(i);
@@ -631,6 +629,25 @@ public class SqlConnector implements IDataConnection {
         preparedStatement.close();
 
         return instructors;
+    }
+
+    @Override
+    public Instructor getInstructor(String id) throws Exception {
+        PreparedStatement preparedStatement = database.getConnection().prepareStatement("SELECT * FROM getInstructor(?);");
+        preparedStatement.setString(1, id);
+        ResultSet resultSet = preparedStatement.executeQuery();
+        resultSet.next();
+
+        Instructor i = new Instructor();
+        i.setId(resultSet.getString("id"));
+        i.setKnownLanguages(TextProcessor.stringToArray(resultSet.getString("known_languages")));
+        i.setPworking_hours(resultSet.getString("pworking_hours"));
+
+        resultSet.next();
+        resultSet.close();
+        preparedStatement.close();
+
+        return i;
     }
 
     @Override
