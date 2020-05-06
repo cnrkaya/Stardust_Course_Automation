@@ -9,7 +9,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.dilkursu.GlobalConfig;
@@ -30,6 +32,8 @@ public class SellActivity extends AppCompatActivity implements View.OnClickListe
     private Branch selectedBranch;
     private String price;
     private EditText studentId;
+
+    private static final int STUDENT_INFO_ACTIVITY_REQUEST_CODE = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,7 +70,7 @@ public class SellActivity extends AppCompatActivity implements View.OnClickListe
     private void defineListeners() {
         SpinnerBranches.setOnItemSelectedListener(this);
         SpinnerCourses.setOnItemSelectedListener(this);
-        SpinnerKur.setOnItemSelectedListener(this);
+        //SpinnerKur.setOnItemSelectedListener(this);
         BtnNext.setOnClickListener(this);
 
     }
@@ -101,7 +105,7 @@ public class SellActivity extends AppCompatActivity implements View.OnClickListe
 
             case R.id.SellActivity_spinner_courses:
                 List<String> levels = new ArrayList<>();
-                if( all_courses == null)
+                if (all_courses == null)
                     all_courses = GlobalConfig.connection.getCourses(selectedBranch.getName());
                 for (Course course : all_courses) {
                     if (Integer.toString(course.getId()).equals(adapterView.getItemAtPosition(i).toString())) {
@@ -110,7 +114,7 @@ public class SellActivity extends AppCompatActivity implements View.OnClickListe
                     }
                 }
                 ArrayAdapter<String> adapter3 = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, levels);
-                SpinnerKur.setAdapter(adapter3);
+                //SpinnerKur.setAdapter(adapter3);
                 break;
 //            case R.id.SellActivity_spinner_kur:
 //                TvAmount.setText(price);
@@ -122,6 +126,21 @@ public class SellActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onNothingSelected(AdapterView<?> adapterView) {
+
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (requestCode == STUDENT_INFO_ACTIVITY_REQUEST_CODE) {
+            if (resultCode == RESULT_OK) {
+                Toast.makeText(this, "Düzenleme işlemi başarıyla gerçekleşti.", Toast.LENGTH_LONG).show();
+
+            } else if (resultCode == RESULT_CANCELED) {
+                Toast.makeText(this, "Düzenleme gerçekleşirken bir hata oluştu!", Toast.LENGTH_LONG).show();
+            }
+        }
 
     }
 }

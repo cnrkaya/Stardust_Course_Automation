@@ -1,7 +1,6 @@
 package com.example.dilkursu.views.admin;
 
 import android.content.Intent;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -38,7 +37,6 @@ public class AdminActivity extends AppCompatActivity implements View.OnClickList
 
             GlobalConfig.connection.bindPerson(GlobalConfig.currentUser, person_id);
             GlobalConfig.connection.bindBranch(GlobalConfig.currentUser.getBranch(), GlobalConfig.currentUser.getBranchName());
-
 
         }
     }
@@ -84,6 +82,6 @@ public class AdminActivity extends AppCompatActivity implements View.OnClickList
             startActivity(intent);
         }
     }
-    
+
 
 }

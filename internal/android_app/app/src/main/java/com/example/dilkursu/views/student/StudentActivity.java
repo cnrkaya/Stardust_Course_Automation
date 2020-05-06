@@ -7,6 +7,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.dilkursu.GlobalConfig;
@@ -21,6 +22,8 @@ public class StudentActivity extends AppCompatActivity implements View.OnClickLi
     private Button BtnMyPayments;
     private Button BtnMyInfos;
     private Button BtnLogout;
+
+    private static final int STUDENT_INFO_ACTIVITY_REQUEST_CODE = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -89,7 +92,7 @@ public class StudentActivity extends AppCompatActivity implements View.OnClickLi
         } else if (v == BtnMyInfos) {
             // Handle clicks for BtnMyInfos
             Intent intent = new Intent(getApplicationContext(), StudentInfoActivity.class);
-            startActivity(intent);
+            //startActivityForResult(intent, );
         } else if (v == BtnLogout) {
             // Handle clicks for BtnLogout
             Intent intent = new Intent(getApplicationContext(), SignInActivity.class);
@@ -97,6 +100,22 @@ public class StudentActivity extends AppCompatActivity implements View.OnClickLi
             finish();
             startActivity(intent);
         }
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (requestCode == STUDENT_INFO_ACTIVITY_REQUEST_CODE) {
+            if (resultCode == RESULT_OK) {
+                Toast.makeText(this, "Bilgileriniz güncellendi..", Toast.LENGTH_LONG).show();
+                defineCurrentUser();
+            } else if (resultCode == RESULT_CANCELED) {
+                Toast.makeText(this, "İşlem başarısız!", Toast.LENGTH_LONG).show();
+            }
+        }
+
+
     }
 }
 

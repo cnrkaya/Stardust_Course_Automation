@@ -87,11 +87,11 @@ public class GlobalConfig {
     }
 
     public static ArrayList<Branch> getAllBranches() {
-        if (GlobalConfig.connection == null)
-            GlobalConfig.InitializeConnection();
-
-        if (GlobalConfig.branches == null)
-            GlobalConfig.InitializeArrays();
+//        if (GlobalConfig.connection == null)
+//            GlobalConfig.InitializeConnection();
+//
+//        if (GlobalConfig.branches == null)
+//            GlobalConfig.InitializeArrays();
 
         return GlobalConfig.branches;
     }

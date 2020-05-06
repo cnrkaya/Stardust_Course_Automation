@@ -1,8 +1,6 @@
 package com.example.dilkursu.views.student;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -83,10 +81,7 @@ public class StudentInfoActivity extends AppCompatActivity implements View.OnCli
             setEditable(true);
         } else if (v == BtnSaveEdits) {
             setEditable(false);
-            if (updateStudentInfo()) //TODO save changes of student info to database
-                Toast.makeText(this, "Bilgileriniz güncellendi", Toast.LENGTH_SHORT).show();
-            else
-                Toast.makeText(this, "İşlem Başarısız", Toast.LENGTH_LONG).show();
+            updateStudentInfo();
         }
     }
 
@@ -113,14 +108,21 @@ public class StudentInfoActivity extends AppCompatActivity implements View.OnCli
     }
 
     private boolean updateStudentInfo() {
-        try{
+        try {
             GlobalConfig.connection.updateStudentInfo(GlobalConfig.currentUser.getId(),
-                                                      HomeTelephone.getText().toString(),
-                                                      CellPhone.getText().toString());
-        }catch (Exception e){
+                    HomeTelephone.getText().toString(),
+                    CellPhone.getText().toString());
+        } catch (Exception e) {
             e.printStackTrace();
+            setResult(RESULT_CANCELED);
             return false;
         }
+
+        setResult(RESULT_OK);
+        finish();
+
         return true;
     }
+
+
 }
