@@ -162,7 +162,7 @@ public class AddLesson2Activity extends AppCompatActivity implements View.OnClic
     }
 
     public ArrayList<Instructor> getAvailableInstructors(String branchName, String date, String ts) {
-
+        // TODO: Fix Required
         int day;
         int month;
         int year;
@@ -197,31 +197,31 @@ public class AddLesson2Activity extends AppCompatActivity implements View.OnClic
 //        newDateString = sdf.format(d);
 
 
-        // hour -> for 14:00 o'clock, hour=14
-        // day -> for tuesday, day = 2
-        DateTimeFormatter fIn = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-        LocalDate lessonDate_ = LocalDate.parse(date, fIn);
-        LocalTime lessonTime_ = LocalTime.parse(ts);
-
-        //int day = lessonDate_.getDayOfWeek().getValue();
-        //int hour = lessonTime_.getHour();
-
-        ArrayList<Instructor> availableInstructors = new ArrayList<>();
-
-        try {
-            ArrayList<Instructor> instructors = GlobalConfig.connection.getInstructors(branchName);
-
-            for (Instructor i : instructors) {
-                instructors.add(i);
-                int[][] availableHours = i.getAvailableHours();
-                if (availableHours[day][hour] == 0)
-                    availableInstructors.remove(i);
-            }
-
-        } catch (Exception e) {
-            e.printStackTrace();
-            return null;
-        }
+//        // hour -> for 14:00 o'clock, hour=14
+//        // day -> for tuesday, day = 2
+//        DateTimeFormatter fIn = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+//        LocalDate lessonDate_ = LocalDate.parse(date, fIn);
+//        LocalTime lessonTime_ = LocalTime.parse(ts);
+//
+//        int day = lessonDate_.getDayOfWeek().getValue();
+//        int hour = lessonTime_.getHour();
+//
+//        ArrayList<Instructor> availableInstructors = new ArrayList<>();
+//
+//        try {
+//            ArrayList<Instructor> instructors = GlobalConfig.connection.getInstructors(branchName);
+//
+//            for (Instructor i : instructors) {
+//                instructors.add(i);
+//                int[][] availableHours = i.getAvailableHours();
+//                if (availableHours[day][hour] == 0)
+//                    availableInstructors.remove(i);
+//            }
+//
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//            return null;
+//        }
 
         return availableInstructors;
     }
