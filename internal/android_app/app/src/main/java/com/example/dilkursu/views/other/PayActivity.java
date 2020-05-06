@@ -94,6 +94,9 @@ public class PayActivity extends AppCompatActivity {
                 String courseName = intent1.getStringExtra("courseName");
                 int courseNo = intent1.getIntExtra("courseNo", 0);
                 String studentId = intent1.getStringExtra("studentId");
+                String price = intent1.getStringExtra("price");
+
+                UnpaidAmount.setText(price);
 
                 intent.putExtra("branchName", branchName);
                 intent.putExtra("courseName", courseName);

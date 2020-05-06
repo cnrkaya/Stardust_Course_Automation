@@ -88,6 +88,7 @@ public class SellActivity extends AppCompatActivity implements View.OnClickListe
                 intent.putExtra("courseName", selectedCourse.getName());
                 intent.putExtra("courseNo", selectedCourse.getId());
                 intent.putExtra("studentId", studentId.getText().toString());
+                intent.putExtra("price",TvAmount.getText().toString());
 
                 Log.i("APP_TEST", selectedBranch.getName() + selectedCourse.getName() + selectedCourse.getId() + studentId.getText().toString());
             }
@@ -126,7 +127,7 @@ public class SellActivity extends AppCompatActivity implements View.OnClickListe
                     }
                 }
                 ArrayAdapter<String> adapter3 = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, levels);
-                TvAmount.setText(price);
+                TvAmount.setText("Toplam Tutar : "+price + "$");
                 //SpinnerKur.setAdapter(adapter3);
                 break;
 //            case R.id.SellActivity_spinner_kur:
