@@ -75,10 +75,6 @@ public class TeacherInfoActivity extends AppCompatActivity {
             public void onClick(View v) {
             setEditable(false);
             new TeacherInfoActivity.UpdateInfoAsyncTask().execute();
-//            if( updateTeacherInfo() ) //TODO save changes of teacher's info to database
-//                Toast.makeText(TeacherInfoActivity.this, "Bilgileriniz Kaydedildi.", Toast.LENGTH_SHORT).show();
-//            else
-//                Toast.makeText(TeacherInfoActivity.this, "İşlem Başarısız", Toast.LENGTH_LONG).show();
             }
         });
 
@@ -91,7 +87,7 @@ public class TeacherInfoActivity extends AppCompatActivity {
         cellphone.setText(GlobalConfig.currentUser.getPhoneNumbers().get(0));
         startDate.setText(((Instructor) GlobalConfig.currentUser).getStartTimeStamp().toString());
         branch.setText(GlobalConfig.currentUser.getBranchName());
-        languages.setText(((Instructor) GlobalConfig.currentUser).getKnownLanguages().get(0)); //TODO: KnownLanguages is not stored in the database
+        languages.setText(((Instructor) GlobalConfig.currentUser).getKnownLanguages().get(0));
         identityNo.setText(GlobalConfig.currentUser.getId());
     }
 

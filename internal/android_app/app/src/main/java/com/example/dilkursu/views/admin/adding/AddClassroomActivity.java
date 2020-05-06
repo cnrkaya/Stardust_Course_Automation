@@ -58,7 +58,6 @@ public class AddClassroomActivity extends AppCompatActivity implements View.OnCl
         progressBar = (ProgressBar)findViewById( R.id.AddClassroomActivity_ProgressBar);
 
         branchList = new ArrayList<>();
-        //TODO fix : can't pull branch list
         if(GlobalConfig.connection == null)
             GlobalConfig.InitializeConnection();
         ArrayList<Branch> branches = GlobalConfig.getAllBranches();
@@ -81,7 +80,6 @@ public class AddClassroomActivity extends AppCompatActivity implements View.OnCl
 
         String className = EdtTxtClassroomName.getText().toString();
         Integer capacity;
-        // TODO: TEST
         String branchName = SpinnerBranches.getSelectedItem().toString();;
         try {
             capacity = Integer.valueOf( EdtTxtCapacity.getText().toString());

@@ -25,7 +25,6 @@
             </TextView>
         </LinearLayout>
 
-        <!-- TODO:Kurs silme islemini gecici olarak görünmez hale getir.-->
         <LinearLayout
             android:paddingHorizontal="35dp"
             android:id="@+id/body2"

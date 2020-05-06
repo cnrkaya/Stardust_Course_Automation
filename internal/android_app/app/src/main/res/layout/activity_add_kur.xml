@@ -37,7 +37,6 @@
         android:background="#F1F9FF"
         android:orientation="vertical">
 
-        <!-- TODO: Relocate the progress bar -->
         <ProgressBar
             android:layout_marginTop="30dp"
             android:id="@+id/AddKurActivity_ProgressBar"

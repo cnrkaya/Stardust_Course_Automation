@@ -105,7 +105,7 @@ public class StudentInfoActivity extends AppCompatActivity implements View.OnCli
             setEditable(true);
         } else if (v == BtnSaveEdits) {
             setEditable(false);
-            if (updateStudentInfo()) //TODO save changes of student info to database
+            if (updateStudentInfo())
                 Toast.makeText(this, "Bilgileriniz güncellendi", Toast.LENGTH_SHORT).show();
             else
                 Toast.makeText(this, "İşlem Başarısız", Toast.LENGTH_LONG).show();
