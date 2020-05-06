@@ -69,6 +69,7 @@ public class CourseAdapter extends RecyclerView.Adapter<CourseAdapter.ViewHolder
             intent.putExtra("name", course.getName());
             intent.putExtra("language", course.getLanguage());
             intent.putExtra("price", course.getPrice());
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             context.startActivity(intent);
         }
     }
