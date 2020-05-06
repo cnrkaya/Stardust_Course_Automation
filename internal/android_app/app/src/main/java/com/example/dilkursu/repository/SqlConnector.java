@@ -675,11 +675,10 @@ public class SqlConnector implements IDataConnection {
     @Override
     public Course getCourse(int courseId) throws Exception {
         PreparedStatement preparedStatement = database.getConnection().prepareStatement("SELECT * FROM course WHERE id = (?);");
-        preparedStatement.setInt(1, courseId);
+        preparedStatement.setString(1, Integer.toString(courseId));
 
         ResultSet resultSet = preparedStatement.executeQuery();
         resultSet.next();
-        int id = resultSet.getInt("id");
         String name = resultSet.getString("name");
         String lang = resultSet.getString("language");
         String price = resultSet.getString("price");
@@ -691,7 +690,7 @@ public class SqlConnector implements IDataConnection {
         c.setName(name);
         c.setLanguage(lang);
         c.setPrice(price);
-        c.setId(id);
+        c.setId(courseId);
 
         return c;
     }
