@@ -41,14 +41,14 @@ public class TeacherTimeTableActivity extends AppCompatActivity {
 
         schedules = new ArrayList<Schedule>();
         ArrayList<Lesson> lessons = null;
-        DateTimeFormatter fIn = DateTimeFormatter.ofPattern( "MM/dd/uuuu" , Locale.UK );
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         LocalDate date;
         LocalTime ts;
         try{
             lessons = GlobalConfig.connection.getInstructorLessons(GlobalConfig.currentUser.getId());
 
             for(Lesson l : lessons){
-                date = LocalDate.parse( l.getDate() , fIn);
+                date = LocalDate.parse( l.getDate(), formatter);
                 ts = LocalTime.parse(l.getTs());
                 addSchedule(l.getName(),
                             l.getClassroomId(),
