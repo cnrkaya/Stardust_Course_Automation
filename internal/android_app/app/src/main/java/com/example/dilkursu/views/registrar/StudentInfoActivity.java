@@ -14,6 +14,8 @@ import com.example.dilkursu.GlobalConfig;
 import com.example.dilkursu.R;
 import com.example.dilkursu.models.Student;
 
+import java.util.Random;
+
 public class StudentInfoActivity extends AppCompatActivity implements View.OnClickListener {
 
     private final String TAG = this.getClass().getSimpleName();
@@ -80,7 +82,8 @@ public class StudentInfoActivity extends AppCompatActivity implements View.OnCli
         Surname.setText(student.getLname());
         HomeTelephone.setText(student.getHomeNumbers().get(0));
         CellPhone.setText(student.getPhoneNumbers().get(0));
-        Course.setText(Integer.toString((student).getGroupNo()));
+        //Course.setText(Integer.toString((student).getGroupNo()));
+        Course.setText(new Random().nextInt(150));
         Branch.setText((student).getBranchName());
         IdentityNo.setText(student.getId());
         Kur.setText(student.getCourse().getName());

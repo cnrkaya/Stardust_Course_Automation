@@ -162,7 +162,7 @@ public class AddLesson2Activity extends AppCompatActivity implements View.OnClic
     public ArrayList<Instructor> getAvailableInstructors(String branchName, String date, String ts){
         // hour -> for 14:00 o'clock, hour=14
         // day -> for tuesday, day = 2
-        DateTimeFormatter fIn = DateTimeFormatter.ofPattern( "MM/dd/uuuu" , Locale.UK );
+        DateTimeFormatter fIn = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         LocalDate lessonDate_ = LocalDate.parse( date , fIn);
         LocalTime lessonTime_ = LocalTime.parse( ts );
 
