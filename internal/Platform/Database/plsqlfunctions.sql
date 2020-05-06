@@ -1,3 +1,24 @@
+CREATE OR REPLACE FUNCTION attachInstructorWithLesson(id_in CHAR(11), class_name_in VARCHAR(20), course_no_in CHAR(11), lesson_name_in TEXT)
+RETURNS VOID AS $$
+DECLARE
+branch_of_lesson VARCHAR(31);
+is_already_working_on INT;
+BEGIN
+
+-- First Attach With Lesson
+UPDATE lesson SET instructor_id = id_in WHERE course_no = course_no_in and name = lesson_name_in;
+-- Then get the branch of the lesson
+SELECT branch_name INTO branch_of_lesson FROM classroom c WHERE c.name = class_name_in;
+
+-- Make the instructor work in this branch if he is not already working there
+SELECT COUNT(*) INTO is_already_working_on FROM works_on w WHERE w.person_id = '20434309772' AND w.branch_name = 'Huelva';
+IF is_already_working_on < 1 THEN
+   INSERT INTO works_on(branch_name, person_id) VALUES(branch_of_lesson, id_in);
+END IF;
+
+END;
+$$ LANGUAGE plpgsql; 
+
 CREATE OR REPLACE FUNCTION getInstructor(id_in CHAR(11))
 RETURNS TABLE (
 		id CHAR(11),
