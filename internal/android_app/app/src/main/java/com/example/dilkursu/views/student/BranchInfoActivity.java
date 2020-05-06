@@ -12,7 +12,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.dilkursu.GlobalConfig;
 import com.example.dilkursu.R;
 import com.example.dilkursu.models.Branch;
-import com.example.dilkursu.views.other.CourseInfoActivity;
 import com.example.dilkursu.views.registrar.CoursesActivity;
 
 public class BranchInfoActivity extends AppCompatActivity implements View.OnClickListener {
@@ -60,11 +59,11 @@ public class BranchInfoActivity extends AppCompatActivity implements View.OnClic
 
         Branch branch = GlobalConfig.connection.getBranch(branchName);
         BranchName.setText(branchName);
-        if(branch.getPublicTransports() != null){
+        if (branch.getPublicTransports() != null) {
             BranchTransportation.setText(branch.getPublicTransports().get(0));
         }
         BranchAddress.setText(branch.getAddress());
-        if(branch.getFacilities() != null){
+        if (branch.getFacilities() != null) {
             SocialFacilities.setText(branch.getFacilities().get(0));
         }
     }
@@ -82,7 +81,7 @@ public class BranchInfoActivity extends AppCompatActivity implements View.OnClic
             startActivity(intent);
         } else if (view == BtnBack) {
             finish();
-        }else if (view == BtnCourses) {
+        } else if (view == BtnCourses) {
             Intent intent = new Intent(this, CoursesActivity.class);
             intent.putExtra("branchName", BranchName.getText().toString());
             startActivity(intent);

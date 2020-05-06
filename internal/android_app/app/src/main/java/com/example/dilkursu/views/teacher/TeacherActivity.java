@@ -1,7 +1,5 @@
 package com.example.dilkursu.views.teacher;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -9,12 +7,13 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.dilkursu.GlobalConfig;
-import com.example.dilkursu.models.Instructor;
-import com.example.dilkursu.models.Student;
-import com.example.dilkursu.views.student.BranchInfoActivity;
 import com.example.dilkursu.R;
+import com.example.dilkursu.models.Instructor;
 import com.example.dilkursu.views.other.SignInActivity;
+import com.example.dilkursu.views.student.BranchInfoActivity;
 
 public class TeacherActivity extends AppCompatActivity implements View.OnClickListener {
     TextView edTxt_userName;
@@ -50,8 +49,8 @@ public class TeacherActivity extends AppCompatActivity implements View.OnClickLi
 
             GlobalConfig.connection.bindPerson(GlobalConfig.currentUser, person_id);
             GlobalConfig.connection.bindBranch(GlobalConfig.currentUser.getBranch(), GlobalConfig.currentUser.getBranchName());
-            if( i != null)
-                ((Instructor)(GlobalConfig.currentUser)).setKnownLanguages(i.getKnownLanguages());
+            if (i != null)
+                ((Instructor) (GlobalConfig.currentUser)).setKnownLanguages(i.getKnownLanguages());
 
         }
     }
@@ -81,7 +80,7 @@ public class TeacherActivity extends AppCompatActivity implements View.OnClickLi
     @Override
     public void onClick(View v) {
         if (v == btn_showBranch) {
-            if (!"".equals(GlobalConfig.currentUser.getBranch().getName())) {
+            if (GlobalConfig.currentUser.getBranch().getName() != null) {
                 // Handle clicks for BtnShowBranch
                 Intent intent = new Intent(getApplicationContext(), BranchInfoActivity.class);
                 startActivity(intent);
@@ -102,4 +101,6 @@ public class TeacherActivity extends AppCompatActivity implements View.OnClickLi
             startActivity(intent);
         }
     }
+
+
 }
