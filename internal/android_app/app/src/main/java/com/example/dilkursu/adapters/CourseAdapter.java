@@ -66,8 +66,8 @@ public class CourseAdapter extends RecyclerView.Adapter<CourseAdapter.ViewHolder
         @Override
         public void onClick(View view) {
             Intent intent = new Intent(context, CourseInfoActivity.class);
-            intent.putExtra("name", course.getName());
-            intent.putExtra("language", course.getLanguage());
+            intent.putExtra("name", course.getCourseName());
+            intent.putExtra("language", course.getName());
             intent.putExtra("price", course.getPrice());
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             context.startActivity(intent);
