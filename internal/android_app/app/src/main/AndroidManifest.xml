@@ -29,7 +29,7 @@
         <activity android:name=".views.other.ClassroomInfoActivity" />
         <activity android:name=".views.student.BranchInfoActivity" />
         <activity android:name=".views.other.BranchListActivity" />
-        <activity android:name=".views.student.StudentSearchActivity" />
+        <activity android:name=".views.registrar.StudentSearchActivity" />
         <activity android:name=".views.registrar.StudentRegistrationActivity" />
         <activity android:name=".views.student.StudentInfoActivity" />
         <activity android:name=".views.teacher.TeacherInfoActivity" />

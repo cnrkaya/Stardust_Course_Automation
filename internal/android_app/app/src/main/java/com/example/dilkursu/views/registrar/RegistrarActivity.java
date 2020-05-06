@@ -14,7 +14,6 @@ import com.example.dilkursu.GlobalConfig;
 import com.example.dilkursu.R;
 import com.example.dilkursu.views.other.BranchListActivity;
 import com.example.dilkursu.views.other.SignInActivity;
-import com.example.dilkursu.views.student.StudentSearchActivity;
 
 public class RegistrarActivity extends AppCompatActivity implements View.OnClickListener {
     private TextView Username;

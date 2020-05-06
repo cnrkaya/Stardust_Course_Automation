@@ -1,4 +1,4 @@
-package com.example.dilkursu.views.student;
+package com.example.dilkursu.views.registrar;
 
 import android.content.Intent;
 import android.os.AsyncTask;
