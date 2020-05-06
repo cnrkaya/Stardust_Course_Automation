@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -33,6 +34,7 @@ public class StudentInfoActivity extends AppCompatActivity implements View.OnCli
     private EditText Payments;
     private EditText IdentityNo;
     private Student student;
+    private ProgressBar progressBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,6 +71,7 @@ public class StudentInfoActivity extends AppCompatActivity implements View.OnCli
         Payments = (EditText) findViewById(R.id.StudentInfoActivity_payments);
         IdentityNo = (EditText) findViewById(R.id.StudentInfoActivity_identityNo);
         BtnSaveEdits = (Button) findViewById(R.id.StudentInfoActivity_btn_saveEdits);
+        progressBar = (ProgressBar) findViewById(R.id.StudentInfoActivity_ProgressBar);
     }
 
     public void defineListeners() {
@@ -87,6 +90,7 @@ public class StudentInfoActivity extends AppCompatActivity implements View.OnCli
         Branch.setText((student).getBranchName());
         IdentityNo.setText(student.getId());
         Kur.setText(student.getCourse().getName());
+        progressBar.setVisibility(View.INVISIBLE);
 
 
     }
