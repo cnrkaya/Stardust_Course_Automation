@@ -86,6 +86,7 @@ public class StudentInfoActivity extends AppCompatActivity implements View.OnCli
         HomeTelephone.setText(student.getHomeNumbers().get(0));
         CellPhone.setText(student.getPhoneNumbers().get(0));
         //Course.setText(Integer.toString((student).getGroupNo()));
+        Course.setText(Integer.toString(new Random().nextInt(150)));
         Course.setText(new Random().nextInt(150));
         Branch.setText((student).getBranchName());
         IdentityNo.setText(student.getId());
