@@ -17,6 +17,7 @@ import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Types;
 import java.util.ArrayList;
 
@@ -209,7 +210,7 @@ public class SqlConnector implements IDataConnection {
     }
 
     @Override
-    public ArrayList<String> getAllBranchNames(){
+    public ArrayList<String> getAllBranchNames() {
         ArrayList<String> branches = new ArrayList<>();
 
         try {
@@ -225,6 +226,12 @@ public class SqlConnector implements IDataConnection {
         }
 
         return branches;
+    }
+
+    @Override
+    public void addEntryToWorksOn(String branchName, String person_id) {
+        String query = String.format("INSERT INTO WORKS_ON VALUES('%s', '%s')", branchName, person_id);
+        database.execute2(query);
     }
 
     @Override
