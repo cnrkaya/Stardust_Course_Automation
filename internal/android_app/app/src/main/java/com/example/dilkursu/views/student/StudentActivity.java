@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -78,9 +77,10 @@ public class StudentActivity extends AppCompatActivity implements View.OnClickLi
     @Override
     public void onClick(View v) {
         if (v == BtnShowBranch) {
-            if ("".equals(GlobalConfig.currentUser.getBranch().getName())) {
+            if (GlobalConfig.currentUser.getBranchName() != null) {
                 // Handle clicks for BtnShowBranch
                 Intent intent = new Intent(getApplicationContext(), BranchInfoActivity.class);
+                intent.putExtra("branchName", GlobalConfig.currentUser.getBranchName());
                 startActivity(intent);
             } else {
                 Toast.makeText(this, "Şube kaydınızı yapılmamış.\nKayıt Yöneticisiyle görüşünüz", Toast.LENGTH_LONG).show();

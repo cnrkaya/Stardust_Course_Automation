@@ -1,11 +1,8 @@
 package com.example.dilkursu.views.other;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -13,11 +10,11 @@ import android.widget.ImageButton;
 import android.widget.RadioButton;
 import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.dilkursu.GlobalConfig;
 import com.example.dilkursu.R;
-import com.example.dilkursu.models.Student;
-import com.example.dilkursu.views.student.StudentActivity;
 
 import java.util.ArrayList;
 
@@ -42,20 +39,22 @@ public class PayActivity extends AppCompatActivity {
 
         defineVariables();
         defineListeners();
+        initViews();
     }
 
-    public void defineVariables(){
-        BtnBack = (ImageButton)findViewById( R.id.PayActivity_btn_back );
-        UnpaidAmount = (TextView)findViewById( R.id.PayActivity_unpaidAmount );
-        CardNo = (EditText)findViewById( R.id.PayActivity_cardNo );
-        CardHolder = (EditText)findViewById( R.id.PayActivity_cardHolder );
-        ExpDate = (EditText)findViewById( R.id.PayActivity_expDate );
-        Cvc = (EditText)findViewById( R.id.PayActivity_cvc );
-        SpinnerInstallmentsNum = (Spinner)findViewById( R.id.PayActivity_spinner_installmentsNum );
-        BtnPay = (Button)findViewById( R.id.PayActivity_btn_pay );
-        cash = (RadioButton)findViewById(R.id.PayActivity_rBtn_cash);
-        installment = (RadioButton)findViewById(R.id.PayActivity_rBtn_installment);
-        tv_installmentHeader=(TextView)findViewById( R.id.PayActivity_tv_installmentHeader );
+
+    public void defineVariables() {
+        BtnBack = (ImageButton) findViewById(R.id.PayActivity_btn_back);
+        UnpaidAmount = (TextView) findViewById(R.id.PayActivity_unpaidAmount);
+        CardNo = (EditText) findViewById(R.id.PayActivity_cardNo);
+        CardHolder = (EditText) findViewById(R.id.PayActivity_cardHolder);
+        ExpDate = (EditText) findViewById(R.id.PayActivity_expDate);
+        Cvc = (EditText) findViewById(R.id.PayActivity_cvc);
+        SpinnerInstallmentsNum = (Spinner) findViewById(R.id.PayActivity_spinner_installmentsNum);
+        BtnPay = (Button) findViewById(R.id.PayActivity_btn_pay);
+        cash = (RadioButton) findViewById(R.id.PayActivity_rBtn_cash);
+        installment = (RadioButton) findViewById(R.id.PayActivity_rBtn_installment);
+        tv_installmentHeader = (TextView) findViewById(R.id.PayActivity_tv_installmentHeader);
 
         ArrayList<String> installmentOptions = new ArrayList<>();
         installmentOptions.add("2");
@@ -64,14 +63,13 @@ public class PayActivity extends AppCompatActivity {
         installmentOptions.add("8");
         installmentOptions.add("10");
         //Adapter for Spinner
-        adapterInstallmentsNum = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item,installmentOptions);
+        adapterInstallmentsNum = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, installmentOptions);
         adapterInstallmentsNum.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         SpinnerInstallmentsNum.setAdapter(adapterInstallmentsNum);
     }
 
 
-
-    public void defineListeners(){
+    public void defineListeners() {
         BtnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -82,16 +80,29 @@ public class PayActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                String payMessage =UnpaidAmount.getText().toString() + "  ";
-                if(installment.isChecked()){
+                String payMessage = UnpaidAmount.getText().toString() + "  ";
+                if (installment.isChecked()) {
                     payMessage += SpinnerInstallmentsNum.getSelectedItem().toString() + " Taksitle Ödendi";
-                }
-                else{
+                } else {
                     payMessage += "Peşin Ödendi";
                 }
+
+                Intent intent1 = getIntent();
                 Intent intent = new Intent(getApplicationContext(), MessageActivity.class);
-                intent.putExtra("message",payMessage);
-                intent.putExtra("type",true);
+
+                String branchName = intent1.getStringExtra("branchName");
+                String courseName = intent1.getStringExtra("courseName");
+                int courseNo = intent1.getIntExtra("courseNo", 0);
+                String studentId = intent1.getStringExtra("studentId");
+
+                intent.putExtra("branchName", branchName);
+                intent.putExtra("courseName", courseName);
+                intent.putExtra("courseNo", courseNo);
+                intent.putExtra("studentId", studentId);
+                intent.putExtra("message", payMessage);
+                intent.putExtra("type", true);
+
+
                 startActivity(intent);
             }
         });
@@ -99,7 +110,7 @@ public class PayActivity extends AppCompatActivity {
         installment.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(installment.isChecked()){
+                if (installment.isChecked()) {
                     tv_installmentHeader.setVisibility(View.VISIBLE);
                     SpinnerInstallmentsNum.setVisibility(View.VISIBLE);
                 }
@@ -109,12 +120,16 @@ public class PayActivity extends AppCompatActivity {
         cash.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(cash.isChecked()) {
+                if (cash.isChecked()) {
                     tv_installmentHeader.setVisibility(View.INVISIBLE);
                     SpinnerInstallmentsNum.setVisibility(View.INVISIBLE);
                 }
             }
         });
+
+    }
+
+    private void initViews() {
 
     }
 }

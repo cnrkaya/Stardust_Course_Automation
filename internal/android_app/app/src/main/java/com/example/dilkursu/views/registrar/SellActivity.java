@@ -2,6 +2,7 @@ package com.example.dilkursu.views.registrar;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -29,7 +30,8 @@ public class SellActivity extends AppCompatActivity implements View.OnClickListe
     private Spinner SpinnerKur;
     private TextView TvAmount;
     private Button BtnNext;
-    private Branch selectedBranch;
+    private Branch selectedBranch = null;
+    private Course selectedCourse = null;
     private String price;
     private EditText studentId;
 
@@ -81,7 +83,16 @@ public class SellActivity extends AppCompatActivity implements View.OnClickListe
         if (v == BtnNext) {
             // Handle clicks for BtnNext
             Intent intent = new Intent(getApplicationContext(), PayActivity.class);
-            intent.putExtra("studentId", studentId.getText().toString());
+            if (selectedCourse != null && selectedBranch != null) {
+                intent.putExtra("branchName", selectedBranch.getName());
+                intent.putExtra("courseName", selectedCourse.getName());
+                intent.putExtra("courseNo", selectedCourse.getId());
+                intent.putExtra("studentId", studentId.getText().toString());
+
+                Log.i("APP_TEST", selectedBranch.getName() + selectedCourse.getName() + selectedCourse.getId() + studentId.getText().toString());
+            }
+
+
             startActivity(intent);
         }
     }
@@ -109,15 +120,17 @@ public class SellActivity extends AppCompatActivity implements View.OnClickListe
                     all_courses = GlobalConfig.connection.getCourses(selectedBranch.getName());
                 for (Course course : all_courses) {
                     if (Integer.toString(course.getId()).equals(adapterView.getItemAtPosition(i).toString())) {
+                        selectedCourse = course;
                         price = course.getPrice();
                         levels.add(course.getCourseName());
                     }
                 }
                 ArrayAdapter<String> adapter3 = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, levels);
+                TvAmount.setText(price);
                 //SpinnerKur.setAdapter(adapter3);
                 break;
 //            case R.id.SellActivity_spinner_kur:
-//                TvAmount.setText(price);
+//
 //                break;
 
         }

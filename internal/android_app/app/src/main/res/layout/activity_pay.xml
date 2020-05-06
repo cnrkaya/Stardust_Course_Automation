@@ -1,176 +1,180 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:fillViewport="true"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-    <LinearLayout
-        android:id="@+id/header"
-        android:background="#5D7D98"
-        android:layout_width="match_parent"
-        android:layout_height="70dp"
-        android:padding="15dp"
-        android:orientation="horizontal">
-        <ImageButton
-            android:id="@+id/PayActivity_btn_back"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="8"
-            android:background="@drawable/back_icon">
-        </ImageButton>
-        <TextView
-            android:layout_weight="1"
-            android:textSize="20dp"
-            android:gravity="center"
-            android:textColor="#FFFFFF"
-            android:textStyle="bold"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="Ödeme Yap">
-        </TextView>
-    </LinearLayout>
-
-    <LinearLayout
-        android:padding="30dp"
-        android:id="@+id/body"
-        android:layout_below="@id/header"
-        android:layout_width="match_parent"
-        android:layout_height="600dp"
-        android:background="#F1F9FF"
-        android:orientation="vertical">
-
-        <TextView
-            android:id="@+id/PayActivity_unpaidAmount"
-            android:textColor="#5D7D98"
-            android:layout_marginTop="10dp"
-            android:textSize="30sp"
-            android:gravity="center"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="$80.00"> </TextView>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textColor="#5D7D98"
-            android:text="Kart Numarası">
-        </TextView>
         <LinearLayout
-            android:background="#FFFFFF"
-            android:padding="10dp"
+            android:id="@+id/header"
             android:layout_width="match_parent"
-            android:layout_height="65dp"
-            android:orientation="horizontal">
-            <EditText
-                android:id="@+id/PayActivity_cardNo"
-                android:background="#FFFFFF"
-                android:layout_weight="1"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:text="1234 5678 4567 4567"
-                android:layout_marginRight="50dp">
-            </EditText>
-            <ImageView
+            android:layout_height="70dp"
+            android:background="#5D7D98"
+            android:orientation="horizontal"
+            android:padding="15dp">
 
-                android:layout_gravity="center"
+            <ImageButton
+                android:id="@+id/PayActivity_btn_back"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_weight="4"
-                android:background="@drawable/visa">
-            </ImageView>
+                android:layout_weight="8"
+                android:background="@drawable/back_icon" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="Ödeme Yap"
+                android:textColor="#FFFFFF"
+                android:textSize="20dp"
+                android:textStyle="bold" />
         </LinearLayout>
 
-        <TextView
-            android:layout_marginTop="20dp"
+        <LinearLayout
+            android:id="@+id/body"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textColor="#5D7D98"
-            android:text="Kart Sahibi"> </TextView>
-        <EditText
-            android:id="@+id/PayActivity_cardHolder"
-            android:background="#FFFFFF"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:text="Micheal">
-        </EditText>
-        <TextView
-            android:layout_marginTop="20dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textColor="#5D7D98"
-            android:text="Son Kullanma Tarihi"> </TextView>
-        <EditText
-            android:id="@+id/PayActivity_expDate"
-            android:background="#FFFFFF"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:text="05/21"> </EditText>
+            android:layout_height="600dp"
+            android:layout_below="@id/header"
+            android:background="#F1F9FF"
+            android:orientation="vertical"
+            android:padding="30dp">
 
-
-        <TextView
-            android:layout_marginTop="20dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textColor="#5D7D98"
-            android:text="CVC"> </TextView>
-        <EditText
-            android:id="@+id/PayActivity_cvc"
-            android:background="#FFFFFF"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:text="917"> </EditText>
-
-        <RadioGroup
-            android:layout_marginTop="10dp"
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <RadioButton
-                android:id="@+id/PayActivity_rBtn_installment"
-                android:text="Taksitli"
+            <TextView
+                android:id="@+id/PayActivity_unpaidAmount"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1">
-            </RadioButton>
-            <RadioButton
-                android:text="Peşin"
-                android:checked="true"
-                android:id="@+id/PayActivity_rBtn_cash"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:text="$80.00"
+                android:textColor="#5D7D98"
+                android:textSize="30sp" />
+
+            <TextView
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1">
-            </RadioButton>
+                android:layout_height="wrap_content"
+                android:text="Kart Numarası"
+                android:textColor="#5D7D98" />
 
-        </RadioGroup>
-        <TextView
-            android:id="@+id/PayActivity_tv_installmentHeader"
-            android:visibility="invisible"
-            android:layout_marginTop="20dp"
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="65dp"
+                android:background="#FFFFFF"
+                android:orientation="horizontal"
+                android:padding="10dp">
+
+                <EditText
+                    android:id="@+id/PayActivity_cardNo"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginRight="50dp"
+                    android:layout_weight="1"
+                    android:background="#FFFFFF"
+                    android:hint="1234 5678 9452 1234" />
+
+                <ImageView
+
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_weight="4"
+                    android:background="@drawable/visa" />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="Kart Sahibi"
+                android:textColor="#5D7D98" />
+
+            <EditText
+                android:id="@+id/PayActivity_cardHolder"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="#FFFFFF"
+                android:hint="İsim Soyisim" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="Son Kullanma Tarihi"
+                android:textColor="#5D7D98" />
+
+            <EditText
+                android:id="@+id/PayActivity_expDate"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="#FFFFFF"
+                android:hint="01/23" />
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="CVC"
+                android:textColor="#5D7D98" />
+
+            <EditText
+                android:id="@+id/PayActivity_cvc"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="#FFFFFF"
+                android:hint="123" />
+
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/PayActivity_rBtn_installment"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="Taksitli" />
+
+                <RadioButton
+                    android:id="@+id/PayActivity_rBtn_cash"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:checked="true"
+                    android:text="Peşin" />
+
+            </RadioGroup>
+
+            <TextView
+                android:id="@+id/PayActivity_tv_installmentHeader"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="Taksit Sayısı"
+                android:textColor="#5D7D98"
+                android:visibility="invisible" />
+
+            <Spinner
+                android:id="@+id/PayActivity_spinner_installmentsNum"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:visibility="invisible" />
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/PayActivity_btn_pay"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textColor="#5D7D98"
-            android:text="Taksit Sayısı"/>
+            android:layout_height="match_parent"
+            android:layout_below="@id/body"
+            android:background="#BCE0FD"
+            android:text="Güvenli Öde"
+            android:textColor="#5D7D98" />
 
-        <Spinner
-            android:visibility="invisible"
-            android:id="@+id/PayActivity_spinner_installmentsNum"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"/>
-
-    </LinearLayout>
-
-    <Button
-        android:id="@+id/PayActivity_btn_pay"
-        android:textColor="#5D7D98"
-        android:layout_below="@id/body"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="#BCE0FD"
-        android:text="Güvenli Öde">
-    </Button>
-
-</RelativeLayout>
+    </RelativeLayout>
 </ScrollView>

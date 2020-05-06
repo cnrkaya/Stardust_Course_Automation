@@ -1,14 +1,15 @@
 package com.example.dilkursu.views.other;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
-import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.dilkursu.GlobalConfig;
 import com.example.dilkursu.R;
@@ -23,6 +24,7 @@ public class MessageActivity extends AppCompatActivity implements View.OnClickLi
     private Button BtnOkey;
     private String message;
     private boolean type;  //defines succes or error message
+    private ProgressBar progressBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +38,7 @@ public class MessageActivity extends AppCompatActivity implements View.OnClickLi
         ImgView = (ImageView) findViewById(R.id.MessageActivity_imgView);
         TvMessage = (TextView) findViewById(R.id.MessageActivity_tv_message);
         BtnOkey = (Button) findViewById(R.id.MessageActivity_btn_okey);
+        progressBar = (ProgressBar) findViewById(R.id.MessageActivity_ProgressBar);
 
         Bundle bundle = getIntent().getExtras();
 
@@ -70,6 +73,15 @@ public class MessageActivity extends AppCompatActivity implements View.OnClickLi
                     break;
                 case REGISTRAR:
                     intent = new Intent(getApplicationContext(), RegistrarActivity.class);
+
+                    Intent intent2 = getIntent();
+                    String branchName = intent2.getStringExtra("branchName");
+                    String courseName = intent2.getStringExtra("courseName");
+                    String courseNo = intent2.getStringExtra("courseNo");
+                    String studentId = intent2.getStringExtra("studentId");
+
+                    new RegisterStudentAsyncTask().execute(branchName, courseName, courseNo, studentId);
+
                     break;
                 case INSTRUCTOR:
                     intent = new Intent(getApplicationContext(), TeacherActivity.class);
@@ -81,6 +93,35 @@ public class MessageActivity extends AppCompatActivity implements View.OnClickLi
 
         }
     }
+
+    private class RegisterStudentAsyncTask extends AsyncTask<String, Void, Void> {
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            progressBar.setVisibility(View.VISIBLE);
+        }
+
+        @Override
+        protected Void doInBackground(String... strings) {
+            String branchName = strings[0];
+            String courseName = strings[1];
+            String courseNo = strings[2];
+            String person_id = strings[3];
+
+            try {
+                GlobalConfig.connection.addEntryToWorksOn(branchName, person_id);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+
+            return null;
+        }
+
+
+    }
+
 }
 
 
