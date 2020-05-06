@@ -38,7 +38,6 @@ public class SignInActivity extends AppCompatActivity {
 
         defineVariables();
         defineListeners();
-        btn_signIn.setEnabled(false);   // dont let the user click on the branches until it is loaded.
     }
 
     public void defineVariables() {
@@ -131,7 +130,6 @@ public class SignInActivity extends AppCompatActivity {
                         break;
                     case 2:
                         intent = new Intent(getApplicationContext(), RegistrarActivity.class);
-
                         break;
                     case 3:
                         intent = new Intent(getApplicationContext(), AdminActivity.class);

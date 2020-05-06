@@ -1,7 +1,9 @@
 package com.example.dilkursu.views.admin;
 
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -10,7 +12,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.dilkursu.GlobalConfig;
 import com.example.dilkursu.R;
-import com.example.dilkursu.models.Person;
 import com.example.dilkursu.views.other.SignInActivity;
 
 public class AdminActivity extends AppCompatActivity implements View.OnClickListener {
@@ -24,8 +25,22 @@ public class AdminActivity extends AppCompatActivity implements View.OnClickList
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin);
+        defineCurrentUser();
         findViews();
         initViews();
+    }
+
+    private void defineCurrentUser() {
+        if (GlobalConfig.currentUser == null) {
+            GlobalConfig.InitializeCurrentUser(GlobalConfig.UserType.ADMIN);
+            Intent intent = getIntent();
+            String person_id = intent.getStringExtra("person_id");
+
+            GlobalConfig.connection.bindPerson(GlobalConfig.currentUser, person_id);
+            GlobalConfig.connection.bindBranch(GlobalConfig.currentUser.getBranch(), GlobalConfig.currentUser.getBranchName());
+
+
+        }
     }
 
     private void findViews() {
@@ -42,13 +57,9 @@ public class AdminActivity extends AppCompatActivity implements View.OnClickList
     }
 
     private void initViews() {
-        Person curr_user = GlobalConfig.currentUser;
-        String userName;
-        if (curr_user == null)                      // In case admin has no associated person
-            userName = "Anonim";
-        else
-            userName = String.format("%s %s", GlobalConfig.currentUser.getFname(), GlobalConfig.currentUser.getLname());
+        String userName = String.format("%s %s", GlobalConfig.currentUser.getFname(), GlobalConfig.currentUser.getLname());
         Username.setText(userName);
+        Log.i("APP_TEST", userName);
     }
 
 
@@ -73,4 +84,6 @@ public class AdminActivity extends AppCompatActivity implements View.OnClickList
             startActivity(intent);
         }
     }
+    
+
 }
