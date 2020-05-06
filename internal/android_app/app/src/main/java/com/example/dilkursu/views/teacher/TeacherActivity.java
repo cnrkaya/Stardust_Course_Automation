@@ -39,14 +39,19 @@ public class TeacherActivity extends AppCompatActivity implements View.OnClickLi
             Intent intent = getIntent();
             String person_id = intent.getStringExtra("person_id");
 
+            Instructor i = null;
+
             try {
                 GlobalConfig.currentUser.setBranchName(GlobalConfig.connection.getBranchName(person_id));
+                i = GlobalConfig.connection.getInstructor(person_id);
             } catch (Exception e) {
                 GlobalConfig.currentUser.setBranchName("");
             }
 
             GlobalConfig.connection.bindPerson(GlobalConfig.currentUser, person_id);
             GlobalConfig.connection.bindBranch(GlobalConfig.currentUser.getBranch(), GlobalConfig.currentUser.getBranchName());
+            if( i != null)
+                ((Instructor)(GlobalConfig.currentUser)).setKnownLanguages(i.getKnownLanguages());
 
         }
     }

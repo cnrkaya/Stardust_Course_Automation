@@ -84,4 +84,6 @@ public interface IDataConnection {
     Lesson getLesson(String name, int courseNo) throws Exception;
 
     ArrayList<String> getAllBranchNames();
+
+    Instructor getInstructor(String id) throws Exception;
 }

@@ -45,6 +45,19 @@ public class Database {
         }
     }
 
+    public Connection getExtraConnection(){
+        Connection c = null;
+
+        try {
+            Class.forName("org.postgresql.Driver");
+            c = DriverManager.getConnection(GlobalConfig.getConnectionString(), GlobalConfig.user, GlobalConfig.pass);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return c;
+    }
+
     private void disconnect() {
         if (this.connection != null) {
             try {
@@ -80,13 +93,14 @@ public class Database {
                 resultSet = connection.prepareStatement(query).executeQuery();
             } catch (Exception e) {
                 e.printStackTrace();
-            } finally {
-                try {
-                    connection.close();
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
             }
+//            finally {
+//                try {
+//                    connection.close();
+//                } catch (Exception e) {
+//                    e.printStackTrace();
+//                }
+//            }
         } catch (Exception e) {
             e.printStackTrace();
             this.status = false;
@@ -95,6 +109,23 @@ public class Database {
         return resultSet;
     }
 
+    public ResultSet execute2(Connection c,String query) {
+        this.connect();
+        ResultSet resultSet = null;
+        try {
+            //resultSet = new ExecuteDB(this.connection, query).execute().get();
+            try {
+                resultSet = c.prepareStatement(query).executeQuery();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            this.status = false;
+        }
+        this.disconnect();
+        return resultSet;
+    }
 
     public Connection getConnection() {
         this.connect();
