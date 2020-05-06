@@ -69,7 +69,7 @@ public class StudentInfoActivity extends AppCompatActivity implements View.OnCli
         Payments = (EditText) findViewById(R.id.StudentInfoActivity_payments);
         IdentityNo = (EditText) findViewById(R.id.StudentInfoActivity_identityNo);
         BtnSaveEdits = (Button) findViewById(R.id.StudentInfoActivity_btn_saveEdits);
-        progressBar = (ProgressBar) findViewById(R.id.StudentSearchActivity_Progressbar);
+        progressBar = (ProgressBar) findViewById(R.id.StudentInfoActivity_ProgressBar);
     }
 
     public void defineListeners() {
