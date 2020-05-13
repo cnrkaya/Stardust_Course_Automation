@@ -7,6 +7,9 @@
 </p>
 
 
+## Video Presentation [In Turkish]
+[![Watch the video](https://github.com/cnrkaya/Stardust_Course_Automation/blob/master/presentation_logo.png)](https://www.youtube.com/watch?v=w0X34EzY5jU)
+
 ## Contributors
 
 <table>
