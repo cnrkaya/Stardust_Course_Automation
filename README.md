@@ -8,9 +8,7 @@
 
 
 ## Contributors
-<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
-<!-- prettier-ignore-start -->
-<!-- markdownlint-disable -->
+
 <table>
   <tr>
     <td align="center"><a href="https://github.com/katipogluMustafa"><img src="https://avatars2.githubusercontent.com/u/25406684?s=460&u=0b01b9e411961b577bbc657fec39e89cd703266d&v=4" width="100px;" alt=""/><br /><sub><b>Mustafa Katipoğlu</b></sub></a><br /><sub><b>Team Leader</b></br><b>System Architect</b></sub></a><br /><a href="#" title="Management">👀</a><a href="#" title="Scheduling">📆</a><a href="#" title="Back End">💻</a><a href="#" title="Android">📦</a></td>
@@ -21,6 +19,3 @@
   </tr>
 </table>
 
-<!-- markdownlint-enable -->
-<!-- prettier-ignore-end -->
-<!-- ALL-CONTRIBUTORS-LIST:END -->
