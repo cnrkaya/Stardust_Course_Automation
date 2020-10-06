@@ -1,16 +1,40 @@
-# Stardust Course Automation System
-
-<p align=center>
-  <a href="https://www.youtube.com/watch?v=w0X34EzY5jU">
-    <img alt="ReactOS" src="https://github.com/cnrkaya/Stardust_Course_Automation/blob/master/logo.png?raw=true">
-  </a>
-</p>
+![enter image description here](https://github.com/image-assets/png/blob/master/stardust-banner.png?raw=true)
 
 
-## Video Presentation [In Turkish]
-[![Watch the video](https://github.com/cnrkaya/Stardust_Course_Automation/blob/master/presentation_logo.png)](https://www.youtube.com/watch?v=w0X34EzY5jU)
+"Stardust" dil kursu şirketi öğretmen kadrosunu genişletmeyi, yeni şubeler açmayı planlamaktadır ve bir otomasyon yazılımına gereksinim duymaktadır. Bilgi sisteminin taşıması gereken özellikler aşağıda belirtilmiştir. 
+- Sistemde öğrencilerin, öğretmenlerin ve derslerin kayıtları saklanabilmelidir. 
+- Birden fazla şube merkezi bir sunucu altında toplanabilmeli, bir şubeden her şube ile ilgili işlem yapılabilmelidir. 
+- Sistem yöneticisi sisteme yeni şubeler ve şube binasındaki derslikleri girebilmelidir.
+- Sistem yöneticisi belli bir dil için yeni bir ders açacağı zaman sistem o şubedeki hem dil bilgisi ve boş zamanları uygun olan öğretmenlerin, hem de boş sınıfların listesini sunarak sistem yöneticisinin kolayca seçim yapabilmesine olanak sağlamalıdır. 
+- Şubelerde çalışan kayıt elemanları ise gelen öğrencileri herhangi bir şubede açılan derslere kayıt edebilmelidir 
+- Şubeler sistemde saklanırken adları, adresleri, toplu taşıma veya özel otomobil ile ulaşım talimatları, sosyal olanakları yazılmalıdır ki kayıt elemanları öğrencilere eksiksiz bir tanıtım yapabilsinler. 
+- Öğretmenler hakkında tutulması istenen bilgiler ise şunlardır: İsim, öğretebileceği diller, ev ve cep telefonları, işe başladığı tarih, çalışabileceği günler ve saatler, ders verebileceği şubeler. 
+- Öğrenciler hakkında da isim, yazıldığı kurs ve kur, ev ve cep telefonları, ödeme bilgileri. 
+- Öğrenciler kurs ücretini peşin veya taksitli olarak ödeyebilir. Bir öğrencinin kaydı açıldığında ödemediği taksitler varsa onlar da gösterilmeli, kayıt memuru bir taksiti tahsil ettiğinde bunu ödendi olarak sisteme işleyebilmelidir.
 
-## Contributors
+
+# Giriş Ekranı
+
+![enter image description here](https://github.com/image-assets/png/blob/master/stardust-login.png?raw=true)
+
+# Admin
+
+![enter image description here](https://github.com/image-assets/png/blob/master/stardust-admin.png?raw=true)
+
+# Kayıt Elemanı
+![enter image description here](https://github.com/image-assets/png/blob/master/stardust-registrar.png?raw=true)
+# Öğretmen
+![enter image description here](https://github.com/image-assets/png/blob/master/stardust-instructor.png?raw=true)
+
+# Öğrenci
+
+![enter image description here](https://github.com/image-assets/png/blob/master/stardust-student.png?raw=true)
+
+
+# Sunum
+[![Watch the video](https://github.com/image-assets/png/blob/master/stardust-video.png?raw=true)](https://www.youtube.com/watch?v=w0X34EzY5jU)
+
+# Katkıda Bulunanlar
 
 <table>
   <tr>
@@ -21,4 +45,3 @@
     <td align="center"><a href="https://github.com/s-ioh"><img src="https://avatars1.githubusercontent.com/u/64209353?s=460&v=4" width="100px;" alt=""/><br /><sub><b>M.Serdar Ormancı</b></sub></a><br /><sub><b>DB Administrator</b></br><b>System Analyst</b></sub></a><br /><a href="#" title="DB Admin">💻</a><a href="#" title="Analyst">📖</a> </td>    
   </tr>
 </table>
-
