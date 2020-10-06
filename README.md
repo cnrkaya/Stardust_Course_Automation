@@ -1,5 +1,5 @@
 ![enter image description here](https://github.com/image-assets/png/blob/master/stardust-banner.png?raw=true)
-
+asdasd
 
 "Stardust" dil kursu şirketi öğretmen kadrosunu genişletmeyi, yeni şubeler açmayı planlamaktadır ve bir otomasyon yazılımına gereksinim duymaktadır. Bilgi sisteminin taşıması gereken özellikler aşağıda belirtilmiştir. 
 - Sistemde öğrencilerin, öğretmenlerin ve derslerin kayıtları saklanabilmelidir. 
